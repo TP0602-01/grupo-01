@@ -5,6 +5,8 @@ package ar.fiuba.tdd.tp1.utilities;
  */
 public interface Observable {
     void registerObserver(Observer observer);
+
     void unregisterObserver(Observer observer);
+
     void updateObservers();
 }

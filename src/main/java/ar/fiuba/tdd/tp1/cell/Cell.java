@@ -22,7 +22,7 @@ public abstract class Cell implements Observable {
 
     @Override
     public void updateObservers() {
-        for (Observer observer: this.observers){
+        for (Observer observer: this.observers) {
             observer.update();
         }
     }

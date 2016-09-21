@@ -9,7 +9,7 @@ public class DataCellView implements CellView{
 
     private DataCell cell;
 
-    public DataCellView(DataCell cell){
+    public DataCellView(DataCell cell) {
         this.cell = cell;
     }
 

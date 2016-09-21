@@ -16,7 +16,7 @@ public class BoardView implements Observer {
 
     @Override
     public void update() {
-        for (CellView cellView : this.cellViews){
+        for (CellView cellView : this.cellViews) {
             System.out.println("#####");
             cellView.draw();
             System.out.println("#####");
@@ -24,7 +24,7 @@ public class BoardView implements Observer {
     }
 
     //TODO It might need column and row as parameters
-    public void addCellView(CellView cellView){
+    public void addCellView(CellView cellView) {
         this.cellViews.add(cellView);
     }
 }

@@ -7,7 +7,7 @@ public class DataCell extends Cell {
 
     private String data = " ";
 
-    public String getData(){
+    public String getData() {
         return this.data;
     }
 
