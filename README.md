@@ -9,3 +9,6 @@ Trabajo práctico grupal - Nikoli Games
 * Kim, Diego
 * González, Cristian
 * Werner, Ezequiel Maximiliano
+
+### Diagrama de clases:
+ ![draw.io](https://www.draw.io/?state={%22ids%22:[%220Bz_s0rPeoWf8cS1pUlBmdHB2Ukk%22],%22action%22:%22open%22,%22userId%22:%22100953183488003237293%22}#G0Bz_s0rPeoWf8cS1pUlBmdHB2Ukk)
