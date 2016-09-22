@@ -1,5 +1,5 @@
 # 75.10 Técnicas de Diseño - TP1 NikoliGames
- ![Build Status](https://travis-ci.org/TP0602-01/grupo-01.svg?branch=master) 
+ [![Build Status](https://travis-ci.org/TP0602-01/grupo-01.svg?branch=master)](https://travis-ci.org/TP0602-01/grupo-01) 
 
 Trabajo práctico grupal - Nikoli Games
 
