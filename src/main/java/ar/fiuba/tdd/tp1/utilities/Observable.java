@@ -1,12 +1,24 @@
 package ar.fiuba.tdd.tp1.utilities;
 
-/**
- * Created by juanma on 21/09/16.
- */
-public interface Observable {
-    void registerObserver(Observer observer);
+import java.util.ArrayList;
+import java.util.Collection;
 
-    void unregisterObserver(Observer observer);
+public abstract class Observable {
 
-    void updateObservers();
+    private Collection<Observer> observers = new ArrayList<>();
+
+    public void registerObserver(Observer observer) {
+        this.observers.add(observer);
+    }
+
+    public void unregisterObserver(Observer observer) {
+        this.observers.remove(observer);
+    }
+
+    public void updateObservers() {
+        for (Observer observer: this.observers) {
+            observer.update();
+        }
+    }
+
 }

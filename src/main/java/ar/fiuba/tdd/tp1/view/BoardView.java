@@ -1,18 +1,18 @@
 package ar.fiuba.tdd.tp1.view;
 
-import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.utilities.Observer;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by juanma on 21/09/16.
- */
-public class BoardView implements Observer {
+public class BoardView extends Observer {
 
     //TODO It might be a map to identify column and row
-    Collection<CellView> cellViews = new ArrayList<>();
+    Collection<CellView> cellViews;
+
+    public BoardView() {
+        cellViews = new ArrayList<>();
+    }
 
     @Override
     public void update() {

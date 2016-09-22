@@ -1,32 +1,17 @@
 package ar.fiuba.tdd.tp1.cell;
 
 import ar.fiuba.tdd.tp1.utilities.Observable;
-import ar.fiuba.tdd.tp1.utilities.Observer;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 /*  */
-public abstract class Cell implements Observable {
+public abstract class Cell extends Observable {
+    protected Integer data;
 
-    Collection<Observer> observers = new ArrayList<>();
-
-    @Override
-    public void registerObserver(Observer observer) {
-        this.observers.add(observer);
+    Cell(Integer data) {
+        this.data = data;
     }
 
-    @Override
-    public void unregisterObserver(Observer observer) {
-        this.observers.remove(observer);
+    public Integer getData() {
+        return this.data;
     }
-
-    @Override
-    public void updateObservers() {
-        for (Observer observer: this.observers) {
-            observer.update();
-        }
-    }
-
 
 }
