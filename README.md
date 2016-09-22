@@ -11,4 +11,4 @@ Trabajo práctico grupal - Nikoli Games
 * Werner, Ezequiel Maximiliano
 
 ### Diagrama de clases:
- [![draw.io](https://pbs.twimg.com/profile_images/721329670063529984/gidq2wpM.jpg)](https://www.draw.io/?state={%22ids%22:[%220Bz_s0rPeoWf8cS1pUlBmdHB2Ukk%22],%22action%22:%22open%22,%22userId%22:%22100953183488003237293%22}#G0Bz_s0rPeoWf8cS1pUlBmdHB2Ukk)
+ ![draw.io](https://www.draw.io/?chrome=0&lightbox=1&nav=1#G0Bz_s0rPeoWf8cS1pUlBmdHB2Ukk)
