@@ -98,7 +98,7 @@ public class DirectionalRulesTests {
         a1.setData(1);
         a2.setData(2);
         a3.setData(3);
-        //Cells after de null (black) cell don't affect the outcome
+        //Cells after the null (black) cell don't affect the outcome
         a5.setData(80);
         a6.setData(666);
 
@@ -134,7 +134,7 @@ public class DirectionalRulesTests {
         a1.setData(1);
         a2.setData(2);
         a3.setData(3);
-        //Cells after de null (black) cell don't affect the outcome
+        //Cells after the null (black) cell don't affect the outcome
         a5.setData(5);
         a6.setData(6);
 
