@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 public class DirectionalRulesTests {
 
     @Test
-    public void testCorrectSumRuleCheckedOnACompleteRowInLeftDirection() {
+    public void testCorrectSumRuleCheckedOnACompleteRowInRightDirection() {
         //Row construction simulated
         InputCell a1, a2, a3, a4;
         a1 = new InputCell();
@@ -42,7 +42,7 @@ public class DirectionalRulesTests {
     }
 
     @Test
-    public void testViolatedSumRuleCheckedOnACompleteRowInLeftDirection() {
+    public void testViolatedSumRuleCheckedOnACompleteRowInRightDirection() {
         //TODO: refactor
         //Row construction simulated
         InputCell a1, a2, a3, a4;
@@ -70,7 +70,7 @@ public class DirectionalRulesTests {
     }
 
     @Test
-    public void testCorrectSumRuleCheckedOnAPortionOfARowInLeftDirection() {
+    public void testCorrectSumRuleCheckedOnAPortionOfARowInRightDirection() {
         //TODO: refactor
         //Row construction simulated
         InputCell a1, a2, a3, a4, a5, a6;
@@ -106,7 +106,7 @@ public class DirectionalRulesTests {
     }
 
     @Test
-    public void testViolatedSumRuleCheckedOnAPortionOfARowInLeftDirection() {
+    public void testViolatedSumRuleCheckedOnAPortionOfARowInRightDirection() {
         //TODO: refactor
         //Row construction simulated
         InputCell a1, a2, a3, a4, a5, a6;
