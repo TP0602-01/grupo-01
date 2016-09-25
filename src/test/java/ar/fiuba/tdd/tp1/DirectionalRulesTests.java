@@ -1,16 +1,13 @@
 package ar.fiuba.tdd.tp1;
 
-import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
-import ar.fiuba.tdd.tp1.direction.LeftDirection;
+import ar.fiuba.tdd.tp1.direction.RightDirection;
 import ar.fiuba.tdd.tp1.rule.*;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import javax.sql.rowset.BaseRowSet;
 
 /**
  * Created by juanma on 25/09/16.
@@ -32,8 +29,8 @@ public class DirectionalRulesTests {
         a4.setRightCell(null);//null because it is the last cell in the row
 
 
-        LeftDirection leftDirection = new LeftDirection();
-        BaseRule sumRule = new SumRule(a1, leftDirection, 10);
+        RightDirection rightDirection = new RightDirection();
+        BaseRule sumRule = new SumRule(a1, rightDirection, 10);
 
         //Simulated data input
         a1.setData(1);
@@ -60,8 +57,8 @@ public class DirectionalRulesTests {
         a4.setRightCell(null);//null because it is the last cell in the row
 
 
-        LeftDirection leftDirection = new LeftDirection();
-        BaseRule sumRule = new SumRule(a1, leftDirection, 10);
+        RightDirection rightDirection = new RightDirection();
+        BaseRule sumRule = new SumRule(a1, rightDirection, 10);
 
         //Simulated data input
         a1.setData(80);
@@ -91,8 +88,8 @@ public class DirectionalRulesTests {
         a5.setRightCell(a6);
         a6.setRightCell(null);//null because it is the last cell in the row
 
-        LeftDirection leftDirection = new LeftDirection();
-        BaseRule sumRule = new SumRule(a1, leftDirection, 6);
+        RightDirection rightDirection = new RightDirection();
+        BaseRule sumRule = new SumRule(a1, rightDirection, 6);
 
         //Glorious ASCII Art representation:
         //| \Sum=6->|a1|a2|a3|#|a5|a6|
@@ -127,8 +124,8 @@ public class DirectionalRulesTests {
         a5.setRightCell(a6);
         a6.setRightCell(null);//null because it is the last cell in the row
 
-        LeftDirection leftDirection = new LeftDirection();
-        BaseRule sumRule = new SumRule(a1, leftDirection, 17);
+        RightDirection rightDirection = new RightDirection();
+        BaseRule sumRule = new SumRule(a1, rightDirection, 17);
 
         //Glorious ASCII Art representation:
         //| \Sum=6->|a1|a2|a3|#|a5|a6|
