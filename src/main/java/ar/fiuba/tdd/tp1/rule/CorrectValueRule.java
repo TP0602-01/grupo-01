@@ -14,4 +14,9 @@ public class CorrectValueRule extends BaseRule {
     public boolean check() {
         return true;
     }
+
+    @Override
+    public boolean directionalCheck() {
+        return true;
+    }
 }

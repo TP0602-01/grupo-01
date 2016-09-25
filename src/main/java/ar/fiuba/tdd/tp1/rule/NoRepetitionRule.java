@@ -22,4 +22,10 @@ public class NoRepetitionRule extends BaseRule {
         }
         return true;
     }
+
+    @Override
+    public boolean directionalCheck() {
+        //TODO: implement
+        return false;
+    }
 }
