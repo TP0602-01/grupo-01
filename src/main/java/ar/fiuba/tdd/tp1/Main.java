@@ -68,16 +68,16 @@ public class Main {
                 continue;
             }
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            //BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
             System.out.print("Enter a movement: ");
-            try {
-                String input = bufferedReader.readLine();
+            /*try {
+                //String input = bufferedReader.readLine();
                 // CHECKEAMOS EL INPUT
                 //Cell newCell = Cell();    CREAMOS LA CELDA => FACTORY METHOD
                 //gameBoard.addCell(cell);
             } catch (IOException e) {
                 return;
-            }
+            }*/
         }
         System.out.print("The Game have finished, you Wiiin!!!");
     }
