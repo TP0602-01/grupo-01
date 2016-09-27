@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp1.view;
 
+import ar.fiuba.tdd.tp1.utilities.Observable;
 import ar.fiuba.tdd.tp1.utilities.Observer;
 
 import java.util.ArrayList;
@@ -9,8 +10,10 @@ public class BoardView extends Observer {
 
     //TODO It might be a map to identify column and row
     Collection<CellView> cellViews;
+    Observable board;
 
-    public BoardView() {
+    public BoardView(Observable board) {
+        this.board = board;
         cellViews = new ArrayList<>();
     }
 

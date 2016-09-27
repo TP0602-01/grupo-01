@@ -30,11 +30,11 @@ public class SumRule extends BaseRule {
     }
 
     //TODO: if this implementation is chosen then replace check() with this method
-    public boolean directionalCheck(){
+    public boolean directionalCheck() {
         Integer sum = 0;
         //TODO: initialCell might or might NOT be an InputCell
         Cell currentCell = this.initialCell;
-        while( currentCell != null ){
+        while ( currentCell != null ) {
             sum += currentCell.getData();
             currentCell = this.direction.getNextCell(currentCell);
         }

@@ -28,11 +28,12 @@ public class GameFactory {
 
 
     /* TODO: just for sudoku */
-    private static final Collection<Cell> calculateRegion(GameBoard board, int i, int j) {
+    //TODO: POR ALGUNA RAZON ME TIRABA WARNINGS EL I,J
+    private static final Collection<Cell> calculateRegion(GameBoard board, int i1, int j1) {
         Collection<Cell> cells = new ArrayList<>();
         for (int k = 0; k < 3; ++k) {
             for (int l = 0; l < 3; ++l) {
-                cells.add(board.getCell(3 * i + k, 3 * j + l));
+                cells.add(board.getCell(3 * i1 + k, 3 * j1 + l));
             }
         }
         return cells;

@@ -18,11 +18,12 @@ public abstract class BaseRule implements IRule {
         this.cells = cells;
     }
 
-    BaseRule(Cell initialCell, Direction direction){
+    BaseRule(Cell initialCell, Direction direction) {
         this.initialCell = initialCell;
         this.direction = direction;
     }
 
     public abstract boolean check();
+
     public abstract boolean directionalCheck();
 }
