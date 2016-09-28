@@ -11,7 +11,7 @@ import org.junit.Test;
 public class BoardViewTests {
 
     @Test
-    public void testInitiateABoardView(){
+    public void testInitiateABoardView() {
         int columns = 3;
         int rows = 2;
         GameBoard gameBoard = new GameBoard(columns,rows);

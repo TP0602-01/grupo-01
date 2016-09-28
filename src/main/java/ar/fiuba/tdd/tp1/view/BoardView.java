@@ -17,6 +17,7 @@ public class BoardView extends Observer {
     public BoardView(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
 
+
         cellViews = new Vector<Vector<CellView>>();
         for (int rowIdx = 0; rowIdx < this.getRowsNumber(); rowIdx++ ) {
             this.cellViews.insertElementAt(new Vector<CellView>(this.getColumnsNumber()), rowIdx);
@@ -30,7 +31,7 @@ public class BoardView extends Observer {
 
         String rowSeparatorLine = "";
         for (int i = 0; i < this.getColumnsNumber(); i++){
-            rowSeparatorLine = rowSeparatorLine + "-------";
+            rowSeparatorLine  = rowSeparatorLine .concat( "-------" );
         }
 
 
@@ -38,7 +39,7 @@ public class BoardView extends Observer {
             System.out.println(rowSeparatorLine);
             String rowASCII = "";
             for (CellView cellView: rowView) {
-                rowASCII = rowASCII + cellView.ASCIIdraw();
+                rowASCII = rowASCII.concat( cellView.ASCIIdraw() );
             }
             System.out.println(rowASCII);
         }
