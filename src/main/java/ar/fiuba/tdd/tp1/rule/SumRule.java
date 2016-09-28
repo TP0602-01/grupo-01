@@ -34,7 +34,7 @@ public class SumRule extends BaseRule {
         Integer sum = 0;
         //TODO: initialCell might or might NOT be an InputCell
         Cell currentCell = this.initialCell;
-        while ( currentCell != null ) {
+        while (currentCell != null) {
             sum += currentCell.getData();
             currentCell = this.direction.getNextCell(currentCell);
         }

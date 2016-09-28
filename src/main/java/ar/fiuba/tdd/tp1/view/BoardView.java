@@ -25,7 +25,7 @@ public class BoardView extends Observer {
             cellView.draw();
             System.out.println("#####");
         }
-        board.getCell(1,1);
+        board.getCell(1, 1);
     }
 
     //TODO It might need column and row as parameters

@@ -15,7 +15,7 @@ public class NoRepetitionRule extends BaseRule {
 
     public boolean check() {
         Set<Integer> set = new HashSet<>();
-        for (Cell cell: cells) {
+        for (Cell cell : cells) {
             if (!set.add(cell.getData())) {
                 return false;
             }

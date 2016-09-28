@@ -69,7 +69,6 @@ public class GameFactory {
     }
 
 
-
     public void loadRestrictions(GameBoard board) {
         /* TODO: foreach "new", find the corresponding restriction factory in a dictionary
          * and invoke its creator method */

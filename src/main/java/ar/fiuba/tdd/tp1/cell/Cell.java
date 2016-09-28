@@ -13,4 +13,5 @@ public abstract class Cell extends Observable {
     public Integer getData() {
         return this.data;
     }
+
 }
