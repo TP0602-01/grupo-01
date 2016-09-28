@@ -43,4 +43,30 @@ public class BoardViewTests {
 
         boardView.update();
     }
+
+    @Test
+    public void testKakoruCellsView() {
+        int columns = 3;
+        int rows = 2;
+        GameBoard gameBoard = new GameBoard(columns,rows);
+        BoardView boardView = new BoardView(gameBoard);
+
+        CellView cellViewA1 = new KakoruCellView(5,10);
+        CellView cellViewA2 = new KakoruCellView(10,5);
+        CellView cellViewA3 = new KakoruCellView(null,null);
+        CellView cellViewB1 = new KakoruCellView(null,10);
+        CellView cellViewB2 = new KakoruCellView(5,null);
+
+        InputCell b3 = new InputCell();
+        CellView cellViewB3 = new DataCellView(b3);
+
+        boardView.addCellViewIn(cellViewA1, 0, 0);
+        boardView.addCellViewIn(cellViewA2, 0, 1);
+        boardView.addCellViewIn(cellViewA3, 0, 2);
+        boardView.addCellViewIn(cellViewB1, 1, 0);
+        boardView.addCellViewIn(cellViewB2, 1, 1);
+        boardView.addCellViewIn(cellViewB3, 1, 2);
+
+        boardView.update();
+    }
 }
