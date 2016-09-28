@@ -27,28 +27,27 @@ public class GameFactory {
     }
 
 
-    /* TODO: just for sudoku */
-    //TODO: POR ALGUNA RAZON ME TIRABA WARNINGS EL I,J
-    private static final Collection<Cell> calculateRegion(GameBoard board, int i1, int j1) {
+    /* TODO: just for sudoku
+    private static final Collection<Cell> calculateRegion(GameBoard board, int i, int j) {
         Collection<Cell> cells = new ArrayList<>();
         for (int k = 0; k < 3; ++k) {
             for (int l = 0; l < 3; ++l) {
-                cells.add(board.getCell(3 * i1 + k, 3 * j1 + l));
+                cells.add(board.getCell(3 * i + k, 3 * j + l));
             }
         }
         return cells;
-    }
+    }*/
 
     /* TODO: just for sudoku */
-    private static final void addRegions(GameBoard board) {
+    /*private static final void addRegions(GameBoard board) {
         for (int idxX = 0; idxX < 3; ++idxX) {
             for (int idxY = 0; idxY < 3; ++idxY) {
                 board.addRule(new NoRepetitionRule(calculateRegion(board, idxX, idxY)));
             }
         }
-    }
+    }*/
 
-    private static final void addRows(GameBoard board) {
+    /*private static final void addRows(GameBoard board) {
         for (int row = 0; row < 9; ++row) {
             Collection<Cell> cells = new ArrayList<>();
             for (int col = 0; col < 9; ++col) {
@@ -56,9 +55,9 @@ public class GameFactory {
             }
             board.addRule(new NoRepetitionRule(cells));
         }
-    }
+    }*/
 
-    private static final void addCols(GameBoard board) {
+    /*private static final void addCols(GameBoard board) {
         for (int col = 0; col < 9; ++col) {
             Collection<Cell> cells = new ArrayList<>();
             for (int row = 0; row < 9; ++row) {
@@ -66,16 +65,18 @@ public class GameFactory {
             }
             board.addRule(new NoRepetitionRule(cells));
         }
-    }
+    }*/
 
 
-    public void loadRestrictions(GameBoard board) {
+
+    //public void loadRestrictions(GameBoard board) {
+    //public void loadRestrictions(GameBoard board) {
         /* TODO: foreach "new", find the corresponding restriction factory in a dictionary
          * and invoke its creator method */
 
         /* SUDOKU */
-        addRegions(board);
+        /*addRegions(board);
         addRows(board);
         addCols(board);
-    }
+    }*/
 }

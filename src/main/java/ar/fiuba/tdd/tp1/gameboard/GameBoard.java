@@ -10,27 +10,15 @@ import java.util.Vector;
 
 /*  */
 public class GameBoard extends Observable {
-    int width;
-    int heigth;
     private Vector<Vector<Cell>> cells;
     private Collection<IRule> rules;
 
     public GameBoard(Integer width, Integer height) {
-        this.width = width;
-        this.heigth = height;
         rules = new ArrayList<>();
         cells = new Vector<>(height);
         for (int rowIdx = 0; rowIdx < height; ++rowIdx) {
             cells.insertElementAt(new Vector<Cell>(width), rowIdx);
         }
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeigth() {
-        return heigth;
     }
 
     public void addRule(IRule rule) {
@@ -51,5 +39,13 @@ public class GameBoard extends Observable {
             result &= rule.check();
         }
         return result;
+    }
+
+    public int getHeigth() {
+        return cells.capacity();    //TODO: CHEQUEAR
+    }
+
+    public int getWidth() {
+        return cells.elementAt(0).capacity();
     }
 }

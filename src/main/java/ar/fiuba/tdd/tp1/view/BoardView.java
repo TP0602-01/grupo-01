@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp1.view;
 
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
-import ar.fiuba.tdd.tp1.utilities.Observable;
 import ar.fiuba.tdd.tp1.utilities.Observer;
 
 import java.util.ArrayList;
@@ -14,8 +13,8 @@ public class BoardView extends Observer {
     GameBoard board;
 
     public BoardView(GameBoard board) {
-        this.board = board;
         cellViews = new ArrayList<>();
+        this.board = board;
     }
 
     @Override
@@ -25,7 +24,7 @@ public class BoardView extends Observer {
             cellView.draw();
             System.out.println("#####");
         }
-        board.getCell(1, 1);
+        board.getWidth();
     }
 
     //TODO It might need column and row as parameters

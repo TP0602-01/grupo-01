@@ -2,83 +2,130 @@ package ar.fiuba.tdd.tp1;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
+import ar.fiuba.tdd.tp1.factory.CellFactory;
+import ar.fiuba.tdd.tp1.factory.RuleFactory;
+import ar.fiuba.tdd.tp1.factory.WalkFactory;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
-import ar.fiuba.tdd.tp1.rule.IRule;
-import ar.fiuba.tdd.tp1.rule.SumRule;
-import ar.fiuba.tdd.tp1.utilities.Observable;
-import ar.fiuba.tdd.tp1.utilities.Observer;
+import ar.fiuba.tdd.tp1.rule.BaseRule;
 import ar.fiuba.tdd.tp1.view.BoardView;
-import ar.fiuba.tdd.tp1.view.DataCellView;
+import ar.fiuba.tdd.tp1.walk.Walk;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
 
 public class Main {
     public static void main(String[] args) {
-        /*System.out.println("This is just a tp1 project");
-        BoardView boardView = new BoardView();
-        InputCell dataCell1 = new InputCell();
-        InputCell dataCell2 = new InputCell();
-        InputCell dataCell3 = new InputCell();
-
-        DataCellView dataCellView1 = new DataCellView(dataCell1);
-        DataCellView dataCellView2 = new DataCellView(dataCell2);
-        DataCellView dataCellView3 = new DataCellView(dataCell3);
-
-        boardView.addCellView(dataCellView1);
-        boardView.addCellView(dataCellView2);
-        boardView.addCellView(dataCellView3);
-
-        dataCell1.setData(8);
-        dataCell2.setData(5);
-        boardView.update();
-
-        System.out.println("dataCell3 is updated");
-        dataCell3.setData(2);
-        boardView.update();*/
-
         // PARAMETROS QUE SE TOMAN DE ARCHIVO
-        int boardWidth = 9;
+       /* int boardWidth = 9;
         int boardHeight = 9;
 
-
         // Initialize Structure Game
-        boolean gameFinished = false;
 
         // Board
         GameBoard gameBoard = new GameBoard(boardWidth, boardHeight);
         BoardView boardView = new BoardView(gameBoard);
 
-        // Walks
-        // Walk walk = new Walk()   PARA TODAS LOS TIPOS DE WALKS => FACTORY METHOD
-        // walk.setBoard()
+        // Rules and Walks
+        JSONParser parser = new JSONParser();
+        try {
+            FileReader fileReader = new FileReader("rules.json");
+            JSONObject json = (JSONObject) parser.parse(fileReader);
+            JSONArray rules = (JSONArray) json.get("rules");
 
-        // Rules
-        // IRule rule = new Rule(1,2, walk) PARA TODOS LAS REGLAS QUE HAYA => FACTORY METHOD
+            Iterator it = rules.iterator();
+            while (it.hasNext()) {
+                JSONObject rule = (JSONObject) it.next();
+                String type = (String) rule.get("type");
+                String walk = (String) rule.get("walk");
+                JSONArray cells = (JSONArray) rule.get("init_cells");
 
-        // gameBoard.addCell(x, y, cell) PARA TODAS LAS CELDAS => FACTORY METHOD
-        // gameBoard.addRule(rule) PARA TODAS LAS REGLAS => FACTORY METHOD
+                Collection<String> cellPositions = new ArrayList<String>();
+                Iterator jt = cells.iterator();
+                while (jt.hasNext()) {
+                    JSONObject cellObject = (JSONObject) jt.next();
+                    String cellPosition = (String) cellObject.get("cell");
+                    cellPositions.add(cellPosition);
+                }
 
+                Walk walkObject = WalkFactory.create(gameBoard, walk);
+                BaseRule ruleObject = RuleFactory.create(type, walkObject, cellPositions);
+                gameBoard.addRule(ruleObject);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        // Celdas
+        try {
+            FileReader fileReader = new FileReader("structure.json");
+            JSONObject json = (JSONObject) parser.parse(fileReader);
+            JSONObject structure = (JSONObject) json.get("structure");
+            JSONArray cell = (JSONArray) structure.get("cells");
+
+            Iterator it = cell.iterator();
+            while (it.hasNext()) {
+                JSONObject rule = (JSONObject) it.next();
+                String type = (String) rule.get("type");
+                String range = (String) rule.get("range");
+
+                Integer firxtX = Integer.parseInt(range.split("-")[0].split(",")[0]);
+                Integer firxtY = Integer.parseInt(range.split("-")[0].split(",")[1]);
+                Integer endX = Integer.parseInt(range.split("-")[1].split(",")[0]);
+                Integer endY = Integer.parseInt(range.split("-")[1].split(",")[1]);
+
+                for (int x = firxtX; x < endX; ++x) {
+                    for (int y = firxtY; y < endY; ++y) {
+                        Cell cellObject = CellFactory.create(type);
+                        gameBoard.addCell(x, y, cellObject);
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        // Enter View
         gameBoard.registerObserver(boardView);
+        boolean gameFinished = false;
 
+        // Start Game
         while (!gameFinished) {
             if (gameBoard.checkRules()) {
                 gameFinished = true;
                 continue;
             }
 
-            //BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
             System.out.print("Enter a movement: ");
-            /*try {
-                //String input = bufferedReader.readLine();
-                // CHECKEAMOS EL INPUT
-                //Cell newCell = Cell();    CREAMOS LA CELDA => FACTORY METHOD
-                //gameBoard.addCell(cell);
+            try {
+                String input = bufferedReader.readLine();
+                // CHECKEAR EL INPUT!!!!
+                Integer value = Integer.parseInt(input.split(",")[0]);
+                Integer posX = Integer.parseInt(input.split(",")[1]);
+                Integer posY = Integer.parseInt(input.split(",")[2]);
+
+                Cell newCell = new InputCell(value);
+                gameBoard.addCell(posX, posY, newCell);
             } catch (IOException e) {
-                return;
-            }*/
+                e.printStackTrace();
+            }
         }
-        System.out.print("The Game have finished, you Wiiin!!!");
+        System.out.print("The Game have finished, you Wiiin!!!");*/
     }
 }
+
+
+
+
+

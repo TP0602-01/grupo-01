@@ -12,6 +12,6 @@ public class DataCellView implements CellView {
 
     @Override
     public void draw() {
-        System.out.println("# " + this.cell.getData() + " #");
+        System.out.println( "# " + this.cell.getData() + " #");
     }
 }

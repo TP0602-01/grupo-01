@@ -2,29 +2,20 @@ package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.direction.Direction;
+import ar.fiuba.tdd.tp1.walk.Walk;
 
 import java.util.Collection;
 
 /*  */
 public abstract class BaseRule implements IRule {
 
-    //TODO: if Directional implementation is chosen, then delete Collections
-    protected Collection<Cell> cells;
+    protected Collection<String> cells;
+    protected Walk walk;
 
-    protected Cell initialCell;
-    protected Direction direction;
-
-    BaseRule(Collection<Cell> cells) {
+    BaseRule(Collection<String> cells, Walk walk) {
         this.cells = cells;
-    }
-
-    BaseRule(Cell initialCell, Direction direction) {
-        this.initialCell = initialCell;
-        this.direction = direction;
+        this.walk = walk;
     }
 
     public abstract boolean check();
-
-    public abstract boolean directionalCheck();
 }
-
