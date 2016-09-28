@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp1.view;
 
+import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 import ar.fiuba.tdd.tp1.utilities.Observer;
 
@@ -10,9 +11,9 @@ public class BoardView extends Observer {
 
     //TODO It might be a map to identify column and row
     Collection<CellView> cellViews;
-    Observable board;
+    GameBoard board;
 
-    public BoardView(Observable board) {
+    public BoardView(GameBoard board) {
         this.board = board;
         cellViews = new ArrayList<>();
     }
@@ -24,6 +25,7 @@ public class BoardView extends Observer {
             cellView.draw();
             System.out.println("#####");
         }
+        board.getCell(1,1);
     }
 
     //TODO It might need column and row as parameters
