@@ -27,3 +27,4 @@ public abstract class BaseRule implements IRule {
 
     public abstract boolean directionalCheck();
 }
+
