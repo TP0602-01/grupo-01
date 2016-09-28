@@ -1,34 +1,61 @@
 package ar.fiuba.tdd.tp1.view;
 
+import ar.fiuba.tdd.tp1.cell.Cell;
+import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.utilities.Observer;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 public class BoardView extends Observer {
 
-    //TODO It might be a map to identify column and row
-    Collection<CellView> cellViews;
-    GameBoard board;
 
-    public BoardView(GameBoard board) {
-        cellViews = new ArrayList<>();
-        this.board = board;
+    private Vector<Vector<CellView>> cellViews;
+    private GameBoard gameBoard;
+
+
+    public BoardView(GameBoard gameBoard) {
+        this.gameBoard = gameBoard;
+
+        cellViews = new Vector<Vector<CellView>>();
+        for (int rowIdx = 0; rowIdx < this.getRowsNumber(); rowIdx++ ) {
+            this.cellViews.insertElementAt(new Vector<CellView>(this.getColumnsNumber()), rowIdx);
+        }
+
     }
+
 
     @Override
     public void update() {
-        for (CellView cellView : this.cellViews) {
-            System.out.println("#####");
-            cellView.draw();
-            System.out.println("#####");
+
+        String rowSeparatorLine = "";
+        for (int i = 0; i < this.getColumnsNumber(); i++){
+            rowSeparatorLine = rowSeparatorLine + "-------";
         }
-        board.getWidth();
+
+
+        for (Vector<CellView> rowView : this.cellViews) {
+            System.out.println(rowSeparatorLine);
+            String rowASCII = "";
+            for (CellView cellView: rowView) {
+                rowASCII = rowASCII + cellView.ASCIIdraw();
+            }
+            System.out.println(rowASCII);
+        }
+        System.out.println(rowSeparatorLine);
+
     }
 
-    //TODO It might need column and row as parameters
-    public void addCellView(CellView cellView) {
-        this.cellViews.add(cellView);
+    public void addCellViewIn(CellView cellView, int row, int column) {
+        this.cellViews.elementAt(row).insertElementAt(cellView, column);
+    }
+
+
+    int getRowsNumber(){
+        return this.gameBoard.getHeigth();
+    }
+
+    int getColumnsNumber(){
+        return this.gameBoard.getWidth();
     }
 }

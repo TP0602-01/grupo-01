@@ -3,8 +3,7 @@ package ar.fiuba.tdd.tp1.factory;
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
-import ar.fiuba.tdd.tp1.rule.IRule;
-import ar.fiuba.tdd.tp1.rule.NoRepetitionRule;
+import ar.fiuba.tdd.tp1.rule.*;
 
 import java.util.ArrayList;
 import java.util.Collection;

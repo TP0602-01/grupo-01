@@ -11,7 +11,14 @@ public class DataCellView implements CellView {
     }
 
     @Override
-    public void draw() {
-        System.out.println( "# " + this.cell.getData() + " #");
+    public String ASCIIdraw() {
+        if (this.cell.getData() == null ){
+            return "|     |";
+        }
+        else {
+            return ("|  " + this.cell.getData() + "  |");
+        }
     }
+
+
 }
