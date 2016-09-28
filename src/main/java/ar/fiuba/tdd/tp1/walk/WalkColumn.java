@@ -15,7 +15,8 @@ public class WalkColumn extends Walk {
         System.out.print("WalkColumn%n");
         Vector<Cell> cells = new Vector<>();
         for (int i = 0; i < gameBoard.getHeigth(); i++) {
-            System.out.format("Devolviendo el elemento %d %d %n", i, column);
+            Cell cell = gameBoard.getCell(i,column);
+            cells.addElement(cell);
         }
         return cells;
     }

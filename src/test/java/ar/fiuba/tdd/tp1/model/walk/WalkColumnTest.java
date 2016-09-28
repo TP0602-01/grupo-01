@@ -19,8 +19,8 @@ import static org.mockito.Mockito.*;
 
 public class WalkColumnTest {
     GameBoard gameBoardMock;
-    private int initialRow = 1;
-    private int initialColumn = 1;
+    private int initialRow = 0;
+    private int initialColumn = 0;
     private int columnSize = 2;
     Collection<Cell> cells;
     ArrayList<Integer> dataStored = new ArrayList<>();
@@ -29,10 +29,9 @@ public class WalkColumnTest {
     public void setUp() {
         gameBoardMock = mock(GameBoard.class);
         when(gameBoardMock.getHeigth()).thenReturn(2);
-        for (int col = initialColumn; col <= columnSize; col++) {
-            dataStored.add(col);
-            when(gameBoardMock.getCell(initialRow, col)).thenReturn(new InputCell(col));
-            when(gameBoardMock.getCell(initialRow, col)).thenReturn(new InputCell(col));
+        for (int row = initialRow; row < columnSize; row++) {
+            dataStored.add(row);
+            when(gameBoardMock.getCell(row, initialColumn)).thenReturn(new InputCell(row));
         }
         Walk walk = new WalkColumn(gameBoardMock);
         cells = walk.getCellList(initialRow, initialColumn);
