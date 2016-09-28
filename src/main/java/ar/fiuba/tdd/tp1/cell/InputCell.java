@@ -13,6 +13,9 @@ public class InputCell extends Cell {
 
     public void setData(Integer data) {
         this.data = data;
+        System.out.println("Setting value " + data);
     }
+
+
 
 }

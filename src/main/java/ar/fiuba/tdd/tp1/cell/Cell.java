@@ -14,4 +14,9 @@ public abstract class Cell extends Observable {
         return this.data;
     }
 
+    // TODO: borrarlo despues
+    public void setData(Integer newValue){
+        System.out.println("trying to set value"+ newValue);
+    }
+
 }

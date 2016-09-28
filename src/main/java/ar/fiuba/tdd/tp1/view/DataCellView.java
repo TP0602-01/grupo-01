@@ -12,10 +12,9 @@ public class DataCellView implements CellView {
 
     @Override
     public String ASCIIdraw() {
-        if (this.cell.getData() == null ){
+        if (this.cell.getData() == null) {
             return "|     |";
-        }
-        else {
+        } else {
             return ("|  " + this.cell.getData() + "  |");
         }
     }

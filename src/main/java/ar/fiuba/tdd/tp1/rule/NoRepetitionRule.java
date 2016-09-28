@@ -18,13 +18,13 @@ public class NoRepetitionRule extends BaseRule {
     public boolean check() {
         Set<Integer> set = new HashSet<>();
 
-        for (String cell: cells) {
+        for (String cell : cells) {
             Integer intX = Integer.parseInt(cell.split(",")[0]);
             Integer intY = Integer.parseInt(cell.split(",")[1]);
 
             Vector<Cell> cellList = walk.getCellList(intX, intY);
 
-            for (Cell cellValue: cellList) {
+            for (Cell cellValue : cellList) {
                 if (!set.add(cellValue.getData())) {
                     return false;
                 }

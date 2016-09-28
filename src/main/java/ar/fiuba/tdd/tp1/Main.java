@@ -23,6 +23,13 @@ import java.util.Collection;
 import java.util.Iterator;*/
 
 
+import ar.fiuba.tdd.tp1.cell.FixedCell;
+import ar.fiuba.tdd.tp1.cell.InputCell;
+import ar.fiuba.tdd.tp1.controller.GameLoop;
+import ar.fiuba.tdd.tp1.gameboard.GameBoard;
+
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
         // PARAMETROS QUE SE TOMAN DE ARCHIVO
@@ -122,6 +129,19 @@ public class Main {
             }
         }
         System.out.print("The Game have finished, you Wiiin!!!");*/
+        GameBoard gameBoard = new GameBoard(2,2);
+        gameBoard.addCell(0,0,new InputCell(0));
+        gameBoard.addCell(0,1,new InputCell(0));
+        gameBoard.addCell(1,0,new FixedCell(0));
+        gameBoard.addCell(1,1,new InputCell(0));
+        GameLoop gameLoop = new GameLoop(gameBoard);
+
+        try {
+            gameLoop.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 

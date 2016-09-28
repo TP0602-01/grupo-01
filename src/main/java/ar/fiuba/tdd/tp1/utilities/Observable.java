@@ -16,7 +16,7 @@ public abstract class Observable {
     }
 
     public void updateObservers() {
-        for (Observer observer: this.observers) {
+        for (Observer observer : this.observers) {
             observer.update();
         }
     }

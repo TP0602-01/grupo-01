@@ -22,23 +22,19 @@ public class KakoruCellView implements CellView {
 
         String ASCIIcell = "";
 
-        if (this.leftDownSum == null){
+        if (this.leftDownSum == null) {
             ASCIIcell = ASCIIcell.concat("|##\\");
-        }
-        else if (this.leftDownSum < 10 ){
+        } else if (this.leftDownSum < 10) {
             ASCIIcell = ASCIIcell.concat("|" + this.leftDownSum + " \\");
-        }
-        else {
+        } else {
             ASCIIcell = ASCIIcell.concat("|" + this.leftDownSum + "\\");
         }
 
-        if (this.rightUpSum == null){
+        if (this.rightUpSum == null) {
             ASCIIcell = ASCIIcell.concat("##|");
-        }
-        else if (this.rightUpSum < 10 ) {
+        } else if (this.rightUpSum < 10) {
             ASCIIcell = ASCIIcell.concat(this.rightUpSum + " |");
-        }
-        else {
+        } else {
             ASCIIcell = ASCIIcell.concat(this.rightUpSum + "|");
         }
 
