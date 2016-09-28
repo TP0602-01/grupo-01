@@ -5,4 +5,8 @@ public class FixedCell extends Cell {
     public FixedCell(Integer data) {
         super(data);
     }
+
+    public boolean isEmpty(){
+        return false;
+    }
 }
