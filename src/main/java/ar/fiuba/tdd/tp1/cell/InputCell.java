@@ -8,7 +8,7 @@ public class InputCell extends Cell {
     }
 
     public InputCell() {
-        super(null);
+        super("0");
     }
 
     public boolean isEmpty() {
@@ -22,7 +22,6 @@ public class InputCell extends Cell {
 
     public void setData(String data) {
         this.data = data;
-        System.out.println("Setting value " + data);
     }
 
 

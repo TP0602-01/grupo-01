@@ -37,11 +37,11 @@ public class GameLoop implements GameBoardController {
         }
 
         int getIndexI() {
-            return indexI;
+            return indexI - 1;
         }
 
         int getIndexJ() {
-            return indexJ;
+            return indexJ - 1;
         }
 
         String getInputData() {
