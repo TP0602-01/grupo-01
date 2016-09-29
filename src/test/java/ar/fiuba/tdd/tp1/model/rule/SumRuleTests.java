@@ -20,22 +20,22 @@ public class SumRuleTests {
 
 
     @Test
-    public void theCheckMethodMustReturnTrueWhenTheSumIsCorrect(){
-        String[][] cellData = {{"1" ,"2"}};
-        Walk walkMock = utilities.createAWalkMock(0,0,cellData);
+    public void theCheckMethodMustReturnTrueWhenTheSumIsCorrect() {
+        String[][] cellData = {{"1", "2"}};
+        Walk walkMock = utilities.createAWalkMock(0, 0, cellData);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0,0");
-        sumRule = new SumRule(cellAsString,walkMock,3);
+        sumRule = new SumRule(cellAsString, walkMock, 3);
         assertTrue(sumRule.check());
     }
 
     @Test
-    public void theCheckMethodMustReturnFalseIfTheSumValueIsDifferentToTheCompareValue(){
-        String[][] cellData = {{"1" ,"2","3"}};
-        Walk walkMock = utilities.createAWalkMock(0,0,cellData);
+    public void theCheckMethodMustReturnFalseIfTheSumValueIsDifferentToTheCompareValue() {
+        String[][] cellData = {{"1", "2", "3"}};
+        Walk walkMock = utilities.createAWalkMock(0, 0, cellData);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0,0");
-        sumRule = new SumRule(cellAsString,walkMock,1);
+        sumRule = new SumRule(cellAsString, walkMock, 1);
         assertFalse(sumRule.check());
     }
 

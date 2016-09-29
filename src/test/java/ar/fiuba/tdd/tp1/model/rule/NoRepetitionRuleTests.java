@@ -18,22 +18,22 @@ public class NoRepetitionRuleTests {
     RuleTestUtilities utilities = new RuleTestUtilities();
 
     @Test
-    public void checkingTheRuleInACollectionOfCellsThatDoNotHaveRepeatedElementsMustReturnTrue(){
-        String[][] cellData = {{"1" ,"2","3"}};
-        Walk walkMock = utilities.createAWalkMock(0,0,cellData);
+    public void checkingTheRuleInACollectionOfCellsThatDoNotHaveRepeatedElementsMustReturnTrue() {
+        String[][] cellData = {{"1", "2", "3"}};
+        Walk walkMock = utilities.createAWalkMock(0, 0, cellData);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0,0");
-        noRepetitionRule = new NoRepetitionRule(cellAsString,walkMock);
+        noRepetitionRule = new NoRepetitionRule(cellAsString, walkMock);
         assertTrue(noRepetitionRule.check());
     }
 
     @Test
-    public void ifThereAreRepeatedElementsCheckMustReturnFalse(){
-        String[][] cellData = {{"1" ,"2","1"}};
-        Walk walkMock = utilities.createAWalkMock(0,0,cellData);
+    public void ifThereAreRepeatedElementsCheckMustReturnFalse() {
+        String[][] cellData = {{"1", "2", "1"}};
+        Walk walkMock = utilities.createAWalkMock(0, 0, cellData);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0,0");
-        noRepetitionRule = new NoRepetitionRule(cellAsString,walkMock);
+        noRepetitionRule = new NoRepetitionRule(cellAsString, walkMock);
         assertFalse(noRepetitionRule.check());
     }
 }
