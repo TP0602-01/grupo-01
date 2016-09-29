@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp1.gameboard;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
+import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.rule.IRule;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
@@ -26,11 +27,18 @@ public class GameBoard extends Observable {
     }
 
     public void addCell(int rowIdx, int columnIdx, Cell cell) {
+        System.out.println("Se va a agregar row:" + rowIdx + " column: " + columnIdx);
         cells.elementAt(rowIdx).insertElementAt(cell, columnIdx);
     }
 
     public Cell getCell(int rowIdx, int columnIdx) {
-        return cells.elementAt(rowIdx).elementAt(columnIdx);
+        if ( ( rowIdx >= this.getHeigth() ) || ( columnIdx >= this.getWidth() ) ){
+            return new NullCell();
+        }
+        else {
+            return cells.elementAt(rowIdx).elementAt(columnIdx);
+        }
+
     }
 
 
