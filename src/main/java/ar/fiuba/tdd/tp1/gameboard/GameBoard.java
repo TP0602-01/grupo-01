@@ -5,20 +5,25 @@ import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.rule.IRule;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Vector;
+import java.util.*;
 
 /*  */
 public class GameBoard extends Observable {
-    private Vector<Vector<Cell>> cells;
+
+    private Map<Integer, Map<Integer,Cell>> cells;
+
     private Collection<IRule> rules;
 
     public GameBoard(Integer width, Integer height) {
         rules = new ArrayList<>();
-        cells = new Vector<>(height);
+
+        cells = new HashMap<>();
         for (int rowIdx = 0; rowIdx < height; ++rowIdx) {
-            cells.insertElementAt(new Vector<>(width), rowIdx);
+            Map<Integer, Cell> rowCells = new HashMap<>();
+            for (int colIdx = 0; colIdx < width; ++colIdx) {
+                rowCells.put(colIdx, new NullCell());
+            }
+            cells.put(rowIdx, rowCells );
         }
     }
 
@@ -27,15 +32,15 @@ public class GameBoard extends Observable {
     }
 
     public void addCell(int rowIdx, int columnIdx, Cell cell) {
-        System.out.println("Se va a agregar row:" + rowIdx + " column: " + columnIdx);
-        cells.elementAt(rowIdx).insertElementAt(cell, columnIdx);
+        cells.get(rowIdx).put(columnIdx, cell);
+
     }
 
     public Cell getCell(int rowIdx, int columnIdx) {
         if ((rowIdx >= this.getHeigth()) || (columnIdx >= this.getWidth())) {
             return new NullCell();
         } else {
-            return cells.elementAt(rowIdx).elementAt(columnIdx);
+            return cells.get(rowIdx).get(columnIdx);
         }
 
     }
@@ -71,10 +76,10 @@ public class GameBoard extends Observable {
     }
 
     public int getHeigth() {
-        return cells.capacity();    //TODO: CHEQUEAR
+        return cells.size();
     }
 
     public int getWidth() {
-        return cells.elementAt(0).capacity();
+        return cells.get(0).size();
     }
 }

@@ -7,17 +7,25 @@ import java.util.*;
 
 public class BoardView extends Observer {
 
-    private Vector<Vector<CellView>> cellViews;
+    private Map<Integer, Map<Integer,CellView>> cellViews;
+
     private GameBoard gameBoard;
 
     public BoardView(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
         this.gameBoard.registerObserver(this);
 
-        cellViews = new Vector<Vector<CellView>>();
-        for (int rowIdx = 0; rowIdx < this.getRowsNumber(); rowIdx++) {
-            this.cellViews.insertElementAt(new Vector<CellView>(this.getColumnsNumber()), rowIdx);
+        cellViews = new HashMap<>();
+        for (int rowIdx = 0; rowIdx < this.getRowsNumber(); ++rowIdx) {
+
+            Map<Integer, CellView> rowCellsViews = new HashMap<>();
+
+            for (int colIdx = 0; colIdx < this.getColumnsNumber(); ++colIdx) {
+                rowCellsViews.put(colIdx, new NullCellView());
+            }
+            cellViews.put(rowIdx, rowCellsViews );
         }
+
     }
 
     @Override
@@ -27,19 +35,21 @@ public class BoardView extends Observer {
             rowSeparatorLine = rowSeparatorLine.concat("-------");
         }
 
-        for (Vector<CellView> rowView : this.cellViews) {
+        for (int rowIdx = 0; rowIdx < this.getRowsNumber(); ++rowIdx) {
             System.out.println(rowSeparatorLine);
             String rowAscii = "";
-            for (CellView cellView : rowView) {
+            for (int colIdx = 0;  colIdx < this.getColumnsNumber(); ++colIdx) {
+                CellView cellView = this.cellViews.get(rowIdx).get(colIdx);
                 rowAscii = rowAscii.concat(cellView.asciiDraw());
             }
             System.out.println(rowAscii);
         }
         System.out.println(rowSeparatorLine);
+
     }
 
     public void addCellViewIn(CellView cellView, int row, int column) {
-        this.cellViews.elementAt(row).insertElementAt(cellView, column);
+        this.cellViews.get(row).put(column,cellView);
     }
 
     int getRowsNumber() {
