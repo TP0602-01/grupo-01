@@ -3,40 +3,24 @@ package ar.fiuba.tdd.tp1.controller;
 
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.Scanner;
-import java.nio.charset.Charset;
+import java.io.InputStreamReader;
 
 public class GameLoop {
 
     GameBoard gameBoard;
-    Scanner scanner;
 
     public GameLoop(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
-        System.setProperty("file.encoding", "UTF-8");
-        Field charset = null;
-        try {
-            charset = Charset.class.getDeclaredField("defaultCharset");
-
-            charset.setAccessible(true);
-            charset.set(null, null);
-            scanner = new Scanner(System.in);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void start() throws IOException {
+        BufferedReader console = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
         while (!gameBoard.isFull()) {
-            InputCellData data = new InputCellData(readLine());
+            InputCellData data = new InputCellData(console.readLine());
             gameBoard.setCellValue(data.getIndexI(), data.getIndexJ(), data.getInputData());
         }
-    }
-
-    private String readLine() throws IOException {
-        return scanner.nextLine();
     }
 
     private class InputCellData {
@@ -51,15 +35,15 @@ public class GameLoop {
             data = Integer.parseInt(splited[2]);
         }
 
-        public int getIndexI() {
+        int getIndexI() {
             return indexI;
         }
 
-        public int getIndexJ() {
+        int getIndexJ() {
             return indexJ;
         }
 
-        public Integer getInputData() {
+        Integer getInputData() {
             return data;
         }
     }
