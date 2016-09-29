@@ -15,9 +15,9 @@ public class NoRepetitionRule extends BaseRule {
     }
 
     public boolean check() {
-        Set<Integer> set = new HashSet<>();
 
         for (String cellAsString : cellsAsString) {
+            Set<Integer> set = new HashSet<>();
             for (Cell cellValue: calculateCellList(cellAsString)) {
                 if (!set.add(Integer.parseInt(cellValue.getData()))) {
                     return false;
