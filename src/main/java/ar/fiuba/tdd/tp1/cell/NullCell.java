@@ -7,7 +7,7 @@ public class NullCell extends Cell {
         super(null);
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return true;
     }
 }

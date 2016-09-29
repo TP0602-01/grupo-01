@@ -19,7 +19,7 @@ public class BoardView extends Observer {
 
 
         cellViews = new Vector<Vector<CellView>>();
-        for (int rowIdx = 0; rowIdx < this.getRowsNumber(); rowIdx++ ) {
+        for (int rowIdx = 0; rowIdx < this.getRowsNumber(); rowIdx++) {
             this.cellViews.insertElementAt(new Vector<CellView>(this.getColumnsNumber()), rowIdx);
         }
 
@@ -30,16 +30,16 @@ public class BoardView extends Observer {
     public void update() {
 
         String rowSeparatorLine = "";
-        for (int i = 0; i < this.getColumnsNumber(); i++){
-            rowSeparatorLine  = rowSeparatorLine .concat( "-------" );
+        for (int i = 0; i < this.getColumnsNumber(); i++) {
+            rowSeparatorLine = rowSeparatorLine.concat("-------");
         }
 
 
         for (Vector<CellView> rowView : this.cellViews) {
             System.out.println(rowSeparatorLine);
             String rowASCII = "";
-            for (CellView cellView: rowView) {
-                rowASCII = rowASCII.concat( cellView.ASCIIdraw() );
+            for (CellView cellView : rowView) {
+                rowASCII = rowASCII.concat(cellView.ASCIIdraw());
             }
             System.out.println(rowASCII);
         }
@@ -52,11 +52,11 @@ public class BoardView extends Observer {
     }
 
 
-    int getRowsNumber(){
+    int getRowsNumber() {
         return this.gameBoard.getHeigth();
     }
 
-    int getColumnsNumber(){
+    int getColumnsNumber() {
         return this.gameBoard.getWidth();
     }
 }

@@ -8,7 +8,7 @@ public class FixedCell extends Cell {
         super(data);
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return false;
     }
 }

@@ -34,6 +34,11 @@ public class GameBoard extends Observable {
         return cells.elementAt(rowIdx).elementAt(columnIdx);
     }
 
+
+    public void setCellValue(int rowIdx, int columnIdx, Integer value) {
+        cells.elementAt(rowIdx).elementAt(columnIdx).setData(value);
+    }
+
     public boolean isFull() {
         int width = getWidth();
         int heigth = getHeigth();
@@ -47,6 +52,7 @@ public class GameBoard extends Observable {
         }
         return true;
     }
+
 
     public boolean checkRules() {
         boolean result = true;

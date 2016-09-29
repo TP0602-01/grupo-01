@@ -25,6 +25,13 @@ import java.util.Collection;
 import java.util.Iterator;
 
 
+import ar.fiuba.tdd.tp1.cell.FixedCell;
+import ar.fiuba.tdd.tp1.cell.InputCell;
+import ar.fiuba.tdd.tp1.controller.GameLoop;
+import ar.fiuba.tdd.tp1.gameboard.GameBoard;
+
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
         // PARAMETROS QUE SE TOMAN DE ARCHIVO
@@ -55,20 +62,20 @@ public class Main {
             JSONObject structure = (JSONObject) json.get("structure");
             JSONArray cell = (JSONArray) structure.get("cells");
 
-            Iterator it = cell.iterator();
-            while (it.hasNext()) {
-                JSONObject rule = (JSONObject) it.next();
+            Iterator ite = cell.iterator();
+            while (ite.hasNext()) {
+                JSONObject rule = (JSONObject) ite.next();
                 String type = (String) rule.get("type");
                 String range = (String) rule.get("range");
 
-                System.out.print("\ntipo: " + type + "\nrange: " + range +"\n");
+                System.out.print("\ntipo: " + type + "\nrange: " + range + "\n");
 
                 Integer firxtX = Integer.parseInt(range.split("-")[0].split(",")[0]);
                 Integer firxtY = Integer.parseInt(range.split("-")[0].split(",")[1]);
                 Integer endX = Integer.parseInt(range.split("-")[1].split(",")[0]);
                 Integer endY = Integer.parseInt(range.split("-")[1].split(",")[1]);
 
-                System.out.println(firxtX + "  " + firxtY + "   "+ endX + "   "+ endY);
+                System.out.println(firxtX + "  " + firxtY + "   " + endX + "   " + endY);
 
                 String content = (String) rule.get("content");
 
@@ -160,7 +167,25 @@ public class Main {
                 e.printStackTrace();
             }
         }
+
         System.out.print("The Game have finished, you Wiiin!!!");
+        /*
+
+        GameBoard gameBoard = new GameBoard(2, 2);
+        gameBoard.addCell(0, 0, new InputCell(0));
+        gameBoard.addCell(0, 1, new InputCell(0));
+        gameBoard.addCell(1, 0, new FixedCell(0));
+        gameBoard.addCell(1, 1, new InputCell(0));
+        GameLoop gameLoop = new GameLoop(gameBoard);
+
+        try {
+            gameLoop.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
+
+
     }
 }
 

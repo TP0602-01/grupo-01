@@ -33,7 +33,7 @@ public class WalkRowTests {
         when(gameBoardMock.getWidth()).thenReturn(2);
         for (int column = initialRow; column < rowSize; column++) {
             dataStored.add(column);
-            when(gameBoardMock.getCell(initialRow, column)).thenReturn(new InputCell(column));
+            when(gameBoardMock.getCell(initialRow, column)).thenReturn(new InputCell(Integer.toString(column)));
         }
         Walk walk = new WalkRow(gameBoardMock);
         cells = walk.getCellList(initialRow, initialColumn);
