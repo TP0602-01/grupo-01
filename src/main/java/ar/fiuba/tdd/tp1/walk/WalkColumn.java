@@ -15,15 +15,16 @@ public class WalkColumn extends Walk {
     public Vector<Cell> getCellList(int row, int column) {
         Vector<Cell> cells = new Vector<>();
 
-        for (int i = row; i < gameBoard.getHeigth(); i++) {
-            try {
-                InputCell cell = (InputCell) gameBoard.getCell(i, column);
-                cells.addElement(cell);
-            } catch (Exception e) {
-                break;
-            }
+        int currentRow = row;
+        Cell cell = gameBoard.getCell(currentRow, column);
+        while (cell.isWalkable()) {
+            cells.add(cell);
+            currentRow++;
+            cell = gameBoard.getCell(currentRow, column);
         }
+
         return cells;
+
     }
 
 }

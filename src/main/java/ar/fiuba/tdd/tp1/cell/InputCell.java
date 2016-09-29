@@ -15,6 +15,11 @@ public class InputCell extends Cell {
         return (data.equals("0"));
     }
 
+    @Override
+    public boolean isWalkable() {
+        return true;
+    }
+
     public void setData(String data) {
         this.data = data;
         System.out.println("Setting value " + data);

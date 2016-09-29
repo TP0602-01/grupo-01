@@ -2,11 +2,16 @@ package ar.fiuba.tdd.tp1.cell;
 
 /* */
 public class NullCell extends Cell {
-    NullCell() {
+    public NullCell() {
         super(null);
     }
 
     public boolean isEmpty() {
         return true;
+    }
+
+    @Override
+    public boolean isWalkable() {
+        return false;
     }
 }

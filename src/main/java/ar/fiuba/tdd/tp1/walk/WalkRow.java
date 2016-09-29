@@ -12,14 +12,17 @@ public class WalkRow extends Walk {
     }
 
     public Vector<Cell> getCellList(int row, int column) {
-        System.out.format("WalkRow %d %d%n", row, column);
         Vector<Cell> cells = new Vector<>();
 
-        for (int i = 0; i < gameBoard.getWidth(); i++) {
-            System.out.format("Devolviendo la posicion %d %d %n", row, i);
-            Cell cell = gameBoard.getCell(row, i);
+
+        int currentColum = column;
+        Cell cell = gameBoard.getCell(row, currentColum);
+        while (cell.isWalkable()) {
             cells.add(cell);
+            currentColum++;
+            cell = gameBoard.getCell(row, currentColum);
         }
+
         return cells;
     } //TODO: ADAPTAR A KAKURO
 }

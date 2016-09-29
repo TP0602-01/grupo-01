@@ -22,4 +22,6 @@ public abstract class Cell extends Observable {
         System.out.println("trying to set value" + newValue);
     }
 
+    public abstract boolean isWalkable();
+
 }
