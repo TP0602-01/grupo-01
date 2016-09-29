@@ -9,6 +9,7 @@ import ar.fiuba.tdd.tp1.view.DataCellView;
 import ar.fiuba.tdd.tp1.view.NullCellView;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 public class CellViewFactoryTests {
@@ -27,6 +28,12 @@ public class CellViewFactoryTests {
         CellView cell = cellViewFactory.create(new NullCell(), Cell.NULL_TYPE);
 
         assertTrue(cell instanceof NullCellView);
+    }
+
+    @Test
+    public void creatingACellViewWithAnUndefinedTypeMustReturnNull() {
+        CellView cell = cellViewFactory.create(new InputCell("2"), "alksjdflsjdfl");
+        assertEquals(cell, null);
     }
 
 
