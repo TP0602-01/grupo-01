@@ -18,9 +18,7 @@ public abstract class Cell extends Observable {
     }
 
     // TODO: borrarlo despues
-    public void setData(Integer newValue) {
-        System.out.println("trying to set value" + newValue);
-    }
+    public void setData(String data) {}
 
     public abstract boolean isWalkable();
 

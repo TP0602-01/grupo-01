@@ -27,13 +27,13 @@ public class GameLoop implements GameBoardController {
     private static class InputCellData {
         private int indexI;
         private int indexJ;
-        private Integer data;
+        private String data;
 
         InputCellData(String line) {
             String[] splited = line.split(" ");
             indexI = Integer.parseInt(splited[0]);
             indexJ = Integer.parseInt(splited[1]);
-            data = Integer.parseInt(splited[2]);
+            data = splited[2];
         }
 
         int getIndexI() {
@@ -44,7 +44,7 @@ public class GameLoop implements GameBoardController {
             return indexJ;
         }
 
-        Integer getInputData() {
+        String getInputData() {
             return data;
         }
     }

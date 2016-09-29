@@ -12,6 +12,7 @@ public class BoardView extends Observer {
 
     public BoardView(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
+        this.gameBoard.registerObserver(this);
 
         cellViews = new Vector<Vector<CellView>>();
         for (int rowIdx = 0; rowIdx < this.getRowsNumber(); rowIdx++) {
