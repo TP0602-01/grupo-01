@@ -1,13 +1,14 @@
 package ar.fiuba.tdd.tp1.view;
 
+import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
 
 /**
  * Created by juanma on 28/09/16.
  */
 
-//TODO: name might change
 public class KakoruCellView implements CellView {
+
 
     private Integer rightUpSum;
     private Integer leftDownSum;
@@ -16,6 +17,14 @@ public class KakoruCellView implements CellView {
         this.rightUpSum = rightUpSum;
         this.leftDownSum = leftDownSum;
     }
+
+
+    public KakoruCellView(Cell cell){
+        String cellContent = cell.getData(); //"10/3"
+        this.rightUpSum = Integer.parseInt(cellContent.split("/")[0]);
+        this.leftDownSum = Integer.parseInt(cellContent.split("/")[1]);
+    }
+
 
     @Override
     public String ASCIIdraw() {

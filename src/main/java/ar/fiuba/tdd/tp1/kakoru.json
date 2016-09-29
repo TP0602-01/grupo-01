@@ -1,0 +1,29 @@
+{
+  "fixedCells": [
+    {
+      "KakoruCells": [
+        {
+          "cell": "1,1",
+          "content": [
+            "5",
+            "10"
+          ]
+        },
+        {
+          "cell": "2,2",
+          "content": [
+            "8",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "NullCells": [
+        {
+          "cell": "1,2"
+        }
+      ]
+    }
+  ]
+}

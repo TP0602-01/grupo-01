@@ -25,7 +25,7 @@ public class NoRepetitionRule extends BaseRule {
             Vector<Cell> cellList = walk.getCellList(intX, intY);
 
             for (Cell cellValue: cellList) {
-                if (!set.add(cellValue.getData())) {
+                if (!set.add(Integer.parseInt(cellValue.getData()))) {
                     return false;
                 }
             }
