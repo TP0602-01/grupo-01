@@ -22,13 +22,13 @@ public class InputCellTests {
     }
 
     @Test
-    public void inputCellCreatedIsEmpty(){
+    public void inputCellCreatedIsEmpty() {
         InputCell inputCell = new InputCell();
         assertTrue(inputCell.isEmpty());
     }
 
     @Test
-    public void inputCellCreatedAndSetedIsNotEmpty(){
+    public void inputCellCreatedAndSetedIsNotEmpty() {
         InputCell inputCell = new InputCell();
         inputCell.setData("1");
         assertTrue(!inputCell.isEmpty());

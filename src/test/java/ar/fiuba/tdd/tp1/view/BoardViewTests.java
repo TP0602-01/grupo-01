@@ -74,10 +74,6 @@ public class BoardViewTests {
         InputCell b2 = new InputCell();
 
 
-
-
-
-
         gameBoard.addCell(0, 0, a1);
         gameBoard.addCell(0, 1, a2);
         gameBoard.addCell(1, 0, b1);
