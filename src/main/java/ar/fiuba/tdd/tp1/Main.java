@@ -26,7 +26,7 @@ import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
-/*
+
 
         // PARAMETROS QUE SE TOMAN DE ARCHIVO
         int boardWidth;
@@ -54,7 +54,7 @@ public class Main {
             boardView = new BoardView(gameBoard);
 
             JSONObject structure = (JSONObject) json.get("structure");
-            JSONArray cell = (JSONArray) structure.get("cellsAsString");
+            JSONArray cell = (JSONArray) structure.get("cells");
 
             Iterator ite = cell.iterator();
             while (ite.hasNext()) {
@@ -152,7 +152,8 @@ public class Main {
                 /*
                 Cell newCell = new InputCell(value);
                 gameBoard.addCell(posX, posY, newCell);
-                *
+                */
+
 
                 ((InputCell)(gameBoard.getCell(posX, posY))).setData(value);
                 boardView.update();
@@ -162,7 +163,7 @@ public class Main {
         }
 
         System.out.print("The Game have finished, you Wiiin!!!");
-        */
+
 
 
     }
