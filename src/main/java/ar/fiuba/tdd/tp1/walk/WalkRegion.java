@@ -13,24 +13,18 @@ public class WalkRegion extends Walk {
         super(gameBoard);
     }
 
-    public Vector<Cell> getCellList(int row, int column) {
-        if (sizeRegion == 0) {
-            System.out.print("Size Region is not seted%n");
-            return null;
-        }
-        System.out.format("WalkRegion %d %d%n", row, column);
+    public Vector<Cell> getRegion(String posI, String posE){
+        int rowI = Integer.parseInt(posI.split(",")[0]);
+        int columnI = Integer.parseInt(posI.split(",")[1]);
+        int rowE = Integer.parseInt(posE.split(",")[0]);
+        int columnE = Integer.parseInt(posE.split(",")[1]);
         Vector<Cell> cells = new Vector<>();
-        int rowRegion = row / sizeRegion;
-        int columnRegion = column / sizeRegion;
-        int rowInitial = rowRegion * sizeRegion;
-        int columnInitial = columnRegion * sizeRegion;
-        for (int i = rowInitial; i < rowInitial + sizeRegion; i++) {
-            for (int j = columnInitial; j < columnInitial + sizeRegion; j++) {
-                Cell cell = gameBoard.getCell(i, j);
-                cells.addElement(cell);
+        for (int row = rowI; row <= rowE  ; row++){
+            for (int column = columnI; column<=columnE; column++){
+                Cell cell = gameBoard.getCell(row,column);
+                cells.add(cell);
             }
         }
-        return cells;
     }
 
     public void setSizeRegion(int tamRegion) {
