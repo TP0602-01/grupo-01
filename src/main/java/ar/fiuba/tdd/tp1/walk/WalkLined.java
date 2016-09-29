@@ -15,11 +15,11 @@ public abstract class WalkLined extends Walk {
 
     protected abstract int getNextRow(int row);
 
-    public Vector<Cell> getCellList(int row, int column) {
+    public Vector<Cell> getCellList(String row, String column) {
         Vector<Cell> cells = new Vector<>();
 
-        int currentColum = column;
-        int currentRow = row;
+        int currentColum = Integer.parseInt(column);
+        int currentRow = Integer.parseInt(row);
         Cell cell = gameBoard.getCell(currentRow, currentColum);
         while (cell.isWalkable()) {
             cells.add(cell);

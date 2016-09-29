@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.walk.Walk;
 
 import java.util.Collection;
+import java.util.Vector;
 
 /*  */
 public class MulRule extends BaseRule {
@@ -25,5 +26,12 @@ public class MulRule extends BaseRule {
         }
         return mul.equals(expectedSumResult);
     }
+
+    protected Vector<Cell> calculateCellList(String cellAsString) {
+        String firstPos = cellAsString.split("-")[0];
+        String endPos = cellAsString.split("-")[1];
+        return walk.getCellList(firstPos, endPos);
+    }
+
 
 }
