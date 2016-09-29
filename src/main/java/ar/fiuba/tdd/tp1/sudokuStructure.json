@@ -1,0 +1,13 @@
+{
+  "height": "3",
+  "width": "3",
+  "structure": {
+    "cells": [
+      {
+        "type": "data",
+        "range": "0,0-2,2",
+        "content": ""
+      }
+    ]
+  }
+}
