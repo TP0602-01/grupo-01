@@ -3,28 +3,40 @@ package ar.fiuba.tdd.tp1.controller;
 
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.util.Scanner;
+import java.nio.charset.Charset;
 
 public class GameLoop {
 
     GameBoard gameBoard;
-    BufferedReader reader;
+    Scanner scanner;
 
     public GameLoop(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
-        reader = new BufferedReader(new InputStreamReader(System.in));
+        System.setProperty("file.encoding","UTF-8");
+        Field charset = null;
+        try {
+            charset =Charset.class.getDeclaredField("defaultCharset");
+
+            charset.setAccessible(true);
+            charset.set(null,null);
+            scanner = new Scanner(System.in);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public void start() throws IOException{
-        //while (!gameBoard.isFull()) {
-
-        for(int i = 0; i  < 4 ; i++){
-
-            InputCellData data = new InputCellData(reader.readLine());
+    public void start() throws IOException {
+        while (!gameBoard.isFull()) {
+            InputCellData data = new InputCellData(readLine());
             gameBoard.setCellValue(data.getIndexI(), data.getIndexJ(), data.getInputData());
         }
+    }
+
+    private String readLine() throws IOException {
+        return scanner.nextLine();
     }
 
     private class InputCellData {

@@ -20,8 +20,8 @@ import static org.mockito.Mockito.when;
 
 public class WalkRegionTests {
     GameBoard gameBoardMock;
-    private int initialRow = 1;
-    private int initialColumn = 1;
+    private int initialRow = 0;
+    private int initialColumn = 0;
     private int regionSize = 2;
     Collection<Cell> cells;
     ArrayList<Integer> dataStored = new ArrayList<>();
@@ -32,11 +32,10 @@ public class WalkRegionTests {
         when(gameBoardMock.getHeigth()).thenReturn(2);
         when(gameBoardMock.getWidth()).thenReturn(2);
         int data;
-        for (int col = initialColumn; col <= regionSize; col++) {
-            for (int row = initialRow; row <= regionSize; row++) {
+        for (int col = initialColumn; col < regionSize; col++) {
+            for (int row = initialRow; row < regionSize; row++) {
                 data = col + 100 * row;
                 dataStored.add(data);
-                when(gameBoardMock.getCell(row, col)).thenReturn(new InputCell(data));
                 when(gameBoardMock.getCell(row, col)).thenReturn(new InputCell(data));
             }
         }

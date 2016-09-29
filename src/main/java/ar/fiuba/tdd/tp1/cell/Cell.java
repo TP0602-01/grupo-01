@@ -10,13 +10,15 @@ public abstract class Cell extends Observable {
         this.data = data;
     }
 
+    public abstract boolean isEmpty();
+
     public Integer getData() {
         return this.data;
     }
 
     // TODO: borrarlo despues
-    public void setData(Integer newValue){
-        System.out.println("trying to set value"+ newValue);
+    public void setData(Integer newValue) {
+        System.out.println("trying to set value" + newValue);
     }
 
 }

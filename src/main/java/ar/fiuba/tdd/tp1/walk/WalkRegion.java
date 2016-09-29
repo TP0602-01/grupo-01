@@ -26,7 +26,8 @@ public class WalkRegion extends Walk {
         int columnInitial = columnRegion * sizeRegion;
         for (int i = rowInitial; i < rowInitial + sizeRegion; i++) {
             for (int j = columnInitial; j < columnInitial + sizeRegion; j++) {
-                System.out.format("Devolviendo las posisiones %d %d%n", i, j);
+                Cell cell = gameBoard.getCell(i, j);
+                cells.addElement(cell);
             }
         }
         return cells;

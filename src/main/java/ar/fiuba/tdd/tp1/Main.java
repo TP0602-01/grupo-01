@@ -129,11 +129,11 @@ public class Main {
             }
         }
         System.out.print("The Game have finished, you Wiiin!!!");*/
-        GameBoard gameBoard = new GameBoard(2,2);
-        gameBoard.addCell(0,0,new InputCell(0));
-        gameBoard.addCell(0,1,new InputCell(0));
-        gameBoard.addCell(1,0,new FixedCell(0));
-        gameBoard.addCell(1,1,new InputCell(0));
+        GameBoard gameBoard = new GameBoard(2, 2);
+        gameBoard.addCell(0, 0, new InputCell(0));
+        gameBoard.addCell(0, 1, new InputCell(0));
+        gameBoard.addCell(1, 0, new FixedCell(0));
+        gameBoard.addCell(1, 1, new InputCell(0));
         GameLoop gameLoop = new GameLoop(gameBoard);
 
         try {
