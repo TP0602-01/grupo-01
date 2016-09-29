@@ -8,6 +8,8 @@ public abstract class Cell extends Observable {
     public static final String DATA_TYPE = "data";
     public static final String NULL_TYPE = "nullcell";
     public static final String KAKORU_TYPE = "kakoru";
+    public static final String HINT_TYPE = "hint";
+
 
     protected String data;
 

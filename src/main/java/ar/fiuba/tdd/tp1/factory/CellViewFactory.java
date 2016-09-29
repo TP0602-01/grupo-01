@@ -13,7 +13,7 @@ public class CellViewFactory {
 
 
     public static CellView create(Cell cell, String type) {
-        if (type.equals(Cell.DATA_TYPE)) {
+        if ( ( type.equals(Cell.DATA_TYPE)  )  || type.equals(Cell.HINT_TYPE) ) {
             return new DataCellView(cell);
         } else if (type.equals(Cell.NULL_TYPE)) {
             return new NullCellView();
