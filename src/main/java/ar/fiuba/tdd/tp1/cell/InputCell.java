@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp1.cell;
 
+/* */
 public class InputCell extends Cell {
 
     public InputCell(String data) {
@@ -11,7 +12,7 @@ public class InputCell extends Cell {
     }
 
     public boolean isEmpty() {
-        return (data == "0");
+        return (data.equals("0"));
     }
 
     public void setData(String data) {

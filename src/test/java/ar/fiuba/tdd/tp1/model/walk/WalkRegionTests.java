@@ -57,7 +57,7 @@ public class WalkRegionTests {
         for (Integer data : dataStored) {
             theDataIsContained = false;
             for (Cell cell : cells) {
-                if (data.equals(cell.getData())) {
+                if (data.toString().equals(cell.getData())) {
                     theDataIsContained = true;
                 }
             }

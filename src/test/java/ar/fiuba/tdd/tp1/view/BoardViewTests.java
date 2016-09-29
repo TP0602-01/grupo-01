@@ -6,9 +6,7 @@ import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import org.junit.Test;
 
-/**
- * Created by juanma on 28/09/16.
- */
+/* */
 public class BoardViewTests {
 
     @Test

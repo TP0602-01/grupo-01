@@ -6,7 +6,6 @@ import ar.fiuba.tdd.tp1.walk.Walk;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Vector;
 
 /*  */
 public class NoRepetitionRule extends BaseRule {
@@ -18,13 +17,8 @@ public class NoRepetitionRule extends BaseRule {
     public boolean check() {
         Set<Integer> set = new HashSet<>();
 
-        for (String cell : cells) {
-            Integer intX = Integer.parseInt(cell.split(",")[0]);
-            Integer intY = Integer.parseInt(cell.split(",")[1]);
-
-            Vector<Cell> cellList = walk.getCellList(intX, intY);
-
-            for (Cell cellValue : cellList) {
+        for (String cellAsString : cellsAsString) {
+            for (Cell cellValue: calculateCellList(cellAsString)) {
                 if (!set.add(Integer.parseInt(cellValue.getData()))) {
                     return false;
                 }

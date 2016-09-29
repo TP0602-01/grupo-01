@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp1.gameboard;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
-import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.rule.IRule;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
@@ -18,7 +17,7 @@ public class GameBoard extends Observable {
         rules = new ArrayList<>();
         cells = new Vector<>(height);
         for (int rowIdx = 0; rowIdx < height; ++rowIdx) {
-            cells.insertElementAt(new Vector<Cell>(width), rowIdx);
+            cells.insertElementAt(new Vector<>(width), rowIdx);
         }
     }
 

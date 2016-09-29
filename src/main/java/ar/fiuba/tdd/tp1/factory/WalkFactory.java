@@ -6,9 +6,7 @@ import ar.fiuba.tdd.tp1.walk.WalkColumn;
 import ar.fiuba.tdd.tp1.walk.WalkRegion;
 import ar.fiuba.tdd.tp1.walk.WalkRow;
 
-/**
- * Created by lucas on 28/09/16.
- */
+/* */
 public class WalkFactory {
     public static Walk create(GameBoard board, String walk) {
         if (walk.equals("row")) {

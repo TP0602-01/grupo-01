@@ -24,16 +24,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-
-import ar.fiuba.tdd.tp1.cell.FixedCell;
-import ar.fiuba.tdd.tp1.cell.InputCell;
-import ar.fiuba.tdd.tp1.controller.GameLoop;
-import ar.fiuba.tdd.tp1.gameboard.GameBoard;
-
-import java.io.IOException;
-
 public class Main {
     public static void main(String[] args) {
+/*
+
         // PARAMETROS QUE SE TOMAN DE ARCHIVO
         int boardWidth;
         int boardHeight;
@@ -60,7 +54,7 @@ public class Main {
             boardView = new BoardView(gameBoard);
 
             JSONObject structure = (JSONObject) json.get("structure");
-            JSONArray cell = (JSONArray) structure.get("cells");
+            JSONArray cell = (JSONArray) structure.get("cellsAsString");
 
             Iterator ite = cell.iterator();
             while (ite.hasNext()) {
@@ -158,10 +152,9 @@ public class Main {
                 /*
                 Cell newCell = new InputCell(value);
                 gameBoard.addCell(posX, posY, newCell);
-                */
+                *
 
                 ((InputCell)(gameBoard.getCell(posX, posY))).setData(value);
-
                 boardView.update();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -169,20 +162,6 @@ public class Main {
         }
 
         System.out.print("The Game have finished, you Wiiin!!!");
-        /*
-
-        GameBoard gameBoard = new GameBoard(2, 2);
-        gameBoard.addCell(0, 0, new InputCell(0));
-        gameBoard.addCell(0, 1, new InputCell(0));
-        gameBoard.addCell(1, 0, new FixedCell(0));
-        gameBoard.addCell(1, 1, new InputCell(0));
-        GameLoop gameLoop = new GameLoop(gameBoard);
-
-        try {
-            gameLoop.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         */
 
 

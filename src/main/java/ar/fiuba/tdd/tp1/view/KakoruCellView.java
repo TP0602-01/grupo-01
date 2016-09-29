@@ -1,15 +1,9 @@
 package ar.fiuba.tdd.tp1.view;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
-import ar.fiuba.tdd.tp1.cell.InputCell;
 
-/**
- * Created by juanma on 28/09/16.
- */
-
+/* */
 public class KakoruCellView implements CellView {
-
-
     private Integer rightUpSum;
     private Integer leftDownSum;
 
@@ -18,50 +12,51 @@ public class KakoruCellView implements CellView {
         this.leftDownSum = leftDownSum;
     }
 
-
-
-    public KakoruCellView(Cell cell){
+    public KakoruCellView(Cell cell) {
         String cellContent = cell.getData();
 
         String leftNumber = cellContent.split("/")[0];
         if (leftNumber.matches("_") ) {
             this.leftDownSum = null;
-        }
-        else {
+        } else {
             this.leftDownSum = Integer.parseInt(leftNumber);
         }
 
         String rightNumber = cellContent.split("/")[1];
         if (rightNumber.matches("_") ) {
             this.rightUpSum = null;
-        }
-        else {
+        } else {
             this.rightUpSum = Integer.parseInt(rightNumber);
         }
     }
 
+    private String drawLeftDownSum(String asciiCell) {
+        if (this.leftDownSum == null) {
+            asciiCell = asciiCell.concat("|##\\");
+        } else if (this.leftDownSum < 10) {
+            asciiCell = asciiCell.concat("|" + this.leftDownSum + " \\");
+        } else {
+            asciiCell = asciiCell.concat("|" + this.leftDownSum + "\\");
+        }
+        return asciiCell;
+    }
+
+    private String drawRightUpSum(String asciiCell) {
+        if (this.rightUpSum == null) {
+            asciiCell = asciiCell.concat("##|");
+        } else if (this.rightUpSum < 10) {
+            asciiCell = asciiCell.concat(this.rightUpSum + " |");
+        } else {
+            asciiCell = asciiCell.concat(this.rightUpSum + "|");
+        }
+        return asciiCell;
+    }
 
     @Override
-    public String ASCIIdraw() {
-
-        String ASCIIcell = "";
-
-        if (this.leftDownSum == null) {
-            ASCIIcell = ASCIIcell.concat("|##\\");
-        } else if (this.leftDownSum < 10) {
-            ASCIIcell = ASCIIcell.concat("|" + this.leftDownSum + " \\");
-        } else {
-            ASCIIcell = ASCIIcell.concat("|" + this.leftDownSum + "\\");
-        }
-
-        if (this.rightUpSum == null) {
-            ASCIIcell = ASCIIcell.concat("##|");
-        } else if (this.rightUpSum < 10) {
-            ASCIIcell = ASCIIcell.concat(this.rightUpSum + " |");
-        } else {
-            ASCIIcell = ASCIIcell.concat(this.rightUpSum + "|");
-        }
-
-        return ASCIIcell;
+    public String asciiDraw() {
+        String asciiCell = "";
+        asciiCell = drawLeftDownSum(asciiCell);
+        asciiCell = drawRightUpSum(asciiCell);
+        return asciiCell;
     }
 }

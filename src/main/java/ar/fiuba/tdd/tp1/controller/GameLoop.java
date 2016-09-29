@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/* */
 public class GameLoop {
 
     GameBoard gameBoard;
@@ -23,7 +24,7 @@ public class GameLoop {
         }
     }
 
-    private class InputCellData {
+    private static class InputCellData {
         private int indexI;
         private int indexJ;
         private Integer data;
