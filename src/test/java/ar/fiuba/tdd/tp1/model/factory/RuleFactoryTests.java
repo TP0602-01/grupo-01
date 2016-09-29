@@ -47,7 +47,7 @@ public class RuleFactoryTests {
         cellAsString.add("0_0");
         IRule rule = ruleFactory.create("alskjdlaksjdsakl", walk, cellAsString);
 
-        assertEquals(null,rule);
+        assertEquals(null, rule);
     }
 
 }

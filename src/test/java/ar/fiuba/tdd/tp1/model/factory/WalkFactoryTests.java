@@ -12,8 +12,8 @@ public class WalkFactoryTests {
 
 
     @Test
-    public void creatingAWalkWithAnUndefinedTypeMustReturnNull(){
-        Walk walk = walkFactory.create(new GameBoard(1,1),"asdasdasd");
+    public void creatingAWalkWithAnUndefinedTypeMustReturnNull() {
+        Walk walk = walkFactory.create(new GameBoard(1, 1), "asdasdasd");
     }
 
 }

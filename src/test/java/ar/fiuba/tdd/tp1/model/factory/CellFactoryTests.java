@@ -28,15 +28,15 @@ public class CellFactoryTests {
     }
 
     @Test
-    public void creatingACellOfTypeKakoruMustReturnAFixeDCell(){
+    public void creatingACellOfTypeKakoruMustReturnAFixeDCell() {
         Cell cell = cellFactory.create(Cell.KAKORU_TYPE, "");
         assertTrue(cell instanceof FixedCell);
     }
 
     @Test
-    public void creatingACellOfAnUnknownTypeMustReturnNull(){
+    public void creatingACellOfAnUnknownTypeMustReturnNull() {
         Cell cell = cellFactory.create("ssssdf", "");
-        assertEquals(cell,null);
+        assertEquals(cell, null);
     }
 
 

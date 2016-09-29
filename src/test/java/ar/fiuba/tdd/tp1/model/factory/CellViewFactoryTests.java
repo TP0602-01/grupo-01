@@ -31,9 +31,9 @@ public class CellViewFactoryTests {
     }
 
     @Test
-    public void creatingACellViewWithAnUndefinedTypeMustReturnNull(){
+    public void creatingACellViewWithAnUndefinedTypeMustReturnNull() {
         CellView cell = cellViewFactory.create(new InputCell("2"), "alksjdflsjdfl");
-        assertEquals(cell,null);
+        assertEquals(cell, null);
     }
 
 

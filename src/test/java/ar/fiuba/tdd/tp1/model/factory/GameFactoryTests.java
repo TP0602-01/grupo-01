@@ -8,11 +8,11 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertTrue;
 
 public class GameFactoryTests {
-    GameFactory gameFactory= new GameFactory();
+    GameFactory gameFactory = new GameFactory();
 
     @Test
     public void creatingAGameBoardMustReturnAGameBoard() {
-        GameBoard gameBoard = gameFactory.createGameBoard(1,1);
+        GameBoard gameBoard = gameFactory.createGameBoard(1, 1);
         assertTrue(gameBoard instanceof GameBoard);
     }
 
