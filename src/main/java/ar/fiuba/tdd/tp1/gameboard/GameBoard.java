@@ -42,7 +42,8 @@ public class GameBoard extends Observable {
 
 
     public void setCellValue(int rowIdx, int columnIdx, String value) {
-        cells.elementAt(rowIdx).elementAt(columnIdx).setData(value);
+        Cell chosenCell = this.getCell(rowIdx, columnIdx);
+        chosenCell.setData(value);
         this.updateObservers();
     }
 
