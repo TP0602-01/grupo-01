@@ -4,6 +4,11 @@ import ar.fiuba.tdd.tp1.utilities.Observable;
 
 /*  */
 public abstract class Cell extends Observable {
+
+    public static final String DATA_TYPE = "data";
+    public static final String NULL_TYPE = "nullcell";
+    public static final String KAKORU_TYPE = "kakoru";
+
     protected String data;
 
     Cell(String data) {

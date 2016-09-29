@@ -8,15 +8,19 @@ import java.util.Collection;
 /* */
 public class RuleFactory {
 
+    public static final String NO_REPETITION_TYPE = "no_rep";
+    public static final String SUM_TYPE = "sum";
+    public static final String DELIMITER = "_";
+
     public static BaseRule create(String type, Walk walkObject, Collection<String> cellPositions) {
-        if (type.equals("no_rep")) {
+        if (type.equals(NO_REPETITION_TYPE)) {
             return new NoRepetitionRule(cellPositions, walkObject);
-        } else if (type.equals("sum")) {
+        } else if (type.equals(SUM_TYPE)) {
             String initCells = (cellPositions.iterator()).next();
 
             cellPositions.clear();
-            cellPositions.add(initCells.split("_")[0]);
-            int sumNumber = Integer.parseInt(initCells.split("_")[1]);
+            cellPositions.add(initCells.split(DELIMITER)[0]);
+            int sumNumber = Integer.parseInt(initCells.split(DELIMITER)[1]);
 
             return new SumRule(cellPositions, walkObject, sumNumber);
         }

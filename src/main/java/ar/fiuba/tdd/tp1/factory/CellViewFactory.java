@@ -10,12 +10,14 @@ import ar.fiuba.tdd.tp1.view.NullCellView;
 
 /* */
 public class CellViewFactory {
+
+
     public static CellView create(Cell cell, String type) {
-        if (type.equals("data")) {
+        if (type.equals(Cell.DATA_TYPE)) {
             return new DataCellView(cell);
-        } else if (type.equals("nullcell")) {
+        } else if (type.equals(Cell.NULL_TYPE)) {
             return new NullCellView();
-        } else if (type.equals("kakoru")) {
+        } else if (type.equals(Cell.KAKORU_TYPE)) {
             return new KakoruCellView(cell);
         } else {
             return null;
