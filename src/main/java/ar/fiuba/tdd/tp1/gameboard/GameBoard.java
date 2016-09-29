@@ -41,8 +41,9 @@ public class GameBoard extends Observable {
     }
 
 
-    public void setCellValue(int rowIdx, int columnIdx, Integer value) {
+    public void setCellValue(int rowIdx, int columnIdx, String value) {
         cells.elementAt(rowIdx).elementAt(columnIdx).setData(value);
+        this.updateObservers();
     }
 
     public boolean isFull() {

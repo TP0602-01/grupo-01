@@ -21,7 +21,6 @@ public class Main {
             GameBoardController controller = new GameLoop(gameBoard);
 
             view.update();
-            gameBoard.registerObserver(view);
             controller.start();
 
             if (gameBoard.checkRules()) {
