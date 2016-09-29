@@ -22,7 +22,7 @@ public class BoardViewTests {
         InputCell b1 = new InputCell();
         InputCell b2 = new InputCell();
         //sasasasa
-        b2.setData(5);
+        b2.setData("5");
 
         CellView cellViewA1 = new DataCellView(a1);
         CellView cellViewA2 = new DataCellView(a2);
