@@ -7,7 +7,7 @@ public class NullCell extends Cell {
     }
 
     public boolean isEmpty() {
-        return true;
+        return false;
     }
 
     @Override
