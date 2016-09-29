@@ -15,6 +15,7 @@ public class WalkRegion extends Walk {
 
     public Vector<Cell> getRegion(String posI, String posE){
         int rowI = Integer.parseInt(posI.split(",")[0]);
+        
         int columnI = Integer.parseInt(posI.split(",")[1]);
         int rowE = Integer.parseInt(posE.split(",")[0]);
         int columnE = Integer.parseInt(posE.split(",")[1]);
