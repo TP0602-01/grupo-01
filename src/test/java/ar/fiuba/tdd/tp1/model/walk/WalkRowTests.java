@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp1.model.walk;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
+import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.walk.Walk;
 import ar.fiuba.tdd.tp1.walk.WalkColumn;
@@ -35,6 +36,7 @@ public class WalkRowTests {
             dataStored.add(column);
             when(gameBoardMock.getCell(initialRow, column)).thenReturn(new InputCell(Integer.toString(column)));
         }
+        when(gameBoardMock.getCell(initialRow, 2)).thenReturn(new NullCell());
         Walk walk = new WalkRow(gameBoardMock);
         cells = walk.getCellList(initialRow, initialColumn);
     }
