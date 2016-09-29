@@ -59,7 +59,9 @@ public class GameBoard extends Observable {
             for (int j = 0; j < width; j++) {
                 Cell cell = getCell(i, j);
                 if (cell.isEmpty()) {
+                    System.out.println("is full false");
                     return false;
+
                 }
             }
         }
