@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /* */
-public class GameLoop {
+public class GameLoop implements GameBoardController {
 
     GameBoard gameBoard;
 

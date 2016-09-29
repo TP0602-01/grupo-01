@@ -48,4 +48,8 @@ public class BoardView extends Observer {
     int getColumnsNumber() {
         return this.gameBoard.getWidth();
     }
+
+    public void showMessage(String message) {
+        System.out.println(message);
+    }
 }
