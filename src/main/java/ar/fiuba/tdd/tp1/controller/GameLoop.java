@@ -15,13 +15,13 @@ public class GameLoop {
 
     public GameLoop(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
-        System.setProperty("file.encoding","UTF-8");
+        System.setProperty("file.encoding", "UTF-8");
         Field charset = null;
         try {
-            charset =Charset.class.getDeclaredField("defaultCharset");
+            charset = Charset.class.getDeclaredField("defaultCharset");
 
             charset.setAccessible(true);
-            charset.set(null,null);
+            charset.set(null, null);
             scanner = new Scanner(System.in);
         } catch (Exception e) {
             e.printStackTrace();

@@ -4,15 +4,16 @@ import ar.fiuba.tdd.tp1.utilities.Observable;
 
 /*  */
 public abstract class Cell extends Observable {
-    protected Integer data;
+    protected String data;
 
-    Cell(Integer data) {
+    Cell(String data) {
         this.data = data;
     }
 
+
     public abstract boolean isEmpty();
 
-    public Integer getData() {
+    public String getData() {
         return this.data;
     }
 

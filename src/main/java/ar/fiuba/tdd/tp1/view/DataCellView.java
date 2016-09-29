@@ -1,12 +1,13 @@
 package ar.fiuba.tdd.tp1.view;
 
+import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
 
 public class DataCellView implements CellView {
 
-    private InputCell cell;
+    private Cell cell;
 
-    public DataCellView(InputCell cell) {
+    public DataCellView(Cell cell) {
         this.cell = cell;
     }
 

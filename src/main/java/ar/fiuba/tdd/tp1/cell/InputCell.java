@@ -1,9 +1,8 @@
 package ar.fiuba.tdd.tp1.cell;
 
-/*  */
 public class InputCell extends Cell {
 
-    public InputCell(Integer data) {
+    public InputCell(String data) {
         super(data);
     }
 
@@ -12,10 +11,10 @@ public class InputCell extends Cell {
     }
 
     public boolean isEmpty() {
-        return (data == 0);
+        return (data == "0");
     }
 
-    public void setData(Integer data) {
+    public void setData(String data) {
         this.data = data;
         System.out.println("Setting value " + data);
     }

@@ -36,7 +36,7 @@ public class WalkRegionTests {
             for (int row = initialRow; row < regionSize; row++) {
                 data = col + 100 * row;
                 dataStored.add(data);
-                when(gameBoardMock.getCell(row, col)).thenReturn(new InputCell(data));
+                when(gameBoardMock.getCell(row, col)).thenReturn(new InputCell(Integer.toString(data)));
             }
         }
         WalkRegion walk = new WalkRegion(gameBoardMock);

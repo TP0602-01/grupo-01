@@ -31,7 +31,7 @@ public class WalkColumnTest {
         when(gameBoardMock.getHeigth()).thenReturn(2);
         for (int row = initialRow; row < columnSize; row++) {
             dataStored.add(row);
-            when(gameBoardMock.getCell(row, initialColumn)).thenReturn(new InputCell(row));
+            when(gameBoardMock.getCell(row, initialColumn)).thenReturn(new InputCell(Integer.toString(row)));
         }
         Walk walk = new WalkColumn(gameBoardMock);
         cells = walk.getCellList(initialRow, initialColumn);
