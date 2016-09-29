@@ -11,6 +11,11 @@ public class InputCell extends Cell {
         super(null);
     }
 
+
+    public boolean isEmpty(){
+        return (data == "0");
+    }
+
     public void setData(String data) {
         this.data = data;
     }

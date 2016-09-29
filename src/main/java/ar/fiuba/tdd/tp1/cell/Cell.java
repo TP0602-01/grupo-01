@@ -10,6 +10,10 @@ public abstract class Cell extends Observable {
         this.data = data;
     }
 
+
+
+    public abstract boolean isEmpty();
+
     public String getData() {
         return this.data;
     }
