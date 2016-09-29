@@ -15,6 +15,8 @@ public class CellFactory {
             return new NullCell();
         } else if (type.equals(Cell.KAKORU_TYPE)) {
             return new FixedCell(content);
+        } else if  (type.equals(Cell.HINT_TYPE)) {
+            return new FixedCell(content);
         } else {
             return null;
 
