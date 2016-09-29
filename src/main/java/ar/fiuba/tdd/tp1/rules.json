@@ -98,6 +98,15 @@
           "cell": "6,6"
         }
       ]
+    },
+    {
+      "type": "sum",
+      "walk": "row",
+      "init_cells": [
+        {
+          "cell": "0,0_8"
+        }
+      ]
     }
   ]
 }

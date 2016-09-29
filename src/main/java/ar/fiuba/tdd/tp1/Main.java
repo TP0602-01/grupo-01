@@ -28,53 +28,30 @@ import java.util.Iterator;
 public class Main {
     public static void main(String[] args) {
         // PARAMETROS QUE SE TOMAN DE ARCHIVO
-        int boardWidth = 9;
-        int boardHeight = 9;
+        int boardWidth;
+        int boardHeight;
 
         // Initialize Structure Game
 
+
         // Board
-        GameBoard gameBoard = new GameBoard(boardWidth, boardHeight);
-        BoardView boardView = new BoardView(gameBoard);
+        GameBoard gameBoard = null;
+        BoardView boardView = null;
 
-        // Rules and Walks
         JSONParser parser = new JSONParser();
-        try {
-            FileReader fileReader = new FileReader("/home/juanma/Tecnicas de Diseño/grupo-01/src/main/java/ar/fiuba/tdd/tp1/rules.json");
-            JSONObject json = (JSONObject) parser.parse(fileReader);
-            JSONArray rules = (JSONArray) json.get("rules");
-
-            Iterator it = rules.iterator();
-            while (it.hasNext()) {
-                JSONObject rule = (JSONObject) it.next();
-                String type = (String) rule.get("type");
-                String walk = (String) rule.get("walk");
-                JSONArray cells = (JSONArray) rule.get("init_cells");
-
-                // Todas las celdas ponele el sudoku regla que sea no rep para abajo
-                Collection<String> cellPositions = new ArrayList<String>();
-                Iterator jt = cells.iterator();
-                while (jt.hasNext()) {
-                    JSONObject cellObject = (JSONObject) jt.next();
-                    String cellPosition = (String) cellObject.get("cell");
-                    cellPositions.add(cellPosition);
-
-                    System.out.print(cellPosition);
-                }
-
-                Walk walkObject = WalkFactory.create(gameBoard, walk);
-                BaseRule ruleObject = RuleFactory.create(type, walkObject, cellPositions);
-                gameBoard.addRule(ruleObject);
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
 
         // Celdas
         try {
-            FileReader fileReader = new FileReader("/home/juanma/Tecnicas de Diseño/grupo-01/src/main/java/ar/fiuba/tdd/tp1/structure.json");
+            //FileReader fileReader = new FileReader("/home/juanma/Tecnicas de Diseño/grupo-01/src/main/java/ar/fiuba/tdd/tp1/structure.json");
+            FileReader fileReader = new FileReader("/home/juanma/Tecnicas de Diseño/grupo-01/src/main/java/ar/fiuba/tdd/tp1/kakoruStructure.json");
             JSONObject json = (JSONObject) parser.parse(fileReader);
+
+            boardWidth = Integer.parseInt( (String) json.get( "width" ) );
+            boardHeight = Integer.parseInt( (String) json.get( "height" ) );
+
+            gameBoard = new GameBoard(boardWidth, boardHeight);
+            boardView = new BoardView(gameBoard);
+
             JSONObject structure = (JSONObject) json.get("structure");
             JSONArray cell = (JSONArray) structure.get("cells");
 
@@ -93,9 +70,11 @@ public class Main {
 
                 System.out.println(firxtX + "  " + firxtY + "   "+ endX + "   "+ endY);
 
+                String content = (String) rule.get("content");
+
                 for (int x = firxtX; x <= endX; ++x) {
                     for (int y = firxtY; y <= endY; ++y) {
-                        Cell cellObject = CellFactory.create(type);
+                        Cell cellObject = CellFactory.create(type,content);
                         CellView cellView = CellViewFactory.create(cellObject, type);
                         gameBoard.addCell(x, y, cellObject);
                         boardView.addCellViewIn(cellView, x, y);
@@ -106,7 +85,48 @@ public class Main {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
+        // Rules and Walks
+        try {
+            //FileReader fileReader = new FileReader("/home/juanma/Tecnicas de Diseño/grupo-01/src/main/java/ar/fiuba/tdd/tp1/rules.json");
+            FileReader fileReader = new FileReader("/home/juanma/Tecnicas de Diseño/grupo-01/src/main/java/ar/fiuba/tdd/tp1/kakoruRules.json");
+            JSONObject json = (JSONObject) parser.parse(fileReader);
+            JSONArray rules = (JSONArray) json.get("rules");
+
+            Iterator it = rules.iterator();
+            while (it.hasNext()) {
+                JSONObject rule = (JSONObject) it.next();
+                String type = (String) rule.get("type");
+                String walk = (String) rule.get("walk");
+                JSONArray cells = (JSONArray) rule.get("init_cells");
+
+
+                Collection<String> cellPositions = new ArrayList<String>();
+                Iterator jt = cells.iterator();
+                while (jt.hasNext()) {
+                    JSONObject cellObject = (JSONObject) jt.next();
+                    String cellPosition = (String) cellObject.get("cell");
+                    cellPositions.add(cellPosition);
+
+                    System.out.println(cellPosition);
+                }
+
+                Walk walkObject = WalkFactory.create(gameBoard, walk);
+                BaseRule ruleObject = RuleFactory.create(type, walkObject, cellPositions);
+                gameBoard.addRule(ruleObject);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
+
+
+
         boardView.update();
+
+
 
         // Enter View
         gameBoard.registerObserver(boardView);
@@ -133,21 +153,7 @@ public class Main {
                 gameBoard.addCell(posX, posY, newCell);
                 */
 
-                //((InputCell)(gameBoard.getCell(posX, posY))).setData(value);
-                int cont = 1;
-                for (int i=0; i <= 8; i++){
-                    for (int j=0; j <= 8; j++){
-/*
-                        for (int k=1; k <= 9; k++) {
-                            value = String.valueOf((k*cont) % (9) + 1);
-                            ((InputCell) (gameBoard.getCell(i, j))).setData(value);
-                        }
-*/                      ((InputCell) (gameBoard.getCell(i, j))).setData(String.valueOf((i + j) % 9 + 1));
-
-                        cont++;
-                    }
-                }
-
+                ((InputCell)(gameBoard.getCell(posX, posY))).setData(value);
 
                 boardView.update();
             } catch (IOException e) {

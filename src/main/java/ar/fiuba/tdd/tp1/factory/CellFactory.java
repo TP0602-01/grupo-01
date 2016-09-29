@@ -8,7 +8,7 @@ import ar.fiuba.tdd.tp1.cell.InputCell;
  * Created by lucas on 27/09/16.
  */
 public class CellFactory {
-    public static Cell create(String type) {
+    public static Cell create(String type, String content) {
         if (type.equals("data")) {
             return new InputCell("0");
         }
@@ -16,7 +16,7 @@ public class CellFactory {
             return new FixedCell(null);
         }
         if (type.equals("kakoru")) {
-            return new FixedCell(null);
+            return new FixedCell(content);
         }
         return null;
     }

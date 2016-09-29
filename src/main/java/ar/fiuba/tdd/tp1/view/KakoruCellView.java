@@ -20,9 +20,23 @@ public class KakoruCellView implements CellView {
 
 
     public KakoruCellView(Cell cell){
-        String cellContent = cell.getData(); //"10/3"
-        this.rightUpSum = Integer.parseInt(cellContent.split("/")[0]);
-        this.leftDownSum = Integer.parseInt(cellContent.split("/")[1]);
+        String cellContent = cell.getData();
+
+        String leftNumber = cellContent.split("/")[0];
+        if (leftNumber.matches("_") ) {
+            this.leftDownSum = null;
+        }
+        else {
+            this.leftDownSum = Integer.parseInt(leftNumber);
+        }
+
+        String rightNumber = cellContent.split("/")[1];
+        if (rightNumber.matches("_") ) {
+            this.rightUpSum = null;
+        }
+        else {
+            this.rightUpSum = Integer.parseInt(rightNumber);
+        }
     }
 
 

@@ -1,0 +1,22 @@
+{
+  "rules": [
+    {
+      "type": "sum",
+      "walk": "row",
+      "init_cells": [
+        {
+          "cell": "2,0_10"
+        }
+      ]
+    },
+    {
+      "type": "sum",
+      "walk": "col",
+      "init_cells": [
+        {
+          "cell": "1,2_3"
+        }
+      ]
+    }
+  ]
+}

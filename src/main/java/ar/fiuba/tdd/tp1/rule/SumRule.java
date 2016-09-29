@@ -1,23 +1,35 @@
 package ar.fiuba.tdd.tp1.rule;
 
+import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.walk.Walk;
 
 import java.util.Collection;
+import java.util.Vector;
 
 /*  */
-class SumRule extends BaseRule {
+public class SumRule extends BaseRule {
 
-    SumRule(Collection<String> cells, Walk walk, Integer sumResult) {
+
+    private int expectedSumResult;
+
+    public SumRule(Collection<String> cells, Walk walk, Integer sumResult) {
         super(cells, walk);
+        this.expectedSumResult = sumResult;
     }
 
     public boolean check() {
-        /*Integer sum = 0;
-        for (Cell cell : cells) {
-            sum += cell.getData();
+        Integer sum = 0;
+        for (String cell: cells) {
+            Integer intX = Integer.parseInt(cell.split(",")[0]);
+            Integer intY = Integer.parseInt(cell.split(",")[1]);
+
+            Vector<Cell> cellList = walk.getCellList(intX, intY);
+
+            for (Cell cellValue: cellList) {
+                sum += Integer.parseInt( cellValue.getData() );
+            }
         }
-        return sum.equals(expectedSumResult);*/
-        return true;    //TODO: CAMBIAR
+        return sum.equals(expectedSumResult);
     }
 
     //TODO: if this implementation is chosen then replace check() with this method
