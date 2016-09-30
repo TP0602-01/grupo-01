@@ -27,11 +27,4 @@ public class MulRule extends BaseRule {
         return mul.equals(expectedSumResult);
     }
 
-    protected Vector<Cell> calculateCellList(String cellAsString) {
-        String firstPos = cellAsString.split("-")[0];
-        String endPos = cellAsString.split("-")[1];
-        return walk.getCellList(firstPos, endPos);
-    }
-
-
 }

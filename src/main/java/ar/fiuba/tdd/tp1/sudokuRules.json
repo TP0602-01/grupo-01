@@ -35,7 +35,7 @@
       "walk": "region",
       "init_cells": [
         {
-          "cell": "0,0"
+          "cell": "0,0-2,2"
         }
       ]
     }

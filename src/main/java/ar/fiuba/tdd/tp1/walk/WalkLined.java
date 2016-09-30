@@ -15,7 +15,9 @@ public abstract class WalkLined extends Walk {
 
     protected abstract int getNextRow(int row);
 
-    public Vector<Cell> getCellList(String row, String column) {
+    public Vector<Cell> getCellList(String description) {
+        String row = description.split(",")[0];
+        String column = description.split(",")[1];
         Vector<Cell> cells = new Vector<>();
 
         int currentColum = Integer.parseInt(column);

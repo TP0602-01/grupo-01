@@ -38,7 +38,7 @@ public class WalkRowTests {
         }
         when(gameBoardMock.getCell(initialRow, 2)).thenReturn(new NullCell());
         Walk walk = new WalkRow(gameBoardMock);
-        cells = walk.getCellList(initialRow, initialColumn);
+        cells = walk.getCellList(Integer.toString(initialRow) +","+ Integer.toString(initialColumn));
     }
 
     @Test

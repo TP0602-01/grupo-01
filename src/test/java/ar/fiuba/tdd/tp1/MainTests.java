@@ -66,7 +66,6 @@ public class MainTests {
         String rules = "./src/main/java/ar/fiuba/tdd/tp1/rules.json";
 
         assertTrue(autoPlayGame(input, structure, rules));
-
     }
 
 }

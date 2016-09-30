@@ -13,5 +13,5 @@ public abstract class Walk {
         this.gameBoard = gameBoard;
     }
 
-    public abstract Vector<Cell> getCellList(String row, String column);
+    public abstract Vector<Cell> getCellList(String description);
 }

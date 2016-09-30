@@ -20,8 +20,6 @@ public abstract class BaseRule implements IRule {
     public abstract boolean check();
 
     protected Vector<Cell> calculateCellList(String cellAsString) {
-        Integer intX = Integer.parseInt(cellAsString.split(",")[0]);
-        Integer intY = Integer.parseInt(cellAsString.split(",")[1]);
-        return walk.getCellList(intX, intY);
+        return walk.getCellList(cellAsString);
     }
 }

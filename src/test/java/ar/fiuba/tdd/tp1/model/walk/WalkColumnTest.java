@@ -6,7 +6,6 @@ import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.walk.Walk;
 import ar.fiuba.tdd.tp1.walk.WalkColumn;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,7 +35,7 @@ public class WalkColumnTest {
         }
         when(gameBoardMock.getCell(initialRow + columnSize, initialColumn)).thenReturn(new NullCell());
         Walk walk = new WalkColumn(gameBoardMock);
-        cells = walk.getCellList(initialRow, initialColumn);
+        cells = walk.getCellList(Integer.toString(initialRow) +","+ Integer.toString(initialColumn));
     }
 
     @Test

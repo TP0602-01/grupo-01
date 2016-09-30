@@ -13,7 +13,10 @@ public class WalkRegion extends Walk {
         super(gameBoard);
     }
 
-    public Vector<Cell> getCellList(String row, String column) {
+    public Vector<Cell> getCellList(String description) {
+        String row = description.split("-")[0];
+        String column = description.split("-")[1];
+
         int rowI = Integer.parseInt(row.split(",")[0]);
         
         int columnI = Integer.parseInt(row.split(",")[1]);
