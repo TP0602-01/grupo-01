@@ -14,16 +14,17 @@ import java.util.Collection;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 public class WalkColumnTest {
     GameBoard gameBoardMock;
+    Collection<Cell> cells;
+    ArrayList<Integer> dataStored = new ArrayList<>();
     private int initialRow = 0;
     private int initialColumn = 0;
     private int columnSize = 2;
-    Collection<Cell> cells;
-    ArrayList<Integer> dataStored = new ArrayList<>();
 
     @Before
     public void setUp() {
@@ -35,7 +36,7 @@ public class WalkColumnTest {
         }
         when(gameBoardMock.getCell(initialRow + columnSize, initialColumn)).thenReturn(new NullCell());
         Walk walk = new WalkColumn(gameBoardMock);
-        cells = walk.getCellList(Integer.toString(initialRow) +","+ Integer.toString(initialColumn));
+        cells = walk.getCellList(Integer.toString(initialRow) + "," + Integer.toString(initialColumn));
     }
 
     @Test

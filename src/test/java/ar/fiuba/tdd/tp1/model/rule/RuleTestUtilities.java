@@ -20,7 +20,7 @@ public class RuleTestUtilities {
                 collectionReturnedByWalk.add(new InputCell(cellData[row][column]));
             }
         }
-        when(walkMock.getCellList(Integer.toString(initialRow) +","+ Integer.toString(initialColumn))).thenReturn(collectionReturnedByWalk);
+        when(walkMock.getCellList(Integer.toString(initialRow) + "," + Integer.toString(initialColumn))).thenReturn(collectionReturnedByWalk);
         return walkMock;
     }
 

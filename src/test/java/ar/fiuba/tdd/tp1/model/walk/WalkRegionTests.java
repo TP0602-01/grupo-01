@@ -40,7 +40,6 @@ public class WalkRegionTests {
             }
         }
         WalkRegion walk = new WalkRegion(gameBoardMock);
-        walk.setSizeRegion(regionSize);
         cells = walk.getCellList("0,0-1,1");
     }
 

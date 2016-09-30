@@ -7,8 +7,6 @@ import java.util.Vector;
 
 
 public class WalkRegion extends Walk {
-    private int sizeRegion;
-
     public WalkRegion(GameBoard gameBoard) {
         super(gameBoard);
     }
@@ -31,10 +29,5 @@ public class WalkRegion extends Walk {
         }
         return cells;
     }
-
-    public void setSizeRegion(int tamRegion) {
-        this.sizeRegion = tamRegion;
-    }
-
 
 }

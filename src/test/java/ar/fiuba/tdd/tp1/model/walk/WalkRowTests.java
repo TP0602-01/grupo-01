@@ -6,7 +6,6 @@ import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.walk.Walk;
-import ar.fiuba.tdd.tp1.walk.WalkColumn;
 import ar.fiuba.tdd.tp1.walk.WalkRow;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,11 +20,11 @@ import static org.mockito.Mockito.when;
 
 public class WalkRowTests {
     GameBoard gameBoardMock;
+    Collection<Cell> cells;
+    ArrayList<Integer> dataStored = new ArrayList<>();
     private int initialRow = 0;
     private int initialColumn = 0;
     private int rowSize = 2;
-    Collection<Cell> cells;
-    ArrayList<Integer> dataStored = new ArrayList<>();
 
     @Before
     public void setUp() {
@@ -38,7 +37,7 @@ public class WalkRowTests {
         }
         when(gameBoardMock.getCell(initialRow, 2)).thenReturn(new NullCell());
         Walk walk = new WalkRow(gameBoardMock);
-        cells = walk.getCellList(Integer.toString(initialRow) +","+ Integer.toString(initialColumn));
+        cells = walk.getCellList(Integer.toString(initialRow) + "," + Integer.toString(initialColumn));
     }
 
     @Test

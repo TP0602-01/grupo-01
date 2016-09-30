@@ -15,7 +15,6 @@ public class WalkFactory {
             return new WalkColumn(board);
         } else if (walk.equals("region")) {
             WalkRegion walkRegion = new WalkRegion(board);
-            walkRegion.setSizeRegion(3);
             return walkRegion;
         }
         return null;
