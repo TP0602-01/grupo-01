@@ -11,4 +11,19 @@ public class FixedCellTest {
         FixedCell anFixedCell = new FixedCell("1");
         assertTrue(anFixedCell.getData().equals("1"));
     }
+
+    @Test
+    public void creatingAnFixedCellWithAnIntegerAndTryingSetValue() {
+        FixedCell anFixedCell = new FixedCell("1");
+        anFixedCell.setData("3");
+        assertTrue(anFixedCell.getData().equals("1"));
+    }
+
+    @Test
+    public void creatingAnFixedCellWithAnIntegerAndItsWalkable() {
+        FixedCell anFixedCell = new FixedCell("1");
+        assertTrue(!anFixedCell.isWalkable());
+    }
+
+
 }

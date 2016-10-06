@@ -12,6 +12,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 public class RuleFactoryTests {
@@ -36,6 +37,17 @@ public class RuleFactoryTests {
         IRule rule = ruleFactory.create(RuleFactory.SUM_TYPE, walk, cellAsString);
 
         assertTrue(rule instanceof SumRule);
+    }
+
+    @Test
+    public void creatingARuleWithUndefinedTypeMustReturnFalse() {
+        String[][] data = {{"1"}};
+        Walk walk = utilities.createAWalkMock(0, 0, data);
+        Collection<String> cellAsString = new ArrayList<>();
+        cellAsString.add("0_0");
+        IRule rule = ruleFactory.create("alskjdlaksjdsakl", walk, cellAsString);
+
+        assertEquals(null, rule);
     }
 
 }
