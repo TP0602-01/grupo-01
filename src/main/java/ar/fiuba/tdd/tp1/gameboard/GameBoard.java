@@ -2,13 +2,16 @@ package ar.fiuba.tdd.tp1.gameboard;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
+import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.Linkeable;
+import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.LinkeableSquare;
+import ar.fiuba.tdd.tp1.graphSecondIt.linker.LinkeableMatrix;
 import ar.fiuba.tdd.tp1.rule.IRule;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
 import java.util.*;
 
 /*  */
-public class GameBoard extends Observable {
+public class GameBoard extends Observable implements LinkeableMatrix{
 
     private Map<Integer, Map<Integer,Cell>> cells;
 
@@ -38,7 +41,7 @@ public class GameBoard extends Observable {
 
     public Cell getCell(int rowIdx, int columnIdx) {
         if ((rowIdx >= this.getHeigth()) || (columnIdx >= this.getWidth())) {
-            return new NullCell();
+            return null;//new NullCell();
         } else {
             return cells.get(rowIdx).get(columnIdx);
         }
@@ -83,4 +86,13 @@ public class GameBoard extends Observable {
     public int getWidth() {
         return cells.get(0).size();
     }
+
+
+
+    @Override
+    public LinkeableSquare getLinkeable(int row, int column) {
+        return this.getCell(row, column);
+    }
+
+
 }

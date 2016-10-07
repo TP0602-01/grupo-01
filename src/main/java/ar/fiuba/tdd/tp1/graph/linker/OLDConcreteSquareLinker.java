@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp1.graph.linker;
 
-import ar.fiuba.tdd.tp1.graph.linkeable.LinkeableSquare;
+import ar.fiuba.tdd.tp1.graph.linkeable.OLDLinkeableSquare;
 import javafx.util.Pair;
 
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by juanma on 06/10/16.
  */
-public class ConcreteSquareLinker implements SquareLinker{
+public class OLDConcreteSquareLinker implements OLDSquareLinker {
 
     //TODO: migth be a Map<String, Map<String, Set<String>> >
     Map<String, Pair<String, Set<String>> > linkingInfo;
@@ -19,7 +19,7 @@ public class ConcreteSquareLinker implements SquareLinker{
     public static final String LEFT = "LEFT";
 
 
-    public ConcreteSquareLinker(){
+    public OLDConcreteSquareLinker(){
         this.linkingInfo = new HashMap<>();
 
         //TODO: se podrian usar en la configuracion indices relativos en vez de direcciones hardcodeadas
@@ -38,15 +38,15 @@ public class ConcreteSquareLinker implements SquareLinker{
     }
 
     @Override
-    public void updateLinkeablesLinks(LinkeableSquare originLinkeable) {
+    public void updateLinkeablesLinks(OLDLinkeableSquare originLinkeable) {
 
-        this.checkLinkingTokens(originLinkeable, originLinkeable.getRightNeighbour(), this.RIGHT);
-        this.checkLinkingTokens(originLinkeable, originLinkeable.getLeftNeighbour(), this.LEFT );
+        //this.checkLinkingTokens(originLinkeable, originLinkeable.getRightNeighbour(), this.RIGHT);
+        //this.checkLinkingTokens(originLinkeable, originLinkeable.getLeftNeighbour(), this.LEFT );
         //TODO: pensar una mejor forma de chequear esto o agregar los otros 6 metodos pare el resto de las direcciones...
     }
 
 
-    private void checkLinkingTokens(LinkeableSquare originSquare, LinkeableSquare adyacentSquare, String direction){
+    private void checkLinkingTokens(OLDLinkeableSquare originSquare, OLDLinkeableSquare adyacentSquare, String direction){
         if (adyacentSquare != null) {
             boolean shouldBeLinked = false;
             Set<String> originLinkingTokens = originSquare.getLinkingTokens();

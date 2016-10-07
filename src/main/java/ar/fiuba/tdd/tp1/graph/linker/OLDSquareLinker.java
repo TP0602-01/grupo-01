@@ -1,15 +1,15 @@
 package ar.fiuba.tdd.tp1.graph.linker;
 
-import ar.fiuba.tdd.tp1.graph.linkeable.LinkeableSquare;
+import ar.fiuba.tdd.tp1.graph.linkeable.OLDLinkeableSquare;
 
 import java.util.Set;
 
 /**
  * Created by juanma on 06/10/16.
  */
-public interface SquareLinker {
+public interface OLDSquareLinker {
 
-    public void updateLinkeablesLinks(LinkeableSquare initialLinkeable);
+    public void updateLinkeablesLinks(OLDLinkeableSquare initialLinkeable);
 
     //TODO se podria manejar con subindices para evitar tener tantos metodos
     public void setRightLinkingInfo(String originTokens, Set<String> destinationTokens);
