@@ -1,13 +1,13 @@
 package ar.fiuba.tdd.tp1.cell;
 
-import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.LinkeableSquare;
+import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.Linkeable;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /*  */
-public abstract class Cell extends Observable implements LinkeableSquare{
+public abstract class Cell extends Observable implements Linkeable{
 
     public static final String DATA_TYPE = "data";
     public static final String NULL_TYPE = "nullcell";
@@ -35,31 +35,6 @@ public abstract class Cell extends Observable implements LinkeableSquare{
 
 
 
-
-    private LinkeableSquare rightLinked;
-    private LinkeableSquare leftLinked;
-
-    @Override
-    public LinkeableSquare getRightLinked() {
-        return this.rightLinked;
-    }
-
-    @Override
-    public LinkeableSquare getLeftLinked() {
-        return this.leftLinked;
-    }
-
-    @Override
-    public void setRightLinked(LinkeableSquare linked) {
-        this.rightLinked = linked;
-    }
-
-    @Override
-    public void setLeftLinked(LinkeableSquare linked) {
-        this.leftLinked = linked;
-    }
-
-
     @Override
     public Set<String> getLinkingTokens() {
         return this.linkingTokens;
@@ -69,12 +44,6 @@ public abstract class Cell extends Observable implements LinkeableSquare{
     public void setLinkingTokens(Set<String> linkingTokens) {
         this.linkingTokens = linkingTokens;
     }
-
-
-
-
-
-
 
 
 

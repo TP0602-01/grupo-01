@@ -1,9 +1,7 @@
 package ar.fiuba.tdd.tp1.graphSecondIt.linker;
 
 import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.Linkeable;
-import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.LinkeableSquare;
 import ar.fiuba.tdd.tp1.graphSecondIt.linksManager.LinksManager;
-import ar.fiuba.tdd.tp1.graphSecondIt.linksManager.MapLinkManager;
 import javafx.util.Pair;
 
 import java.util.HashMap;
@@ -43,7 +41,7 @@ public class ConcreteSquareLinker implements SquareLinker {
     @Override
     public void updateLinkeablesLinks(int row, int column) {
 
-        LinkeableSquare originSquare = this.linkeableMatrix.getLinkeable(row, column);
+        Linkeable originSquare = this.linkeableMatrix.getLinkeable(row, column);
 
         //Recorro cada posible offset de la tabla
 
@@ -53,7 +51,7 @@ public class ConcreteSquareLinker implements SquareLinker {
 
             int rowOffset = currentInfoEntry.getKey().getKey();//RIP DEMETER LAW
             int columnOffset = currentInfoEntry.getKey().getValue();//RIP DEMETER LAW
-            LinkeableSquare destinationSquare = this.linkeableMatrix.getLinkeable(row + rowOffset, column + columnOffset);
+            Linkeable destinationSquare = this.linkeableMatrix.getLinkeable(row + rowOffset, column + columnOffset);
 
 
             if (destinationSquare != null) {

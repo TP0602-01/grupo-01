@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp1.graphSecondIt.linker;
 
-import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.LinkeableSquare;
-
 import java.util.Set;
 
 /**
