@@ -45,7 +45,10 @@ public abstract class Cell extends Observable implements Linkeable{
         this.linkingTokens = linkingTokens;
     }
 
-
+    @Override
+    public void addLinkingToken(String token) {
+        this.linkingTokens.add(token);
+    }
 
 
     // TODO: borrarlo despues

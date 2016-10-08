@@ -8,4 +8,5 @@ import java.util.Set;
 public interface Linkeable {
     public Set<String> getLinkingTokens();
     public void setLinkingTokens(Set<String> linkingTokens);
+    public void addLinkingToken(String token);
 }
