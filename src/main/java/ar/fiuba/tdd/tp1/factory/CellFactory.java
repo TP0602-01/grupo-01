@@ -34,7 +34,7 @@ public class CellFactory {
         if (cellCreators == null) {
             initializeCreators();
         }
-        CellCreator cellCreator = cellCreators.get(type);
+        CellCreator cellCreator;
         return (cellCreator = cellCreators.get(type)) == null ? null : cellCreator.createCell(content);
     }
 }
