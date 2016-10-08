@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.rule;
+package ar.fiuba.tdd.tp1.rule.utilities;
 
 public enum ArithmeticalOperator {
 
@@ -8,22 +8,19 @@ public enum ArithmeticalOperator {
         public double apply(double x1, double x2) {
             return x1 + x2;
         }
-    },
-    SUBTRACTION("-") {
-        @Override
-        public double apply(double x1, double x2) {
-            return x1 - x2;
-        }
     };
 
 
-    private final String text;
+    private final String stringRepresentation;
 
     ArithmeticalOperator(String text) {
-        this.text = text;
+        this.stringRepresentation = text;
     }
 
     // Yes, enums *can* have abstract methods. This code compiles...
     public abstract double apply(double x1, double x2);
+
+
+
 
 }

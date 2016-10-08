@@ -11,7 +11,7 @@ public class DataCellView implements CellView {
 
     @Override
     public String asciiDraw() {
-        if ( (this.cell.getData() == null) || (this.cell.getData() == "0") ) {
+        if ((this.cell.getData() == null) || (this.cell.getData() == "0")) {
             return "|     |";
         } else {
             return ("|  " + this.cell.getData() + "  |");

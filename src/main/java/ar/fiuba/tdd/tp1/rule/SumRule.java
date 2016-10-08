@@ -18,9 +18,9 @@ public class SumRule extends BaseRule {
     public boolean check() {
         Integer sum = 0;
 
-        for (String cellAsString: cellsAsString) {
-            for (Cell cellValue: calculateCellList(cellAsString)) {
-                sum += Integer.parseInt( cellValue.getData() );
+        for (String cellAsString : cellsAsString) {
+            for (Cell cellValue : calculateCellList(cellAsString)) {
+                sum += Integer.parseInt(cellValue.getData());
             }
         }
         return sum.equals(expectedSumResult);

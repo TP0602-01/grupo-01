@@ -7,6 +7,9 @@ import ar.fiuba.tdd.tp1.factory.RuleFactory;
 import ar.fiuba.tdd.tp1.factory.WalkFactory;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.rule.BaseRule;
+import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
+import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalRuleOperators;
+import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
 import ar.fiuba.tdd.tp1.view.BoardView;
 import ar.fiuba.tdd.tp1.view.CellView;
 import ar.fiuba.tdd.tp1.walk.Walk;
@@ -15,7 +18,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -83,7 +85,12 @@ public class GameParser {
         }
 
         Walk walkObject = WalkFactory.create(gameBoard, walk);
-        BaseRule ruleObject = RuleFactory.create(type, walkObject, cellPositions);
+
+        //TODO: esta HARDCODEADO por ahora hay que generar la logica
+
+        ArithmeticalRuleOperators operators = new ArithmeticalRuleOperators(ArithmeticalOperator.ADDITION,
+                ComparisonOperator.EQUAL, ComparisonOperator.LESS);
+        BaseRule ruleObject = RuleFactory.create(type, walkObject, cellPositions, operators);
         gameBoard.addRule(ruleObject);
     }
 

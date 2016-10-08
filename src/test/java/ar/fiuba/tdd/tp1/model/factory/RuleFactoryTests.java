@@ -1,12 +1,16 @@
 package ar.fiuba.tdd.tp1.model.factory;
 
 
+import ar.fiuba.tdd.tp1.factory.RuleCreator;
 import ar.fiuba.tdd.tp1.factory.RuleFactory;
 import ar.fiuba.tdd.tp1.model.rule.RuleTestUtilities;
 import ar.fiuba.tdd.tp1.rule.AccumulatorRule;
 import ar.fiuba.tdd.tp1.rule.IRule;
 import ar.fiuba.tdd.tp1.rule.NoRepetitionRule;
 import ar.fiuba.tdd.tp1.rule.SumRule;
+import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
+import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalRuleOperators;
+import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
 import ar.fiuba.tdd.tp1.walk.Walk;
 import org.junit.Test;
 
@@ -23,7 +27,8 @@ public class RuleFactoryTests {
     public void creatingARuleOfTypeNoRepMustReturnANonRepetitionRuleObject() {
         String[][] data = {{"0"}};
         Walk walk = utilities.createAWalkMock(0, 0, data);
-        IRule rule = RuleFactory.create(RuleFactory.NO_REPETITION_TYPE, walk, new ArrayList<>());
+        IRule rule = RuleFactory.create(RuleCreator.NO_REPETITION_RULE_CREATOR.stringRepresentation
+                , walk, new ArrayList<>(), null);
 
         assertTrue(rule instanceof NoRepetitionRule);
     }
@@ -34,18 +39,19 @@ public class RuleFactoryTests {
         Walk walk = utilities.createAWalkMock(0, 0, data);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0_0");
-        IRule rule = RuleFactory.create(RuleFactory.SUM_TYPE, walk, cellAsString);
+        ArithmeticalRuleOperators operators = new ArithmeticalRuleOperators(ArithmeticalOperator.ADDITION, ComparisonOperator.EQUAL, ComparisonOperator.LESS);
+        IRule rule = RuleFactory.create(RuleCreator.ACCUMULATOR_RULE_CREATOR.stringRepresentation, walk, cellAsString, operators);
 
         assertTrue(rule instanceof AccumulatorRule);
     }
 
     @Test
-    public void creatingARuleWithUndefinedTypeMustReturnFalse() {
+    public void creatingARuleWithUndefinedTypeMustReturnNull() {
         String[][] data = {{"1"}};
         Walk walk = utilities.createAWalkMock(0, 0, data);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0_0");
-        IRule rule = RuleFactory.create("alskjdlaksjdsakl", walk, cellAsString);
+        IRule rule = RuleFactory.create("alskjdlaksjdsakl", walk, cellAsString, null);
 
         assertEquals(null, rule);
     }

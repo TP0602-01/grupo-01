@@ -16,17 +16,9 @@ public class CellFactory {
 
         cellCreators = new HashMap<>();
 
-        CellCreator dataCellCreator = InputCell::new;
-        cellCreators.put(Cell.DATA_TYPE, dataCellCreator);
-
-        CellCreator nullCellCreator = (param) -> new NullCell();
-        cellCreators.put(Cell.NULL_TYPE, nullCellCreator);
-
-        CellCreator hintCellCreator = FixedCell::new;
-        cellCreators.put(Cell.HINT_TYPE, hintCellCreator);
-
-        CellCreator kakoruCellCreator = FixedCell::new;
-        cellCreators.put(Cell.KAKORU_TYPE, kakoruCellCreator);
+        for (CellCreator creator: CellCreator.values() ) {
+            cellCreators.put(creator.stringRepresentation,creator);
+        }
     }
 
 

@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp1.model.rule;
 
 import ar.fiuba.tdd.tp1.rule.AccumulatorRule;
-import ar.fiuba.tdd.tp1.rule.ArithmeticalOperator;
-import ar.fiuba.tdd.tp1.rule.ComparisonOperator;
-import ar.fiuba.tdd.tp1.rule.SumRule;
+import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
+import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalRuleOperators;
+import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
 import ar.fiuba.tdd.tp1.walk.Walk;
 
 import org.junit.Test;
@@ -28,7 +28,9 @@ public class SumRuleTests {
         Walk walkMock = utilities.createAWalkMock(0, 0, cellData);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0,0");
-        sumRule = new AccumulatorRule(cellAsString, walkMock, 3, ArithmeticalOperator.ADDITION, ComparisonOperator.EQUAL,ComparisonOperator.LESSOREQUAL);
+
+
+        sumRule = new AccumulatorRule(cellAsString, walkMock, 3, new ArithmeticalRuleOperators(ArithmeticalOperator.ADDITION, ComparisonOperator.EQUAL, ComparisonOperator.LESS));
         assertTrue(sumRule.check());
     }
 
@@ -38,7 +40,7 @@ public class SumRuleTests {
         Walk walkMock = utilities.createAWalkMock(0, 0, cellData);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0,0");
-        sumRule = new AccumulatorRule(cellAsString, walkMock, 1, ArithmeticalOperator.ADDITION, ComparisonOperator.EQUAL,ComparisonOperator.LESSOREQUAL);
+        sumRule = new AccumulatorRule(cellAsString, walkMock, 1, new ArithmeticalRuleOperators(ArithmeticalOperator.ADDITION, ComparisonOperator.EQUAL, ComparisonOperator.LESS));
         assertFalse(sumRule.check());
     }
 
