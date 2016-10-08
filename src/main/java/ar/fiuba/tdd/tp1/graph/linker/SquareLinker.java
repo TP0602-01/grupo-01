@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.graphSecondIt.linker;
+package ar.fiuba.tdd.tp1.graph.linker;
 
 import java.util.Set;
 

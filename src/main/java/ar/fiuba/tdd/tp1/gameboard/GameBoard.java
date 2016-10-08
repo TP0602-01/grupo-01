@@ -2,8 +2,8 @@ package ar.fiuba.tdd.tp1.gameboard;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
-import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.Linkeable;
-import ar.fiuba.tdd.tp1.graphSecondIt.linker.LinkeableMatrix;
+import ar.fiuba.tdd.tp1.graph.linkeable.Linkeable;
+import ar.fiuba.tdd.tp1.graph.linker.LinkeableMatrix;
 import ar.fiuba.tdd.tp1.rule.IRule;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 

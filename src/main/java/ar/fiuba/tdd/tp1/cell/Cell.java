@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp1.cell;
 
-import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.Linkeable;
+import ar.fiuba.tdd.tp1.graph.linkeable.Linkeable;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
 import java.util.HashSet;

@@ -1,7 +1,7 @@
-package ar.fiuba.tdd.tp1.graphSecondIt.linker;
+package ar.fiuba.tdd.tp1.graph.linker;
 
-import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.Linkeable;
-import ar.fiuba.tdd.tp1.graphSecondIt.linksManager.LinksManager;
+import ar.fiuba.tdd.tp1.graph.linkeable.Linkeable;
+import ar.fiuba.tdd.tp1.graph.linksManager.LinksManager;
 import javafx.util.Pair;
 
 import java.util.HashMap;
