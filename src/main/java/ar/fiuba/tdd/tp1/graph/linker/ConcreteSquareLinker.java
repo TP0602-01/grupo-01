@@ -15,7 +15,7 @@ public class ConcreteSquareLinker implements SquareLinker {
 
     //TODO: se podrian crear objetos para que esto quede mas entendible
     //TODO: en definitiva es MAP<key=[rowOffset, colOffset], value=[ TOKEN_ORIGEN, [TOKEN_DESTINO1,..., TOKEN_DESTINOn] ]>
-    Map<Pair<Integer,Integer>, Pair<String, Set<String>> > linkingInfo;
+    Map<Pair<Integer,Integer>, Map<String, Set<String>> > linkingInfo;
 
     LinkeableMatrix linkeableMatrix;
     LinksManager linksManager;
@@ -33,57 +33,67 @@ public class ConcreteSquareLinker implements SquareLinker {
     @Override
     public void setLinkingInfo(int rowOffset, int columnOffset, String originTokens, Set<String> destinationTokens) {
         //Setea en que direccion (representados como offsets) se van a chequear los linkeos
+
         Pair<Integer, Integer> directionOffset = new Pair<>(rowOffset,columnOffset);
-        Pair<String, Set<String>> rightLinkingInfo = new Pair<>(originTokens, destinationTokens);
-        this.linkingInfo.put(directionOffset, rightLinkingInfo );
+        Map<String, Set<String>> linkeableTokensInChosenOffset;
+        if ( this.linkingInfo.containsKey(directionOffset) ){
+            linkeableTokensInChosenOffset = this.linkingInfo.get(directionOffset);
+        }
+        else {
+            linkeableTokensInChosenOffset = new HashMap<>();
+        }
+        linkeableTokensInChosenOffset.put(originTokens, destinationTokens);
+        this.linkingInfo.put( directionOffset, linkeableTokensInChosenOffset);
+
     }
 
     @Override
     public void updateLinkeablesLinks(int row, int column) {
 
-        Linkeable originSquare = this.linkeableMatrix.getLinkeable(row, column);
+        Linkeable origin = this.linkeableMatrix.getLinkeable(row, column);
+        Set<String> originLinkingTokens = origin.getLinkingTokens();
 
         //Recorro cada posible offset de la tabla
 
         //TODO: podria hacerse mas abstracto
-        for (Map.Entry<Pair<Integer,Integer>, Pair<String, Set<String>>> currentInfoEntry : this.linkingInfo.entrySet()){
+        for (Map.Entry<Pair<Integer,Integer>, Map<String, Set<String>>> currentInfoEntry : this.linkingInfo.entrySet()){
             //currentInfoEntry tiene key=[rowOffset, colOffset], value=[ TOKEN_ORIGEN, [TOKEN_DESTINO1,..., TOKEN_DESTINOn] ]
 
             int rowOffset = currentInfoEntry.getKey().getKey();//RIP DEMETER LAW
             int columnOffset = currentInfoEntry.getKey().getValue();//RIP DEMETER LAW
-            Linkeable destinationSquare = this.linkeableMatrix.getLinkeable(row + rowOffset, column + columnOffset);
+            Linkeable destination = this.linkeableMatrix.getLinkeable(row + rowOffset, column + columnOffset);
 
 
-            if (destinationSquare != null) {
+            if (destination != null) {
                 boolean shouldBeLinked = false;
 
 
                 //Tengo que acceder a la tabla de linkeo.
-                String originTokenInCurrentOffset = currentInfoEntry.getValue().getKey();
+                Map<String, Set<String>> currentLinkeableTokensInCurrentOffset = currentInfoEntry.getValue();
 
-                Set<String> originLinkingTokens = originSquare.getLinkingTokens();
+
+
                 for (String originToken: originLinkingTokens){
 
-                    if ( originToken.equals( originTokenInCurrentOffset ) ){
+                    if ( currentLinkeableTokensInCurrentOffset.containsKey(originToken) ){
 
-                        Set<String> compatibleTokensInCurrentOffset = currentInfoEntry.getValue().getValue();
-                        Set<String> adyacentLinkingTokens = destinationSquare.getLinkingTokens();
 
-                        for (String adyacentToken: adyacentLinkingTokens){
-                            if (compatibleTokensInCurrentOffset.contains(adyacentToken)){
+                        Set<String> compatibleDestinationTokensInCurrentOffset = currentLinkeableTokensInCurrentOffset.get(originToken);
+                        Set<String> destinationLinkingTokens = destination.getLinkingTokens();
+
+                        for (String adyacentToken: destinationLinkingTokens){
+                            if (compatibleDestinationTokensInCurrentOffset.contains(adyacentToken)){
                                 shouldBeLinked = true;
                             }
                         }
                     }
                 }
 
-
-
                 if (shouldBeLinked){
-                    this.linksManager.addNotDirectedLinkBetween(originSquare, destinationSquare);
+                    this.linksManager.addNotDirectedLinkBetween(origin, destination);
                 }
                 else{
-                    this.linksManager.removeNotDirectedLinkBetween(originSquare, destinationSquare);
+                    this.linksManager.removeNotDirectedLinkBetween(origin, destination);
                 }
             }
         }
