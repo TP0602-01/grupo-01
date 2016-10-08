@@ -12,4 +12,5 @@ public interface LinkeableSquare extends Linkeable{
 
     public void setRightLinked(LinkeableSquare righ);
     public void setLeftLinked(LinkeableSquare link);
+
 }

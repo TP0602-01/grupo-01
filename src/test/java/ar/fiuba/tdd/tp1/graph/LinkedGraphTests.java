@@ -9,6 +9,8 @@ import ar.fiuba.tdd.tp1.graph.linker.OLDConcreteSquareLinker;
 import ar.fiuba.tdd.tp1.graph.linker.OLDSquareLinker;
 import ar.fiuba.tdd.tp1.graphSecondIt.linker.ConcreteSquareLinker;
 import ar.fiuba.tdd.tp1.graphSecondIt.linker.SquareLinker;
+import ar.fiuba.tdd.tp1.graphSecondIt.linksManager.LinksManager;
+import ar.fiuba.tdd.tp1.graphSecondIt.linksManager.MapLinkManager;
 import javafx.util.Pair;
 import org.junit.Test;
 
@@ -18,6 +20,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 /**
@@ -121,8 +124,9 @@ public class LinkedGraphTests {
     }
 */
 
+
     @Test
-    public void testLinkerSimulationWithGameBoard() {
+    public void testLinkerSimulationWithGameBoardAndLinksManager() {
 
         ////////////////////////////////CONFIGURACION DEL BOARD//////////////////////
         GameBoard board = new GameBoard(2, 1);
@@ -133,8 +137,8 @@ public class LinkedGraphTests {
 
 
         ///////////////////////////////CONFIGURACION DEL LINKER/////////////////////////////////
-
-        SquareLinker linker = new ConcreteSquareLinker(board);
+        LinksManager linksManager = new MapLinkManager();
+        SquareLinker linker = new ConcreteSquareLinker(board, linksManager);
         //Lo que esta en ESPANIOL y los OFFSETS se leerian de la configuracion
         //Los nombres de los Tokens se pueden llamar de cualquier forma, depende de la configuracion, los tokens solo sirven para poder indicar quien se puede linkear con quien
         //Lo seteo para la izquierda, esto :
@@ -170,18 +174,20 @@ public class LinkedGraphTests {
         a1.setLinkingTokens(a1InputTokens);
         //Ahora el Linker chequea los nuevos links que puede hacer luego de que el usuario ingresara "---" en a1
         //Luego de haber ingresado un input a a1, antes de que el Linker updatee los Links de a1, a1 NO esta linkeada a a2
-        assertEquals(null, a1.getLeftLinked());
+
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a1,a2));
+
         linker.updateLinkeablesLinks(0, 0);
         //Luego de updatear, a1 sigue SIN estar linkeada a a2 xq a2 no tiene cargado ningun Token,
-        assertEquals(null, a1.getLeftLinked());
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a1,a2));
 
 
         //Esto simularia que el usuario ingresa en la celda a2 el dibujo "¬" del country road
         a2InputTokens.add("IZQUIERDA");
         a2InputTokens.add("ABAJO");
         ////Luego de haber ingresado un input a a2, antes de que el Linker updatee los Links de a2, a2 NO esta linkeada a a1
-        assertEquals(null, a1.getLeftLinked());
-        assertEquals(null, a2.getRightLinked());
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a1,a2));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a2,a1));
 
         a2.setLinkingTokens(a2InputTokens);
         //Luego de updatear, a1 y a2 estan linkeados,
@@ -190,8 +196,8 @@ public class LinkedGraphTests {
         linker.updateLinkeablesLinks(0, 0);
         linker.updateLinkeablesLinks(0, 1);
 
-        assertEquals(a2, a1.getRightLinked());
-        assertEquals(a1, a2.getLeftLinked());
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a1,a2));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a2,a1));
 
         ////////////////////////////////////////////////////////////////////////////////
 

@@ -2,6 +2,8 @@ package ar.fiuba.tdd.tp1.graphSecondIt.linker;
 
 import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.Linkeable;
 import ar.fiuba.tdd.tp1.graphSecondIt.linkeable.LinkeableSquare;
+import ar.fiuba.tdd.tp1.graphSecondIt.linksManager.LinksManager;
+import ar.fiuba.tdd.tp1.graphSecondIt.linksManager.MapLinkManager;
 import javafx.util.Pair;
 
 import java.util.HashMap;
@@ -18,13 +20,15 @@ public class ConcreteSquareLinker implements SquareLinker {
     Map<Pair<Integer,Integer>, Pair<String, Set<String>> > linkingInfo;
 
     LinkeableMatrix linkeableMatrix;
+    LinksManager linksManager;
 
 
 
 
-    public ConcreteSquareLinker(LinkeableMatrix linkeableMatrix){
+    public ConcreteSquareLinker(LinkeableMatrix linkeableMatrix, LinksManager linksManager){
         this.linkingInfo = new HashMap<>();
         this.linkeableMatrix = linkeableMatrix;
+        this.linksManager = linksManager;
     }
 
 
@@ -78,15 +82,10 @@ public class ConcreteSquareLinker implements SquareLinker {
 
 
                 if (shouldBeLinked){
-                    //TODO: estos if podrian evitarse si se usara una entidad que guarde conjunto de aristas
-                    //if (direction.equals("RIGHT")){
-                    if ( (rowOffset == 0) && (columnOffset == 1) ){
-                        originSquare.setRightLinked(destinationSquare);
-                    }
-                    //if (direction.equals(this.LEFT)){
-                    if ( (rowOffset == 0) && (columnOffset == -1) ){
-                        originSquare.setLeftLinked(destinationSquare);
-                    }
+                    this.linksManager.addNotDirectedLinkBetween(originSquare, destinationSquare);
+                }
+                else{
+                    this.linksManager.removeNotDirectedLinkBetween(originSquare, destinationSquare);
                 }
             }
         }
