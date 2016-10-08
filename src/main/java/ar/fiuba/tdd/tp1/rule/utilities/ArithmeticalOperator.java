@@ -5,7 +5,7 @@ public enum ArithmeticalOperator {
 
     ADDITION("+") {
         @Override
-        public double apply(double x1, double x2) {
+        public Integer apply(Integer x1, Integer x2) {
             return x1 + x2;
         }
     };
@@ -18,7 +18,7 @@ public enum ArithmeticalOperator {
     }
 
     // Yes, enums *can* have abstract methods. This code compiles...
-    public abstract double apply(double x1, double x2);
+    public abstract Integer apply(Integer x1, Integer x2);
 
 
 }

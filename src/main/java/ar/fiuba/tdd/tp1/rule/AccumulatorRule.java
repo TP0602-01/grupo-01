@@ -30,14 +30,13 @@ public class AccumulatorRule extends BaseRule {
     }
 
     public boolean check() {
-        double accumulator = 0;
-        double cellValueAsInteger;
+        Integer accumulator = 0;
+        Integer cellValueAsInteger;
         boolean atLeasOneCellIsEmpty = false;
 
         for (String cellAsString : cellsAsString) {
             for (Cell cellValue : calculateCellList(cellAsString)) {
                 atLeasOneCellIsEmpty = atLeasOneCellIsEmpty | cellValue.isEmpty();
-
                 cellValueAsInteger = Integer.parseInt(cellValue.getData());
                 accumulator = arithmeticalOperator.apply(accumulator, cellValueAsInteger);
             }

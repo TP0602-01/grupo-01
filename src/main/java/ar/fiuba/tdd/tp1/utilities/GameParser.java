@@ -61,6 +61,8 @@ public class GameParser {
 
         String content = (String) cell.get("content");
 
+
+
         for (int x = firstX; x <= endX; ++x) {
             for (int y = firstY; y <= endY; ++y) {
                 Cell cellObject = CellFactory.create(type, content);

@@ -33,7 +33,7 @@ public enum CellCreator {
     DATA_CELL_CREATOR("data") {
         @Override
         public Cell createCell(String data) {
-            return new InputCell(data);
+            return new InputCell();
         }
     };
 

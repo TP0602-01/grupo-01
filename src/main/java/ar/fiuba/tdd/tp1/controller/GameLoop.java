@@ -18,9 +18,10 @@ public class GameLoop implements GameBoardController {
 
     public void start() throws IOException {
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
-        while (!gameBoard.isFull()) {
+        while (!gameBoard.isFull() || !gameBoard.checkRules()) {
             InputCellData data = new InputCellData(console.readLine());
             gameBoard.setCellValue(data.getIndexI(), data.getIndexJ(), data.getInputData());
+            System.out.println("Estado del tablero: " + gameBoard.checkRules());
         }
     }
 
