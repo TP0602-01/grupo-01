@@ -25,7 +25,8 @@ public abstract class Cell extends Observable {
     }
 
     // TODO: borrarlo despues
-    public void setData(String data) {}
+    public void setData(String data) {
+    }
 
     public abstract boolean isWalkable();
 

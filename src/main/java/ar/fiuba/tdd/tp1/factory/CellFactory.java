@@ -1,23 +1,19 @@
 package ar.fiuba.tdd.tp1.factory;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
-import ar.fiuba.tdd.tp1.cell.FixedCell;
-import ar.fiuba.tdd.tp1.cell.InputCell;
-import ar.fiuba.tdd.tp1.cell.NullCell;
+import ar.fiuba.tdd.tp1.factory.creator.CellCreator;
 
 import java.util.HashMap;
 
 
 public class CellFactory {
 
-    private static HashMap<String, CellCreator> cellCreators = null;
+    private static HashMap<String, CellCreator> cellCreators;
 
     private static void initializeCreators() {
-
         cellCreators = new HashMap<>();
-
-        for (CellCreator creator: CellCreator.values() ) {
-            cellCreators.put(creator.stringRepresentation,creator);
+        for (CellCreator creator : CellCreator.values()) {
+            cellCreators.put(creator.stringRepresentation, creator);
         }
     }
 

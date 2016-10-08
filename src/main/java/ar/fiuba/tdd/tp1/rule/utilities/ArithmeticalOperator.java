@@ -21,6 +21,4 @@ public enum ArithmeticalOperator {
     public abstract double apply(double x1, double x2);
 
 
-
-
 }

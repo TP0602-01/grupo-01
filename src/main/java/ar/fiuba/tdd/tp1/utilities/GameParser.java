@@ -86,11 +86,7 @@ public class GameParser {
 
         Walk walkObject = WalkFactory.create(gameBoard, walk);
 
-        //TODO: esta HARDCODEADO por ahora hay que generar la logica
-
-        ArithmeticalRuleOperators operators = new ArithmeticalRuleOperators(ArithmeticalOperator.ADDITION,
-                ComparisonOperator.EQUAL, ComparisonOperator.LESS);
-        BaseRule ruleObject = RuleFactory.create(type, walkObject, cellPositions, operators);
+        BaseRule ruleObject = RuleFactory.create(type, walkObject, cellPositions);
         gameBoard.addRule(ruleObject);
     }
 

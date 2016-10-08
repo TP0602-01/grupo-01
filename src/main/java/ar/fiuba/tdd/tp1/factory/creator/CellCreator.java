@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.factory;
+package ar.fiuba.tdd.tp1.factory.creator;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.FixedCell;
@@ -6,7 +6,7 @@ import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
 
 
-enum CellCreator {
+public enum CellCreator {
 
     KAKORU_CELL_CREATOR("kakoru") {
         @Override

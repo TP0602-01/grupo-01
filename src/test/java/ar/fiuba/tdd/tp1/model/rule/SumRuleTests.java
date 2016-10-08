@@ -30,7 +30,9 @@ public class SumRuleTests {
         cellAsString.add("0,0");
 
 
-        sumRule = new AccumulatorRule(cellAsString, walkMock, 3, new ArithmeticalRuleOperators(ArithmeticalOperator.ADDITION, ComparisonOperator.EQUAL, ComparisonOperator.LESS));
+        sumRule = new AccumulatorRule(cellAsString, walkMock, 3,
+                new ArithmeticalRuleOperators(ArithmeticalOperator.ADDITION,
+                        ComparisonOperator.EQUAL, ComparisonOperator.LESS));
         assertTrue(sumRule.check());
     }
 
@@ -40,7 +42,9 @@ public class SumRuleTests {
         Walk walkMock = utilities.createAWalkMock(0, 0, cellData);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0,0");
-        sumRule = new AccumulatorRule(cellAsString, walkMock, 1, new ArithmeticalRuleOperators(ArithmeticalOperator.ADDITION, ComparisonOperator.EQUAL, ComparisonOperator.LESS));
+        sumRule = new AccumulatorRule(cellAsString, walkMock, 1,
+                new ArithmeticalRuleOperators(ArithmeticalOperator.ADDITION,
+                        ComparisonOperator.EQUAL, ComparisonOperator.LESS));
         assertFalse(sumRule.check());
     }
 
