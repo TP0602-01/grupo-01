@@ -8,6 +8,7 @@ import ar.fiuba.tdd.tp1.graph.linker.ConcreteSquareLinker;
 import ar.fiuba.tdd.tp1.graph.linker.SquareLinker;
 import ar.fiuba.tdd.tp1.graph.linksManager.LinksManager;
 import ar.fiuba.tdd.tp1.graph.linksManager.MapLinkManager;
+import jdk.nashorn.internal.runtime.linker.LinkerCallSite;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -115,5 +116,92 @@ public class LinkedGraphTests {
 
         ////////////////////////////////////////////////////////////////////////////////
 
+    }
+
+
+
+
+
+    private void createLinkingEntryWithOnlyOneDestinationLinkingToken(SquareLinker linker, int rowOffset, int columnOffset, String originToken, String destinationToken){
+        Set<String> destinationTokens = new HashSet<>();
+        destinationTokens.add(destinationToken);
+        linker.setLinkingInfo(rowOffset, columnOffset, originToken, destinationTokens);
+    }
+
+
+    @Test
+    public void testGokigenNanameConfiguration(){
+
+        GameBoard board = new GameBoard(3, 3);
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                board.addCell(row, col, new InputCell());
+            }
+        }
+
+        LinksManager linksManager = new MapLinkManager();
+        SquareLinker linker = new ConcreteSquareLinker(board, linksManager);
+
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0, 1, "/", "\\");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, 1, "/", "/");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, 0, "/", "\\");
+        //"/", can't be linked in -1, -1 direction
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0,-1, "/", "\\");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1,-1, "/", "/");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1, 0, "/", "\\");
+        //"/", can't be linked in 1, 1 direction
+
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0, 1, "\\", "/");
+        //"\", can't be linked in -1, 1 direction
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, 0, "\\", "/");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1,-1, "\\", "\\");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0,-1, "\\", "/");
+        //"\", can't be linked in 1, -1 direction
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1, 0, "\\", "/");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1, 1, "\\", "\\");
+
+
+        /*     0 1 2
+            0 |/| |/|
+            1 |\|/|\|
+            2 | |\|\|
+         */
+        Cell a00 = board.getCell(0,0);
+        Cell a01 = board.getCell(0,1);
+        Cell a02 = board.getCell(0,2);
+        Cell a10 = board.getCell(1,0);
+        Cell a11 = board.getCell(1,1);
+        Cell a12 = board.getCell(1,2);
+        Cell a20 = board.getCell(2,0);
+        Cell a21 = board.getCell(2,1);
+        Cell a22 = board.getCell(2,2);
+
+        a00.addLinkingToken("/");
+        //a01 has no linking tokens
+        a02.addLinkingToken("/");
+        a10.addLinkingToken("\\");
+        a11.addLinkingToken("/");
+        a12.addLinkingToken("\\");
+        //a20 has no linking tokens
+        a21.addLinkingToken("\\");
+        a22.addLinkingToken("\\");
+
+        /*     0 1 2
+            0 |/| |/|
+            1 |\|/|\|
+            2 | |\|\|
+        */
+
+        linker.updateLinkeablesLinks(1,1);
+
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a00));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a01));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a20));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a22));
+
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a02));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a10));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a12));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a21));
     }
 }
