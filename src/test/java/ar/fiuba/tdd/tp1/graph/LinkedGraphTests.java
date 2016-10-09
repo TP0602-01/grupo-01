@@ -128,6 +128,15 @@ public class LinkedGraphTests {
         linker.setLinkingInfo(rowOffset, columnOffset, originToken, destinationTokens);
     }
 
+    private void createLinkingEntryWithNDestinationLinkingTokens(SquareLinker linker, int rowOffset, int columnOffset, String originToken, String[] destinationToken, int destinationTokensCount){
+
+        Set<String> destinationTokens = new HashSet<>();
+        for (int i = 0; i < destinationTokensCount; i++) {
+            destinationTokens.add( destinationToken[i] );
+        }
+        linker.setLinkingInfo(rowOffset, columnOffset, originToken, destinationTokens);
+    }
+
 
     @Test
     public void testGokigenNanameConfiguration(){
@@ -162,9 +171,9 @@ public class LinkedGraphTests {
 
 
         /*     0 1 2
-            0 |/| |/|
-            1 |\|/|\|
-            2 | |\|\|
+            0 | | | |
+            1 | | | |
+            2 | | | |
          */
         Cell a00 = board.getCell(0,0);
         Cell a01 = board.getCell(0,1);
@@ -204,4 +213,88 @@ public class LinkedGraphTests {
         assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a12));
         assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a21));
     }
+
+
+    @Test
+    public void testCountryRoadConfiguration(){
+        GameBoard board = new GameBoard(3, 3);
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                board.addCell(row, col, new InputCell());
+            }
+        }
+
+        LinksManager linksManager = new MapLinkManager();
+        SquareLinker linker = new ConcreteSquareLinker(board, linksManager);
+
+        //4 lineas de configuracion por un lado
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0, 1, "R", "L");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, 0, "U", "D");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0,-1, "L", "R");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1, 0, "D", "U");
+
+        /*     0 1 2
+            0 | | | |
+            1 | | | |
+            2 | | | |
+         */
+        Cell a00 = board.getCell(0,0);
+        Cell a01 = board.getCell(0,1);
+        Cell a02 = board.getCell(0,2);
+        Cell a10 = board.getCell(1,0);
+        Cell a11 = board.getCell(1,1);
+        Cell a12 = board.getCell(1,2);
+        Cell a20 = board.getCell(2,0);
+        Cell a21 = board.getCell(2,1);
+        Cell a22 = board.getCell(2,2);
+
+
+        /*     0         1     2
+            0 ||     ||  |  ||  ¡--||
+            1 || --- ||  ¡--||--!  ||
+            2 ||     ||     ||     ||
+         */
+
+
+        //Deberia haber una especie de traductor de input a linkingTokens
+        //Por ejemplo "¡--" ----> ["D", "R"]
+
+        a01.addLinkingToken("U");
+        a01.addLinkingToken("D");
+
+        a02.addLinkingToken("D");
+        a02.addLinkingToken("R");
+
+        a10.addLinkingToken("R");
+        a10.addLinkingToken("L");
+
+        a11.addLinkingToken("R");
+        a11.addLinkingToken("D");
+
+        a12.addLinkingToken("L");
+        a12.addLinkingToken("U");
+
+        a21.addLinkingToken("R");
+        a21.addLinkingToken("D");
+
+
+        /*       0       1      2
+            0 ||     ||  |  ||  ¡--||
+            1 || --- ||  ¡--||--!  ||
+            2 ||     ||  ¡--||     ||
+         */
+
+        linker.updateLinkeablesLinks(1,1);
+
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a00));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a01));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a02));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a10));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a20));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a21));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a22));
+
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a12));
+    }
+
 }
