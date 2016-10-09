@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 /* */
 public class GameLoop implements GameBoardController {
 
-    GameBoard gameBoard;
+    private GameBoard gameBoard;
 
     public GameLoop(GameBoard gameBoard) {
         this.gameBoard = gameBoard;

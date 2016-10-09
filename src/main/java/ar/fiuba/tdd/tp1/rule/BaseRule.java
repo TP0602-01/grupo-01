@@ -9,7 +9,7 @@ import java.util.Vector;
 /*  */
 public abstract class BaseRule implements IRule {
 
-    protected Collection<String> cellsAsString;
+    Collection<String> cellsAsString;
     protected Walk walk;
 
     BaseRule(Collection<String> cellsAsString, Walk walk) {
@@ -19,7 +19,7 @@ public abstract class BaseRule implements IRule {
 
     public abstract boolean check();
 
-    protected Vector<Cell> calculateCellList(String cellAsString) {
+    Vector<Cell> calculateCellList(String cellAsString) {
         Integer intX = Integer.parseInt(cellAsString.split(",")[0]);
         Integer intY = Integer.parseInt(cellAsString.split(",")[1]);
         return walk.getCellList(intX, intY);

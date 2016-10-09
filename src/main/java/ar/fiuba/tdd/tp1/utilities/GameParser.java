@@ -15,7 +15,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -125,17 +124,17 @@ public class GameParser {
         return boardView;
     }
 
-    protected abstract class ParserFunctor {
+    abstract class ParserFunctor {
         abstract void parse(JSONObject object);
     }
 
-    protected class ParserFunctorCell extends ParserFunctor {
+    private class ParserFunctorCell extends ParserFunctor {
         void parse(JSONObject object) {
             parseCellObject(object);
         }
     }
 
-    protected class ParserFunctorRule extends ParserFunctor {
+    private class ParserFunctorRule extends ParserFunctor {
         void parse(JSONObject object) {
             parseRuleObject(object);
         }

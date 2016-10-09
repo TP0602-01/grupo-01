@@ -1,13 +1,13 @@
 package ar.fiuba.tdd.tp1.cell;
 
-import ar.fiuba.tdd.tp1.graph.linkeable.Linkeable;
+import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /*  */
-public abstract class Cell extends Observable implements Linkeable{
+public abstract class Cell extends Observable implements Linkable {
 
     public static final String DATA_TYPE = "data";
     public static final String NULL_TYPE = "nullcell";

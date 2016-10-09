@@ -2,15 +2,15 @@ package ar.fiuba.tdd.tp1.gameboard;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
-import ar.fiuba.tdd.tp1.graph.linkeable.Linkeable;
-import ar.fiuba.tdd.tp1.graph.linker.LinkeableMatrix;
+import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
+import ar.fiuba.tdd.tp1.graph.linker.LinkableMatrix;
 import ar.fiuba.tdd.tp1.rule.IRule;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
 import java.util.*;
 
 /*  */
-public class GameBoard extends Observable implements LinkeableMatrix{
+public class GameBoard extends Observable implements LinkableMatrix {
 
     private Map<Integer, Map<Integer,Cell>> cells;
 
@@ -89,7 +89,7 @@ public class GameBoard extends Observable implements LinkeableMatrix{
 
 
     @Override
-    public Linkeable getLinkeable(int row, int column) {
+    public Linkable getLinkeable(int row, int column) {
         return this.getCell(row, column);
     }
 

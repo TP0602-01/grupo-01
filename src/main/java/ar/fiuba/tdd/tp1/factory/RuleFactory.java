@@ -10,7 +10,7 @@ public class RuleFactory {
 
     public static final String NO_REPETITION_TYPE = "no_rep";
     public static final String SUM_TYPE = "sum";
-    public static final String DELIMITER = "_";
+    private static final String DELIMITER = "_";
 
     public static BaseRule create(String type, Walk walkObject, Collection<String> cellPositions) {
         if (type.equals(NO_REPETITION_TYPE)) {
