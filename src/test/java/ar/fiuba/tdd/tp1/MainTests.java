@@ -13,6 +13,7 @@ import static junit.framework.TestCase.assertTrue;
 
 public class MainTests {
 
+    /*
     boolean autoPlayGame(String input, String structure, String rules) {
         try {
             boolean win = false;
@@ -68,5 +69,5 @@ public class MainTests {
         assertTrue(autoPlayGame(input, structure, rules));
 
     }
-
+*/
 }

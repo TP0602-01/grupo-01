@@ -11,10 +11,10 @@ public class Main {
     public static void main(String[] args) {
         try {
             GameParser parser = new GameParser(
-                    //"./src/main/java/ar/fiuba/tdd/tp1/kakoruStructure.json",
-                    //"./src/main/java/ar/fiuba/tdd/tp1/kakoruRules.json");
-                    "./src/main/java/ar/fiuba/tdd/tp1/inohiStructure.json",
-                    "./src/main/java/ar/fiuba/tdd/tp1/inohiRules.json");
+                    "./src/main/java/ar/fiuba/tdd/tp1/kakoruStructure.json",
+                    "./src/main/java/ar/fiuba/tdd/tp1/kakoruRules.json");
+            //"./src/main/java/ar/fiuba/tdd/tp1/inohiStructure.json",
+            //"./src/main/java/ar/fiuba/tdd/tp1/inohiRules.json");
 
             parser.parseGameStructure();
             parser.parseGameRules();

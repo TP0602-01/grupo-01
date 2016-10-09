@@ -18,7 +18,7 @@ public class NoRepetitionRule extends BaseRule {
 
         for (String cellAsString : cellsAsString) {
             Set<Integer> set = new HashSet<>();
-            for (Cell cellValue: calculateCellList(cellAsString)) {
+            for (Cell cellValue : calculateCellList(cellAsString)) {
                 if (!set.add(Integer.parseInt(cellValue.getData()))) {
                     return false;
                 }

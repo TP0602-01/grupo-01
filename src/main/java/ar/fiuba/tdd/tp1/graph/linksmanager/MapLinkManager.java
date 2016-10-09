@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 /* */
-public class MapLinkManager implements  LinksManager {
+public class MapLinkManager implements LinksManager {
 
     private Map<Linkable, Set<Linkable>> links;
 
@@ -37,7 +37,7 @@ public class MapLinkManager implements  LinksManager {
     public void removeDirectedLinkBetween(Linkable origin, Linkable destination) {
         Set<Linkable> originsLinks = this.links.get(origin);
         if (originsLinks != null) {
-            if (originsLinks.contains(destination) ) {
+            if (originsLinks.contains(destination)) {
                 originsLinks.remove(destination);
             }
         }
@@ -51,7 +51,7 @@ public class MapLinkManager implements  LinksManager {
 
     @Override
     public boolean linkExistsFromOriginToDestination(Linkable origin, Linkable destination) {
-        if ( this.links.containsKey(origin) ) {
+        if (this.links.containsKey(origin)) {
             Set<Linkable> originsLinks = this.links.get(origin);
             if (originsLinks != null) {
                 return originsLinks.contains(destination);

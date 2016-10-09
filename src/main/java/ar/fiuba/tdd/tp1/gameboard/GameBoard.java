@@ -12,7 +12,7 @@ import java.util.*;
 /*  */
 public class GameBoard extends Observable implements LinkableMatrix {
 
-    private Map<Integer, Map<Integer,Cell>> cells;
+    private Map<Integer, Map<Integer, Cell>> cells;
 
     private Collection<IRule> rules;
 
@@ -25,7 +25,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
             for (int colIdx = 0; colIdx < width; ++colIdx) {
                 rowCells.put(colIdx, new NullCell());
             }
-            cells.put(rowIdx, rowCells );
+            cells.put(rowIdx, rowCells);
         }
     }
 
@@ -85,7 +85,6 @@ public class GameBoard extends Observable implements LinkableMatrix {
     public int getWidth() {
         return cells.get(0).size();
     }
-
 
 
     @Override

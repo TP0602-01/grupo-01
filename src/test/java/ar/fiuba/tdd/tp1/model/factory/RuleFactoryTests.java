@@ -1,11 +1,11 @@
 package ar.fiuba.tdd.tp1.model.factory;
 
-
 import ar.fiuba.tdd.tp1.factory.RuleFactory;
+import ar.fiuba.tdd.tp1.factory.creator.RuleCreator;
 import ar.fiuba.tdd.tp1.model.rule.RuleTestUtilities;
+import ar.fiuba.tdd.tp1.rule.AccumulatorRule;
 import ar.fiuba.tdd.tp1.rule.IRule;
 import ar.fiuba.tdd.tp1.rule.NoRepetitionRule;
-import ar.fiuba.tdd.tp1.rule.SumRule;
 import ar.fiuba.tdd.tp1.walk.Walk;
 import org.junit.Test;
 
@@ -16,14 +16,13 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 public class RuleFactoryTests {
-    RuleFactory ruleFactory = new RuleFactory();
     RuleTestUtilities utilities = new RuleTestUtilities();
 
     @Test
     public void creatingARuleOfTypeNoRepMustReturnANonRepetitionRuleObject() {
         String[][] data = {{"0"}};
         Walk walk = utilities.createAWalkMock(0, 0, data);
-        IRule rule = ruleFactory.create(RuleFactory.NO_REPETITION_TYPE, walk, new ArrayList<>());
+        IRule rule = RuleFactory.create(RuleCreator.NO_REPETITION_RULE_CREATOR.stringRepresentation, walk, new ArrayList<>());
 
         assertTrue(rule instanceof NoRepetitionRule);
     }
@@ -34,18 +33,18 @@ public class RuleFactoryTests {
         Walk walk = utilities.createAWalkMock(0, 0, data);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0_0");
-        IRule rule = ruleFactory.create(RuleFactory.SUM_TYPE, walk, cellAsString);
+        IRule rule = RuleFactory.create(RuleCreator.SUM_RULE_CREATOR.stringRepresentation, walk, cellAsString);
 
-        assertTrue(rule instanceof SumRule);
+        assertTrue(rule instanceof AccumulatorRule);
     }
 
     @Test
-    public void creatingARuleWithUndefinedTypeMustReturnFalse() {
+    public void creatingARuleWithUndefinedTypeMustReturnNull() {
         String[][] data = {{"1"}};
         Walk walk = utilities.createAWalkMock(0, 0, data);
         Collection<String> cellAsString = new ArrayList<>();
         cellAsString.add("0_0");
-        IRule rule = ruleFactory.create("alskjdlaksjdsakl", walk, cellAsString);
+        IRule rule = RuleFactory.create("alskjdlaksjdsakl", walk, cellAsString);
 
         assertEquals(null, rule);
     }

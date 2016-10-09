@@ -58,6 +58,7 @@ public class GameParser {
 
         String content = (String) cell.get("content");
 
+
         for (int x = firstX; x <= endX; ++x) {
             for (int y = firstY; y <= endY; ++y) {
                 Cell cellObject = CellFactory.create(type, content);
@@ -82,6 +83,7 @@ public class GameParser {
         }
 
         Walk walkObject = WalkFactory.create(gameBoard, walk);
+
         BaseRule ruleObject = RuleFactory.create(type, walkObject, cellPositions);
         gameBoard.addRule(ruleObject);
     }

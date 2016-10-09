@@ -33,8 +33,6 @@ public abstract class Cell extends Observable implements Linkable {
     }
 
 
-
-
     @Override
     public Set<String> getLinkingTokens() {
         return this.linkingTokens;
@@ -52,7 +50,8 @@ public abstract class Cell extends Observable implements Linkable {
 
 
     // TODO: borrarlo despues
-    public void setData(String data) {}
+    public void setData(String data) {
+    }
 
     public abstract boolean isWalkable();
 

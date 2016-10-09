@@ -26,6 +26,9 @@ public abstract class WalkLined extends Walk {
             currentColum = getNextColumn(currentColum);
             currentRow = getNextRow(currentRow);
             cell = gameBoard.getCell(currentRow, currentColum);
+            if (cell == null) {
+                break;
+            }
         }
 
         return cells;

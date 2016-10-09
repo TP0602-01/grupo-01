@@ -27,14 +27,14 @@ public class LinkedGraphTests {
 
         LinksManager linksManager = new MapLinkManager();
 
-        linksManager.addDirectedLinkBetween(a1,a2);
+        linksManager.addDirectedLinkBetween(a1, a2);
         //up to here a1 can go to a2 BUT a2 CANT go to a1
 
-        linksManager.addDirectedLinkBetween(a2,a1);
+        linksManager.addDirectedLinkBetween(a2, a1);
         //now a1 can go to a2 and a2 can go to a1
 
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a1,a2));
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a2,a1));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a1, a2));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a2, a1));
     }
 
     @Test
@@ -91,12 +91,12 @@ public class LinkedGraphTests {
         //Luego de haber ingresado un input a a1, antes de que el Linker updatee los Links
         // de a1, a1 NO esta linkeada a a2
 
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a1,a2));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a1, a2));
 
         linker.updateLinkableLinks(0, 0);
         //Luego de updatear, a1 sigue SIN estar linkeada a a2 xq a2 no tiene cargado ningun
         // Token,
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a1,a2));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a1, a2));
 
         Set<String> a2InputTokens = new HashSet<>();
 
@@ -105,8 +105,8 @@ public class LinkedGraphTests {
         a2InputTokens.add("ABAJO");
         ////Luego de haber ingresado un input a a2, antes de que el Linker updatee los Links
         // de a2, a2 NO esta linkeada a a1
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a1,a2));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a2,a1));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a1, a2));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a2, a1));
 
         a2.setLinkingTokens(a2InputTokens);
         //Luego de updatear, a1 y a2 estan linkeados,
@@ -115,8 +115,8 @@ public class LinkedGraphTests {
         linker.updateLinkableLinks(0, 0);
         linker.updateLinkableLinks(0, 1);
 
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a1,a2));
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a2,a1));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a1, a2));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a2, a1));
 
         ////////////////////////////////////////////////////////////////////////////////
     }
@@ -138,7 +138,7 @@ public class LinkedGraphTests {
     }
 
     @Test
-    public void testGokigenNanameConfiguration(){
+    public void testGokigenNanameConfiguration() {
 
         GameBoard board = new GameBoard(3, 3);
         for (int row = 0; row < 3; row++) {
@@ -150,38 +150,38 @@ public class LinkedGraphTests {
         LinksManager linksManager = new MapLinkManager();
         SquareLinker linker = new ConcreteSquareLinker(board, linksManager);
 
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0, 1, "/", "\\");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 0, 1, "/", "\\");
         createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, 1, "/", "/");
         createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, 0, "/", "\\");
         //"/", can't be linked in -1, -1 direction
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0,-1, "/", "\\");
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1,-1, "/", "/");
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1, 0, "/", "\\");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 0, -1, "/", "\\");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 1, -1, "/", "/");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 1, 0, "/", "\\");
         //"/", can't be linked in 1, 1 direction
 
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0, 1, "\\", "/");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 0, 1, "\\", "/");
         //"\", can't be linked in -1, 1 direction
         createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, 0, "\\", "/");
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1,-1, "\\", "\\");
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0,-1, "\\", "/");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, -1, "\\", "\\");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 0, -1, "\\", "/");
         //"\", can't be linked in 1, -1 direction
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1, 0, "\\", "/");
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1, 1, "\\", "\\");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 1, 0, "\\", "/");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 1, 1, "\\", "\\");
 
         /*     0 1 2
             0 | | | |
             1 | | | |
             2 | | | |
          */
-        Cell a00 = board.getCell(0,0);
-        Cell a01 = board.getCell(0,1);
-        Cell a02 = board.getCell(0,2);
-        Cell a10 = board.getCell(1,0);
-        Cell a11 = board.getCell(1,1);
-        Cell a12 = board.getCell(1,2);
-        Cell a20 = board.getCell(2,0);
-        Cell a21 = board.getCell(2,1);
-        Cell a22 = board.getCell(2,2);
+        Cell a00 = board.getCell(0, 0);
+        Cell a01 = board.getCell(0, 1);
+        Cell a02 = board.getCell(0, 2);
+        Cell a10 = board.getCell(1, 0);
+        Cell a11 = board.getCell(1, 1);
+        Cell a12 = board.getCell(1, 2);
+        Cell a20 = board.getCell(2, 0);
+        Cell a21 = board.getCell(2, 1);
+        Cell a22 = board.getCell(2, 2);
 
         a00.addLinkingToken("/");
         //a01 has no linking tokens
@@ -199,22 +199,22 @@ public class LinkedGraphTests {
             2 | |\|\|
         */
 
-        linker.updateLinkableLinks(1,1);
+        linker.updateLinkableLinks(1, 1);
 
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a00));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a01));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a20));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a22));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a00));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a01));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a20));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a22));
 
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a02));
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a10));
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a12));
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a21));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11, a02));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11, a10));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11, a12));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11, a21));
     }
 
 
     @Test
-    public void testCountryRoadConfiguration(){
+    public void testCountryRoadConfiguration() {
         GameBoard board = new GameBoard(3, 3);
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
@@ -226,25 +226,25 @@ public class LinkedGraphTests {
         SquareLinker linker = new ConcreteSquareLinker(board, linksManager);
 
         //4 lineas de configuracion por un lado
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0, 1, "R", "L");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 0, 1, "R", "L");
         createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, 0, "U", "D");
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  0,-1, "L", "R");
-        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker,  1, 0, "D", "U");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 0, -1, "L", "R");
+        createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 1, 0, "D", "U");
 
         /*     0 1 2
             0 | | | |
             1 | | | |
             2 | | | |
          */
-        Cell a00 = board.getCell(0,0);
-        Cell a01 = board.getCell(0,1);
-        Cell a02 = board.getCell(0,2);
-        Cell a10 = board.getCell(1,0);
-        Cell a11 = board.getCell(1,1);
-        Cell a12 = board.getCell(1,2);
-        Cell a20 = board.getCell(2,0);
-        Cell a21 = board.getCell(2,1);
-        Cell a22 = board.getCell(2,2);
+        Cell a00 = board.getCell(0, 0);
+        Cell a01 = board.getCell(0, 1);
+        Cell a02 = board.getCell(0, 2);
+        Cell a10 = board.getCell(1, 0);
+        Cell a11 = board.getCell(1, 1);
+        Cell a12 = board.getCell(1, 2);
+        Cell a20 = board.getCell(2, 0);
+        Cell a21 = board.getCell(2, 1);
+        Cell a22 = board.getCell(2, 2);
 
 
         /*     0         1     2
@@ -282,58 +282,58 @@ public class LinkedGraphTests {
             2 ||     ||  ¡--||     ||
          */
 
-        linker.updateLinkableLinks(1,1);
+        linker.updateLinkableLinks(1, 1);
 
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a00));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a01));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a02));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a10));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a20));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a21));
-        assertFalse(linksManager.linkExistsFromOriginToDestination(a11,a22));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a00));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a01));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a02));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a10));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a20));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a21));
+        assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a22));
 
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a11,a12));
+        assertTrue(linksManager.linkExistsFromOriginToDestination(a11, a12));
     }
 
     @Test
-    public void testAddingAnEntryToALinkingTableAndCheckingThatEntryExistanceMustBeTrue(){
+    public void testAddingAnEntryToALinkingTableAndCheckingThatEntryExistanceMustBeTrue() {
         LinkingTable linkingTable = new LinkingTable();
         int rowOffset = 1;
         int colOffset = 1;
         String originToken = "ConfigurableOriginToken";
         String destinationToken = "ConfigurableDestinationTokenInChosenOffset";
         linkingTable.addEntry(rowOffset, colOffset, originToken, destinationToken);
-        assertTrue( linkingTable.checkEntryExistance(rowOffset, colOffset, originToken, destinationToken) );
+        assertTrue(linkingTable.checkEntryExistance(rowOffset, colOffset, originToken, destinationToken));
     }
 
-    public void testCheckingEntryExistanceOfAnNonExistingEntryMustBeFalse(){
+    public void testCheckingEntryExistanceOfAnNonExistingEntryMustBeFalse() {
         LinkingTable linkingTable = new LinkingTable();
         int rowOffset = 1;
         int colOffset = 1;
         String originToken = "originToken";
         String destinationToken = "destinationTokenInChosenOffset";
         linkingTable.addEntry(rowOffset, colOffset, originToken, destinationToken);
-        assertFalse(linkingTable.checkEntryExistance(rowOffset, colOffset, "NonExistingOriginToken", "NonExistingDestinationToken") );
+        assertFalse(linkingTable.checkEntryExistance(rowOffset, colOffset, "NonExistingOriginToken", "NonExistingDestinationToken"));
     }
 
-    public void testCheckingEntryExistanceOfAnEntryWithAnNonExistingOriginTokenMustBeFalse(){
+    public void testCheckingEntryExistanceOfAnEntryWithAnNonExistingOriginTokenMustBeFalse() {
         LinkingTable linkingTable = new LinkingTable();
         int rowOffset = 1;
         int colOffset = 1;
         String originToken = "originToken";
         String destinationToken = "destinationTokenInChosenOffset";
         linkingTable.addEntry(rowOffset, colOffset, originToken, destinationToken);
-        assertFalse( linkingTable.checkEntryExistance(rowOffset, colOffset, "NonExistingOriginToken", destinationToken) );
+        assertFalse(linkingTable.checkEntryExistance(rowOffset, colOffset, "NonExistingOriginToken", destinationToken));
     }
 
 
-    public void testCheckingEntryExistanceOfAnEntryWithAnNonExistingDestinationTokenMustBeFalse(){
+    public void testCheckingEntryExistanceOfAnEntryWithAnNonExistingDestinationTokenMustBeFalse() {
         LinkingTable linkingTable = new LinkingTable();
         int rowOffset = 1;
         int colOffset = 1;
         String originToken = "originToken";
         String destinationToken = "destinationTokenInChosenOffset";
         linkingTable.addEntry(rowOffset, colOffset, originToken, destinationToken);
-        assertFalse( linkingTable.checkEntryExistance(rowOffset, colOffset, originToken, "NonExistingDestinationToken") );
+        assertFalse(linkingTable.checkEntryExistance(rowOffset, colOffset, originToken, "NonExistingDestinationToken"));
     }
 }
