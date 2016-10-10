@@ -1,30 +1,21 @@
 package ar.fiuba.tdd.tp1.factory.creator;
 
-import ar.fiuba.tdd.tp1.rule.AccumulatorRule;
-import ar.fiuba.tdd.tp1.rule.BaseRule;
 import ar.fiuba.tdd.tp1.rule.NoRepetitionRule;
-import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
-import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalRuleOperators;
-import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
-import ar.fiuba.tdd.tp1.walk.Walk;
-
-import java.util.Collection;
-
+import ar.fiuba.tdd.tp1.rule.Rule;
 
 public enum RuleCreator {
 
 
     NO_REPETITION_RULE_CREATOR("no_rep") {
         @Override
-        public BaseRule createRule(Walk walkObject, Collection<String> cellPositions) {
-
-            return new NoRepetitionRule(cellPositions, walkObject);
+        public Rule createRule(String value) {
+            return new NoRepetitionRule(value);
         }
-    },
+    };
 
-    SUM_RULE_CREATOR("sum") {
+    /*,SUM_RULE_CREATOR("sum") {
         @Override
-        public BaseRule createRule(Walk walkObject, Collection<String> cellPositions) {
+        public Rule createRule(String value) {
 
             String initCells = (cellPositions.iterator()).next();
 
@@ -41,7 +32,7 @@ public enum RuleCreator {
                     operators);
         }
 
-    };
+    };*/
 
     private static final String DELIMITER = "_";
 
@@ -52,7 +43,7 @@ public enum RuleCreator {
     }
 
 
-    public abstract BaseRule createRule(Walk walkObject, Collection<String> cellPositions);
+    public abstract Rule createRule(String value);
 
 
 }

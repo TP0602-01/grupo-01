@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp1;
 
 import ar.fiuba.tdd.tp1.controller.GameBoardController;
 import ar.fiuba.tdd.tp1.controller.GameLoop;
+import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.utilities.GameParser;
 import ar.fiuba.tdd.tp1.view.BoardView;
@@ -11,22 +12,25 @@ public class Main {
     public static void main(String[] args) {
         try {
             GameParser parser = new GameParser(
-                    "./src/main/java/ar/fiuba/tdd/tp1/kakoruStructure.json",
-                    "./src/main/java/ar/fiuba/tdd/tp1/kakoruRules.json");
-            //"./src/main/java/ar/fiuba/tdd/tp1/inohiStructure.json",
-            //"./src/main/java/ar/fiuba/tdd/tp1/inohiRules.json");
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_structure.json",
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_set.json");
+            //"./src/main/java/ar/fiuba/tdd/tp1/game_files/kakoru_structure.json",
+            //"./src/main/java/ar/fiuba/tdd/tp1/game_files/kakoru_set.json");
+            //"./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_structure.json",
+            //"./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_set.json");
 
             parser.parseGameStructure();
             parser.parseGameRules();
 
-            GameBoard gameBoard = parser.getBoard();
-            BoardView view = parser.getView();
-            GameBoardController controller = new GameLoop(gameBoard);
+            Game game = parser.getGame();
 
-            view.update();
+            BoardView view = parser.getView();
+            GameBoardController controller = new GameLoop(game);
+
+            view.update();  //TODO: UPDATEAR LA VIEW DENTRO DE GAME O EN OTRO LADO
             controller.start();
 
-            if (gameBoard.checkRules()) {
+            if (game.checkRules()) {
                 view.showMessage("Game over, you win!");
             } else {
                 view.showMessage("Game over, you loose");

@@ -1,12 +1,13 @@
-package ar.fiuba.tdd.tp1.rule;
+/*package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.walk.Walk;
 
 import java.util.Collection;
-
+*/
 /*  */
-public class SumRule extends BaseRule {
+/*
+public class SumRule extends Rule {
 
     private int expectedSumResult;
 
@@ -24,7 +25,7 @@ public class SumRule extends BaseRule {
             }
         }
         return sum.equals(expectedSumResult);
-    }
+    }*/
 
     //TODO: if this implementation is chosen then replace check() with this method
     /*public boolean directionalCheck() {
@@ -37,4 +38,4 @@ public class SumRule extends BaseRule {
         }
         return sum.equals(this.expectedSumResult);
     }*/
-}
+//}

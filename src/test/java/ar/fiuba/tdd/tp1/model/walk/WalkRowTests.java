@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.model.walk;
+/*package ar.fiuba.tdd.tp1.model.walk;
 
 
 import ar.fiuba.tdd.tp1.cell.Cell;
@@ -62,3 +62,4 @@ public class WalkRowTests {
     }
 
 }
+*/

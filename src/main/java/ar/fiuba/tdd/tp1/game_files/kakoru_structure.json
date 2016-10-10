@@ -1,0 +1,38 @@
+{
+  "height": "3",
+  "width": "3",
+  "structure": {
+    "cells": [
+      {
+        "type": "nullcell",
+        "range": "0,1-0,2",
+        "content": ""
+      },
+      {
+        "type": "nullcell",
+        "range": "2,0-2,0",
+        "content": ""
+      },
+      {
+        "type": "data",
+        "range": "2,1-2,2",
+        "content": ""
+      },
+      {
+        "type": "data",
+        "range": "1,0-1,1",
+        "content": ""
+      },
+      {
+        "type": "kakoru",
+        "range": "1,2-1,2",
+        "content": "_/3"
+      },
+      {
+        "type": "kakoru",
+        "range": "0,0-0,0",
+        "content": "5/_"
+      }
+    ]
+  }
+}

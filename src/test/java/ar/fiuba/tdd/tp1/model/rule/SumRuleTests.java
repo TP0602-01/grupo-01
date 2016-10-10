@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.model.rule;
+/*package ar.fiuba.tdd.tp1.model.rule;
 
 import ar.fiuba.tdd.tp1.rule.AccumulatorRule;
 import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
@@ -48,4 +48,4 @@ public class SumRuleTests {
         assertFalse(sumRule.check());
     }
 
-}
+}*/

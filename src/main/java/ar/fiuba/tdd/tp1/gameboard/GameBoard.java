@@ -4,7 +4,7 @@ import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
 import ar.fiuba.tdd.tp1.graph.linker.LinkableMatrix;
-import ar.fiuba.tdd.tp1.rule.IRule;
+import ar.fiuba.tdd.tp1.rule.Rule;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
 import java.util.*;
@@ -14,7 +14,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
 
     private Map<Integer, Map<Integer, Cell>> cells;
 
-    private Collection<IRule> rules;
+    private Collection<Rule> rules;
 
     public GameBoard(Integer width, Integer height) {
         rules = new ArrayList<>();
@@ -29,7 +29,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
         }
     }
 
-    public void addRule(IRule rule) {
+    public void addRule(Rule rule) {
         rules.add(rule);
     }
 
@@ -70,13 +70,13 @@ public class GameBoard extends Observable implements LinkableMatrix {
     }
 
 
-    public boolean checkRules() {
+    /*public boolean checkRules() {
         boolean result = true;
         for (IRule rule : rules) {
             result &= rule.check();
         }
         return result;
-    }
+    }*/
 
     public int getHeigth() {
         return cells.size();

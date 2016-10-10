@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.rule;
+/*package ar.fiuba.tdd.tp1.rule;
 
 
 import ar.fiuba.tdd.tp1.cell.Cell;
@@ -52,3 +52,4 @@ public class AccumulatorRule extends BaseRule {
     }
 
 }
+*/

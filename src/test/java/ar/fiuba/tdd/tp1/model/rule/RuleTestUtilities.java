@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.model.rule;
+/*package ar.fiuba.tdd.tp1.model.rule;
 
 
 import ar.fiuba.tdd.tp1.cell.Cell;
@@ -24,4 +24,4 @@ public class RuleTestUtilities {
         return walkMock;
     }
 
-}
+}*/

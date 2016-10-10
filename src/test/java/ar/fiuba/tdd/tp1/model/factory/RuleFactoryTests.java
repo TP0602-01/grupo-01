@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.model.factory;
+/*package ar.fiuba.tdd.tp1.model.factory;
 
 import ar.fiuba.tdd.tp1.factory.RuleFactory;
 import ar.fiuba.tdd.tp1.factory.creator.RuleCreator;
@@ -50,3 +50,4 @@ public class RuleFactoryTests {
     }
 
 }
+*/

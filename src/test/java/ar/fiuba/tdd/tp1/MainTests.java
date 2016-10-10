@@ -1,8 +1,8 @@
-package ar.fiuba.tdd.tp1;
+/*package ar.fiuba.tdd.tp1;
 
 import ar.fiuba.tdd.tp1.controller.GameBoardController;
 import ar.fiuba.tdd.tp1.controller.GameLoop;
-import ar.fiuba.tdd.tp1.gameboard.GameBoard;
+import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.utilities.GameParser;
 import ar.fiuba.tdd.tp1.view.BoardView;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import static junit.framework.TestCase.assertTrue;
 
 public class MainTests {
 
-    /*
+
     boolean autoPlayGame(String input, String structure, String rules) {
         try {
             boolean win = false;
@@ -24,15 +24,16 @@ public class MainTests {
             parser.parseGameStructure();
             parser.parseGameRules();
 
-            GameBoard gameBoard = parser.getBoard();
-            BoardView view = parser.getView();
-            GameBoardController controller = new GameLoop(gameBoard);
+            Game game = parser.getGame();
 
-            view.update();
+            //GameBoard gameBoard = parser.getBoard();
+            BoardView view = parser.getView();
+            GameBoardController controller = new GameLoop(game);
+
+            view.update();  //TODO: UPDATEAR LA VIEW DENTRO DE GAME
             controller.start();
 
-            if (gameBoard.checkRules()) {
-                win = true;
+            if (game.checkRules()) {
                 view.showMessage("Game over, you win!");
             } else {
                 view.showMessage("Game over, you loose");
@@ -63,11 +64,12 @@ public class MainTests {
     @Test
     public void autoPlayingSudokuToWin() {
         String input = "./src/test/java/ar/fiuba/tdd/tp1/sudokuSolution.txt";
-        String structure = "./src/main/java/ar/fiuba/tdd/tp1/structure.json";
-        String rules = "./src/main/java/ar/fiuba/tdd/tp1/rules.json";
+        String structure = "./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_structure.json";
+        String rules = "./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_set.json";
 
         assertTrue(autoPlayGame(input, structure, rules));
 
     }
-*/
+
 }
+*/

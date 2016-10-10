@@ -1,7 +1,6 @@
-package ar.fiuba.tdd.tp1.model.factory;
+/*package ar.fiuba.tdd.tp1.model.factory;
 
 
-import ar.fiuba.tdd.tp1.factory.WalkFactory;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.walk.Walk;
 import org.junit.Test;
@@ -17,3 +16,4 @@ public class WalkFactoryTests {
     }
 
 }
+*/
