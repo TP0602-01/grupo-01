@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp1.factory.creator;
 
+import ar.fiuba.tdd.tp1.rule.MultRule;
 import ar.fiuba.tdd.tp1.rule.NoRepetitionRule;
 import ar.fiuba.tdd.tp1.rule.Rule;
 import ar.fiuba.tdd.tp1.rule.SumRule;
@@ -18,6 +19,14 @@ public enum RuleCreator {
         @Override               //TODO: Y QUIZAS DA PARA PONER UN TEMPLATE METHOD
         public Rule createRule(String value) {
             return new SumRule(Integer.parseInt(value));
+        }
+
+    },
+
+    MULT_RULE_CREATOR("mult") {   //TODO: LE PUSE UN MULTRULE, PERO DESPUES HACEMOS LO TUYO DIEGO
+        @Override
+        public Rule createRule(String value) {
+            return new MultRule(Integer.parseInt(value));
         }
 
     };

@@ -26,15 +26,15 @@
       "rules": [
         {
           "type": "sum",
-          "value": 9
+          "value": "9"
         },
         {
           "type": "no_repetition",
-          "value": -1
+          "value": "-1"
         },
         {
           "type": "mult",
-          "value": 22
+          "value": "22"
         }
       ]
     }
