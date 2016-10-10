@@ -12,8 +12,10 @@ import java.util.Set;
  */
 public class NoRepetitionRule extends Rule {
 
+    String value;
+
     public NoRepetitionRule(String value) {
-        super(value);
+        this.value = value;
     }
 
     public boolean check(Graph graph) {

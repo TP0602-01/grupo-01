@@ -6,11 +6,11 @@
           "set": [
             {
               "initial_cell": "i,j",
-              "final_end": "i,j"
+              "final_cell": "i,j"
             },
             {
               "initial_cell": "i,j",
-              "final_end": "i,j"
+              "final_cell": "i,j"
             }
           ]
         },
@@ -18,7 +18,7 @@
           "set": [
             {
               "initial_cell": "i,j",
-              "final_end": "i,j"
+              "final_cell": "i,j"
             }
           ]
         }

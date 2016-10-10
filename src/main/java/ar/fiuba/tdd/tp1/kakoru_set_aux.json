@@ -6,7 +6,7 @@
           "set": [
             {
               "initial_cell": "2,2",
-              "final_cell": "4,2"
+              "final_end": "4,2"
             }
           ]
         }
@@ -24,7 +24,7 @@
           "set": [
             {
               "initial_cell": "7,2",
-              "final_cell": "8,2"
+              "final_end": "8,2"
             }
           ]
         }
@@ -42,7 +42,7 @@
           "set": [
             {
               "initial_cell": "2,3",
-              "final_cell": "5,3"
+              "final_end": "5,3"
             }
           ]
         }
@@ -60,7 +60,7 @@
           "set": [
             {
               "initial_cell": "7,3",
-              "final_cell": "8,3"
+              "final_end": "8,3"
             }
           ]
         }
@@ -77,8 +77,116 @@
         {
           "set": [
             {
-              "initial_cell": "2,2",
-              "final_cell": "2,3"
+              "initial_cell": "4,4",
+              "final_end": "8,4"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "sum",
+          "value": "15"
+        }
+      ]
+    },
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "3,5",
+              "final_end": "4,5"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "sum",
+          "value": "17"
+        }
+      ]
+    },
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "6,5",
+              "final_end": "7,5"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "sum",
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "2,6",
+              "final_end": "6,6"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "sum",
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "2,7",
+              "final_end": "3,7"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "sum",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "5,7",
+              "final_end": "8,7"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "sum",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "2,8",
+              "final_end": "3,8"
             }
           ]
         }
@@ -95,8 +203,8 @@
         {
           "set": [
             {
-              "initial_cell": "3,2",
-              "final_cell": "3,3"
+              "initial_cell": "6,8",
+              "final_end": "8,8"
             }
           ]
         }
@@ -104,82 +212,9 @@
       "rules": [
         {
           "type": "sum",
-          "value": "17"
-        }
-      ]
-    },
-    {
-      "sets": [
-        {
-          "set": [
-            {
-              "initial_cell": "4,2",
-              "final_cell": "4,3"
-            }
-          ]
-        }
-      ],
-      "rules": [
-        {
-          "type": "sum",
-          "value": "14"
-        }
-      ]
-    },
-    {
-      "sets": [
-        {
-          "set": [
-            {
-              "initial_cell": "5,3",
-              "final_cell": "5,3"
-            }
-          ]
-        }
-      ],
-      "rules": [
-        {
-          "type": "sum",
-          "value": "6"
-        }
-      ]
-    },
-    {
-      "sets": [
-        {
-          "set": [
-            {
-              "initial_cell": "7,2",
-              "final_cell": "7,3"
-            }
-          ]
-        }
-      ],
-      "rules": [
-        {
-          "type": "sum",
-          "value": "17"
-        }
-      ]
-    },
-    {
-      "sets": [
-        {
-          "set": [
-            {
-              "initial_cell": "8,2",
-              "final_cell": "8,3"
-            }
-          ]
-        }
-      ],
-      "rules": [
-        {
-          "type": "sum",
-          "value": "4"
+          "value": "7"
         }
       ]
     }
-
   ]
 }

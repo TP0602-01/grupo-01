@@ -118,6 +118,7 @@ public class GameParser {
             // Cell
             String initialCell = (String) singleSet.get("initial_cell");
             String finalCell = (String) singleSet.get("final_cell");
+
             Integer firstX = Integer.parseInt(initialCell.split(",")[0]) - 1;//TODO: CAMBIAR EN EL ARCH DE SET!
             Integer firstY = Integer.parseInt(initialCell.split(",")[1]) - 1;//TODO: NO DEBERIA TENER -1 ACA
             Integer endX = Integer.parseInt(finalCell.split(",")[0]) - 1;
@@ -126,6 +127,7 @@ public class GameParser {
             for (int x = firstX; x <= endX; ++x) {
                 for (int y = firstY; y <= endY; ++y) {
                     Cell firstCell = gameBoard.getCell(x, y);
+
                     // Add right next Cell
                     if (x + 1 <= endX) {
                         Cell rightSecondCell = gameBoard.getCell(x + 1, y);
@@ -135,6 +137,9 @@ public class GameParser {
                     if (y + 1 <= endY) {
                         Cell downSecondCell = gameBoard.getCell(x, y + 1);
                         cellGraph.addNotDirectedLinkBetween(firstCell, downSecondCell);
+                    }
+                    if (firstX.equals(endX) && firstY.equals(endY)) {
+                        cellGraph.addNotDirectedLinkBetween(firstCell, firstCell);
                     }
                 }
             }

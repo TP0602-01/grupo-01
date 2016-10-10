@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp1.factory.creator;
 
 import ar.fiuba.tdd.tp1.rule.NoRepetitionRule;
 import ar.fiuba.tdd.tp1.rule.Rule;
+import ar.fiuba.tdd.tp1.rule.SumRule;
 
 public enum RuleCreator {
 
@@ -11,6 +12,14 @@ public enum RuleCreator {
         public Rule createRule(String value) {
             return new NoRepetitionRule(value);
         }
+    },
+
+    SUM_RULE_CREATOR("sum") {   //TODO: LE PUSE UN SUMRULE, PERO DESPUES HACEMOS LO TUYO DIEGO
+        @Override               //TODO: Y QUIZAS DA PARA PONER UN TEMPLATE METHOD
+        public Rule createRule(String value) {
+            return new SumRule(Integer.parseInt(value));
+        }
+
     };
 
     /*,SUM_RULE_CREATOR("sum") {

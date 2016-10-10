@@ -1,31 +1,30 @@
-/*package ar.fiuba.tdd.tp1.rule;
+package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
-import ar.fiuba.tdd.tp1.walk.Walk;
+import ar.fiuba.tdd.tp1.set.Graph;
 
 import java.util.Collection;
-*/
+
 /*  */
-/*
 public class SumRule extends Rule {
 
     private int expectedSumResult;
 
-    public SumRule(Collection<String> cellsAsString, Walk walk, Integer sumResult) {
-        super(cellsAsString, walk);
+    public SumRule(Integer sumResult) {
         this.expectedSumResult = sumResult;
     }
 
-    public boolean check() {
-        Integer sum = 0;
+    @Override
+    public boolean check(Graph graph) { //TODO: ESTO TIENE TODA LA PINTA DE UN TEMPLATE METHOD
+        Collection<Cell> cells = graph.getCells();
 
-        for (String cellAsString : cellsAsString) {
-            for (Cell cellValue : calculateCellList(cellAsString)) {
-                sum += Integer.parseInt(cellValue.getData());
-            }
+        Integer sum = 0;
+        for (Cell cell : cells) {
+            sum += Integer.parseInt(cell.getData());
         }
+
         return sum.equals(expectedSumResult);
-    }*/
+    }
 
     //TODO: if this implementation is chosen then replace check() with this method
     /*public boolean directionalCheck() {
@@ -38,4 +37,4 @@ public class SumRule extends Rule {
         }
         return sum.equals(this.expectedSumResult);
     }*/
-//}
+}

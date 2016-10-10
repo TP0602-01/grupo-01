@@ -1,37 +1,119 @@
 {
-  "height": "3",
+  "height": "8",
   "width": "3",
   "structure": {
     "cells": [
       {
         "type": "nullcell",
-        "range": "0,1-0,2",
-        "content": ""
-      },
-      {
-        "type": "nullcell",
-        "range": "2,0-2,0",
-        "content": ""
-      },
-      {
-        "type": "data",
-        "range": "2,1-2,2",
-        "content": ""
+        "content": "###",
+        "range": {
+          "initial_cell": "4,0",
+          "final_cell": "5,0"
+        }
       },
       {
         "type": "data",
-        "range": "1,0-1,1",
-        "content": ""
+        "content": "",
+        "range": {
+          "initial_cell": "1,1",
+          "final_cell": "3,2"
+        }
       },
       {
-        "type": "kakoru",
-        "range": "1,2-1,2",
-        "content": "_/3"
+        "type": "data",
+        "content": "",
+        "range": {
+          "initial_cell": "4,2",
+          "final_cell": "4,2"
+        }
       },
       {
-        "type": "kakoru",
-        "range": "0,0-0,0",
-        "content": "5/_"
+        "type": "data",
+        "content": "",
+        "range": {
+          "initial_cell": "6,1",
+          "final_cell": "7,2"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/16",
+        "range": {
+          "initial_cell": "1,0",
+          "final_cell": "1,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/17",
+        "range": {
+          "initial_cell": "2,0",
+          "final_cell": "2,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/14",
+        "range": {
+          "initial_cell": "3,0",
+          "final_cell": "3,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/17",
+        "range": {
+          "initial_cell": "6,0",
+          "final_cell": "6,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "4/",
+        "range": {
+          "initial_cell": "7,0",
+          "final_cell": "7,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "11/",
+        "range": {
+          "initial_cell": "5,1",
+          "final_cell": "5,1"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "30/",
+        "range": {
+          "initial_cell": "0,2",
+          "final_cell": "0,2"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "10/",
+        "range": {
+          "initial_cell": "5,2",
+          "final_cell": "5,2"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "23/",
+        "range": {
+          "initial_cell": "0,1",
+          "final_cell": "0,1"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/6",
+        "range": {
+          "initial_cell": "4,1",
+          "final_cell": "4,1"
+        }
       }
     ]
   }
