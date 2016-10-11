@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.Set;
 
 /* */
-public class MapLinkManager implements LinksManager {
-
+public class MapLinkManager implements LinksManager {   //TODO: ESTA CLASE HA SIDO CAMBIADA POR GRAFO
+                                                        //TODO: ES LA MISMA!!
     private Map<Linkable, Set<Linkable>> links;
 
     public MapLinkManager() {

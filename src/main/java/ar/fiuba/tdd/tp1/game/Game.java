@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp1.game;
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.set.CellSet;
+import ar.fiuba.tdd.tp1.utilities.TokenTranslate;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,8 +14,10 @@ import java.util.Iterator;
  */
 public class Game {
     private GameBoard gameBoard;
+    private TokenTranslate traslate;
     private Collection<CellSet> cellStableSets = new ArrayList<>();
-    //private Collection<CellSet> cellVariableSets = new ArrayList<>(); //TODO: PARA LOS CONJUNTOS VARIABLES
+    //private VariableSetGenerator setGenerator;
+    //private Collection<CellSet> cellVariableSets; //TODO: PARA LOS CONJUNTOS VARIABLES
 
 
     public Game(GameBoard gameBoard) {
@@ -50,7 +53,16 @@ public class Game {
      * que antes de ingresar la jugada  */
     public boolean addPlay(int cellXPosition, int cellYPosition, String content) {
         gameBoard.setCellValue(cellXPosition, cellYPosition, content);
+
+        //cellVariableSets = setGenerator.generateSet(gameBoard); //TODO: GENERAR CONJUTNOS VARIABLES
+
         return true; //TODO: CUANDO SE INGRESA UNA JUGADA INVALIDA SE DEBE ADVERTIR AL USUARIO
                     //TODO: TAMBIEN, ACA SE DEBEN RE-GENERAR LOS CONJUNTOS VARIABLES
     }
+
+    /* Add a link translate */
+    public void addTranslate(TokenTranslate translate) {    //TODO: ESTO PODRIA ESTAR EN EL CONSTRUCTOR
+        translate = translate;                              //TODO: POR ACA SOLO TRANSMITO LA IDEA
+    }                                                       //TODO: PORAY PODRIA ESTAR DIRECTAMENTE ADENTRO
+                                                            //TODO: DEL GENERADOR DE CONJUNTOS
 }

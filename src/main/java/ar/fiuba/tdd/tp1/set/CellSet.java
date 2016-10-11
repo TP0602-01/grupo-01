@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp1.set;
 
+import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.rule.Rule;
 
 import java.util.Collection;

@@ -3,7 +3,6 @@ package ar.fiuba.tdd.tp1;
 import ar.fiuba.tdd.tp1.controller.GameBoardController;
 import ar.fiuba.tdd.tp1.controller.GameLoop;
 import ar.fiuba.tdd.tp1.game.Game;
-import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.utilities.GameParser;
 import ar.fiuba.tdd.tp1.view.BoardView;
 
@@ -21,6 +20,7 @@ public class Main {
 
             parser.parseGameStructure();
             parser.parseGameRules();
+            parser.parseLinkingInformation(); //TODO: IMPLEMENTAR
 
             Game game = parser.getGame();
 

@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp1.rule;
 
-import ar.fiuba.tdd.tp1.set.Graph;
+import ar.fiuba.tdd.tp1.graph.Graph;
 
 
 /*  */

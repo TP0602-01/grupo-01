@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.set;
+package ar.fiuba.tdd.tp1.graph;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 

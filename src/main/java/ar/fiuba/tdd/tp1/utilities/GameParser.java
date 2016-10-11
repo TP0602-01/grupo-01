@@ -8,7 +8,7 @@ import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.rule.Rule;
 import ar.fiuba.tdd.tp1.set.CellSet;
-import ar.fiuba.tdd.tp1.set.Graph;
+import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.view.BoardView;
 import ar.fiuba.tdd.tp1.view.CellView;
 import org.json.simple.JSONArray;
@@ -178,6 +178,16 @@ public class GameParser {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    /*  */
+    //TODO: IMPLEMENTAR. LA IDEA ES QUE SE PUEDA LEER DE UN ARCHIVO TODA LA
+    //TODO: INFORMACION DE LINKEO Y QUE ESTA SE GUARDE EN UN CLASE LLAMADA TRADUCTOR
+    //TODO: ESTA CLASE TRADUCTOR SERA PASADA A LA CLASE GAME, QUE EN CADA JUGADA SERA
+    //TODO: LA ENCARGADA DE GENERAR LOS CONJUNTOS VARIABLES.
+    public void parseLinkingInformation() {
+        TokenTranslate translate = new TokenTranslate();
+        game.addTranslate(translate);
     }
 
     public Game getGame() {
