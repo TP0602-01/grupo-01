@@ -2,17 +2,19 @@ package ar.fiuba.tdd.tp1.gameboard;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
-import ar.fiuba.tdd.tp1.rule.IRule;
+import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
+import ar.fiuba.tdd.tp1.graph.linker.LinkableMatrix;
+import ar.fiuba.tdd.tp1.rule.Rule;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
 import java.util.*;
 
 /*  */
-public class GameBoard extends Observable {
+public class GameBoard extends Observable implements LinkableMatrix {
 
-    private Map<Integer, Map<Integer,Cell>> cells;
+    private Map<Integer, Map<Integer, Cell>> cells;
 
-    private Collection<IRule> rules;
+    private Collection<Rule> rules;
 
     public GameBoard(Integer width, Integer height) {
         rules = new ArrayList<>();
@@ -23,22 +25,21 @@ public class GameBoard extends Observable {
             for (int colIdx = 0; colIdx < width; ++colIdx) {
                 rowCells.put(colIdx, new NullCell());
             }
-            cells.put(rowIdx, rowCells );
+            cells.put(rowIdx, rowCells);
         }
     }
 
-    public void addRule(IRule rule) {
+    public void addRule(Rule rule) {
         rules.add(rule);
     }
 
     public void addCell(int rowIdx, int columnIdx, Cell cell) {
         cells.get(rowIdx).put(columnIdx, cell);
-
     }
 
     public Cell getCell(int rowIdx, int columnIdx) {
         if ((rowIdx >= this.getHeigth()) || (columnIdx >= this.getWidth())) {
-            return new NullCell();
+            return null;//new NullCell();
         } else {
             return cells.get(rowIdx).get(columnIdx);
         }
@@ -68,13 +69,13 @@ public class GameBoard extends Observable {
     }
 
 
-    public boolean checkRules() {
+    /*public boolean checkRules() {
         boolean result = true;
         for (IRule rule : rules) {
             result &= rule.check();
         }
         return result;
-    }
+    }*/
 
     public int getHeigth() {
         return cells.size();
@@ -83,4 +84,12 @@ public class GameBoard extends Observable {
     public int getWidth() {
         return cells.get(0).size();
     }
+
+
+    @Override
+    public Linkable getLinkeable(int row, int column) {
+        return this.getCell(row, column);
+    }
+
+
 }

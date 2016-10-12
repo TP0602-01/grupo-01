@@ -1,0 +1,42 @@
+{
+  "all_sets": [
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "i,j",
+              "final_cell": "i,j"
+            },
+            {
+              "initial_cell": "i,j",
+              "final_cell": "i,j"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "i,j",
+              "final_cell": "i,j"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "sum",
+          "value": "9"
+        },
+        {
+          "type": "no_repetition",
+          "value": "-1"
+        },
+        {
+          "type": "mult",
+          "value": "22"
+        }
+      ]
+    }
+  ]
+}

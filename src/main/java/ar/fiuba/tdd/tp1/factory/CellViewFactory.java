@@ -1,8 +1,6 @@
 package ar.fiuba.tdd.tp1.factory;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
-import ar.fiuba.tdd.tp1.cell.FixedCell;
-import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.view.CellView;
 import ar.fiuba.tdd.tp1.view.DataCellView;
 import ar.fiuba.tdd.tp1.view.KakoruCellView;
@@ -13,7 +11,7 @@ public class CellViewFactory {
 
 
     public static CellView create(Cell cell, String type) {
-        if ( ( type.equals(Cell.DATA_TYPE)  )  || type.equals(Cell.HINT_TYPE) ) {
+        if ((type.equals(Cell.DATA_TYPE)) || type.equals(Cell.HINT_TYPE)) {
             return new DataCellView(cell);
         } else if (type.equals(Cell.NULL_TYPE)) {
             return new NullCellView();

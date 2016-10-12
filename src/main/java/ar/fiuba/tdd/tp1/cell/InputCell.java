@@ -23,6 +23,4 @@ public class InputCell extends Cell {
     public void setData(String data) {
         this.data = data;
     }
-
-
 }

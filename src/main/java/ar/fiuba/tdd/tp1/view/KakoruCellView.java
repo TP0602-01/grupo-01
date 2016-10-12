@@ -16,14 +16,14 @@ public class KakoruCellView implements CellView {
         String cellContent = cell.getData();
 
         String leftNumber = cellContent.split("/")[0];
-        if (leftNumber.matches("_") ) {
+        if (leftNumber.matches("_")) {
             this.leftDownSum = null;
         } else {
             this.leftDownSum = Integer.parseInt(leftNumber);
         }
 
         String rightNumber = cellContent.split("/")[1];
-        if (rightNumber.matches("_") ) {
+        if (rightNumber.matches("_")) {
             this.rightUpSum = null;
         } else {
             this.rightUpSum = Integer.parseInt(rightNumber);

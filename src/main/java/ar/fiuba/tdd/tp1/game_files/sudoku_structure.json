@@ -1,0 +1,24 @@
+{
+  "height": "9",
+  "width": "9",
+  "structure": {
+    "cells": [
+      {
+        "type": "data",
+        "content": "",
+        "range": {
+          "initial_cell": "0,0",
+          "final_cell": "8,8"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "5",
+        "range": {
+          "initial_cell": "2,2",
+          "final_cell": "2,2"
+        }
+      }
+    ]
+  }
+}

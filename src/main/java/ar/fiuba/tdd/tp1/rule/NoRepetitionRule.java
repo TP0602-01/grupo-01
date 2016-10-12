@@ -1,30 +1,33 @@
 package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
-import ar.fiuba.tdd.tp1.walk.Walk;
+import ar.fiuba.tdd.tp1.graph.Graph;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-/*  */
-public class NoRepetitionRule extends BaseRule {
+/**
+ * Created by lucas on 10/10/16.
+ */
+public class NoRepetitionRule extends Rule {
 
-    public NoRepetitionRule(Collection<String> cells, Walk walk) {
-        super(cells, walk);
+    String value;
+
+    public NoRepetitionRule(String value) {
+        this.value = value;
     }
 
-    public boolean check() {
+    public boolean check(Graph graph) {
+        Collection<Cell> cells = graph.getCells();
 
-        for (String cellAsString : cellsAsString) {
-            Set<Integer> set = new HashSet<>();
-            for (Cell cellValue: calculateCellList(cellAsString)) {
-                if (!set.add(Integer.parseInt(cellValue.getData()))) {
-                    return false;
-                }
+        boolean validRule = true;
+        Set<Integer> cellSet = new HashSet<>();
+        for (Cell cell : cells) {
+            if (!cellSet.add(Integer.parseInt(cell.getData()))) {   //TODO: CHEQUEAR QUE CON CERO NO SEA VALIDO
+                validRule = false;
             }
         }
-        return true;
+        return validRule;
     }
 }
-

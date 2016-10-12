@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp1.controller;
 
 
-import ar.fiuba.tdd.tp1.gameboard.GameBoard;
+import ar.fiuba.tdd.tp1.game.Game;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,20 +10,27 @@ import java.io.InputStreamReader;
 /* */
 public class GameLoop implements GameBoardController {
 
-    GameBoard gameBoard;
+    private Game game;
 
-    public GameLoop(GameBoard gameBoard) {
-        this.gameBoard = gameBoard;
+    public GameLoop(Game game) {
+        this.game = game;
     }
 
+    /* Start the game.
+     * If user win, inform that with a message and finish the Game
+     * If user make an invalid play, inform that with a message and continue the game */
     public void start() throws IOException {
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
-        while (!gameBoard.isFull()) {
+        boolean gameState = game.checkRules();
+        while ( !gameState ) {
             InputCellData data = new InputCellData(console.readLine());
-            gameBoard.setCellValue(data.getIndexI(), data.getIndexJ(), data.getInputData());
+            game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData());  //TODO: CHEQUEAR SI LA JUGADA FUE CORRECTA
+            gameState = game.checkRules();
+            System.out.println("Estado del tablero: " + gameState );
         }
     }
 
+    /* User Play */
     private static class InputCellData {
         private int indexI;
         private int indexJ;

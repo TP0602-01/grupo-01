@@ -4,11 +4,6 @@
   "structure": {
     "cells": [
       {
-        "type": "kakoru",
-        "range": "0,0-0,0",
-        "content": "5/_"
-      },
-      {
         "type": "nullcell",
         "range": "0,1-0,2",
         "content": ""
@@ -32,6 +27,11 @@
         "type": "kakoru",
         "range": "1,2-1,2",
         "content": "_/3"
+      },
+      {
+        "type": "kakoru",
+        "range": "0,0-0,0",
+        "content": "5/_"
       }
     ]
   }

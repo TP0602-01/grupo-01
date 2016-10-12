@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp1.factory;
 
-import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 
