@@ -7,14 +7,14 @@ import javafx.util.Pair;
 import java.util.Set;
 
 /* */
-public class ConcreteSquareLinker implements SquareLinker {
+public class ConcreteLinker implements Linker {
 
     //TODO: se podrian crear objetos para que esto quede mas entendible
     private LinkableMatrix linkableMatrix;
     private LinksManager linksManager;
     private LinkingTable linkingTable;
 
-    public ConcreteSquareLinker(LinkableMatrix linkableMatrix, LinksManager linksManager) {
+    public ConcreteLinker(LinkableMatrix linkableMatrix, LinksManager linksManager) {
         this.linkableMatrix = linkableMatrix;
         this.linksManager = linksManager;
         this.linkingTable = new LinkingTable();

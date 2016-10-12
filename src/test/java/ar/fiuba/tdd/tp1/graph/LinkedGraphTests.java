@@ -4,9 +4,9 @@ import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
-import ar.fiuba.tdd.tp1.graph.linker.ConcreteSquareLinker;
+import ar.fiuba.tdd.tp1.graph.linker.ConcreteLinker;
+import ar.fiuba.tdd.tp1.graph.linker.Linker;
 import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
-import ar.fiuba.tdd.tp1.graph.linker.SquareLinker;
 import ar.fiuba.tdd.tp1.graph.linksmanager.LinksManager;
 import ar.fiuba.tdd.tp1.graph.linksmanager.MapLinkManager;
 import org.junit.Test;
@@ -48,7 +48,7 @@ public class LinkedGraphTests {
 
         ///////////////////////////////CONFIGURACION DEL LINKER////////////////////
         LinksManager linksManager = new MapLinkManager();
-        SquareLinker linker = new ConcreteSquareLinker(board, linksManager);
+        Linker linker = new ConcreteLinker(board, linksManager);
         //Lo que esta en ESPANIOL y los OFFSETS se leerian de la configuracion
         //Los nombres de los Tokens se pueden llamar de cualquier forma, depende de la
         // configuracion, los tokens solo sirven para poder indicar quien se puede
@@ -122,14 +122,14 @@ public class LinkedGraphTests {
     }
 
     private void createLinkingEntryWithOnlyOneDestinationLinkingToken(
-            SquareLinker linker, int rowOffset, int columnOffset,
+            Linker linker, int rowOffset, int columnOffset,
             String originToken, String destinationToken) {
         Set<String> destinationTokens = new HashSet<>();
         destinationTokens.add(destinationToken);
         linker.setLinkingInfo(rowOffset, columnOffset, originToken, destinationTokens);
     }
 
-    private void createLinkingEntryWithNDestinationLinkingTokens(SquareLinker linker, int rowOffset, int columnOffset, String originToken, String[] destinationToken, int destinationTokensCount) {
+    private void createLinkingEntryWithNDestinationLinkingTokens(Linker linker, int rowOffset, int columnOffset, String originToken, String[] destinationToken, int destinationTokensCount) {
         Set<String> destinationTokens = new HashSet<>();
         for (int i = 0; i < destinationTokensCount; i++) {
             destinationTokens.add(destinationToken[i]);
@@ -148,7 +148,7 @@ public class LinkedGraphTests {
         }
 
         LinksManager linksManager = new MapLinkManager();
-        SquareLinker linker = new ConcreteSquareLinker(board, linksManager);
+        Linker linker = new ConcreteLinker(board, linksManager);
 
         createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 0, 1, "/", "\\");
         createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, -1, 1, "/", "/");
@@ -223,7 +223,7 @@ public class LinkedGraphTests {
         }
 
         LinksManager linksManager = new MapLinkManager();
-        SquareLinker linker = new ConcreteSquareLinker(board, linksManager);
+        Linker linker = new ConcreteLinker(board, linksManager);
 
         //4 lineas de configuracion por un lado
         createLinkingEntryWithOnlyOneDestinationLinkingToken(linker, 0, 1, "R", "L");
