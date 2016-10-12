@@ -31,7 +31,7 @@ public class ConcreteSquareLinker implements SquareLinker {
 
     @Override
     public void updateLinkableLinks(int row, int column) {
-        Linkable origin = this.linkableMatrix.getLinkeable(row, column);
+        Linkable origin = this.linkableMatrix.getLinkable(row, column);
         Set<String> originLinkingTokens = origin.getLinkingTokens();
         //Recorro cada posible offset de la tabla
         for (Pair<Integer, Integer> currentOffset : this.linkingTable.getOffsets()) {
@@ -39,7 +39,7 @@ public class ConcreteSquareLinker implements SquareLinker {
             int rowOffset = currentOffset.getKey();
             int columnOffset = currentOffset.getValue();
 
-            Linkable destination = this.linkableMatrix.getLinkeable(row + rowOffset, column + columnOffset);
+            Linkable destination = this.linkableMatrix.getLinkable(row + rowOffset, column + columnOffset);
             if (destination != null) {
                 Set<String> destinationLinkingTokens = destination.getLinkingTokens();
 

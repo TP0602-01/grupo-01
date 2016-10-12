@@ -87,7 +87,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
 
 
     @Override
-    public Linkable getLinkeable(int row, int column) {
+    public Linkable getLinkable(int row, int column) {
         return this.getCell(row, column);
     }
 
