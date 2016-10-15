@@ -32,6 +32,21 @@ public abstract class Cell extends Observable implements Linkable {
         return this.data;
     }
 
+    public int getDataAsInteger(){
+        try {
+            return Integer.parseInt(this.getData());
+        }
+        catch (NumberFormatException e){
+            return 0;
+        }
+
+    }
+
+
+    @Override
+    public String getLinkingSymbol(){
+        return this.getData();
+    }
 
     @Override
     public Set<String> getLinkingTokens() {
