@@ -12,32 +12,50 @@ public class LinkingTable {
 
     private Map<Pair<Integer, Integer>, Map<String, Set<String>>> table;
 
+
     public LinkingTable() {
         this.table = new HashMap<>();
     }
 
-    public void addEntry(int rowOffset, int columnOffset, String originToken, String destinationToken) {
-        //Setea en que direccion (representados como offsets) se van a chequear los linkeos
-        Pair<Integer, Integer> directionOffset = new Pair<>(rowOffset, columnOffset);
 
-        //TODO: extraer estas verificaciones a metodos
+
+    private Map<String, Set<String>> getLinkiableTokenInOffset(int rowOffset, int columnOffset) {
+        Pair<Integer, Integer> directionOffset = new Pair<>(rowOffset, columnOffset);
         Map<String, Set<String>> linkeableTokensInChosenOffset;
         if (this.table.containsKey(directionOffset)) {
             linkeableTokensInChosenOffset = this.table.get(directionOffset);
         } else {
             linkeableTokensInChosenOffset = new HashMap<>();
         }
+        return linkeableTokensInChosenOffset;
+    }
 
-        Set<String> destinationTokensInChosenOffset;
-        if (linkeableTokensInChosenOffset.containsKey(originToken)) {
-            destinationTokensInChosenOffset = linkeableTokensInChosenOffset.get(originToken);
+    private Set<String> getLinkeableTokensForOrigin(String originToken, Map<String, Set<String>> linkeableTokensInOffset) {
+        Set<String> destinationTokensInOffset;
+        if (linkeableTokensInOffset.containsKey(originToken)) {
+            destinationTokensInOffset = linkeableTokensInOffset.get(originToken);
         } else {
-            destinationTokensInChosenOffset = new HashSet<>();
+            destinationTokensInOffset = new HashSet<>();
         }
+        return destinationTokensInOffset;
+    }
 
-        destinationTokensInChosenOffset.add(destinationToken);
-        linkeableTokensInChosenOffset.put(originToken, destinationTokensInChosenOffset);
-        this.table.put(directionOffset, linkeableTokensInChosenOffset);
+    private void addToTable(int rowOffset, int columnOffset, Map<String, Set<String>> linkeableTokensInOffset) {
+        Pair<Integer, Integer> directionOffset = new Pair<>(rowOffset, columnOffset);
+        this.table.put(directionOffset, linkeableTokensInOffset);
+    }
+
+
+
+
+
+    public void addEntry(int rowOffset, int columnOffset, String originToken, String destinationToken) {
+        //Setea en que direccion (representados como offsets) se van a chequear los linkeos
+        Map<String, Set<String>> linkeableTokensInOffset = this.getLinkiableTokenInOffset(rowOffset, columnOffset);
+        Set<String> destinationTokensInOffset = this.getLinkeableTokensForOrigin(originToken, linkeableTokensInOffset);
+        destinationTokensInOffset.add(destinationToken);
+        linkeableTokensInOffset.put(originToken, destinationTokensInOffset);
+        this.addToTable(rowOffset, columnOffset, linkeableTokensInOffset);
     }
 
     public boolean checkEntryExistance(int rowOffset, int columnOffset, String originToken, String destinationToken) {
