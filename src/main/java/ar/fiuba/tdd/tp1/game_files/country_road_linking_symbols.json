@@ -1,0 +1,46 @@
+{
+  "LinkingSymbols": [
+    {
+      "symbol": "¡-",
+      "linkingTokens": [
+        "D",
+        "R"
+      ]
+    },
+    {
+      "symbol": "!-",
+      "linkingTokens": [
+        "U",
+        "R"
+      ]
+    },
+    {
+      "symbol": "-!",
+      "linkingTokens": [
+        "U",
+        "L"
+      ]
+    },
+    {
+      "symbol": "-¡",
+      "linkingTokens": [
+        "D",
+        "L"
+      ]
+    },
+    {
+      "symbol": "|",
+      "linkingTokens": [
+        "D",
+        "U"
+      ]
+    },
+    {
+      "symbol": "--",
+      "linkingTokens": [
+        "L",
+        "R"
+      ]
+    }
+  ]
+}
