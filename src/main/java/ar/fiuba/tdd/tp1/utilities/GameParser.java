@@ -6,6 +6,9 @@ import ar.fiuba.tdd.tp1.factory.CellViewFactory;
 import ar.fiuba.tdd.tp1.factory.RuleFactory;
 import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
+import ar.fiuba.tdd.tp1.graph.LinkingSymbolsTable;
+import ar.fiuba.tdd.tp1.graph.linker.ConcreteLinker;
+import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
 import ar.fiuba.tdd.tp1.rule.Rule;
 import ar.fiuba.tdd.tp1.set.CellSet;
 import ar.fiuba.tdd.tp1.graph.Graph;
@@ -17,9 +20,7 @@ import org.json.simple.parser.JSONParser;
 
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 
 public class GameParser {
     private Game game;
@@ -30,21 +31,34 @@ public class GameParser {
     private JSONObject jsonStructure;
     private JSONObject jsonRules;
 
+    private JSONObject jsonLinkingSymbolsTable;
+    private JSONObject jsonLinkingTable;
+
+    private LinkingSymbolsTable linkingSymbolsTable;
+    private LinkingTable linkingTable;
+
     /*  */
-    public GameParser(String structureFileName, String rulesFileName) {
+    public GameParser(String structureFileName, String rulesFileName, String linkingSymbolsTableFileName, String linkingTableFileName) {
         gameBoard = null;
         boardView = null;
+        linkingSymbolsTable = null;
         parser = new JSONParser();
-        initFiles(structureFileName, rulesFileName);
+        initFiles(structureFileName, rulesFileName, linkingSymbolsTableFileName, linkingTableFileName);
     }
 
     /*  */
-    private void initFiles(String structureFileName, String rulesFileName) {
+    private void initFiles(String structureFileName, String rulesFileName, String linkingSymbolsTableFileName, String linkingTableFileName) {
         try {
             InputStreamReader fileReaderStructure = new InputStreamReader(new FileInputStream(structureFileName), "UTF-8");
             jsonStructure = (JSONObject) parser.parse(fileReaderStructure);
             InputStreamReader fileReaderRules = new InputStreamReader(new FileInputStream(rulesFileName), "UTF-8");
             jsonRules = (JSONObject) parser.parse(fileReaderRules);
+
+            //TODO: chequear que esto funcione
+            InputStreamReader fileReaderLinkingSymbolsTable = new InputStreamReader(new FileInputStream(linkingSymbolsTableFileName), "UTF-8");
+            jsonLinkingSymbolsTable = (JSONObject) parser.parse(fileReaderLinkingSymbolsTable);
+            InputStreamReader fileReaderLinkingTable = new InputStreamReader(new FileInputStream(linkingTableFileName), "UTF-8");
+            jsonLinkingTable = (JSONObject) parser.parse(fileReaderLinkingTable);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -186,9 +200,54 @@ public class GameParser {
     //TODO: ESTA CLASE TRADUCTOR SERA PASADA A LA CLASE GAME, QUE EN CADA JUGADA SERA
     //TODO: LA ENCARGADA DE GENERAR LOS CONJUNTOS VARIABLES.
     public void parseLinkingInformation() {
-        TokenTranslate translate = new TokenTranslate();
-        game.addTranslate(translate);
+
+        //De aca sale com el linkengSymbolsTable cargado
+        linkingSymbolsTable = new LinkingSymbolsTable();
+        iterateJsonArray((JSONArray) jsonLinkingSymbolsTable.get("LinkingSymbols"), new ParserFunctorLinkingSymbol());
+        //ahora ahi que hacer lo mismo con la linking Table
+        linkingTable = new LinkingTable();
+        iterateJsonArray((JSONArray) jsonLinkingTable.get("LinkingTable"), new ParserFunctorLinkingTable());
+
+        game.setLinker(new ConcreteLinker(gameBoard, linkingTable, linkingSymbolsTable));
+
     }
+
+    private void parseLinkingSymbolObject(JSONObject linkingSymbol) {
+
+        Set<String> symbolsLinkingTokens = new HashSet<>();
+
+        String symbol = (String) linkingSymbol.get("symbol");
+        JSONArray linkingTokens = (JSONArray) linkingSymbol.get("linkingTokens");
+        Iterator tokensIterator = linkingTokens.iterator();
+        while (tokensIterator.hasNext()) {
+            symbolsLinkingTokens.add( (String) tokensIterator.next() );
+        }
+
+        linkingSymbolsTable.setSymbolsLinkingTokens(symbol, symbolsLinkingTokens);
+    }
+
+    private void parseLinkingTableObject(JSONObject linkingTableEntryObject) {
+
+        int rowOffset = ((Long)linkingTableEntryObject.get("rowOffset")).intValue();
+        int columnOffset = ((Long)linkingTableEntryObject.get("columnOffset")).intValue();
+
+        JSONArray tokensCombinationsArray = (JSONArray) linkingTableEntryObject.get("tokensCombinations");
+        Iterator iterator = tokensCombinationsArray.iterator();
+        while (iterator.hasNext()) {
+            JSONObject tokensCombination = (JSONObject) iterator.next();
+            String originToken = (String)  tokensCombination.get("originToken");
+
+            JSONArray destinationTokens = (JSONArray) tokensCombination.get("destinationTokens");
+            Iterator tokensIterator = destinationTokens.iterator();
+            while (tokensIterator.hasNext()) {
+                linkingTable.addEntry( rowOffset, columnOffset, originToken, (String)tokensIterator.next());
+            }
+        }
+
+    }
+
+
+
 
     public Game getGame() {
         return game;
@@ -211,6 +270,18 @@ public class GameParser {
     private class ParserFunctorRule extends ParserFunctor {
         void parse(JSONObject object) {
             parseRuleObject(object);
+        }
+    }
+
+    private class ParserFunctorLinkingSymbol extends ParserFunctor {
+        void parse(JSONObject object) {
+            parseLinkingSymbolObject(object);
+        }
+    }
+
+    private class ParserFunctorLinkingTable extends ParserFunctor {
+        void parse(JSONObject object) {
+            parseLinkingTableObject(object);
         }
     }
 }
