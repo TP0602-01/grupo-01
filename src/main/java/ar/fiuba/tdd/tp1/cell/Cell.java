@@ -32,11 +32,11 @@ public abstract class Cell extends Observable implements Linkable {
         return this.data;
     }
 
-    public int getDataAsInteger(){
+    public int getDataAsInteger() {
         try {
             return Integer.parseInt(this.getData());
         }
-        catch (NumberFormatException e){
+        catch (NumberFormatException e) {
             return 0;
         }
 
@@ -44,7 +44,7 @@ public abstract class Cell extends Observable implements Linkable {
 
 
     @Override
-    public String getLinkingSymbol(){
+    public String getLinkingSymbol() {
         return this.getData();
     }
 

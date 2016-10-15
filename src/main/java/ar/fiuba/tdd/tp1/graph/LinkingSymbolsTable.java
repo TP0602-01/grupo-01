@@ -11,7 +11,7 @@ public class LinkingSymbolsTable {
 
     protected Map<String, Set<String>> table;
 
-    public LinkingSymbolsTable(){
+    public LinkingSymbolsTable() {
         this.table = new HashMap<>();
     }
 
@@ -22,7 +22,7 @@ public class LinkingSymbolsTable {
 
 
     public Set<String> getLinkingTokensFor(String symbol) {
-        if (this.table.containsKey(symbol)){
+        if (this.table.containsKey(symbol)) {
             return this.table.get(symbol);
         }
         return new HashSet<>();
