@@ -66,9 +66,8 @@ public class ConcreteLinker implements Linker {
     }
 
 
-    private void linkIfItsPossible(Cell origin, Cell destination, Pair<Integer, Integer> offset,
-                                   String originToken, String destinationToken) {
-        if (originAndDestinationTokensImplyThatTheyMustBeLinked(offset, originToken, destinationToken)) {
+    private void linkIfItsPossible(Cell origin, Cell destination, boolean shouldBeLinked) {
+        if (shouldBeLinked) {
             this.graph.addNotDirectedLinkBetween(origin, destination);
             System.out.println("SE LINKEAN");
         } else {
@@ -79,21 +78,19 @@ public class ConcreteLinker implements Linker {
 
 
     private void checkTokensAndlinkIfItsPossible(Cell origin, Cell destination, Pair<Integer, Integer> offset) {
-
         if (destination == null) {
             return;
         }
-
         Set<String> originLinkingTokens = this.linkingSymbols.getLinkingTokensFor(origin.getLinkingSymbol());
         Set<String> destinationLinkingTokens = this.linkingSymbols.getLinkingTokensFor(destination.getLinkingSymbol());
-
-
+        boolean shouldBeLinked = false;
         for (String originToken : originLinkingTokens) {
             for (String destinationToken : destinationLinkingTokens) {
-                linkIfItsPossible(origin, destination, offset, originToken, destinationToken);
+                shouldBeLinked = shouldBeLinked
+                        | originAndDestinationTokensImplyThatTheyMustBeLinked(offset, originToken, destinationToken);
             }
         }
-
+        linkIfItsPossible(origin, destination, shouldBeLinked);
     }
 
     private Map<Cell, Pair<Integer, Integer>> getCellNeigbors(int originRow, int originColumn) {
@@ -116,11 +113,11 @@ public class ConcreteLinker implements Linker {
         //Linkable origin = this.linkableMatrix.getLinkable(row, column);
         Cell origin = this.linkableMatrix.getCell(row, column);
 
-
         Map<Cell, Pair<Integer, Integer>> neighbors = this.getCellNeigbors(row, column);
-        neighbors
-                .keySet()
-                .forEach((neighbor) -> this.checkTokensAndlinkIfItsPossible(origin, neighbor, neighbors.get(neighbor)));
+
+        for (Cell neighbor : neighbors.keySet()) {
+            this.checkTokensAndlinkIfItsPossible(origin, neighbor, neighbors.get(neighbor));
+        }
 
         // TODO: VER SI SE PUEDE REEMPLAZAR O SI FALLA Y TENEMOS QUE VOLVER A LO COMENTADO
         /*
