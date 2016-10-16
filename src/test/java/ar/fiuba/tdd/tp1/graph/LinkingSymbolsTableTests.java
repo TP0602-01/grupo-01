@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp1.graph;
 
-import ar.fiuba.tdd.tp1.graph.fixtures.linking_symbols_table.CountryRoadLinkingSymbolsFixture;
 import org.junit.Test;
 
 import java.util.HashSet;
