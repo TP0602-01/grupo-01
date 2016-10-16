@@ -35,8 +35,7 @@ public abstract class Cell extends Observable implements Linkable {
     public int getDataAsInteger() {
         try {
             return Integer.parseInt(this.getData());
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             return 0;
         }
 

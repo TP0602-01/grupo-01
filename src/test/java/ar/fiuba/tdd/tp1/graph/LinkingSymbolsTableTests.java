@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 public class LinkingSymbolsTableTests {
 
     @Test
-    public void testForAGivingSymbolItsLinkingTokensAreReturned(){
+    public void testForAGivingSymbolItsLinkingTokensAreReturned() {
 
         LinkingSymbolsTable symbolsTable = new LinkingSymbolsTable();
 

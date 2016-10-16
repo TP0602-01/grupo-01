@@ -8,6 +8,9 @@ import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
 import ar.fiuba.tdd.tp1.graph.linksmanager.LinksManager;
 import javafx.util.Pair;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 /* */
@@ -44,7 +47,6 @@ public class ConcreteLinker implements Linker {
     }
 
 
-
     @Override
     public void setLinkingInfo(int rowOffset, int columnOffset, String originTokens, Set<String> destinationTokens) {
         /*
@@ -55,11 +57,73 @@ public class ConcreteLinker implements Linker {
         */
     }
 
+
+    private boolean originAndDestinationTokensImplyThatTheyMustBeLinked(Pair<Integer, Integer> offset,
+                                                                        String originToken, String destinationToken) {
+        Integer rowOffset = offset.getKey();
+        Integer columnOffset = offset.getValue();
+        return this.linkingTable.checkEntryExistance(rowOffset, columnOffset, originToken, destinationToken);
+    }
+
+
+    private void linkIfItsPossible(Cell origin, Cell destination, Pair<Integer, Integer> offset,
+                                   String originToken, String destinationToken) {
+        if (originAndDestinationTokensImplyThatTheyMustBeLinked(offset, originToken, destinationToken)) {
+            this.graph.addNotDirectedLinkBetween(origin, destination);
+            System.out.println("SE LINKEAN");
+        } else {
+            this.graph.removeNotDirectedLinkBetween(origin, destination);
+            System.out.println("NO SE LINKEAN");
+        }
+    }
+
+
+    private void checkTokensAndlinkIfItsPossible(Cell origin, Cell destination, Pair<Integer, Integer> offset) {
+
+        if (destination == null) {
+            return;
+        }
+
+        Set<String> originLinkingTokens = this.linkingSymbols.getLinkingTokensFor(origin.getLinkingSymbol());
+        Set<String> destinationLinkingTokens = this.linkingSymbols.getLinkingTokensFor(destination.getLinkingSymbol());
+
+
+        for (String originToken : originLinkingTokens) {
+            for (String destinationToken : destinationLinkingTokens) {
+                linkIfItsPossible(origin, destination, offset, originToken, destinationToken);
+            }
+        }
+
+    }
+
+    private Map<Cell, Pair<Integer, Integer>> getCellNeigbors(int originRow, int originColumn) {
+        Map<Cell, Pair<Integer, Integer>> result = new HashMap<>();
+        Set<Pair<Integer, Integer>> posibleOffsets = this.linkingTable.getOffsets();
+
+        for (Pair<Integer, Integer> currentOffset : posibleOffsets) {
+            int rowOffset = currentOffset.getKey();
+            int columnOffset = currentOffset.getValue();
+            Cell destination = this.linkableMatrix.getCell(originRow + rowOffset, originColumn + columnOffset);
+            result.put(destination, currentOffset);
+        }
+
+        return result;
+    }
+
+
     @Override
     public void updateLinkableLinks(int row, int column) {
         //Linkable origin = this.linkableMatrix.getLinkable(row, column);
         Cell origin = this.linkableMatrix.getCell(row, column);
 
+
+        Map<Cell, Pair<Integer, Integer>> neighbors = this.getCellNeigbors(row, column);
+        neighbors
+                .keySet()
+                .forEach((neighbor) -> this.checkTokensAndlinkIfItsPossible(origin, neighbor, neighbors.get(neighbor)));
+
+        // TODO: VER SI SE PUEDE REEMPLAZAR O SI FALLA Y TENEMOS QUE VOLVER A LO COMENTADO
+        /*
         //Set<String> originLinkingTokens = origin.getLinkingTokens();
         Set<String> originLinkingTokens = this.linkingSymbols.getLinkingTokensFor(origin.getLinkingSymbol());
         //Recorro cada posible offset de la tabla
@@ -91,7 +155,9 @@ public class ConcreteLinker implements Linker {
                 }
             }
         }
+        */
     }
+
 }
 
 

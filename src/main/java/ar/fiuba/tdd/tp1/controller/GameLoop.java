@@ -22,11 +22,11 @@ public class GameLoop implements GameBoardController {
     public void start() throws IOException {
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
         boolean gameState = game.checkRules();
-        while ( !gameState ) {
+        while (!gameState) {
             InputCellData data = new InputCellData(console.readLine());
             game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData());  //TODO: CHEQUEAR SI LA JUGADA FUE CORRECTA
             gameState = game.checkRules();
-            System.out.println("Estado del tablero: " + gameState );
+            System.out.println("Estado del tablero: " + gameState);
         }
     }
 

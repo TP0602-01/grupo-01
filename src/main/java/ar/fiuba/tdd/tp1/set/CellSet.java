@@ -21,7 +21,7 @@ public class CellSet {
     public boolean check() {
         boolean check = true;
         Iterator it = rules.iterator();
-        while ( it.hasNext() ) {
+        while (it.hasNext()) {
             Rule rule = (Rule) it.next();
             if (!rule.check(graph)) {
                 check = false;

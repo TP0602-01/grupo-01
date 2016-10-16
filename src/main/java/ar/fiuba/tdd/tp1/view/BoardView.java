@@ -29,8 +29,6 @@ public class BoardView extends Observer {
     }
 
 
-
-
     public BoardView(GameBoard gameBoard, HorizontalLinksView horizontalLinksView) {
         this.gameBoard = gameBoard;
         this.gameBoard.registerObserver(this);
@@ -49,9 +47,7 @@ public class BoardView extends Observer {
     }
 
 
-
-
-    public BoardView(GameBoard gameBoard, HorizontalLinksView horizontalLinksView, VerticalLinksView verticalLinksView){
+    public BoardView(GameBoard gameBoard, HorizontalLinksView horizontalLinksView, VerticalLinksView verticalLinksView) {
         this.gameBoard = gameBoard;
         this.gameBoard.registerObserver(this);
 
@@ -68,8 +64,6 @@ public class BoardView extends Observer {
         this.verticalLinksView = verticalLinksView;
 
     }
-
-
 
 
     @Override
@@ -111,11 +105,6 @@ public class BoardView extends Observer {
     }
 
 
-
-
-
-
-
     public void upgradedUpdate() {
 
         for (int rowIdx = 0; rowIdx < this.getRowsNumber(); ++rowIdx) {
@@ -126,7 +115,7 @@ public class BoardView extends Observer {
 
                 CellView cellView = this.cellViews.get(rowIdx).get(colIdx);
                 rowAscii = rowAscii.concat(cellView.asciiDraw());
-                rowAscii = rowAscii.concat( horizontalLinksView.asciiDrawLinkBetween(rowIdx, colIdx, rowIdx, colIdx + 1) );
+                rowAscii = rowAscii.concat(horizontalLinksView.asciiDrawLinkBetween(rowIdx, colIdx, rowIdx, colIdx + 1));
             }
             System.out.println(rowAscii);
         }
@@ -140,11 +129,6 @@ public class BoardView extends Observer {
         }
         System.out.print("\n");
     }
-
-
-
-
-
 
 
 }

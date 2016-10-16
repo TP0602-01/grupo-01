@@ -11,15 +11,15 @@ import java.util.Set;
  */
 public abstract class GameLinkingSymbolsTableFixture extends LinkingSymbolsTable {
 
-    public GameLinkingSymbolsTableFixture(){
+    public GameLinkingSymbolsTableFixture() {
         this.setGameLinkingSymbolsTable();
     }
 
     protected abstract void setGameLinkingSymbolsTable();
 
-    protected void addLinkingTokensArrayToSymbol(String symbol, String[] linkingTokens){
+    protected void addLinkingTokensArrayToSymbol(String symbol, String[] linkingTokens) {
         Set<String> linkingTokensSet = new HashSet<>();
-        for (int i = 0; i < linkingTokens.length; i++){
+        for (int i = 0; i < linkingTokens.length; i++) {
             linkingTokensSet.add(linkingTokens[i]);
         }
         this.setSymbolsLinkingTokens(symbol, linkingTokensSet);

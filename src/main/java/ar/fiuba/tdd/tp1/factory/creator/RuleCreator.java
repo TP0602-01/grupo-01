@@ -16,6 +16,7 @@ public enum RuleCreator {
     },
 
     SUM_RULE_CREATOR("sum") {   //TODO: LE PUSE UN SUMRULE, PERO DESPUES HACEMOS LO TUYO DIEGO
+
         @Override               //TODO: Y QUIZAS DA PARA PONER UN TEMPLATE METHOD
         public Rule createRule(String value) {
             return new SumRule(Integer.parseInt(value));
@@ -24,6 +25,7 @@ public enum RuleCreator {
     },
 
     MULT_RULE_CREATOR("mult") {   //TODO: LE PUSE UN MULTRULE, PERO DESPUES HACEMOS LO TUYO DIEGO
+
         @Override
         public Rule createRule(String value) {
             return new MultRule(Integer.parseInt(value));

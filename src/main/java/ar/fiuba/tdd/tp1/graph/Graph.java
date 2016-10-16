@@ -64,7 +64,7 @@ public class Graph {
         Collection<Cell> cells = new ArrayList<>();
         Iterator it = links.entrySet().iterator();
         while (it.hasNext()) {
-            Cell cell = (Cell) ((Map.Entry)it.next()).getKey();
+            Cell cell = (Cell) ((Map.Entry) it.next()).getKey();
             cells.add(cell);
         }
         return cells;

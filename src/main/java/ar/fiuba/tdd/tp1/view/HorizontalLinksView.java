@@ -23,7 +23,7 @@ public class HorizontalLinksView {
         Cell first = this.linkableMatrix.getCell(rowFirst, columnFirst);
         Cell second = this.linkableMatrix.getCell(rowSecond, columnSecond);
 
-        if ( (first != null) && (second != null) ) {
+        if ((first != null) && (second != null)) {
             if (this.linksConfiguration.linkExistsFromOriginToDestination(first, second)) {
                 return ("----");
             }

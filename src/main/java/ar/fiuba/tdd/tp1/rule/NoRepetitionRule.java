@@ -25,7 +25,7 @@ public class NoRepetitionRule extends Rule {
         Set<Integer> cellSet = new HashSet<>();
         for (Cell cell : cells) {
             //if (!cellSet.add(Integer.parseInt(cell.getData()))) {   //TODO: CHEQUEAR QUE CON CERO NO SEA VALIDO
-            if (!cellSet.add(cell.getDataAsInteger()) ) {   //TODO: CHEQUEAR QUE CON CERO NO SEA VALIDO
+            if (!cellSet.add(cell.getDataAsInteger())) {   //TODO: CHEQUEAR QUE CON CERO NO SEA VALIDO
                 validRule = false;
             }
         }

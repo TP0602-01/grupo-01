@@ -21,7 +21,7 @@ public class VerticalLinksView {
         Cell first = this.linkableMatrix.getCell(row, column);
         Cell second = this.linkableMatrix.getCell(row + 1, column);
 
-        if ( (first != null) && (second != null) ) {
+        if ((first != null) && (second != null)) {
             if (this.linksConfiguration.linkExistsFromOriginToDestination(first, second)) {
                 return (" | ");
             }

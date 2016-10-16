@@ -1,48 +1,48 @@
 {
   "LinkingTable": [
     {
-      "rowOffset":0,
-      "columnOffset":1,
+      "rowOffset": 0,
+      "columnOffset": 1,
       "tokensCombinations": [
         {
-          "originToken":"R",
-          "destinationTokens":[
+          "originToken": "R",
+          "destinationTokens": [
             "L"
           ]
         }
       ]
     },
     {
-      "rowOffset":-1,
-      "columnOffset":0,
+      "rowOffset": -1,
+      "columnOffset": 0,
       "tokensCombinations": [
         {
-          "originToken":"U",
-          "destinationTokens":[
+          "originToken": "U",
+          "destinationTokens": [
             "D"
           ]
         }
       ]
     },
     {
-      "rowOffset":0,
-      "columnOffset":-1,
+      "rowOffset": 0,
+      "columnOffset": -1,
       "tokensCombinations": [
         {
-          "originToken":"L",
-          "destinationTokens":[
+          "originToken": "L",
+          "destinationTokens": [
             "R"
           ]
         }
       ]
     },
     {
-      "rowOffset":1,
-      "columnOffset":0,
+      "rowOffset": 1,
+      "columnOffset": 0,
       "tokensCombinations": [
         {
-          "originToken":"D",
-          "destinationTokens":[
+          "originToken": "D",
+          "destinationTokens": [
             "U"
           ]
         }

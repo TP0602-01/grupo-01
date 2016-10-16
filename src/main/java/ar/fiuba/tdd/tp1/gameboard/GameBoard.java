@@ -39,7 +39,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
 
     public Cell getCell(int rowIdx, int columnIdx) {
         if ((rowIdx >= this.getHeigth()) || (columnIdx >= this.getWidth())
-                || (rowIdx < 0) || (columnIdx < 0) ) {
+                || (rowIdx < 0) || (columnIdx < 0)) {
             return null;//new NullCell();
         } else {
             return cells.get(rowIdx).get(columnIdx);

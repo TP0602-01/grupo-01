@@ -18,7 +18,6 @@ public class LinkingTable {
     }
 
 
-
     private Map<String, Set<String>> getLinkiableTokenInOffset(int rowOffset, int columnOffset) {
         Pair<Integer, Integer> directionOffset = new Pair<>(rowOffset, columnOffset);
         Map<String, Set<String>> linkeableTokensInChosenOffset;
@@ -44,9 +43,6 @@ public class LinkingTable {
         Pair<Integer, Integer> directionOffset = new Pair<>(rowOffset, columnOffset);
         this.table.put(directionOffset, linkeableTokensInOffset);
     }
-
-
-
 
 
     public void addEntry(int rowOffset, int columnOffset, String originToken, String destinationToken) {

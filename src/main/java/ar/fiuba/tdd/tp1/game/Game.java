@@ -66,7 +66,7 @@ public class Game {
 
         boolean setCheck = true;
         Iterator it = cellStableSets.iterator();
-        while ( it.hasNext() ) {
+        while (it.hasNext()) {
             CellSet cellSet = (CellSet) it.next();
             if (!cellSet.check()) {
                 setCheck = false;
@@ -84,19 +84,19 @@ public class Game {
     public boolean addPlay(int rowPosition, int columnPosition, String content) {
 
         //if ( cellXPosition <= this.gameBoard.getWidth() && cellYPosition <= this.gameBoard.getHeigth() ) {
-        if ( this.playIsAllowed(rowPosition, columnPosition, content) ) {
+        if (this.playIsAllowed(rowPosition, columnPosition, content)) {
             gameBoard.setCellValue(rowPosition, columnPosition, content);
             //cellVariableSets = setGenerator.generateSet(gameBoard); //TODO: GENERAR CONJUTNOS VARIABLES
             this.linker.updateLinkableLinks(rowPosition, columnPosition);
         }
 
         return true; //TODO: CUANDO SE INGRESA UNA JUGADA INVALIDA SE DEBE ADVERTIR AL USUARIO
-                    //TODO: TAMBIEN, ACA SE DEBEN RE-GENERAR LOS CONJUNTOS VARIABLES
+        //TODO: TAMBIEN, ACA SE DEBEN RE-GENERAR LOS CONJUNTOS VARIABLES
     }
 
     private boolean playIsAllowed(int rowPosition, int columnPosition, String content) {
-        return  rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()
-                &&  rowPosition >= 0 && columnPosition >= 0
+        return rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()
+                && rowPosition >= 0 && columnPosition >= 0
                 && inputValidator.isAValidInput(content);
         //TODO: check correct content
     }
