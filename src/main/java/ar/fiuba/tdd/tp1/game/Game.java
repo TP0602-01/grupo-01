@@ -8,6 +8,7 @@ import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
 import ar.fiuba.tdd.tp1.graph.linksmanager.LinksManager;
 import ar.fiuba.tdd.tp1.graph.linksmanager.MapLinkManager;
 import ar.fiuba.tdd.tp1.set.CellSet;
+import ar.fiuba.tdd.tp1.utilities.InputValidator;
 import ar.fiuba.tdd.tp1.utilities.TokenTranslate;
 
 import java.util.ArrayList;
@@ -21,11 +22,9 @@ public class Game {
     private GameBoard gameBoard;
     private TokenTranslate traslate;
     private Collection<CellSet> cellStableSets = new ArrayList<>();
+    private InputValidator inputValidator;
     //private VariableSetGenerator setGenerator;
     //private Collection<CellSet> cellVariableSets; //TODO: PARA LOS CONJUNTOS VARIABLES
-
-
-
 
 
     //TODO: DEBE PASARSE COMO PARAMETRO EN EL CONSTRUCTOR
@@ -34,6 +33,13 @@ public class Game {
 
 
     public Game(GameBoard gameBoard) {
+
+        try {
+            this.inputValidator = new InputValidator();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         this.gameBoard = gameBoard;
 
         //this.linker = new ConcreteLinker(this.gameBoard, this.linksManager);
@@ -90,7 +96,8 @@ public class Game {
 
     private boolean playIsAllowed(int rowPosition, int columnPosition, String content) {
         return  rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()
-                &&  rowPosition >= 0 && columnPosition >= 0;
+                &&  rowPosition >= 0 && columnPosition >= 0
+                && inputValidator.isAValidInput(content);
         //TODO: check correct content
     }
 
