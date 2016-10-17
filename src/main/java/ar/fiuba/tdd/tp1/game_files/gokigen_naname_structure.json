@@ -1,0 +1,16 @@
+{
+  "height": "3",
+  "width": "3",
+  "structure": {
+    "cells": [
+      {
+        "type": "data",
+        "content": "",
+        "range": {
+          "initial_cell": "0,0",
+          "final_cell": "2,2"
+        }
+      }
+    ]
+  }
+}
