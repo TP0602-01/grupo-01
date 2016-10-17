@@ -8,7 +8,8 @@ import java.util.Set;
 
 public class InputValidator {
 
-    private final String posibleInputsFile = "./src/main/java/ar/fiuba/tdd/tp1/game_files/input.txt";
+    //private final String posibleInputsFile = "./src/main/java/ar/fiuba/tdd/tp1/game_files/input.txt";
+    private final String posibleInputsFile = "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road_input.txt";
     private Set<String> posibleInputs = new HashSet<>();
 
     public InputValidator() throws Exception {
