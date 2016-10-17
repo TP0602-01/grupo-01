@@ -48,6 +48,40 @@ public class Graph {
         this.removeDirectedLinkBetween(second, first);
     }
 
+    private Collection<Cell> getLinks(Cell cell){
+        return this.links.get(cell);
+    }
+
+    private int check(Cell first, Vector<Cell> v){
+        /*add father*/
+        v.add(first);
+        Collection<Cell> links = getLinks(first);
+        if (links != null ){
+            for (Cell cell:links){
+                check(cell,v);
+            }
+        }else{
+            for (Cell cell:v){
+                for (Cell aux:v){
+                    if (cell == aux){
+                        return 1;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+    public int getCircuitCount() {
+        Collection<Cell> cells = links.keySet();
+        int count = 0;
+        for (Cell cell : cells){
+            Vector<Cell> v = new Vector<>();
+            v.add(cell);
+            count += check(cell,v);
+        }
+        return count;
+    }
+
     /* Exists link beetween origin and destination ? */
     public boolean linkExistsFromOriginToDestination(Cell origin, Cell destination) {
         if (this.links.containsKey(origin)) {
