@@ -2,6 +2,10 @@ package ar.fiuba.tdd.tp1.rule.utilities;
 
 public enum ArithmeticalOperator {
 
+    MULT("*") {
+        @Override
+        public Integer apply(Integer x1, Integer x2) { return x1 * x2; }
+    },
 
     ADDITION("+") {
         @Override
@@ -9,7 +13,6 @@ public enum ArithmeticalOperator {
             return x1 + x2;
         }
     };
-
 
     private final String stringRepresentation;
 

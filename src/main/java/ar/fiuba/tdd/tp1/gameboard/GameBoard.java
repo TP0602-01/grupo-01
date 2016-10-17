@@ -35,6 +35,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
 
     public void addCell(int rowIdx, int columnIdx, Cell cell) {
         cells.get(rowIdx).put(columnIdx, cell);
+        updateObservers();
     }
 
     public Cell getCell(int rowIdx, int columnIdx) {
