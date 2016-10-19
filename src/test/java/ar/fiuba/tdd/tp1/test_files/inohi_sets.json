@@ -1,0 +1,58 @@
+{
+  "all_sets": [
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,1",
+              "final_cell": "2,1"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "mult",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,2",
+              "final_cell": "1,3"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "mult",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "2,2",
+              "final_cell": "2,3"
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "type": "mult",
+          "value": "3"
+        }
+      ]
+    }
+  ]
+}

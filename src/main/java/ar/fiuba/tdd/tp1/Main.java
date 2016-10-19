@@ -12,14 +12,27 @@ public class Main {
         try {
             GameParser parser = new GameParser(
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_structure.json",
-                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_set.json");
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_set.json",
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_symbols.json",
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_table.json"
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/kakoru_structure.json",
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/kakoru_set.json");
                     "./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_structure.json",
-                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_set.json",
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_set.json",
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_symbols.json",
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_table.json",
+                    /*
                     "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road_rules.json",
                     "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road_linking_symbols.json",
                     "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road_linking_table.json");
+                    */
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_structure.json",
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_rules.json",
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_linking_symbols.json",
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_linking_table.json"
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_possible_input.txt"
+            );
+            String filePlaysOutput = "./src/main/java/ar/fiuba/tdd/tp1/game_files/output.json";
 
             parser.parseGameStructure();
             parser.parseGameRules();
@@ -28,7 +41,7 @@ public class Main {
             Game game = parser.getGame();
 
             BoardView view = parser.getView();
-            GameBoardController controller = new GameLoop(game);
+            GameBoardController controller = new GameLoop(game, filePlaysOutput);
 
             view.update();  //TODO: UPDATEAR LA VIEW DENTRO DE GAME O EN OTRO LADO
             controller.start();

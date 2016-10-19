@@ -51,7 +51,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
     public void setCellValue(int rowIdx, int columnIdx, String value) {
         Cell chosenCell = this.getCell(rowIdx, columnIdx);
         chosenCell.setData(value);
-        this.updateObservers();
+        updateObservers();
     }
 
     public boolean isFull() {

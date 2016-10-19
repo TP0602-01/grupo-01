@@ -32,10 +32,10 @@ public class Game {
     LinksManager linksManager = new MapLinkManager();
 
 
-    public Game(GameBoard gameBoard) {
+    public Game(GameBoard gameBoard, InputValidator inputValidator) {
 
         try {
-            this.inputValidator = new InputValidator();
+            this.inputValidator = inputValidator;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -95,9 +95,10 @@ public class Game {
     }
 
     private boolean playIsAllowed(int rowPosition, int columnPosition, String content) {
-        return rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()
-                && rowPosition >= 0 && columnPosition >= 0
-                && inputValidator.isAValidInput(content);
+        return true;
+        //return rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()
+        //        && rowPosition >= 0 && columnPosition >= 0
+        //        && inputValidator.isAValidInput(content);
         //TODO: check correct content
     }
 

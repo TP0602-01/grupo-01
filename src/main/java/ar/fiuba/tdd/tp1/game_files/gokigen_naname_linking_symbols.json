@@ -1,0 +1,16 @@
+{
+  "LinkingSymbols": [
+    {
+      "symbol": "/",
+      "linkingTokens": [
+        "/"
+      ]
+    },
+    {
+      "symbol": "\\",
+      "linkingTokens": [
+        "\\"
+      ]
+    }
+  ]
+}

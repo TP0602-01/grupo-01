@@ -13,34 +13,34 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
-public class SumRuleTests {
+public class MultRuleTests {
 
     @Test
-    public void theCheckMethodMustReturnTrueWhenTheSumIsCorrect() {
+    public void theCheckMethodMustReturnTrueWhenTheMultIsCorrect() {
         Graph graph = new Graph();
-        InputCell c1 = new InputCell("5");
-        InputCell c2 = new InputCell("10");
-        InputCell c3 = new InputCell("7");
+        InputCell c1 = new InputCell("4");
+        InputCell c2 = new InputCell("2");
+        InputCell c3 = new InputCell("3");
 
         graph.addNotDirectedLinkBetween(c1, c2);
         graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("sum", "22");
+        Rule rule =  RuleFactory.create("mult", "24");
 
         assertTrue(rule.check(graph));
     }
 
     @Test
-    public void theCheckMethodMustReturnFalseIfTheSumValueIsDifferentToTheCompareValue() {
+    public void theCheckMethodMustReturnFalseIfTheMultValueIsDifferentToTheCompareValue() {
         Graph graph = new Graph();
-        InputCell c1 = new InputCell("5");
-        InputCell c2 = new InputCell("10");
-        InputCell c3 = new InputCell("77");
+        InputCell c1 = new InputCell("4");
+        InputCell c2 = new InputCell("2");
+        InputCell c3 = new InputCell("3");
 
         graph.addNotDirectedLinkBetween(c1, c2);
         graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("sum", "22");
+        Rule rule =  RuleFactory.create("mult", "22");
 
         assertFalse(rule.check(graph));
     }
@@ -48,12 +48,14 @@ public class SumRuleTests {
     @Test
     public void theCheckMethodMustReturnFalseIfOnCellHaveCeroValue() {
         Graph graph = new Graph();
-        InputCell c1 = new InputCell();
-        InputCell c2 = new InputCell();
+        InputCell c1 = new InputCell("0");
+        InputCell c2 = new InputCell("2");
+        InputCell c3 = new InputCell("3");
 
         graph.addNotDirectedLinkBetween(c1, c2);
+        graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("sum", "0");
+        Rule rule =  RuleFactory.create("mult", "0");
 
         assertFalse(rule.check(graph));
     }

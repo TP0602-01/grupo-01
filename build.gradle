@@ -51,3 +51,9 @@ findbugsMain {
     }
 }
 
+cpdCheck {
+    reports {
+        text.enabled = true
+        xml.enabled = false
+    }
+}

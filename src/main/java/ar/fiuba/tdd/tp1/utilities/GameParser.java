@@ -26,6 +26,7 @@ public class GameParser {
     private Game game;
     private GameBoard gameBoard;
     private BoardView boardView;
+    private InputValidator inputValidator;
 
     private JSONParser parser;
     private JSONObject jsonStructure;
@@ -38,10 +39,15 @@ public class GameParser {
     private LinkingTable linkingTable;
 
     /*  */
-    public GameParser(String structureFileName, String rulesFileName, String linkingSymbolsTableFileName, String linkingTableFileName) {
+    public GameParser(String structureFileName,
+                      String rulesFileName,
+                      String linkingSymbolsTableFileName,
+                      String linkingTableFileName,
+                      String possibleInputFileName) {
         gameBoard = null;
         boardView = null;
         linkingSymbolsTable = null;
+        inputValidator = new InputValidator(possibleInputFileName);
         parser = new JSONParser();
         initFiles(structureFileName, rulesFileName, linkingSymbolsTableFileName, linkingTableFileName);
     }
@@ -89,7 +95,7 @@ public class GameParser {
                 boardView.addCellViewIn(cellView, x, y);
             }
         }
-        game = new Game(gameBoard);
+        game = new Game(gameBoard, inputValidator);
     }
 
     /*  */

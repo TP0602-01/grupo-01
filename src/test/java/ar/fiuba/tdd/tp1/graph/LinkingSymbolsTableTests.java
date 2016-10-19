@@ -27,4 +27,10 @@ public class LinkingSymbolsTableTests {
         symbolsTable.setSymbolsLinkingTokens(symbol, symbolLinkingTokens);
         assertTrue(symbolLinkingTokens.containsAll(symbolsTable.getLinkingTokensFor(symbol)));
     }
+
+    @Test
+    public void testForANonExistingSymbolAnEmptySetOfLinkingTokensIsReturned() {
+        LinkingSymbolsTable symbolsTable = new LinkingSymbolsTable();
+        assertTrue( (symbolsTable.getLinkingTokensFor("Non Existing Symbol")).isEmpty());
+    }
 }

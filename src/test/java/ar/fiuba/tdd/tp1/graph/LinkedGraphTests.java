@@ -20,22 +20,7 @@ import static junit.framework.TestCase.assertTrue;
 /* */
 public class LinkedGraphTests {
 
-    @Test
-    public void testLinkTwoLinkedCells() {
-        Linkable a1 = new InputCell("");
-        Linkable a2 = new InputCell("");
 
-        LinksManager linksManager = new MapLinkManager();
-
-        linksManager.addDirectedLinkBetween(a1, a2);
-        //up to here a1 can go to a2 BUT a2 CANT go to a1
-
-        linksManager.addDirectedLinkBetween(a2, a1);
-        //now a1 can go to a2 and a2 can go to a1
-
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a1, a2));
-        assertTrue(linksManager.linkExistsFromOriginToDestination(a2, a1));
-    }
 
     @Test
     public void testLinkerSimulationWithGameBoardAndLinksManager() {
@@ -299,47 +284,5 @@ public class LinkedGraphTests {
         assertFalse(linksManager.linkExistsFromOriginToDestination(a11, a22));
 
         assertTrue(linksManager.linkExistsFromOriginToDestination(a11, a12));
-    }
-
-    @Test
-    public void testAddingAnEntryToALinkingTableAndCheckingThatEntryExistanceMustBeTrue() {
-        LinkingTable linkingTable = new LinkingTable();
-        int rowOffset = 1;
-        int colOffset = 1;
-        String originToken = "ConfigurableOriginToken";
-        String destinationToken = "ConfigurableDestinationTokenInChosenOffset";
-        linkingTable.addEntry(rowOffset, colOffset, originToken, destinationToken);
-        assertTrue(linkingTable.checkEntryExistance(rowOffset, colOffset, originToken, destinationToken));
-    }
-
-    public void testCheckingEntryExistanceOfAnNonExistingEntryMustBeFalse() {
-        LinkingTable linkingTable = new LinkingTable();
-        int rowOffset = 1;
-        int colOffset = 1;
-        String originToken = "originToken";
-        String destinationToken = "destinationTokenInChosenOffset";
-        linkingTable.addEntry(rowOffset, colOffset, originToken, destinationToken);
-        assertFalse(linkingTable.checkEntryExistance(rowOffset, colOffset, "NonExistingOriginToken", "NonExistingDestinationToken"));
-    }
-
-    public void testCheckingEntryExistanceOfAnEntryWithAnNonExistingOriginTokenMustBeFalse() {
-        LinkingTable linkingTable = new LinkingTable();
-        int rowOffset = 1;
-        int colOffset = 1;
-        String originToken = "originToken";
-        String destinationToken = "destinationTokenInChosenOffset";
-        linkingTable.addEntry(rowOffset, colOffset, originToken, destinationToken);
-        assertFalse(linkingTable.checkEntryExistance(rowOffset, colOffset, "NonExistingOriginToken", destinationToken));
-    }
-
-
-    public void testCheckingEntryExistanceOfAnEntryWithAnNonExistingDestinationTokenMustBeFalse() {
-        LinkingTable linkingTable = new LinkingTable();
-        int rowOffset = 1;
-        int colOffset = 1;
-        String originToken = "originToken";
-        String destinationToken = "destinationTokenInChosenOffset";
-        linkingTable.addEntry(rowOffset, colOffset, originToken, destinationToken);
-        assertFalse(linkingTable.checkEntryExistance(rowOffset, colOffset, originToken, "NonExistingDestinationToken"));
     }
 }
