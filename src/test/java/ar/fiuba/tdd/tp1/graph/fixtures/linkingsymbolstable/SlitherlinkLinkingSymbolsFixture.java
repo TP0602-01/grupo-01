@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp1.graph.fixtures.linking_symbols_table;
+package ar.fiuba.tdd.tp1.graph.fixtures.linkingsymbolstable;
 
 /**
  * Created by User on 12/10/2016.
