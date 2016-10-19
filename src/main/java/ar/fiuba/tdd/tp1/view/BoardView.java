@@ -68,6 +68,7 @@ public class BoardView extends Observer {
 
     @Override
     public void update() {
+
         String rowSeparatorLine = "";
 
         for (int i = 0; i < this.getColumnsNumber(); i++) {
