@@ -15,7 +15,7 @@ public class GraphTest {
     public void testLinkCorrect() {
         Cell a1 = new FixedCell("a");
         Cell a2 = new FixedCell("b");
-
+        
         Graph graph = new Graph();
         graph.addNotDirectedLinkBetween(a1,a2);
         assertTrue(graph.linkExistsFromOriginToDestination(a1,a2));
