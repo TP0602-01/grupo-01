@@ -32,10 +32,10 @@ public class Game {
     LinksManager linksManager = new MapLinkManager();
 
 
-    public Game(GameBoard gameBoard) {
+    public Game(GameBoard gameBoard, InputValidator inputValidator) {
 
         try {
-            this.inputValidator = new InputValidator();
+            this.inputValidator = inputValidator;
         } catch (Exception e) {
             e.printStackTrace();
         }
