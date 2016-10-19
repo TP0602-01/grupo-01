@@ -16,14 +16,13 @@ public class LinkingSymbolsTableTests {
     @Test
     public void testForAGivingSymbolItsLinkingTokensAreReturned() {
 
-        LinkingSymbolsTable symbolsTable = new LinkingSymbolsTable();
-
-        String symbol = "***";
         Set<String> symbolLinkingTokens = new HashSet<>();
         symbolLinkingTokens.add("token1");
         symbolLinkingTokens.add("token2");
         symbolLinkingTokens.add("*****3");
 
+        LinkingSymbolsTable symbolsTable = new LinkingSymbolsTable();
+        String symbol = "***";
         symbolsTable.setSymbolsLinkingTokens(symbol, symbolLinkingTokens);
         assertTrue(symbolLinkingTokens.containsAll(symbolsTable.getLinkingTokensFor(symbol)));
     }

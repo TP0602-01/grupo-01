@@ -155,6 +155,11 @@ public class ConcreteLinker implements Linker {
         */
     }
 
+    @Override
+    public Graph getGraph(){
+        return this.graph;
+    }
+
 }
 
 

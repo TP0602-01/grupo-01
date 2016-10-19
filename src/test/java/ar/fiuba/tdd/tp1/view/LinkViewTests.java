@@ -10,7 +10,7 @@ import org.junit.Test;
 public class LinkViewTests {
 
     @Test
-    public void SimpleLinkViewSimulation() {
+    public void simpleLinkViewSimulation() {
         GameBoard gameBoard = new GameBoard(3, 3);
         Graph graph = new Graph();
         HorizontalLinksView horizontalLinksView = new HorizontalLinksView(gameBoard, graph);
@@ -27,7 +27,7 @@ public class LinkViewTests {
     }
 
     @Test
-    public void VerticalLinkViewSimulation() {
+    public void verticalLinkViewSimulation() {
         GameBoard gameBoard = new GameBoard(3, 3);
         Graph graph = new Graph();
         HorizontalLinksView horizontalLinksView = new HorizontalLinksView(gameBoard, graph);
