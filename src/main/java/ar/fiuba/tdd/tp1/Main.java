@@ -11,14 +11,16 @@ public class Main {
     public static void main(String[] args) {
         try {
             GameParser parser = new GameParser(
-                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_structure.json",
-                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_set.json",
-                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_symbols.json",
-                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_table.json"
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_structure.json",
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_set.json",
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_symbols.json",
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_table.json"
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/kakoru_structure.json",
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/kakoru_set.json");
-                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_structure.json",
-                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_set.json",
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_structure.json",
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_set.json",
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_symbols.json",
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/empty_linking_table.json"
                     /*
                     "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road_rules.json",
                     "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road_linking_symbols.json",

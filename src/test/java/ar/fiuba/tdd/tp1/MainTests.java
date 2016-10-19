@@ -4,17 +4,14 @@ import ar.fiuba.tdd.tp1.controller.GameBoardController;
 import ar.fiuba.tdd.tp1.controller.GameLoop;
 import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.utilities.GameParser;
-import ar.fiuba.tdd.tp1.view.BoardView;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
-import sun.misc.IOUtils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Iterator;
 
 import static junit.framework.TestCase.assertTrue;
 
@@ -73,28 +70,37 @@ public class MainTests {
             e.printStackTrace();
             return false;
         }
-
-
     }
-/*
 
     @Test
     public void autoPlayingKakuroToWin() {
+        String plays_to_win = "./src/test/java/ar/fiuba/tdd/tp1/test_files/kakuro_plays_to_win.json";
+        String structure = "./src/test/java/ar/fiuba/tdd/tp1/test_files/kakuro_structure.json";
+        String sets = "./src/test/java/ar/fiuba/tdd/tp1/test_files/kakuro_sets.json";
+        String link_symbols = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_symbols.json";
+        String link_table = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_table.json";
+        String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/output.json";
 
-        String input = "./src/test/java/ar/fiuba/tdd/tp1/testInput.txt";
-        String structure = "./src/main/java/ar/fiuba/tdd/tp1/kakoruStructure.json";
-        String rules = "./src/main/java/ar/fiuba/tdd/tp1/kakoruRules.json";
-
-        assertTrue(autoPlayGame(input, structure, rules));
-
-
+        assertTrue(autoPlayGame(plays_to_win, structure, sets, link_symbols, link_table, playsOutput));
     }
-*/
+
     @Test
     public void autoPlayingSudokuToWin() {
         String plays_to_win = "./src/test/java/ar/fiuba/tdd/tp1/test_files/sudoku_plays_to_win.json";
-        String structure = "./src/test/java/ar/fiuba/tdd/tp1/test_files/sudoku_structure_to_win.json";
-        String sets = "./src/test/java/ar/fiuba/tdd/tp1/test_files/sudoku_sets_to_win.json";
+        String structure = "./src/test/java/ar/fiuba/tdd/tp1/test_files/sudoku_structure.json";
+        String sets = "./src/test/java/ar/fiuba/tdd/tp1/test_files/sudoku_sets.json";
+        String link_symbols = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_symbols.json";
+        String link_table = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_table.json";
+        String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/output.json";
+
+        assertTrue(autoPlayGame(plays_to_win, structure, sets, link_symbols, link_table, playsOutput));
+    }
+
+    @Test
+    public void autoPlayingInohiToWin() {
+        String plays_to_win = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi_plays_to_win.json";
+        String structure = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi_structure.json";
+        String sets = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi_sets.json";
         String link_symbols = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_symbols.json";
         String link_table = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_table.json";
         String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/output.json";

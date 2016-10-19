@@ -1,0 +1,120 @@
+{
+  "height": "8",
+  "width": "3",
+  "structure": {
+    "cells": [
+      {
+        "type": "nullcell",
+        "content": "###",
+        "range": {
+          "initial_cell": "4,0",
+          "final_cell": "5,0"
+        }
+      },
+      {
+        "type": "data",
+        "content": "",
+        "range": {
+          "initial_cell": "1,1",
+          "final_cell": "3,2"
+        }
+      },
+      {
+        "type": "data",
+        "content": "",
+        "range": {
+          "initial_cell": "4,2",
+          "final_cell": "4,2"
+        }
+      },
+      {
+        "type": "data",
+        "content": "",
+        "range": {
+          "initial_cell": "6,1",
+          "final_cell": "7,2"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/16",
+        "range": {
+          "initial_cell": "1,0",
+          "final_cell": "1,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/17",
+        "range": {
+          "initial_cell": "2,0",
+          "final_cell": "2,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/14",
+        "range": {
+          "initial_cell": "3,0",
+          "final_cell": "3,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/17",
+        "range": {
+          "initial_cell": "6,0",
+          "final_cell": "6,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "4/",
+        "range": {
+          "initial_cell": "7,0",
+          "final_cell": "7,0"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "11/",
+        "range": {
+          "initial_cell": "5,1",
+          "final_cell": "5,1"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "30/",
+        "range": {
+          "initial_cell": "0,2",
+          "final_cell": "0,2"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "10/",
+        "range": {
+          "initial_cell": "5,2",
+          "final_cell": "5,2"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "23/",
+        "range": {
+          "initial_cell": "0,1",
+          "final_cell": "0,1"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "/6",
+        "range": {
+          "initial_cell": "4,1",
+          "final_cell": "4,1"
+        }
+      }
+    ]
+  }
+}

@@ -58,9 +58,6 @@ public class GameLoop implements GameBoardController {
         private String data;
 
         InputCellData(String line) {
-            System.out.println(line);
-            System.out.println("asd");
-
             String[] splited = line.split(" ");
             indexI = Integer.parseInt(splited[0]);
             indexJ = Integer.parseInt(splited[1]);
