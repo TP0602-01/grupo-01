@@ -52,21 +52,41 @@ public class GameParser {
         initFiles(structureFileName, rulesFileName, linkingSymbolsTableFileName, linkingTableFileName);
     }
 
+
+    private JSONObject parseFileToJsonObject(String fileName) throws Exception {
+        InputStreamReader fileReader = new InputStreamReader(new FileInputStream(fileName), "UTF-8");
+        return (JSONObject) parser.parse(fileReader);
+    }
+
     /*  */
     private void initFiles(String structureFileName, String rulesFileName,
                            String linkingSymbolsTableFileName, String linkingTableFileName) {
         try {
+            /*
             InputStreamReader fileReaderStructure = new InputStreamReader(new FileInputStream(structureFileName), "UTF-8");
             jsonStructure = (JSONObject) parser.parse(fileReaderStructure);
+            */
+            jsonStructure = parseFileToJsonObject(structureFileName);
+            /*
             InputStreamReader fileReaderRules = new InputStreamReader(new FileInputStream(rulesFileName), "UTF-8");
             jsonRules = (JSONObject) parser.parse(fileReaderRules);
+            */
+            jsonRules = parseFileToJsonObject(rulesFileName);
 
             //TODO: chequear que esto funcione
+            /*
             InputStreamReader fileReaderLinkingSymbolsTable = new InputStreamReader(
                     new FileInputStream(linkingSymbolsTableFileName), "UTF-8");
             jsonLinkingSymbolsTable = (JSONObject) parser.parse(fileReaderLinkingSymbolsTable);
+            */
+            jsonLinkingSymbolsTable = parseFileToJsonObject(linkingSymbolsTableFileName);
+
+            /*
             InputStreamReader fileReaderLinkingTable = new InputStreamReader(new FileInputStream(linkingTableFileName), "UTF-8");
             jsonLinkingTable = (JSONObject) parser.parse(fileReaderLinkingTable);
+            */
+            jsonLinkingTable = parseFileToJsonObject(linkingTableFileName);
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -103,20 +123,16 @@ public class GameParser {
         // Create Set and add them to Game
         Collection<Rule> setRules = new ArrayList<>();
 
-        JSONArray rules = (JSONArray) rule.get("rules");
-        Iterator iterator = rules.iterator();
+        Iterator iterator = getJsonArrayIterator(rule, "rules");
         while (iterator.hasNext()) {
             JSONObject cellObject = (JSONObject) iterator.next();
-            String ruleType = (String) cellObject.get("type");
-            String ruleValue = (String) cellObject.get("value");
-
-            Rule ruleObject = RuleFactory.create(ruleType, ruleValue);
+            Vector<String> ruleValues = getValuesInJsonObjectFromKeys(cellObject, new String[]{"type", "value"});
+            Rule ruleObject = RuleFactory.create(ruleValues.elementAt(0), ruleValues.elementAt(1));
             setRules.add(ruleObject);
         }
 
         // Create the cell Set and include it to Game
-        JSONArray sets = (JSONArray) rule.get("sets");
-        Iterator setsIterator = sets.iterator();
+        Iterator setsIterator = getJsonArrayIterator(rule, "sets");
         while (setsIterator.hasNext()) {
             JSONObject set = (JSONObject) setsIterator.next();
             JSONArray setArray = (JSONArray) set.get("set");
@@ -246,14 +262,12 @@ public class GameParser {
         int rowOffset = ((Long) linkingTableEntryObject.get("rowOffset")).intValue();
         int columnOffset = ((Long) linkingTableEntryObject.get("columnOffset")).intValue();
 
-        JSONArray tokensCombinationsArray = (JSONArray) linkingTableEntryObject.get("tokensCombinations");
-        Iterator iterator = tokensCombinationsArray.iterator();
+        Iterator iterator = getJsonArrayIterator(linkingTableEntryObject, "tokensCombinations");
         while (iterator.hasNext()) {
             JSONObject tokensCombination = (JSONObject) iterator.next();
             String originToken = (String) tokensCombination.get("originToken");
 
-            JSONArray destinationTokens = (JSONArray) tokensCombination.get("destinationTokens");
-            Iterator tokensIterator = destinationTokens.iterator();
+            Iterator tokensIterator = getJsonArrayIterator(tokensCombination, "destinationTokens");
             while (tokensIterator.hasNext()) {
                 linkingTable.addEntry(rowOffset, columnOffset, originToken, (String) tokensIterator.next());
             }
@@ -296,5 +310,18 @@ public class GameParser {
         void parse(JSONObject object) {
             parseLinkingTableObject(object);
         }
+    }
+
+    private Iterator getJsonArrayIterator(JSONObject jsonObject, String arrayKey) {
+        JSONArray rules = (JSONArray) jsonObject.get(arrayKey);
+        return rules.iterator();
+    }
+
+    private Vector<String> getValuesInJsonObjectFromKeys(JSONObject object, String[] keys) {
+        Vector<String> values = new Vector<>();
+        for (int i = 0; i < keys.length; i++) {
+            values.add( (String)object.get(keys[i]) );
+        }
+        return values;
     }
 }
