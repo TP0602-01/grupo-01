@@ -6,7 +6,7 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 
 import java.util.Collection;
 
-public class EstateCorrectRule {
+public class EstateCorrectRule extends Rule{
     private GameBoard myGameBoard;
     private Graph myGraph;
 
@@ -56,4 +56,19 @@ public class EstateCorrectRule {
         return true;
     }
 
+
+    @Override
+    public boolean check(Graph graph) {
+        for (int i = 0; i < myGameBoard.getWidth(); i++) {
+            for (int j = 0; j < myGameBoard.getHeigth(); j++) {
+                Cell cell = myGameBoard.getCell(i, j);
+                if (graph.cellHasConnection(cell)) {
+                    if (!checkAdjacentCell(i, j)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }
