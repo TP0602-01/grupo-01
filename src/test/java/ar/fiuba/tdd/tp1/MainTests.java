@@ -72,7 +72,7 @@ public class MainTests {
         String linkSymbols = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_symbols.json";
         String linkTable = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_table.json";
         String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/output.json";
-        String possibleInput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/possible_input_kakoru.txt";
+        String possibleInput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/numerical_input.txt";
 
         assertTrue(autoPlayGame(playsToWin, structure, sets, linkSymbols, linkTable, playsOutput, possibleInput));
     }
@@ -85,7 +85,7 @@ public class MainTests {
         String linkSymbols = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_symbols.json";
         String linkTable = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_table.json";
         String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/output.json";
-        String possibleInput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/possible_input_sudoku.txt";
+        String possibleInput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/numerical_input.txt";
 
         assertTrue(autoPlayGame(playsToWin, structure, sets, linkSymbols, linkTable, playsOutput, possibleInput));
     }
@@ -98,7 +98,7 @@ public class MainTests {
         String linkSymbols = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_symbols.json";
         String linkTable = "./src/test/java/ar/fiuba/tdd/tp1/test_files/empty_linking_table.json";
         String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/output.json";
-        String possibleInput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/possible_input_inohi.txt";
+        String possibleInput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/numerical_input.txt";
 
         assertTrue(autoPlayGame(playsToWin, structure, sets, linkSymbols, linkTable, playsOutput, possibleInput));
     }
