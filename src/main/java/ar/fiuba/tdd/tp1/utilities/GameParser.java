@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp1.utilities;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.factory.CellFactory;
-import ar.fiuba.tdd.tp1.factory.CellViewFactory;
 import ar.fiuba.tdd.tp1.factory.RuleFactory;
 import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
@@ -13,7 +12,8 @@ import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
 import ar.fiuba.tdd.tp1.rule.Rule;
 import ar.fiuba.tdd.tp1.set.CellSet;
 import ar.fiuba.tdd.tp1.view.BoardView;
-import ar.fiuba.tdd.tp1.view.CellView;
+import ar.fiuba.tdd.tp1.view.draw.cellcomponents.BorderView;
+import ar.fiuba.tdd.tp1.view.draw.cellcomponents.DataView;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -32,11 +32,16 @@ public class GameParser {
     private JSONObject jsonStructure;
     private JSONObject jsonRules;
 
+
     private JSONObject jsonLinkingSymbolsTable;
     private JSONObject jsonLinkingTable;
 
+    private Graph graph;
+
     private LinkingSymbolsTable linkingSymbolsTable;
     private LinkingTable linkingTable;
+
+
 
     /*  */
     public GameParser(String structureFileName,
@@ -90,11 +95,14 @@ public class GameParser {
         for (int x = firstX; x <= endX; ++x) {
             for (int y = firstY; y <= endY; ++y) {
                 Cell cellObject = CellFactory.create(type, content);
-                CellView cellView = CellViewFactory.create(cellObject, type);
+                cellObject.setCoordinates(x,y);
                 gameBoard.addCell(x, y, cellObject);
-                boardView.addCellViewIn(cellView, x, y);
+                boardView.setCell(y,x,cellObject);
+                boardView.addCellComponent(y,x,new BorderView());
+                boardView.addCellComponent(y,x,new DataView());
             }
         }
+
         game = new Game(gameBoard, inputValidator);
     }
 
@@ -187,6 +195,7 @@ public class GameParser {
             gameBoard = new GameBoard(
                     Integer.parseInt((String) jsonStructure.get("width")),
                     Integer.parseInt((String) jsonStructure.get("height")));
+
             boardView = new BoardView(gameBoard);
 
             JSONObject structure = (JSONObject) jsonStructure.get("structure");
@@ -219,7 +228,28 @@ public class GameParser {
         linkingTable = new LinkingTable();
         iterateJsonArray((JSONArray) jsonLinkingTable.get("LinkingTable"), new ParserFunctorLinkingTable());
 
-        game.setLinker(new ConcreteLinker(gameBoard, linkingTable, linkingSymbolsTable));
+        ConcreteLinker linker = new ConcreteLinker(gameBoard, linkingTable, linkingSymbolsTable);
+
+        game.setLinker(linker);
+
+        this.graph = linker.getGraph();
+
+        for (int x = 0; x <= gameBoard.getWidth(); ++x) {
+            for (int y = 0; y <= gameBoard.getHeigth(); ++y) {
+                Cell cello = gameBoard.getCell(x,y);
+                if(x+1 < gameBoard.getWidth()) {
+                    Cell destination = gameBoard.getCell(x + 1, y);
+                    boardView.addLinkView(cello,destination,this.graph);
+                }
+                if( y+ 1 < gameBoard.getHeigth()) {
+
+                    Cell destination = gameBoard.getCell(x, y+1);
+                    boardView.addLinkView(cello,destination,this.graph);
+                }
+
+            }
+        }
+
 
     }
 

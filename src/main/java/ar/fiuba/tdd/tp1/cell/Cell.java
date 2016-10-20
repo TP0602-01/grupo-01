@@ -24,6 +24,8 @@ public abstract class Cell extends Observable implements Linkable {
     protected Collection<Graph> graphSets;
 
     protected String data;
+    private int xCoord;
+    private int yCoord;
 
     protected Cell(String data) {
         this.rowIndex = 0;
@@ -53,6 +55,11 @@ public abstract class Cell extends Observable implements Linkable {
 
     public Collection<Graph> getSets() {
         return this.graphSets;
+    }
+
+    public void setCoordinates(int xCoord,int yCoord) {
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
     }
 
 
@@ -98,4 +105,11 @@ public abstract class Cell extends Observable implements Linkable {
 
     public abstract boolean isWalkable();
 
+    public int getX() {
+        return xCoord;
+    }
+
+    public int getY() {
+        return yCoord;
+    }
 }

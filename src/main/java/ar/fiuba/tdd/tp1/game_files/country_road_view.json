@@ -1,0 +1,13 @@
+{
+  "views":[
+    {
+      "type": "cellView",
+      "all": true,
+      "components":[
+        {
+          "type": "borderView"
+        }
+      ]
+    }
+  ]
+}

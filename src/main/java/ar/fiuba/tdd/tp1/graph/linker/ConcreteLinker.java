@@ -125,6 +125,7 @@ public class ConcreteLinker implements Linker {
             Cell cell = (Cell) pair.getKey();
             this.checkTokensAndlinkIfItsPossible(origin, cell, neighbors.get(cell));
             it.remove();
+
         }
 
         // TODO: VER SI SE PUEDE REEMPLAZAR O SI FALLA Y TENEMOS QUE VOLVER A LO COMENTADO

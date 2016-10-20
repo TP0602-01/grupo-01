@@ -48,9 +48,9 @@ public class Main {
             controller.start();
 
             if (game.checkRules()) {
-                view.showMessage("Game over, you win!");
+                //  view.showMessage("Game over, you win!");
             } else {
-                view.showMessage("Game over, you loose");
+                // view.showMessage("Game over, you loose");
             }
         } catch (Exception e) {
             e.printStackTrace();
