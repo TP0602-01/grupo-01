@@ -123,6 +123,15 @@ public class Graph {
         }
         return false;
     }
+
+    private static Graph singleton = null;
+
+    public static Graph getSingleInstance() {
+        if (singleton == null) {
+            singleton = new Graph();
+        }
+        return singleton;
+    }
 }
 
 
