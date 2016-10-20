@@ -6,8 +6,25 @@ import ar.fiuba.tdd.tp1.rule.*;
 import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
 import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalRuleOperators;
 import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
+import ar.fiuba.tdd.tp1.utilities.ParserHelper;
 
 public enum RuleCreator {
+
+    CIRCUIT_COUNT_CREATOR("circuit") {
+        @Override
+        public Rule createRule(String value, GameBoard board) {
+            return new ExistCircuitRule(Graph.getSingleInstance(), Integer.parseInt(value));
+        }
+    },
+
+
+    ESTATE_CORRECT_CREATOR("estate_correct") {
+        @Override
+        public Rule createRule(String value, GameBoard board) {
+            return new EstateCorrectRule(board, Graph.getSingleInstance());
+        }
+
+    },
 
     NO_REPETITION_RULE_CREATOR("no_rep") {
         @Override
@@ -31,6 +48,7 @@ public enum RuleCreator {
         }
     },
 
+
     SUM_RULE_CREATOR("sum") {
         @Override
         public Rule createRule(String value, GameBoard board) {
@@ -41,55 +59,44 @@ public enum RuleCreator {
                     ArithmeticalOperator.ADDITION, ComparisonOperator.EQUAL,
                     ComparisonOperator.LESS
             );
+
             return new AccumulatorRule(expectedValue, operators, initAcumulator);
         }
     },
 
 
-    CIRCUIT_COUNT_CREATOR("circuit") {
+
+    EMPTY_CELLS_COUNT_CREATOR("expected_data_count") {
+
         @Override
         public Rule createRule(String value, GameBoard board) {
-            return new ExistCircuitRule(Graph.getSingleInstance(), Integer.parseInt(value));
+            return new QuantityCorrectConnectionRegionRule(ParserHelper.toInteger(value));
+
         }
+
     },
+
 
     CONNECTED_GRAPH_COUNT_CREATOR("conn_graph") {
         @Override
-        public Rule createRule(String value, GameBoard board) {
-            return new ConnectedGraphsCountRule(Integer.parseInt(value));
+        public Rule createRule(String count, GameBoard ignored) {
+            return new ConnectedGraphsCountRule(ParserHelper.toInteger(count));
         }
     },
 
-    EMPTY_CELLS_COUNT_CREATOR("expected_data_count") {
+    EDGES_COUNT_CREATOR("edges_count") {
         @Override
-        public Rule createRule(String value, GameBoard board) {
-            return new QuantityCorrectConnectionRegionRule(Integer.parseInt(value));
+        public Rule createRule(String count, GameBoard gameBoard) {
+            return new EdgesCountRule(Integer.valueOf(count));
         }
     },
 
-    ESTATE_CORRECT_CREATOR("estate_correct") {
+    LINKS_COUNT_CREATOR("links_count") {
         @Override
-        public Rule createRule(String value, GameBoard board) {
-            return new EstateCorrectRule(board, Graph.getSingleInstance());
+        public Rule createRule(String value, GameBoard gameBoard) {
+            return new LinksCountRule(Integer.parseInt(value));
         }
     };
-
-    /*SUM_RULE_CREATOR("sum") {   //TODO: LE PUSE UN SUMRULE, PERO DESPUES HACEMOS LO TUYO DIEGO
-
-        @Override               //TODO: Y QUIZAS DA PARA PONER UN TEMPLATE METHOD
-        public Rule createRule(String value) {
-            return new SumRule(Integer.parseInt(value));
-        }
-    },
-
-    MULT_RULE_CREATOR("mult") {   //TODO: LE PUSE UN MULTRULE, PERO DESPUES HACEMOS LO TUYO DIEGO
-
-        @Override
-        public Rule createRule(String value) {
-            return new MultRule(Integer.parseInt(value));
-        }
-
-    }*/
 
     private static final String DELIMITER = "_";
 
