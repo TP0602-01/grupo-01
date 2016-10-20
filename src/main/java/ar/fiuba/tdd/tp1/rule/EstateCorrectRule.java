@@ -31,7 +31,7 @@ public class EstateCorrectRule {
             Cell adjacentCell = myGameBoard.getCell(rowIndx, colIndx + i);
             if (adjacentCell != null) {
                 if (!myGraph.cellHasConnection(adjacentCell)) {
-                    if (!checkGroup(rowIndx, colIndx, rowIndx + 0, colIndx + i)) {
+                    if (!checkGroup(rowIndx, colIndx, rowIndx, colIndx + i)) {
                         return false;
                     }
                 }
@@ -41,7 +41,7 @@ public class EstateCorrectRule {
             Cell adjacentCell = myGameBoard.getCell(rowIndx + i, colIndx);
             if (adjacentCell != null) {
                 if (!myGraph.cellHasConnection(adjacentCell)) {
-                    if (!checkGroup(rowIndx, colIndx, rowIndx + i, colIndx + 0)) {
+                    if (!checkGroup(rowIndx, colIndx, rowIndx + i, colIndx)) {
                         return false;
                     }
                 }
