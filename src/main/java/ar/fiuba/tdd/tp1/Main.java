@@ -10,6 +10,9 @@ public class Main {
 
     public static void main(String[] args) {
         try {
+
+
+
             GameParser parser = new GameParser(
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_structure.json",
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku_set.json",

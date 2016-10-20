@@ -52,7 +52,7 @@ public class BoardCanvas extends JPanel {
         drawables.add(newLinkView);
     }
 
-    private void addDrawable(Drawable drawable) {
+    public void addDrawable(Drawable drawable) {
         drawables.add(drawable);
     }
 
@@ -75,4 +75,7 @@ public class BoardCanvas extends JPanel {
     }
 
 
+    public LinkView getLinkView(Cell origin, Cell destination) {
+        return this.linkViews.get(origin).get(destination);
+    }
 }

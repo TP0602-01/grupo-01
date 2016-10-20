@@ -22,7 +22,8 @@ public class BoardView extends Observer {
     private final int yAddition = 30;
     private GameBoard gameBoard;
 
-
+    private int width;
+    private int height;
     private BoardCanvas canvas;
     private JFrame frame;
 
@@ -32,6 +33,9 @@ public class BoardView extends Observer {
         this.gameBoard = gameBoard;
         this.frame = new JFrame();
         this.gameBoard.registerObserver(this);
+
+        this.width = gameBoard.getWidth();
+        this.height = gameBoard.getHeigth();
 
         int frameWidth = gameBoard.getWidth() * CellView.width;
         int frameHeight = gameBoard.getHeigth() * CellView.height;
@@ -55,12 +59,14 @@ public class BoardView extends Observer {
         this.frame.repaint();
     }
 
-//    public void addDrawable(Drawable drawable) {
-//        this.canvas.addDrawable(drawable);
-//    }
+    public void addDrawable(Drawable drawable) {
+        this.canvas.addDrawable(drawable);
+    }
 
-    public void addLinkView(Cell origin, Cell destination, Graph graph) {
+    public void addLinkView(Cell origin, Cell destination, Graph graph,boolean visible) {
         this.canvas.addLinkView(origin, destination, graph);
+        this.canvas.getLinkView(origin,destination).setVisible(visible);
+
     }
 
     public void addCellComponent(int row, int column, CellViewComponent component) {
@@ -77,6 +83,14 @@ public class BoardView extends Observer {
         return canvas.getCellView(row, column);
     }
 
+
+    public int getWidth(){
+        return this.width;
+    }
+
+    public int getHeight(){
+        return this.height;
+    }
 /*
     public BoardView(GameBoard gameBoard) {
 

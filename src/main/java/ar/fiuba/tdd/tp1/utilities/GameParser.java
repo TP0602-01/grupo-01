@@ -12,6 +12,7 @@ import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
 import ar.fiuba.tdd.tp1.rule.Rule;
 import ar.fiuba.tdd.tp1.set.CellSet;
 import ar.fiuba.tdd.tp1.view.BoardView;
+import ar.fiuba.tdd.tp1.view.draw.RegionView;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.BorderView;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.DataView;
 import org.json.simple.JSONArray;
@@ -120,14 +121,18 @@ public class GameParser {
 
         // Create the cell Set and include it to Game
         Iterator setsIterator = getJsonArrayIterator(rule, "sets");
+        int border = 0;
+        if(rule.containsKey("border")) {
+            border = (int) rule.get("border");
+        }
         while (setsIterator.hasNext()) {
             JSONObject set = (JSONObject) setsIterator.next();
             JSONArray setArray = (JSONArray) set.get("set");
 
             // Create a Graph of Cells
             Graph cellGraph = createGraph(setArray);
-
-
+            //TODO: verlo despues con el tema del arch de conf de vista
+            boardView.addDrawable(new RegionView(cellGraph.getCells(),border));
             // Create a Cell Set
             CellSet cellSet = new CellSet(cellGraph, setRules);
 
@@ -233,6 +238,12 @@ public class GameParser {
 
         game.setLinker(linker);
 
+        //TODO: Refactorizar despues usando Un archivo para las vistas
+        boolean drawLinks = false;
+        if ( jsonLinkingTable.containsKey("drawLinks") ) {
+            drawLinks = (boolean) jsonLinkingTable.get("drawLinks");
+        }
+
         this.graph = linker.getGraph();
 
         for (int x = 0; x <= gameBoard.getWidth(); ++x) {
@@ -240,12 +251,13 @@ public class GameParser {
                 Cell cello = gameBoard.getCell(x, y);
                 if (x + 1 < gameBoard.getWidth()) {
                     Cell destination = gameBoard.getCell(x + 1, y);
-                    boardView.addLinkView(cello, destination, this.graph);
+                    boardView.addLinkView(cello, destination, this.graph,drawLinks);
+
                 }
                 if (y + 1 < gameBoard.getHeigth()) {
 
                     Cell destination = gameBoard.getCell(x, y + 1);
-                    boardView.addLinkView(cello, destination, this.graph);
+                    boardView.addLinkView(cello, destination, this.graph,drawLinks);
                 }
 
             }
