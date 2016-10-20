@@ -15,8 +15,7 @@ public class ExistCircuitRule {
         //TODO: VER ESTO SI SE CAMBIA A DEVOLVER LA CANTIDAD DE CIRCUITOS
         if ( (this.quantityCheck == 0) && (!mygraph.getCircuitCount()) ) {
             return false;
-        }
-        else if ( (this.quantityCheck >= 1) && (mygraph.getCircuitCount()) ) {
+        } else if ( (this.quantityCheck >= 1) && (mygraph.getCircuitCount()) ) {
             return true;
         }
         return mygraph.getCircuitCount();

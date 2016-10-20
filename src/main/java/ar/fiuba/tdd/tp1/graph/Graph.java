@@ -152,6 +152,75 @@ public class Graph {
         }
         return singleton;
     }
+
+
+
+    public int getConnectedSubGraphsCount() {
+        return this.getAllConnectedSubGraphs().size();
+    }
+
+    private Collection<Set<Cell>> getAllConnectedSubGraphs() {
+        Collection<Cell> cells = this.getCells();
+        Collection<Set<Cell>> connectedSupGraphs = new LinkedList<>();
+
+        for (Cell cell: cells) {
+            if (!this.cellBelongsToASubgraph(connectedSupGraphs, cell) ) {
+                ArrayList<Cell> subGraph = new ArrayList<>();
+                subGraph.add(cell);
+                for (int i = 0; i < subGraph.size(); i++) {
+                    Cell currentCell = subGraph.get(i);
+                    for (Cell adyacentCell : this.getAdyacentCellsOf(currentCell)) {
+                        if (!subGraph.contains(adyacentCell)) {
+                            subGraph.add(adyacentCell);
+                        }
+                    }
+                }
+                connectedSupGraphs.add(new HashSet<>(subGraph));
+            }
+        }
+        return connectedSupGraphs;
+
+    }
+
+    private boolean cellBelongsToASubgraph(Collection<Set<Cell>> connectedSupGraphs, Cell cell) {
+        for (Set<Cell> subgraph: connectedSupGraphs) {
+            if (subgraph.contains(cell)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private Set<Cell> getAdyacentCellsOf(Cell cell) {
+        if (this.links.containsKey(cell)) {
+            return this.links.get(cell);
+        }
+        return new HashSet<>();
+
+    }
+
+    public int getLooplessCircuitCount() {
+        int circuitsCount = 0;
+        Collection<Set<Cell>> connectedSubgraphs = this.getAllConnectedSubGraphs();
+        /*For each subgraph each of their cells are checked, if they all have an even number of links
+         then it is a circuit (Euler). In particular if all the connected subgraph's cells have 2 links, they form
+          a loopless circuit
+          */
+        for (Set<Cell> subgraph: connectedSubgraphs) {
+            boolean isCircuit = true;
+            for (Cell cell: subgraph) {
+                isCircuit = isCircuit && ( this.getAdyacentCellsCountOf(cell) == 2);
+            }
+            if (isCircuit) {
+                circuitsCount++;
+            }
+        }
+        return circuitsCount;
+    }
+
+    private int getAdyacentCellsCountOf(Cell cell) {
+        return this.getAdyacentCellsOf(cell).size();
+    }
 }
 
 
