@@ -8,10 +8,8 @@ import org.junit.Test;
 import java.util.Collection;
 import java.util.Vector;
 
-import static junit.framework.Assert.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
-/* */
 public class GraphTest {
 
     @Test
@@ -72,17 +70,16 @@ public class GraphTest {
         Graph graph = new Graph();
         Vector<Vector<Cell>> circuits = new Vector<>();
         /*Create circuits*/
-        for (int j = 0; j < cantCircuits;j++) {
+        for (int j = 0; j < cantCircuits; ++j) {
             Vector<Cell> cells = new Vector<>();
-            for (int i = 0; i < cantCellsCircuit;i++) {
+            for (int i = 0; i < cantCellsCircuit; ++i) {
                 Cell cell = new FixedCell("");
                 cells.add(cell);
             }
             circuits.add(cells);
         }
 
-
-        for (int j = 0; j < cantCircuits;j++) {
+        for (int j = 0; j < cantCircuits; ++j) {
             Vector<Cell> cells = circuits.elementAt(j);
             Cell a1 = cells.elementAt(0);
             Cell a2 = cells.elementAt(1);
@@ -93,7 +90,6 @@ public class GraphTest {
         }
 
         assertTrue(graph.getCircuitCount());
-
     }
 
     @Test
@@ -102,7 +98,7 @@ public class GraphTest {
         Graph graph = new Graph();
         Vector<Cell> cells = new Vector<>();
         /*Create cells*/
-        for (int i = 0 ; i < cantCellsCircuit;i++) {
+        for (int i = 0 ; i < cantCellsCircuit; ++i) {
             Cell cell = new FixedCell("");
             cells.add(cell);
         }
@@ -122,7 +118,7 @@ public class GraphTest {
     @Test
     public void noTExistCircuitGraphEmpty() {
         Graph graph = new Graph();
-        assertFalse(graph.getCircuitCount());
+        assertTrue(!graph.getCircuitCount());
     }
 
     @Test
@@ -132,6 +128,6 @@ public class GraphTest {
         Cell a2 = new FixedCell("a2");
 
         graph.addDirectedLinkBetween(a1,a2);
-        assertFalse(graph.getCircuitCount());
+        assertTrue(!graph.getCircuitCount());
     }
 }

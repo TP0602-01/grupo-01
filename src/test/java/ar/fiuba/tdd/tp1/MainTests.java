@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp1.controller.GameBoardController;
 import ar.fiuba.tdd.tp1.controller.GameLoop;
 import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.utilities.GameParser;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -25,12 +26,12 @@ public class MainTests {
                          String playsOutput,
                          String possibleInput) {
         try {
-            // LEEMOS DEL ARCHIVO Y CARGAMOS LAS JUGADAS
+            // LEEMOS DE ARCHIVO Y CARGAMOS LAS JUGADAS
             JSONParser jsonParser = new JSONParser();
             String playString = "";
             JSONObject jsonObject  = (JSONObject) jsonParser.parse(new FileReader(playsInput));
             JSONArray plays = (JSONArray) jsonObject.get("plays");
-            for (int i = 0; i < plays.size(); i++) {
+            for (int i = 0; i < plays.size(); ++i) {
                 playString += parsePlayString((JSONObject) plays.get(i));
             }
             System.out.println(playString);
@@ -56,10 +57,11 @@ public class MainTests {
     private String parsePlayString(JSONObject play) {
         String value = (String) play.get("value");
         JSONArray positions = (JSONArray) play.get("position");
-        String result = String.valueOf(positions.get(0));
-        result += " " + String.valueOf(positions.get(1));
-        result += " " + value + "\n";
-        return result;
+        String playString = String.valueOf(positions.get(0)) + " ";
+        playString += String.valueOf(positions.get(1)) + " ";
+        playString += value + "\n";
+
+        return playString;
     }
 
     @Test

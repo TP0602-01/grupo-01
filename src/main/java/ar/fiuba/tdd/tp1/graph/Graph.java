@@ -14,6 +14,13 @@ public class Graph {
         this.links = new HashMap<>();
     }
 
+    public Graph(Cell... cells) {
+        this.links = new HashMap<>();
+        for (Cell cell : cells) {
+            addCell(cell);
+        }
+    }
+
     /* Add Link beetween Cell origin and destination */
     public void addDirectedLinkBetween(Cell origin, Cell destination) {
         Set<Cell> originsLinks = this.links.get(origin);
