@@ -30,37 +30,14 @@ public class BoardView extends Observer {
 
 
     public BoardView(GameBoard gameBoard, HorizontalLinksView horizontalLinksView) {
-        this.gameBoard = gameBoard;
-        this.gameBoard.registerObserver(this);
-
-        cellViews = new HashMap<>();
-        for (int rowIdx = 0; rowIdx < this.getRowsNumber(); ++rowIdx) {
-            Map<Integer, CellView> rowCellsViews = new HashMap<>();
-            for (int colIdx = 0; colIdx < this.getColumnsNumber(); ++colIdx) {
-                rowCellsViews.put(colIdx, new NullCellView());
-            }
-            cellViews.put(rowIdx, rowCellsViews);
-        }
-
+        this(gameBoard);
         this.horizontalLinksView = horizontalLinksView;
 
     }
 
 
     public BoardView(GameBoard gameBoard, HorizontalLinksView horizontalLinksView, VerticalLinksView verticalLinksView) {
-        this.gameBoard = gameBoard;
-        this.gameBoard.registerObserver(this);
-
-        cellViews = new HashMap<>();
-        for (int rowIdx = 0; rowIdx < this.getRowsNumber(); ++rowIdx) {
-            Map<Integer, CellView> rowCellsViews = new HashMap<>();
-            for (int colIdx = 0; colIdx < this.getColumnsNumber(); ++colIdx) {
-                rowCellsViews.put(colIdx, new NullCellView());
-            }
-            cellViews.put(rowIdx, rowCellsViews);
-        }
-
-        this.horizontalLinksView = horizontalLinksView;
+        this(gameBoard, horizontalLinksView);
         this.verticalLinksView = verticalLinksView;
 
     }
@@ -107,7 +84,7 @@ public class BoardView extends Observer {
 
 
     public void upgradedUpdate() {
-
+/*
         for (int rowIdx = 0; rowIdx < this.getRowsNumber(); ++rowIdx) {
             this.drawRowSeparator(rowIdx);
 
@@ -120,6 +97,7 @@ public class BoardView extends Observer {
             }
             System.out.println(rowAscii);
         }
+*/
     }
 
     private void drawRowSeparator(int rowIdx) {
