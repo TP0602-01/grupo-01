@@ -62,29 +62,9 @@ public class GameParser {
     private void initFiles(String structureFileName, String rulesFileName,
                            String linkingSymbolsTableFileName, String linkingTableFileName) {
         try {
-            /*
-            InputStreamReader fileReaderStructure = new InputStreamReader(new FileInputStream(structureFileName), "UTF-8");
-            jsonStructure = (JSONObject) parser.parse(fileReaderStructure);
-            */
             jsonStructure = parseFileToJsonObject(structureFileName);
-            /*
-            InputStreamReader fileReaderRules = new InputStreamReader(new FileInputStream(rulesFileName), "UTF-8");
-            jsonRules = (JSONObject) parser.parse(fileReaderRules);
-            */
             jsonRules = parseFileToJsonObject(rulesFileName);
-
-            //TODO: chequear que esto funcione
-            /*
-            InputStreamReader fileReaderLinkingSymbolsTable = new InputStreamReader(
-                    new FileInputStream(linkingSymbolsTableFileName), "UTF-8");
-            jsonLinkingSymbolsTable = (JSONObject) parser.parse(fileReaderLinkingSymbolsTable);
-            */
             jsonLinkingSymbolsTable = parseFileToJsonObject(linkingSymbolsTableFileName);
-
-            /*
-            InputStreamReader fileReaderLinkingTable = new InputStreamReader(new FileInputStream(linkingTableFileName), "UTF-8");
-            jsonLinkingTable = (JSONObject) parser.parse(fileReaderLinkingTable);
-            */
             jsonLinkingTable = parseFileToJsonObject(linkingTableFileName);
 
         } catch (Exception ex) {
