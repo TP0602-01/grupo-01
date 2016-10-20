@@ -21,9 +21,8 @@ public class QuantityCorrectConnectionRegionRuleTest {
         graph.addDirectedLinkBetween(a1, a2);
         graph.addDirectedLinkBetween(a2, a3);
         graph.addDirectedLinkBetween(a1, a3);
-        QuantityCorrectConnectionRegionRule rule =
-                new QuantityCorrectConnectionRegionRule(graph);
+        QuantityCorrectConnectionRegionRule rule = new QuantityCorrectConnectionRegionRule();
         rule.setQuantity(4);
-        assertFalse(rule.check());
+        assertFalse(rule.check(graph));
     }
 }
