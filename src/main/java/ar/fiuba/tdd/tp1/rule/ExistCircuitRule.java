@@ -4,9 +4,11 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 
 public class ExistCircuitRule {
     Graph mygraph;
+    int quantityCheck;
 
-    ExistCircuitRule(Graph graph) {
+    ExistCircuitRule(Graph graph, int quantity) {
         mygraph = graph;
+        quantityCheck = quantity;
     }
 
     boolean check() {

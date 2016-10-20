@@ -52,6 +52,12 @@ public class Graph {
         return this.links.get(cell);
     }
 
+
+    public boolean cellHasConnection(Cell cell) {
+        Collection<Cell> links = getLinks(cell);
+        return links != null;
+    }
+
     private int check(Vector<Cell> cells) {
         Collection<Cell> cellLinks = getLinks(cells.lastElement());
 
@@ -62,10 +68,11 @@ public class Graph {
             for (Cell cell: cellLinks) {
                 if (cells.contains(cell)) {
                     return 1;
+                } else {
+                    cells.add(cell);
+                    check(cells);
+                    return check(cells);
                 }
-                cells.add(cell);
-                check(cells);
-                return check(cells);
             }
         }
         System.out.println("llego al final, algo anda mal");
@@ -95,6 +102,17 @@ public class Graph {
         return false;
     }
 
+
+    public boolean contains(Cell cell) {
+        Collection<Cell> cells = getCells();
+        for (Cell cellAux :cells) {
+            if (cellAux == cell) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /* Return a Collection with all the Cells in the Graph */
     public Collection<Cell> getCells() {
         Collection<Cell> cells = new ArrayList<>();
@@ -118,7 +136,17 @@ public class Graph {
         }
         return false;
     }
+
+    private static Graph singleton = null;
+
+    public static Graph getSingleInstance() {
+        if (singleton == null) {
+            singleton = new Graph();
+        }
+        return singleton;
+    }
 }
+
 
 
 
