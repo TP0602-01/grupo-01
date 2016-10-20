@@ -115,8 +115,16 @@ public class ConcreteLinker implements Linker {
 
         Map<Cell, Pair<Integer, Integer>> neighbors = this.getCellNeigbors(row, column);
 
-        for (Cell neighbor : neighbors.keySet()) {
-            this.checkTokensAndlinkIfItsPossible(origin, neighbor, neighbors.get(neighbor));
+//        for (Cell neighbor : neighbors.keySet()) {
+//            this.checkTokensAndlinkIfItsPossible(origin, neighbor, neighbors.get(neighbor));
+//        }
+
+        Iterator it = neighbors.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            Cell cell = (Cell) pair.getKey();
+            this.checkTokensAndlinkIfItsPossible(origin, cell, neighbors.get(cell));
+            it.remove();
         }
 
         // TODO: VER SI SE PUEDE REEMPLAZAR O SI FALLA Y TENEMOS QUE VOLVER A LO COMENTADO

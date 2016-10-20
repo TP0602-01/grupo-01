@@ -32,7 +32,7 @@ public class MainTests {
             JSONObject jsonObject  = (JSONObject) jsonParser.parse(new FileReader(playsInput));
             JSONArray plays = (JSONArray) jsonObject.get("plays");
             for (int i = 0; i < plays.size(); ++i) {
-                playString += parsePlayString((JSONObject) plays.get(i));
+                playString = parsePlayString((JSONObject) plays.get(i), playString);
             }
             System.out.println(playString);
             InputStream stream = new ByteArrayInputStream(playString.getBytes(StandardCharsets.UTF_8));
@@ -54,14 +54,14 @@ public class MainTests {
         }
     }
 
-    private String parsePlayString(JSONObject play) {
+    private String parsePlayString(JSONObject play, String playString) {
         String value = (String) play.get("value");
         JSONArray positions = (JSONArray) play.get("position");
-        String playString = String.valueOf(positions.get(0)) + " ";
-        playString += String.valueOf(positions.get(1)) + " ";
-        playString += value + "\n";
+        String result = playString + String.valueOf(positions.get(0));
+        result += " " + String.valueOf(positions.get(1));
+        result += " " + value + "\n";
 
-        return playString;
+        return result;
     }
 
     @Test
