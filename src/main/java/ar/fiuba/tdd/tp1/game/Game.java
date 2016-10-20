@@ -60,21 +60,26 @@ public class Game {
     /* Return True if all Rules checked are True */
     public boolean checkRules() {
         int setCount = cellStableSets.size();
-        int setValidCount = setCount;
+        int setValidCount = validSetCount();
 
-        boolean setCheck = true;
+        System.out.println("Set count: " + setCount);
+        System.out.println("Valid set count: " + setValidCount);
+
+        return (setCount == setValidCount);
+    }
+
+    /* Return the valid set count */
+    private int validSetCount() {
+        int setValidCount = cellStableSets.size();
+
         Iterator it = cellStableSets.iterator();
         while (it.hasNext()) {
             CellSet cellSet = (CellSet) it.next();
             if (!cellSet.check()) {
-                setCheck = false;
                 setValidCount--;
             }
-        }   //TODO: ACA SE CHEQUEAN LUEGO LOS CONJUNTOS VARIABLES
-        System.out.println("Set count: " + setCount);
-        System.out.println("Valid set count: " + setValidCount);
-
-        return setCheck;
+        }
+        return setValidCount;
     }
 
     /* Add a play, Devuelve True si la suma de todas las reglas validas es menor o igual
@@ -83,13 +88,23 @@ public class Game {
 
         //if ( cellXPosition <= this.gameBoard.getWidth() && cellYPosition <= this.gameBoard.getHeigth() ) {
         if (this.playIsAllowed(rowPosition, columnPosition, content)) {
+            Cell cell = gameBoard.getCell(rowPosition, columnPosition);
+            String cellContent = cell.getData();
+
+            int previousValidSetCount = validSetCount();
             gameBoard.setCellValue(rowPosition, columnPosition, content);
             //cellVariableSets = setGenerator.generateSet(gameBoard); //TODO: GENERAR CONJUTNOS VARIABLES
             this.linker.updateLinkableLinks(rowPosition, columnPosition);
+
+            int afterValidSetCount = validSetCount();
+            if (previousValidSetCount > afterValidSetCount) {
+                gameBoard.setCellValue(rowPosition, columnPosition, cellContent);
+                this.linker.updateLinkableLinks(rowPosition, columnPosition);
+                System.out.println("Invalid Play");
+            }
         }
 
-        return true; //TODO: CUANDO SE INGRESA UNA JUGADA INVALIDA SE DEBE ADVERTIR AL USUARIO
-        //TODO: TAMBIEN, ACA SE DEBEN RE-GENERAR LOS CONJUNTOS VARIABLES
+        return true;
     }
 
     private boolean playIsAllowed(int rowPosition, int columnPosition, String content) {
