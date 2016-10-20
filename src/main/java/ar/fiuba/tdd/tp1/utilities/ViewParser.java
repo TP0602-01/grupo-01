@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp1.utilities;
 
 import ar.fiuba.tdd.tp1.factory.CellViewComponentFactory;
 import ar.fiuba.tdd.tp1.view.BoardView;
+import ar.fiuba.tdd.tp1.view.draw.CellView;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -31,17 +32,15 @@ public class ViewParser {
 
     }
 
+    public void parseComponents(JSONObject json, Collection<CellView> cellViews) {
 
-    public void parseViewObjects() {
-
-        JSONObject allCellViews = (JSONObject) fileJsonRepresentation.get("allCellViews");
-        JSONArray components = (JSONArray) allCellViews.get("components");
+        JSONArray components = (JSONArray) json.get("components");
 
         Iterator<JSONObject> iterator = components.iterator();
         String type;
-        Collection<String> values = new ArrayList<>();
 
         while ( iterator.hasNext() ) {
+            Collection<String> values = new ArrayList<>();
             JSONObject component = iterator.next();
             type = (String) component.get("type");
             JSONArray jsonValues = (JSONArray) component.get("values");
@@ -52,14 +51,52 @@ public class ViewParser {
                 values.add((String) value.get("value"));
             }
 
-            CellViewComponent cellViewComponent = CellViewComponentFactory.create(type,values);
-            for ( int i = 0 ; i < boardView.getWidth() ; i ++ ) {
-                for ( int j = 0 ; j < boardView.getHeight() ; j ++) {
-                    boardView.addCellComponent(i,j,cellViewComponent);
-                }
+            for (CellView cellView: cellViews
+                 ) {
+                CellViewComponent cellViewComponent = CellViewComponentFactory.create(type,values);
+                cellView.addComponent(cellViewComponent);
+            }
+
+
+
+        }
+    }
+
+
+
+    public void parseViewObjects() {
+
+        JSONObject allCellViewsJson = (JSONObject) fileJsonRepresentation.get("allCellViews");
+
+        Collection<CellView> allCellViews = new ArrayList<>();
+        for ( int i = 0 ; i < boardView.getWidth() ; i ++ ) {
+            for ( int j = 0 ; j < boardView.getHeight() ; j ++) {
+                allCellViews.add(boardView.getCellView(i,j));
             }
         }
 
+        this.parseComponents(allCellViewsJson,allCellViews);
+
+
+
+
+        JSONArray singleCellViews = (JSONArray) fileJsonRepresentation.get("singleCellViews");
+
+
+        Iterator<JSONObject> iterator = singleCellViews.iterator();
+        while ( iterator.hasNext() ) {
+
+            JSONObject singleCellView = iterator.next();
+            int xCoord = (int) singleCellView.get("xCoord");
+            int yCoord = (int) singleCellView.get("yCoord");
+
+            Collection<CellView> cellViews = new ArrayList<>();
+
+            cellViews.add(boardView.getCellView(xCoord,yCoord));
+
+            this.parseComponents(allCellViewsJson,allCellViews);
+
+        }
 
 
     }
