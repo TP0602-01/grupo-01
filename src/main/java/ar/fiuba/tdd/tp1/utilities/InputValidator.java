@@ -15,11 +15,11 @@ public class InputValidator {
     //private final String posibleInputsFile = "./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_input.txt";
     private Set<String> posibleInputs = new HashSet<>();
 
-    public InputValidator(String PossibleInputFileName) {
-        loadPosibleInputsFromFile(PossibleInputFileName);
+    public InputValidator(String possibleInputFileName) {
+        loadPosibleInputsFromFile(possibleInputFileName);
     }
 
-    private void loadPosibleInputsFromFile(String posibleInputFiles){
+    private void loadPosibleInputsFromFile(String posibleInputFiles) {
         BufferedReader input = null;
         try {
             input = new BufferedReader(new FileReader(posibleInputFiles));
