@@ -52,6 +52,12 @@ public class Graph {
         return this.links.get(cell);
     }
 
+
+    public boolean cellHasConnection(Cell cell){
+        Collection<Cell> links = getLinks(cell);
+        return links != null;
+    }
+
     private int check(Vector<Cell> cells){
         Collection<Cell> cellLinks = getLinks(cells.lastElement());
         if (cellLinks != null){
@@ -95,6 +101,17 @@ public class Graph {
             Set<Cell> originsLinks = this.links.get(origin);
             if (originsLinks != null) {
                 return originsLinks.contains(destination);
+            }
+        }
+        return false;
+    }
+
+
+    public boolean contains(Cell cell){
+        Collection<Cell> cells = getCells();
+        for (Cell cellAux :cells){
+            if (cellAux == cell){
+                return true;
             }
         }
         return false;
