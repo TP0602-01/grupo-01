@@ -2,11 +2,11 @@ package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.graph.Graph;
 
-public class ExistCircuitRule {
+public class ExistCircuitRule extends Rule {
     Graph mygraph;
     int quantityCheck;
 
-    ExistCircuitRule(Graph graph, int quantity) {
+    public ExistCircuitRule(Graph graph, int quantity) {
         this.mygraph = graph;
         this.quantityCheck = quantity;
     }
@@ -20,5 +20,10 @@ public class ExistCircuitRule {
         }
         return mygraph.getCircuitCount();
 
+    }
+
+    @Override
+    public boolean check(Graph graph) {
+        return graph.getLooplessCircuitCount() == quantityCheck;
     }
 }
