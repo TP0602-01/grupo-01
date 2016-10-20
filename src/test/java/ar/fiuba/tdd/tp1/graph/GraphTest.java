@@ -1,17 +1,19 @@
 package ar.fiuba.tdd.tp1.graph;
 
-
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.FixedCell;
+
 import org.junit.Test;
+
 import java.util.Collection;
 import java.util.Vector;
 
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.TestCase.assertTrue;
-/**
- */
+
+/* */
 public class GraphTest {
+
     @Test
     public void testLinkCorrect() {
         Cell a1 = new FixedCell("a");
@@ -21,8 +23,9 @@ public class GraphTest {
         graph.addNotDirectedLinkBetween(a1,a2);
         assertTrue(graph.linkExistsFromOriginToDestination(a1,a2));
     }
+
     @Test
-    public void existOneCircuit(){
+    public void existOneCircuit() {
         Cell a1 = new FixedCell("a1");
         Cell a2 = new FixedCell("a2");
         Cell a3 = new FixedCell("a3");
@@ -33,8 +36,9 @@ public class GraphTest {
         System.out.println(graph.getCircuitCount());
         assertTrue(graph.getCircuitCount());
     }
+
     @Test
-    public void existTwoCircuit(){
+    public void existTwoCircuit() {
         Cell a1 = new FixedCell("a1");
         Cell a2 = new FixedCell("a2");
         Cell a3 = new FixedCell("a3");
@@ -48,7 +52,7 @@ public class GraphTest {
     }
 
     @Test
-    public void getCellOfLinks(){
+    public void getCellOfLinks() {
         Cell a1 = new FixedCell("a1");
         Cell a2 = new FixedCell("a2");
         Cell a3 = new FixedCell("a3");
@@ -60,16 +64,17 @@ public class GraphTest {
         assertTrue(links.contains(a2));
         assertTrue(links.contains(a3));
     }
+
     @Test
-    public void getQuantityCorrectOfCircuit(){
+    public void getQuantityCorrectOfCircuit() {
         int cantCellsCircuit = 3;
         int cantCircuits = 10;
         Graph graph = new Graph();
         Vector<Vector<Cell>> circuits = new Vector<>();
         /*Create circuits*/
-        for (int j = 0; j < cantCircuits;j++){
+        for (int j = 0; j < cantCircuits;j++) {
             Vector<Cell> cells = new Vector<>();
-            for (int i = 0; i < cantCellsCircuit;i++){
+            for (int i = 0; i < cantCellsCircuit;i++) {
                 Cell cell = new FixedCell("");
                 cells.add(cell);
             }
@@ -77,7 +82,7 @@ public class GraphTest {
         }
 
 
-        for (int j = 0; j < cantCircuits;j++){
+        for (int j = 0; j < cantCircuits;j++) {
             Vector<Cell> cells = circuits.elementAt(j);
             Cell a1 = cells.elementAt(0);
             Cell a2 = cells.elementAt(1);
@@ -91,38 +96,37 @@ public class GraphTest {
 
     }
 
-
     @Test
     public void getQuantityCorrectOfOneCircuit() {
         int cantCellsCircuit = 10;
         Graph graph = new Graph();
         Vector<Cell> cells = new Vector<>();
         /*Create cells*/
-        for (int i = 0 ; i < cantCellsCircuit;i++){
+        for (int i = 0 ; i < cantCellsCircuit;i++) {
             Cell cell = new FixedCell("");
             cells.add(cell);
         }
 
-        for (int i = 0 ; i < cantCellsCircuit-1;i++){
+        for (int i = 0 ; i < cantCellsCircuit - 1; ++i) {
             Cell a1 = cells.elementAt(i);
-            Cell a2 = cells.elementAt(i+1);
-            graph.addDirectedLinkBetween(a1,a2);
+            Cell a2 = cells.elementAt(i + 1);
+            graph.addDirectedLinkBetween(a1, a2);
         }
         Cell first = cells.firstElement();
         Cell last = cells.lastElement();
-        graph.addDirectedLinkBetween(last,first);
+        graph.addDirectedLinkBetween(last, first);
 
         assertTrue(graph.getCircuitCount());
     }
 
     @Test
-    public void noTExistCircuitGraphEmpty(){
+    public void noTExistCircuitGraphEmpty() {
         Graph graph = new Graph();
         assertFalse(graph.getCircuitCount());
     }
 
     @Test
-    public void noTExistCircuitGraphTwoCells(){
+    public void noTExistCircuitGraphTwoCells() {
         Graph graph = new Graph();
         Cell a1 = new FixedCell("a1");
         Cell a2 = new FixedCell("a2");

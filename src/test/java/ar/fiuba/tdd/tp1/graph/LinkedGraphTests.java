@@ -3,12 +3,10 @@ package ar.fiuba.tdd.tp1.graph;
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
-import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
 import ar.fiuba.tdd.tp1.graph.linker.ConcreteLinker;
 import ar.fiuba.tdd.tp1.graph.linker.Linker;
 import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
-import ar.fiuba.tdd.tp1.graph.linksmanager.LinksManager;
-import ar.fiuba.tdd.tp1.graph.linksmanager.MapLinkManager;
+
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -20,10 +18,8 @@ import static junit.framework.TestCase.assertTrue;
 /* */
 public class LinkedGraphTests {
 
-
     LinkingSymbolsTable linkingSymbolsTable;
     LinkingTable linkingTable;
-
 
     public LinkedGraphTests() {
         this.linkingSymbolsTable = new LinkingSymbolsTable();
@@ -39,8 +35,7 @@ public class LinkedGraphTests {
         this.linkingTable.addEntry(1, 0, "DOWN", "UP");
     }
 
-
-    private GameBoard createGameboard(int rows, int columns) {
+    private GameBoard createGameBoard(int rows, int columns) {
         GameBoard board = new GameBoard(rows, columns);
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < columns; col++) {
@@ -58,10 +53,9 @@ public class LinkedGraphTests {
         table.setSymbolsLinkingTokens( symbol, linkingTokens);
     }
 
-
     @Test
     public void testAddDataToTwoCellsAndLinkThemByUpdatongTheirLinks() {
-        GameBoard gameBoard = this.createGameboard(3,3);
+        GameBoard gameBoard = this.createGameBoard(3,3);
 
         Linker linker = new ConcreteLinker(gameBoard, this.linkingTable, this.linkingSymbolsTable);
 
@@ -80,7 +74,7 @@ public class LinkedGraphTests {
 
     @Test
     public void testAddingDataOnlyInOneCellsAndUpdatingItsLinksLeavesItWithNoLinks() {
-        GameBoard gameBoard = this.createGameboard(3,3);
+        GameBoard gameBoard = this.createGameBoard(3,3);
 
         Linker linker = new ConcreteLinker(gameBoard, this.linkingTable, this.linkingSymbolsTable);
 
@@ -99,7 +93,7 @@ public class LinkedGraphTests {
 
     @Test
     public void testChangingOneLinkedCellsDataToAnotherRemovesItsLinksCreatedUsingItsOriginalData() {
-        GameBoard gameBoard = this.createGameboard(3,3);
+        GameBoard gameBoard = this.createGameBoard(3,3);
 
         Linker linker = new ConcreteLinker(gameBoard, this.linkingTable, this.linkingSymbolsTable);
         Cell first = gameBoard.getCell(0,0);
@@ -125,7 +119,13 @@ public class LinkedGraphTests {
 //        linker.setLinkingInfo(rowOffset, columnOffset, originToken, destinationTokens);
 //    }
 //
-//    private void createLinkingEntryWithNDestinationLinkingTokens(Linker linker, int rowOffset, int columnOffset, String originToken, String[] destinationToken, int destinationTokensCount) {
+//    private void createLinkingEntryWithNDestinationLinkingTokens(
+//            Linker linker,
+//            int rowOffset,
+//            int columnOffset,
+//            String originToken,
+//            String[] destinationToken,
+//            int destinationTokensCount) {
 //        Set<String> destinationTokens = new HashSet<>();
 //        for (int i = 0; i < destinationTokensCount; i++) {
 //            destinationTokens.add(destinationToken[i]);

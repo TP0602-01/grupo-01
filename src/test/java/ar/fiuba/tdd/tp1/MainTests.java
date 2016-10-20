@@ -7,9 +7,8 @@ import ar.fiuba.tdd.tp1.utilities.GameParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.junit.Test;
 
+import org.junit.Test;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
