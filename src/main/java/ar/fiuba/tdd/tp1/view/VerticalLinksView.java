@@ -4,9 +4,7 @@ import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.Graph;
 
-/**
- * Created by User on 15/10/2016.
- */
+/* */
 public class VerticalLinksView {
 
     GameBoard linkableMatrix;
@@ -21,10 +19,8 @@ public class VerticalLinksView {
         Cell first = this.linkableMatrix.getCell(row, column);
         Cell second = this.linkableMatrix.getCell(row + 1, column);
 
-        if ((first != null) && (second != null)) {
-            if (this.linksConfiguration.linkExistsFromOriginToDestination(first, second)) {
-                return (" | ");
-            }
+        if ((first != null) && (second != null) && this.linksConfiguration.linkExistsFromOriginToDestination(first, second)) {
+            return (" | ");
         }
         return "    ";
     }
