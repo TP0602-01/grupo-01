@@ -1,14 +1,16 @@
 package ar.fiuba.tdd.tp1;
 
+import org.junit.Test;
+
 import ar.fiuba.tdd.tp1.controller.GameBoardController;
 import ar.fiuba.tdd.tp1.controller.GameLoop;
 import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.utilities.GameParser;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.junit.Test;
 
 
 import java.io.*;
@@ -18,6 +20,7 @@ import static junit.framework.TestCase.assertTrue;
 
 public class MainTests {
 
+
     boolean autoPlayGame(String playsInput,
                          String structure,
                          String sets,
@@ -26,17 +29,32 @@ public class MainTests {
                          String playsOutput,
                          String possibleInput) {
         try {
-            // LEEMOS DEL ARCHIVO Y CARGAMOS LAS JUGADAS
+            // LEEMOS DE ARCHIVO Y CARGAMOS LAS JUGADAS
             JSONParser jsonParser = new JSONParser();
             String playString = "";
-            JSONObject jsonObject  = (JSONObject) jsonParser.parse(new FileReader(playsInput));
-            JSONArray plays = (JSONArray) jsonObject.get("plays");
-            for (int i = 0; i < plays.size(); i++) {
-                playString += parsePlayString((JSONObject) plays.get(i));
+            try {
+                JSONObject jsonObject  = (JSONObject) jsonParser.parse(new FileReader(playsInput));
+                JSONArray plays = (JSONArray) jsonObject.get("plays");
+                for (int i = 0; i < plays.size(); i++) {
+                    JSONObject play = (JSONObject) plays.get(i);
+                    String value = (String) play.get("value");
+                    JSONArray positions = (JSONArray) play.get("position");
+
+                    playString += String.valueOf(positions.get(0)) + " "
+                            + String.valueOf(positions.get(1)) + " "
+                            + value + "\n";
+                }
+                System.out.println(playString);
+                InputStream stream = new ByteArrayInputStream(playString.getBytes(StandardCharsets.UTF_8));
+                System.setIn(stream);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
-            System.out.println(playString);
-            InputStream stream = new ByteArrayInputStream(playString.getBytes(StandardCharsets.UTF_8));
-            System.setIn(stream);
 
             GameParser parser = new GameParser(structure, sets, linkSymbols, linkTable, possibleInput);
             parser.parseGameStructure();
@@ -47,20 +65,15 @@ public class MainTests {
 
             controller.start();
 
-            return game.checkRules();
+            if (game.checkRules()) {
+                return true;
+            }
+            return false;
+
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
-    }
-
-    private String parsePlayString(JSONObject play) {
-        String value = (String) play.get("value");
-        JSONArray positions = (JSONArray) play.get("position");
-        String result = String.valueOf(positions.get(0));
-        result += " " + String.valueOf(positions.get(1));
-        result += " " + value + "\n";
-        return result;
     }
 
     @Test

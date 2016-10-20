@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertFalse;
 
 public class QuantityCorrectConnectionRegionRuleTest {
     @Test
-    public void QuantityCorrect(){
+    public void quantityCorrect(){
         Cell a1 = new FixedCell(".");
         Cell a2 = new FixedCell(".");
         Cell a3 = new FixedCell(".");

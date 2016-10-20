@@ -7,8 +7,8 @@ public class ExistCircuitRule {
     int quantityCheck;
 
     ExistCircuitRule(Graph graph, int quantity) {
-        mygraph = graph;
-        quantityCheck = quantity;
+        this.mygraph = graph;
+        this.quantityCheck = quantity;
     }
 
     boolean check() {

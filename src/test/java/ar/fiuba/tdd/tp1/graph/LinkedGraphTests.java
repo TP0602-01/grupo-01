@@ -125,7 +125,8 @@ public class LinkedGraphTests {
 //        linker.setLinkingInfo(rowOffset, columnOffset, originToken, destinationTokens);
 //    }
 //
-//    private void createLinkingEntryWithNDestinationLinkingTokens(Linker linker, int rowOffset, int columnOffset, String originToken, String[] destinationToken, int destinationTokensCount) {
+//    private void createLinkingEntryWithNDestinationLinkingTokens(Linker linker,
+//      int rowOffset, int columnOffset, String originToken, String[] destinationToken, int destinationTokensCount) {
 //        Set<String> destinationTokens = new HashSet<>();
 //        for (int i = 0; i < destinationTokensCount; i++) {
 //            destinationTokens.add(destinationToken[i]);

@@ -29,24 +29,15 @@ public class EstateCorrectRule {
     private boolean checkAdjacentCell(int rowIndx, int colIndx) {
         for (int i = -1; i < 2; i++) {
             Cell adjacentCell = myGameBoard.getCell(rowIndx, colIndx + i);
-            if (adjacentCell != null) {
-                if (!myGraph.cellHasConnection(adjacentCell)) {
-                    if (!checkGroup(rowIndx, colIndx, rowIndx, colIndx + i)) {
-                        return false;
-                    }
-                }
-            }
+            return !((adjacentCell != null)
+                    && (!myGraph.cellHasConnection(adjacentCell))
+                    && (!checkGroup(rowIndx, colIndx, rowIndx, colIndx + i)));
         }
         for (int i = -1; i < 2; i++) {
             Cell adjacentCell = myGameBoard.getCell(rowIndx + i, colIndx);
-            if (adjacentCell != null) {
-                if (!myGraph.cellHasConnection(adjacentCell)) {
-                    if (!checkGroup(rowIndx, colIndx, rowIndx + i, colIndx)) {
-                        return false;
-                    }
-                }
-
-            }
+            return !((adjacentCell != null)
+                    && (!myGraph.cellHasConnection(adjacentCell))
+                    && (!checkGroup(rowIndx, colIndx, rowIndx + i, colIndx)));
         }
         return true;
     }

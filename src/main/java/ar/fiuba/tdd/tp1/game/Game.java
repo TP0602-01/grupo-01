@@ -20,7 +20,7 @@ import java.util.Iterator;
  */
 public class Game {
     private GameBoard gameBoard;
-    private TokenTranslate traslate;
+    //private TokenTranslate traslate;
     private Collection<CellSet> cellStableSets = new ArrayList<>();
     private InputValidator inputValidator;
     //private VariableSetGenerator setGenerator;
@@ -29,7 +29,7 @@ public class Game {
 
     //TODO: DEBE PASARSE COMO PARAMETRO EN EL CONSTRUCTOR
     Linker linker;
-    LinksManager linksManager = new MapLinkManager();
+    //LinksManager linksManager = new MapLinkManager();
 
 
     public Game(GameBoard gameBoard, InputValidator inputValidator) {
@@ -101,12 +101,4 @@ public class Game {
         //        && inputValidator.isAValidInput(content);
         //TODO: check correct content
     }
-
-
-    /* Add a link translate */
-    public void addTranslate(TokenTranslate translate) {    //TODO: ESTO PODRIA ESTAR EN EL CONSTRUCTOR
-        translate = translate;                              //TODO: POR ACA SOLO TRANSMITO LA IDEA
-    }                                                       //TODO: PORAY PODRIA ESTAR DIRECTAMENTE ADENTRO
-
-    //TODO: DEL GENERADOR DE CONJUNTOS
 }
