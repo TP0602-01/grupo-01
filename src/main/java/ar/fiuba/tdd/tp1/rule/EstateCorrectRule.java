@@ -4,6 +4,8 @@ import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.Graph;
 
+import java.util.Collection;
+
 /**
  */
 public class EstateCorrectRule {
@@ -16,7 +18,14 @@ public class EstateCorrectRule {
 
 
     private boolean checkGroup(int rowIndx, int colIndx,int rowIndxA,int colIndxA){
-        return myGameBoard.getCell(rowIndx,colIndx ).getSetCell() == myGameBoard.getCell(rowIndxA,colIndxA).getSetCell();
+        Collection<Graph> groups = myGameBoard.getCell(rowIndx,colIndx).getSets();
+        Cell cell =  myGameBoard.getCell(rowIndxA,colIndxA);
+        for (Graph graph:groups){
+            if(graph.contains(cell)){
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean checkAdjacentCell(int rowIndx, int colIndx){
