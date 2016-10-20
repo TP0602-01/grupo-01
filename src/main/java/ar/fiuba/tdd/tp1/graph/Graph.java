@@ -106,6 +106,17 @@ public class Graph {
         return false;
     }
 
+
+    public boolean contains(Cell cell){
+        Collection<Cell> cells = getCells();
+        for (Cell cellAux :cells){
+            if (cellAux == cell){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /* Return a Collection with all the Cells in the Graph */
     public Collection<Cell> getCells() {
         Collection<Cell> cells = new ArrayList<>();
