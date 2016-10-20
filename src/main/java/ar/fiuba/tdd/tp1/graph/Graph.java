@@ -48,30 +48,25 @@ public class Graph {
         this.removeDirectedLinkBetween(second, first);
     }
 
-    public Collection<Cell> getLinks(Cell cell){
+    public Collection<Cell> getLinks(Cell cell) {
         return this.links.get(cell);
     }
 
-    private int check(Vector<Cell> cells){
+    private int check(Vector<Cell> cells) {
         Collection<Cell> cellLinks = getLinks(cells.lastElement());
-        if (cellLinks != null){
-            if(cellLinks.size()> 1){
+
+        if (cellLinks != null) {
+            if (cellLinks.size() > 1) {
                 System.out.println("Cell have two conextion");
             }
-        }
-        if(cellLinks != null){
-            for (Cell cell: cellLinks){
-                if (cells.contains(cell)){
+            for (Cell cell: cellLinks) {
+                if (cells.contains(cell)) {
                     return 1;
-                }else{
-                    cells.add(cell);
-                    check(cells);
-                    return check(cells);
                 }
-
+                cells.add(cell);
+                check(cells);
+                return check(cells);
             }
-        }else{
-            return 0;
         }
         System.out.println("llego al final, algo anda mal");
         return 0;
@@ -79,10 +74,10 @@ public class Graph {
 
     public boolean getCircuitCount() {
         Collection<Cell> cells = links.keySet();
-        for (Cell cell: cells){
+        for (Cell cell: cells) {
             Vector<Cell> circuit = new Vector<>();
             circuit.add(cell);
-            if(check(circuit) == 1){
+            if (check(circuit) == 1) {
                 return true;
             }
         }
@@ -124,7 +119,6 @@ public class Graph {
         return false;
     }
 }
-
 
 
 

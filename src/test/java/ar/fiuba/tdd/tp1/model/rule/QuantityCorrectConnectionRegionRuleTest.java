@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.rule.QuantityCorrectConnectionRegionRule;
 import org.junit.Test;
-import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.assertFalse;
 
 
 public class QuantityCorrectConnectionRegionRuleTest {
@@ -20,6 +20,6 @@ public class QuantityCorrectConnectionRegionRuleTest {
         graph.addDirectedLinkBetween(a1,a3);
         QuantityCorrectConnectionRegionRule rule = new QuantityCorrectConnectionRegionRule(graph);
         rule.setQuantity(4);
-        assertTrue(rule.check());
+        assertFalse(rule.check());
     }
 }

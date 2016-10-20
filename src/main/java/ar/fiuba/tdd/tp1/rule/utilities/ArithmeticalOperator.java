@@ -4,7 +4,9 @@ public enum ArithmeticalOperator {
 
     MULT("*") {
         @Override
-        public Integer apply(Integer x1, Integer x2) { return x1 * x2; }
+        public Integer apply(Integer x1, Integer x2) {
+            return x1 * x2;
+        }
     },
 
     ADDITION("+") {

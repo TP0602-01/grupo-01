@@ -146,12 +146,12 @@ public class GameParser {
             Integer endX = Integer.parseInt(finalCell.split(",")[0]) - 1;
             Integer endY = Integer.parseInt(finalCell.split(",")[1]) - 1;
 
-           for (int x = firstX; x <= endX; ++x) {
-               for (int y = firstY; y <= endY; ++y) {
-                   Cell cell = gameBoard.getCell(x, y);
-                   cellGraph.addCell(cell);
-               }
-           }
+            for (int x = firstX; x <= endX; ++x) {
+                for (int y = firstY; y <= endY; ++y) {
+                    Cell cell = gameBoard.getCell(x, y);
+                    cellGraph.addCell(cell);
+                }
+            }
 
             /*for (int x = firstX; x <= endX; ++x) {    TO LINK CELLS OF A SET. DONT REMOVE YET
                 for (int y = firstY; y <= endY; ++y) {
