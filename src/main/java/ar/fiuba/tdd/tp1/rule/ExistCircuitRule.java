@@ -9,10 +9,12 @@ import java.util.Vector;
  */
 public class ExistCircuitRule {
     Graph mygraph;
-    ExistCircuitRule(Graph graph){
+    int quantityCheck;
+    ExistCircuitRule(Graph graph, int quantity){
         mygraph = graph;
+        quantityCheck = quantity;
     }
-    boolean check(int quantity){
-        return quantity == mygraph.getCircuitCount();
+    boolean check(){
+        return mygraph.getCircuitCount();
     }
 }

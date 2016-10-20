@@ -52,6 +52,12 @@ public class Graph {
         return this.links.get(cell);
     }
 
+
+    public boolean cellHasConnection(Cell cell){
+        Collection<Cell> links = getLinks(cell);
+        return links != null;
+    }
+
     private int check(Vector<Cell> cells){
         Collection<Cell> cellLinks = getLinks(cells.lastElement());
         if (cellLinks != null){
