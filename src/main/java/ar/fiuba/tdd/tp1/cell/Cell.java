@@ -1,8 +1,12 @@
 package ar.fiuba.tdd.tp1.cell;
 
+import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
+import ar.fiuba.tdd.tp1.set.CellSet;
 import ar.fiuba.tdd.tp1.utilities.Observable;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +20,7 @@ public abstract class Cell extends Observable implements Linkable {
 
 
     protected Set<String> linkingTokens;
+    protected Collection<Graph> graphSets;
 
 
     protected String data;
@@ -23,6 +28,15 @@ public abstract class Cell extends Observable implements Linkable {
     protected Cell(String data) {
         this.data = data;
         this.linkingTokens = new HashSet<>();
+        this.graphSets = new ArrayList<>();
+    }
+
+    public void addSet(Graph set) {
+        this.graphSets.add(set);
+    }
+
+    public Collection<Graph> getSets() {
+        return this.graphSets;
     }
 
 
@@ -38,7 +52,6 @@ public abstract class Cell extends Observable implements Linkable {
         } catch (NumberFormatException e) {
             return 0;
         }
-
     }
 
 

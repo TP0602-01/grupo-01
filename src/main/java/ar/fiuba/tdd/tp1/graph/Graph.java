@@ -116,6 +116,19 @@ public class Graph {
         }
         return cells;
     }
+
+    /* Add a cell as a node in the Graph and return true if
+     * it has been addedd succesful */
+    public boolean addCell(Cell cell) {
+        Set<Cell> nodeLinks = this.links.get(cell);
+        if (nodeLinks == null) {
+            nodeLinks = new HashSet<>();
+            this.links.put(cell, nodeLinks);
+            cell.addSet(this);
+            return true;
+        }
+        return false;
+    }
 }
 
 
