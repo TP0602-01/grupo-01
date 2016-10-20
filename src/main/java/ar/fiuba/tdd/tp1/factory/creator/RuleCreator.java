@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp1.rule.*;
 import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
 import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalRuleOperators;
 import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
-import ar.fiuba.tdd.tp1.rule.ConnectedGraphsCountRule;
 
 public enum RuleCreator {
 
