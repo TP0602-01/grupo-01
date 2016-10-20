@@ -10,9 +10,11 @@ public class BoardView extends Observer {
     private Map<Integer, Map<Integer, CellView>> cellViews;
 
     private GameBoard gameBoard;
-
+/*
     private HorizontalLinksView horizontalLinksView;
+*/
     private VerticalLinksView verticalLinksView;
+
 
     public BoardView(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
@@ -31,7 +33,7 @@ public class BoardView extends Observer {
 
     public BoardView(GameBoard gameBoard, HorizontalLinksView horizontalLinksView) {
         this(gameBoard);
-        this.horizontalLinksView = horizontalLinksView;
+        //this.horizontalLinksView = horizontalLinksView;
 
     }
 
@@ -39,7 +41,6 @@ public class BoardView extends Observer {
     public BoardView(GameBoard gameBoard, HorizontalLinksView horizontalLinksView, VerticalLinksView verticalLinksView) {
         this(gameBoard, horizontalLinksView);
         this.verticalLinksView = verticalLinksView;
-
     }
 
 
