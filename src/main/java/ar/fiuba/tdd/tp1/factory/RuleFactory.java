@@ -10,14 +10,6 @@ public class RuleFactory {
 
     private static HashMap<String, RuleCreator> ruleCreators = null;
 
-    private static void initializeCreators() {
-        ruleCreators = new HashMap<>();
-
-        for (RuleCreator creator : RuleCreator.values()) {
-            ruleCreators.put(creator.stringRepresentation, creator);
-        }
-    }
-
 
     public static Rule create(String type, String value) {
         if (ruleCreators == null) {
@@ -28,4 +20,14 @@ public class RuleFactory {
         return (creator = ruleCreators.get(type)) == null ? null : creator.createRule(value);
 
     }
+
+    private static void initializeCreators() {
+        ruleCreators = new HashMap<>();
+
+        for (RuleCreator creator : RuleCreator.values()) {
+            ruleCreators.put(creator.stringRepresentation, creator);
+        }
+    }
+
+
 }
