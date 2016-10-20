@@ -24,7 +24,6 @@ public class ExistCircuitRule extends Rule {
 
     @Override
     public boolean check(Graph graph) {
-        //return graph.getLooplessCircuitCount() == quantityCheck;
         return Graph.getSingleInstance().getLooplessCircuitCount() == quantityCheck;
     }
 }

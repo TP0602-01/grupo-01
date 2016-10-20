@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp1.factory.creator;
 
+import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.rule.*;
 import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
@@ -10,14 +11,14 @@ public enum RuleCreator {
 
     NO_REPETITION_RULE_CREATOR("no_rep") {
         @Override
-        public Rule createRule(String value) {
+        public Rule createRule(String value, GameBoard board) {
             return new NoRepetitionRule(value);
         }
     },
 
     MULT_RULE_CREATOR("mult") {
         @Override
-        public Rule createRule(String value) {
+        public Rule createRule(String value, GameBoard board) {
             int expectedValue = Integer.parseInt(value);
             int initAcumulator = 1;
 
@@ -32,7 +33,7 @@ public enum RuleCreator {
 
     SUM_RULE_CREATOR("sum") {
         @Override
-        public Rule createRule(String value) {
+        public Rule createRule(String value, GameBoard board) {
             int expectedValue = Integer.parseInt(value);
             int initAcumulator = 0;
 
@@ -47,26 +48,31 @@ public enum RuleCreator {
 
     CIRCUIT_COUNT_CREATOR("circuit") {
         @Override
-        public Rule createRule(String value) {
+        public Rule createRule(String value, GameBoard board) {
             return new ExistCircuitRule(Graph.getSingleInstance(), Integer.parseInt(value));
         }
     },
 
     CONNECTED_GRAPH_COUNT_CREATOR("conn_graph") {
         @Override
-        public Rule createRule(String value) {
+        public Rule createRule(String value, GameBoard board) {
             return new ConnectedGraphsCountRule(Integer.parseInt(value));
         }
     },
 
     EMPTY_CELLS_COUNT_CREATOR("expected_data_count") {
         @Override
-        public Rule createRule(String value) {
+        public Rule createRule(String value, GameBoard board) {
             return new QuantityCorrectConnectionRegionRule(Integer.parseInt(value));
         }
-    }
+    },
 
-    ;
+    ESTATE_CORRECT_CREATOR("estate_correct") {
+        @Override
+        public Rule createRule(String value, GameBoard board) {
+            return new EstateCorrectRule(board, Graph.getSingleInstance());
+        }
+    };
 
     /*SUM_RULE_CREATOR("sum") {   //TODO: LE PUSE UN SUMRULE, PERO DESPUES HACEMOS LO TUYO DIEGO
 
@@ -94,7 +100,7 @@ public enum RuleCreator {
     }
 
 
-    public abstract Rule createRule(String value);
+    public abstract Rule createRule(String value, GameBoard board);
 
 
 }
