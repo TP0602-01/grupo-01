@@ -11,7 +11,7 @@ import java.util.Collection;
 public class EstateCorrectRule {
     private GameBoard myGameBoard;
     private Graph myGraph;
-    EstateCorrectRule(GameBoard gameBoard,Graph graph){
+    public EstateCorrectRule(GameBoard gameBoard,Graph graph){
         myGameBoard = gameBoard;
         myGraph = graph;
     }
@@ -31,28 +31,32 @@ public class EstateCorrectRule {
     private boolean checkAdjacentCell(int rowIndx, int colIndx){
         for(int i = -1;i < 2;i++){
             Cell adjacentCell = myGameBoard.getCell(rowIndx,colIndx+i);
-            if (!myGraph.cellHasConnection(adjacentCell)){
-                if(!checkGroup(rowIndx,colIndx,0,i)){
-                    return false;
+            if(adjacentCell != null){
+                if (!myGraph.cellHasConnection(adjacentCell)){
+                    if(!checkGroup(rowIndx,colIndx,rowIndx + 0,colIndx+i)){
+                        return false;
+                    }
                 }
             }
         }
         for(int i = -1;i < 2;i++){
             Cell adjacentCell = myGameBoard.getCell(rowIndx+i,colIndx);
-            if (!myGraph.cellHasConnection(adjacentCell)){
-                if(!checkGroup(rowIndx,colIndx,i,0)){
-                    return false;
+            if(adjacentCell != null){
+                if (!myGraph.cellHasConnection(adjacentCell)){
+                    if(!checkGroup(rowIndx,colIndx,rowIndx+i,colIndx+0)){
+                        return false;
+                    }
                 }
             }
         }
-        return false;
+        return true;
     }
 
     public boolean check(){
-        for (int i = 0;i < myGameBoard.getWidth();i++){
-            for(int j = 0;j <myGameBoard.getHeigth();j++){
+        for (int i = 0;i < myGameBoard.getHeigth();i++){
+            for(int j = 0;j <myGameBoard.getWidth();j++){
                 Cell cell = myGameBoard.getCell(i,j);
-                if(myGraph.cellHasConnection(cell)){
+                if(!myGraph.cellHasConnection(cell)){
                    if(!checkAdjacentCell(i,j)){
                        return false;
                    }
