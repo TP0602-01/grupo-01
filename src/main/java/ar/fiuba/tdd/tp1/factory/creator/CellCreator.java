@@ -38,7 +38,7 @@ public enum CellCreator {
     };
 
 
-    public String stringRepresentation;
+    public final String stringRepresentation;
 
     CellCreator(String stringRepresentation) {
         this.stringRepresentation = stringRepresentation;

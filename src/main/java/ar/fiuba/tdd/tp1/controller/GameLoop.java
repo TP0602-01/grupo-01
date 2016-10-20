@@ -88,7 +88,7 @@ public class GameLoop implements GameBoardController {
             try {
                 writer.close();
             } catch (Exception ex) {
-                /*ignore*/
+                ex.printStackTrace();
             }
         }
     }

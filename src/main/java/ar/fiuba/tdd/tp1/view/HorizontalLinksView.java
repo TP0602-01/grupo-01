@@ -3,12 +3,8 @@ package ar.fiuba.tdd.tp1.view;
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.Graph;
-import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
-import ar.fiuba.tdd.tp1.graph.linker.LinkableMatrix;
 
-/**
- * Created by User on 15/10/2016.
- */
+/* */
 public class HorizontalLinksView {
 
     GameBoard linkableMatrix;
@@ -23,10 +19,8 @@ public class HorizontalLinksView {
         Cell first = this.linkableMatrix.getCell(rowFirst, columnFirst);
         Cell second = this.linkableMatrix.getCell(rowSecond, columnSecond);
 
-        if ((first != null) && (second != null)) {
-            if (this.linksConfiguration.linkExistsFromOriginToDestination(first, second)) {
-                return ("----");
-            }
+        if ((first != null) && (second != null) && this.linksConfiguration.linkExistsFromOriginToDestination(first, second)) {
+            return ("----");
         }
         return "    ";
     }
