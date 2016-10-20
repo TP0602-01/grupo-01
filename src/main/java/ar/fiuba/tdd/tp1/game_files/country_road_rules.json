@@ -3,8 +3,44 @@
     {
       "rules": [
         {
-          "type": "no_rep",
-          "value": ""
+          "type": "circuit",
+          "value": "1"
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,1",
+              "final_cell": "4,4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "type": "conn_graph",
+          "value": "1"
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,1",
+              "final_cell": "4,4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "type": "expected_data_count",
+          "value": "3"
         }
       ],
       "sets": [
@@ -18,5 +54,6 @@
         }
       ]
     }
+
   ]
 }
