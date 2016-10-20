@@ -30,7 +30,8 @@ public class Main {
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_rules.json",
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_linking_symbols.json",
                     //"./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_linking_table.json"
-                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_possible_input.txt"
+                    //"./src/main/java/ar/fiuba/tdd/tp1/game_files/inohi_possible_input.txt"
+                    "./src/main/java/ar/fiuba/tdd/tp1/game_files/numerical_input.txt"
             );
             String filePlaysOutput = "./src/main/java/ar/fiuba/tdd/tp1/game_files/output.json";
 
