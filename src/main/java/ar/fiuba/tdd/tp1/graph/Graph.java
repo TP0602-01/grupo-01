@@ -48,38 +48,45 @@ public class Graph {
         this.removeDirectedLinkBetween(second, first);
     }
 
-    private Collection<Cell> getLinks(Cell cell){
+    public Collection<Cell> getLinks(Cell cell){
         return this.links.get(cell);
     }
 
-    private int check(Cell first, Vector<Cell> v){
-        /*add father*/
-        v.add(first);
-        Collection<Cell> links = getLinks(first);
-        if (links != null ){
-            for (Cell cell:links){
-                check(cell,v);
+    private int check(Vector<Cell> cells){
+        Collection<Cell> cellLinks = getLinks(cells.lastElement());
+        if (cellLinks != null){
+            if(cellLinks.size()> 1){
+                System.out.println("Cell have two conextion");
+            }
+        }
+        if(cellLinks != null){
+            for (Cell cell: cellLinks){
+                if (cells.contains(cell)){
+                    return 1;
+                }else{
+                    cells.add(cell);
+                    check(cells);
+                    return check(cells);
+                }
+
             }
         }else{
-            for (Cell cell:v){
-                for (Cell aux:v){
-                    if (cell == aux){
-                        return 1;
-                    }
-                }
-            }
+            return 0;
         }
+        System.out.println("llego al final, algo anda mal");
         return 0;
     }
-    public int getCircuitCount() {
+
+    public boolean getCircuitCount() {
         Collection<Cell> cells = links.keySet();
-        int count = 0;
-        for (Cell cell : cells){
-            Vector<Cell> v = new Vector<>();
-            v.add(cell);
-            count += check(cell,v);
+        for (Cell cell: cells){
+            Vector<Cell> circuit = new Vector<>();
+            circuit.add(cell);
+            if(check(circuit) == 1){
+                return true;
+            }
         }
-        return count;
+        return false;
     }
 
     /* Exists link beetween origin and destination ? */

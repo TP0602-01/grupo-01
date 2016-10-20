@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.Collection;
 import java.util.Vector;
 
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 /**
  */
@@ -29,8 +30,8 @@ public class GraphTest {
         graph.addDirectedLinkBetween(a1,a2);
         graph.addDirectedLinkBetween(a2,a3);
         graph.addDirectedLinkBetween(a3,a1);
-
-        assertTrue(graph.getCircuitCount() == 1);
+        System.out.println(graph.getCircuitCount());
+        assertTrue(graph.getCircuitCount());
     }
     @Test
     public void existTwoCircuit(){
@@ -43,7 +44,7 @@ public class GraphTest {
         graph.addDirectedLinkBetween(a3,a1);
         graph.addDirectedLinkBetween(a3,a2);
 
-        assertTrue(graph.getCircuitCount() == 2);
+        assertTrue(graph.getCircuitCount());
     }
 
     @Test
@@ -77,7 +78,7 @@ public class GraphTest {
 
 
         for (int j = 0; j < cantCircuits;j++){
-            Vector<Cell> cells = new Vector<>();
+            Vector<Cell> cells = circuits.elementAt(j);
             Cell a1 = cells.elementAt(0);
             Cell a2 = cells.elementAt(1);
             Cell a3 = cells.elementAt(2);
@@ -86,7 +87,7 @@ public class GraphTest {
             graph.addDirectedLinkBetween(a3,a1);
         }
 
-        assertTrue(graph.getCircuitCount() == cantCircuits);
+        assertTrue(graph.getCircuitCount());
 
     }
 
@@ -94,7 +95,6 @@ public class GraphTest {
     @Test
     public void getQuantityCorrectOfOneCircuit() {
         int cantCellsCircuit = 10;
-        int cantCircuits = 1;
         Graph graph = new Graph();
         Vector<Cell> cells = new Vector<>();
         /*Create cells*/
@@ -112,6 +112,22 @@ public class GraphTest {
         Cell last = cells.lastElement();
         graph.addDirectedLinkBetween(last,first);
 
-        assertTrue(graph.getCircuitCount() == cantCircuits);
+        assertTrue(graph.getCircuitCount());
+    }
+
+    @Test
+    public void noTExistCircuitGraphEmpty(){
+        Graph graph = new Graph();
+        assertFalse(graph.getCircuitCount());
+    }
+
+    @Test
+    public void noTExistCircuitGraphTwoCells(){
+        Graph graph = new Graph();
+        Cell a1 = new FixedCell("a1");
+        Cell a2 = new FixedCell("a2");
+
+        graph.addDirectedLinkBetween(a1,a2);
+        assertFalse(graph.getCircuitCount());
     }
 }
