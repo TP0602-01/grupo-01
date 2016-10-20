@@ -117,7 +117,7 @@ public class GameParser {
         // Create the cell Set and include it to Game
         JSONArray sets = (JSONArray) rule.get("sets");
         Iterator setsIterator = sets.iterator();
-        while (setsIterator.hasNext()) {    //TODO: CAMBIAR ESTA CONCATENACION DE FOR - WHILE - IF QUE DA ASCO
+        while (setsIterator.hasNext()) {
             JSONObject set = (JSONObject) setsIterator.next();
             JSONArray setArray = (JSONArray) set.get("set");
 
@@ -141,12 +141,19 @@ public class GameParser {
             String initialCell = (String) singleSet.get("initial_cell");
             String finalCell = (String) singleSet.get("final_cell");
 
-            Integer firstX = Integer.parseInt(initialCell.split(",")[0]) - 1;//TODO: CAMBIAR EN EL ARCH DE SET!
-            Integer firstY = Integer.parseInt(initialCell.split(",")[1]) - 1;//TODO: NO DEBERIA TENER -1 ACA
+            Integer firstX = Integer.parseInt(initialCell.split(",")[0]) - 1;
+            Integer firstY = Integer.parseInt(initialCell.split(",")[1]) - 1;
             Integer endX = Integer.parseInt(finalCell.split(",")[0]) - 1;
             Integer endY = Integer.parseInt(finalCell.split(",")[1]) - 1;
 
-            for (int x = firstX; x <= endX; ++x) {
+           for (int x = firstX; x <= endX; ++x) {
+               for (int y = firstY; y <= endY; ++y) {
+                   Cell cell = gameBoard.getCell(x, y);
+                   cellGraph.addCell(cell);
+               }
+           }
+
+            /*for (int x = firstX; x <= endX; ++x) {    TO LINK CELLS OF A SET. DONT REMOVE YET
                 for (int y = firstY; y <= endY; ++y) {
                     Cell firstCell = gameBoard.getCell(x, y);
 
@@ -164,7 +171,7 @@ public class GameParser {
                         cellGraph.addNotDirectedLinkBetween(firstCell, firstCell);
                     }
                 }
-            }
+            }*/
         }
         return cellGraph;
     }
