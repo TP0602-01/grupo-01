@@ -42,6 +42,7 @@ public class EstateCorrectRule extends Rule{
         return true;
     }
 
+    /*
     public boolean check() {
         for (int i = 0; i < myGameBoard.getWidth(); i++) {
             for (int j = 0; j < myGameBoard.getHeigth(); j++) {
@@ -55,6 +56,7 @@ public class EstateCorrectRule extends Rule{
         }
         return true;
     }
+    */
 
 
     @Override

@@ -35,6 +35,7 @@ public class EstateCorrectRuleTests {
         graphUniversal.addDirectedLinkBetween(a3, a4);
         graphUniversal.addDirectedLinkBetween(a4, a1);
         EstateCorrectRule rule = new EstateCorrectRule(gameBoard,graphUniversal);
-        assertTrue(rule.check());
+        //assertTrue(rule.check());
+        assertTrue(rule.check(graphUniversal));
     }
 }
