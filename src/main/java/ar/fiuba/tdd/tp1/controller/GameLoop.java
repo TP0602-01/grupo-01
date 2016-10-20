@@ -25,25 +25,23 @@ public class GameLoop implements GameBoardController {
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
         JSONArray plays = new JSONArray();
         boolean gameStatus = game.checkRules();
-        boolean playStatus = true;
-        int plays_count = 0;
+        int playsCount = 0;
 
         while (!gameStatus) {
             InputCellData data = new InputCellData(console.readLine());
-
             if (data.getIndexI() == -1) {   //FINISH THE GAME AND SAVE PLAYS IN FILE
                 this.savePlays(plays.toJSONString(), outputPlayFile);
                 break;
             }
-            playStatus = game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData());
+            boolean playStatus = game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData());
             gameStatus = game.checkRules();
 
             JSONObject play = new JSONObject();
-            play.put("number", plays_count);
+            play.put("number", playsCount);
             play.put("playStatus", playStatus);
             play.put("gameStatus", gameStatus);
             plays.add(play);
-            plays_count++;
+            playsCount++;
 
             System.out.println("Estado del tablero: " + gameStatus);
         }
@@ -85,13 +83,12 @@ public class GameLoop implements GameBoardController {
                     new FileOutputStream(fileName), "utf-8"));
             writer.write(plays);
         } catch (IOException ex) {
-
+            return;
         } finally {
             try {
                 writer.close();
-            }
-            catch (Exception ex) {
-                        /*ignore*/
+            } catch (Exception ex) {
+                /*ignore*/
             }
         }
     }
