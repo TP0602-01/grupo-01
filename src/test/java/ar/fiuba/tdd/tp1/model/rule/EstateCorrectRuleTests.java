@@ -8,6 +8,7 @@ import ar.fiuba.tdd.tp1.rule.EstateCorrectRule;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
+
 /* */
 public class EstateCorrectRuleTests {
 
@@ -16,16 +17,16 @@ public class EstateCorrectRuleTests {
         GameBoard gameBoard = new GameBoard(3, 2);
 
         /* creo un grupo1 de celdas */
-        Cell a1 = gameBoard.getCell(0,0);
-        Cell a2 = gameBoard.getCell(0,1);
-        Cell a3 = gameBoard.getCell(1,0);
-        Cell a4 = gameBoard.getCell(1,1);
+        Cell a1 = gameBoard.getCell(0, 0);
+        Cell a2 = gameBoard.getCell(0, 1);
+        Cell a3 = gameBoard.getCell(1, 0);
+        Cell a4 = gameBoard.getCell(1, 1);
         Graph group1 = new Graph(a1, a2, a3);
         group1.addCell(a4);
 
         /* creo grupo2 de celdas */
-        Cell a5 = gameBoard.getCell(0,2);
-        Cell a6 = gameBoard.getCell(1,2);
+        Cell a5 = gameBoard.getCell(0, 2);
+        Cell a6 = gameBoard.getCell(1, 2);
         Graph group2 = new Graph(a5);
         group2.addCell(a6);
 
@@ -34,7 +35,7 @@ public class EstateCorrectRuleTests {
         graphUniversal.addDirectedLinkBetween(a2, a3);
         graphUniversal.addDirectedLinkBetween(a3, a4);
         graphUniversal.addDirectedLinkBetween(a4, a1);
-        EstateCorrectRule rule = new EstateCorrectRule(gameBoard,graphUniversal);
+        EstateCorrectRule rule = new EstateCorrectRule(gameBoard, graphUniversal);
         //assertTrue(rule.check());
         assertTrue(rule.check(graphUniversal));
     }

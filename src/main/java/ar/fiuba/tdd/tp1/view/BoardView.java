@@ -23,13 +23,12 @@ public class BoardView extends Observer {
     private GameBoard gameBoard;
 
 
-
     private BoardCanvas canvas;
     private JFrame frame;
 
 
     public BoardView(GameBoard gameBoard) {
-        this.canvas = new BoardCanvas(gameBoard.getWidth(),gameBoard.getHeigth());
+        this.canvas = new BoardCanvas(gameBoard.getWidth(), gameBoard.getHeigth());
         this.gameBoard = gameBoard;
         this.frame = new JFrame();
         this.gameBoard.registerObserver(this);
@@ -37,13 +36,13 @@ public class BoardView extends Observer {
         int frameWidth = gameBoard.getWidth() * CellView.width;
         int frameHeight = gameBoard.getHeigth() * CellView.height;
 
-        if  ( frameHeight > frameWidth ){
+        if (frameHeight > frameWidth) {
             frameWidth = frameHeight;
         } else {
-            frameHeight = frameWidth ;
+            frameHeight = frameWidth;
         }
 
-        frame.setSize(frameWidth,frameHeight+ yAddition);
+        frame.setSize(frameWidth, frameHeight + yAddition);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(canvas);
@@ -60,21 +59,22 @@ public class BoardView extends Observer {
 //        this.canvas.addDrawable(drawable);
 //    }
 
-    public void addLinkView(Cell origin, Cell destination, Graph graph){
-        this.canvas.addLinkView(origin,destination,graph);
+    public void addLinkView(Cell origin, Cell destination, Graph graph) {
+        this.canvas.addLinkView(origin, destination, graph);
     }
 
-    public void addCellComponent(int row ,int column, CellViewComponent component){
-        this.canvas.addCellComponent(row,column,component);
+    public void addCellComponent(int row, int column, CellViewComponent component) {
+        this.canvas.addCellComponent(row, column, component);
     }
 
-    public void setCell(int row, int column,Cell cell){
-        CellView cellView = this.canvas.getCellView(row,column);
+    public void setCell(int row, int column, Cell cell) {
+        CellView cellView = this.canvas.getCellView(row, column);
         cellView.setCell(cell);
     }
 
-    public CellView getCellView(int row, int column){
-        return canvas.getCellView(row,column);
+
+    public CellView getCellView(int row, int column) {
+        return canvas.getCellView(row, column);
     }
 
 /*

@@ -15,7 +15,7 @@ public class BorderView implements CellViewComponent {
         int xIni = CellView.convertX(cell.getX());
         int yIni = CellView.convertY(cell.getY());
 
-        graphics.drawRect(xIni,yIni,CellView.width,CellView.height);
+        graphics.drawRect(xIni, yIni, CellView.width, CellView.height);
 
     }
 }

@@ -29,7 +29,7 @@ public class MainTests {
             // LEEMOS DE ARCHIVO Y CARGAMOS LAS JUGADAS
             JSONParser jsonParser = new JSONParser();
             String playString = "";
-            JSONObject jsonObject  = (JSONObject) jsonParser.parse(new InputStreamReader(new FileInputStream(playsInput), "UTF-8"));
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(new InputStreamReader(new FileInputStream(playsInput), "UTF-8"));
             JSONArray plays = (JSONArray) jsonObject.get("plays");
             for (int i = 0; i < plays.size(); ++i) {
                 playString = parsePlayString((JSONObject) plays.get(i), playString);

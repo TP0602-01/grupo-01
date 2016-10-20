@@ -14,7 +14,7 @@ public class LinkView implements Drawable {
     private Graph boardGraph;
     private boolean visible;
 
-    public LinkView(Cell origin,Cell destination, Graph boardGraph) {
+    public LinkView(Cell origin, Cell destination, Graph boardGraph) {
         this.origin = origin;
         this.destination = destination;
         this.boardGraph = boardGraph;
@@ -28,7 +28,7 @@ public class LinkView implements Drawable {
 
     public void draw(Graphics graphics) {
 
-        if( origin != null && destination != null && visible) {
+        if (origin != null && destination != null && visible) {
             if (boardGraph.linkExistsFromOriginToDestination(origin, destination)) {
                 drawAConnectionBetweenThem(graphics);
             }
@@ -37,10 +37,10 @@ public class LinkView implements Drawable {
 
 
     private void drawAConnectionBetweenThem(Graphics graphics) {
-        graphics.drawLine( CellView.getXCenter(origin.getX()),
-                 CellView.getYCenter(origin.getY()),
-                 CellView.getXCenter(destination.getX()),
-                 CellView.getYCenter(destination.getY()));
+        graphics.drawLine(CellView.getXCenter(origin.getX()),
+                CellView.getYCenter(origin.getY()),
+                CellView.getXCenter(destination.getX()),
+                CellView.getYCenter(destination.getY()));
     }
 
 }

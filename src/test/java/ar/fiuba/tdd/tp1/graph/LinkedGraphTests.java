@@ -23,10 +23,10 @@ public class LinkedGraphTests {
 
     public LinkedGraphTests() {
         this.linkingSymbolsTable = new LinkingSymbolsTable();
-        this.setInTableLinkingTokensForSymbol(this.linkingSymbolsTable, "-->", new String[]{"RIGHT"} );
-        this.setInTableLinkingTokensForSymbol(this.linkingSymbolsTable, "<--", new String[]{"LEFT"} );
-        this.setInTableLinkingTokensForSymbol(this.linkingSymbolsTable, "v", new String[]{"DOWN"} );
-        this.setInTableLinkingTokensForSymbol(this.linkingSymbolsTable, "^", new String[]{"UP"} );
+        this.setInTableLinkingTokensForSymbol(this.linkingSymbolsTable, "-->", new String[] {"RIGHT"});
+        this.setInTableLinkingTokensForSymbol(this.linkingSymbolsTable, "<--", new String[] {"LEFT"});
+        this.setInTableLinkingTokensForSymbol(this.linkingSymbolsTable, "v", new String[] {"DOWN"});
+        this.setInTableLinkingTokensForSymbol(this.linkingSymbolsTable, "^", new String[] {"UP"});
 
         this.linkingTable = new LinkingTable();
         this.linkingTable.addEntry(0, 1, "RIGHT", "LEFT");
@@ -45,22 +45,22 @@ public class LinkedGraphTests {
         return board;
     }
 
-    private void setInTableLinkingTokensForSymbol(LinkingSymbolsTable table, String symbol, String[]tokens) {
+    private void setInTableLinkingTokensForSymbol(LinkingSymbolsTable table, String symbol, String[] tokens) {
         Set<String> linkingTokens = new HashSet<>();
         for (int i = 0; i < tokens.length; i++) {
-            linkingTokens.add( tokens[i] );
+            linkingTokens.add(tokens[i]);
         }
-        table.setSymbolsLinkingTokens( symbol, linkingTokens);
+        table.setSymbolsLinkingTokens(symbol, linkingTokens);
     }
 
     @Test
     public void testAddDataToTwoCellsAndLinkThemByUpdatongTheirLinks() {
-        GameBoard gameBoard = this.createGameBoard(3,3);
+        GameBoard gameBoard = this.createGameBoard(3, 3);
 
         Linker linker = new ConcreteLinker(gameBoard, this.linkingTable, this.linkingSymbolsTable);
 
-        Cell first = gameBoard.getCell(0,0);
-        Cell second = gameBoard.getCell(0,1);
+        Cell first = gameBoard.getCell(0, 0);
+        Cell second = gameBoard.getCell(0, 1);
 
         first.setData("-->");
         second.setData("<--");
@@ -74,18 +74,18 @@ public class LinkedGraphTests {
 
     @Test
     public void testAddingDataOnlyInOneCellsAndUpdatingItsLinksLeavesItWithNoLinks() {
-        GameBoard gameBoard = this.createGameBoard(3,3);
+        GameBoard gameBoard = this.createGameBoard(3, 3);
 
         Linker linker = new ConcreteLinker(gameBoard, this.linkingTable, this.linkingSymbolsTable);
 
-        Cell origin = gameBoard.getCell(0,0);
+        Cell origin = gameBoard.getCell(0, 0);
         origin.setData("-->");
         linker.updateLinkableLinks(0, 0);
         Graph graph = linker.getGraph();
 
-        Cell rightCell = gameBoard.getCell(0,1);
-        Cell downCell = gameBoard.getCell(1,0);
-        Cell downRightCell = gameBoard.getCell(1,1);
+        Cell rightCell = gameBoard.getCell(0, 1);
+        Cell downCell = gameBoard.getCell(1, 0);
+        Cell downRightCell = gameBoard.getCell(1, 1);
         assertFalse(graph.linkExistsFromOriginToDestination(origin, rightCell));
         assertFalse(graph.linkExistsFromOriginToDestination(origin, downCell));
         assertFalse(graph.linkExistsFromOriginToDestination(origin, downRightCell));
@@ -93,11 +93,11 @@ public class LinkedGraphTests {
 
     @Test
     public void testChangingOneLinkedCellsDataToAnotherRemovesItsLinksCreatedUsingItsOriginalData() {
-        GameBoard gameBoard = this.createGameBoard(3,3);
+        GameBoard gameBoard = this.createGameBoard(3, 3);
 
         Linker linker = new ConcreteLinker(gameBoard, this.linkingTable, this.linkingSymbolsTable);
-        Cell first = gameBoard.getCell(0,0);
-        Cell second = gameBoard.getCell(0,1);
+        Cell first = gameBoard.getCell(0, 0);
+        Cell second = gameBoard.getCell(0, 1);
         first.setData("-->");
         second.setData("<--");
         linker.updateLinkableLinks(0, 0);

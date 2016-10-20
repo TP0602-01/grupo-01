@@ -42,7 +42,6 @@ public class GameParser {
     private LinkingTable linkingTable;
 
 
-
     /*  */
     public GameParser(String structureFileName,
                       String rulesFileName,
@@ -95,11 +94,11 @@ public class GameParser {
         for (int x = firstX; x <= endX; ++x) {
             for (int y = firstY; y <= endY; ++y) {
                 Cell cellObject = CellFactory.create(type, content);
-                cellObject.setCoordinates(x,y);
+                cellObject.setCoordinates(x, y);
                 gameBoard.addCell(x, y, cellObject);
-                boardView.setCell(y,x,cellObject);
-                boardView.addCellComponent(y,x,new BorderView());
-                boardView.addCellComponent(y,x,new DataView());
+                boardView.setCell(y, x, cellObject);
+                boardView.addCellComponent(y, x, new BorderView());
+                boardView.addCellComponent(y, x, new DataView());
             }
         }
 
@@ -114,7 +113,7 @@ public class GameParser {
         Iterator iterator = getJsonArrayIterator(rule, "rules");
         while (iterator.hasNext()) {
             JSONObject cellObject = (JSONObject) iterator.next();
-            Vector<String> ruleValues = getValuesInJsonObjectFromKeys(cellObject, new String[]{"type", "value"});
+            Vector<String> ruleValues = getValuesInJsonObjectFromKeys(cellObject, new String[] {"type", "value"});
             Rule ruleObject = RuleFactory.create(ruleValues.elementAt(0), ruleValues.elementAt(1));
             setRules.add(ruleObject);
         }
@@ -128,8 +127,10 @@ public class GameParser {
             // Create a Graph of Cells
             Graph cellGraph = createGraph(setArray);
 
+
             // Create a Cell Set
             CellSet cellSet = new CellSet(cellGraph, setRules);
+
             game.addSet(cellSet);
         }
     }
@@ -236,15 +237,15 @@ public class GameParser {
 
         for (int x = 0; x <= gameBoard.getWidth(); ++x) {
             for (int y = 0; y <= gameBoard.getHeigth(); ++y) {
-                Cell cello = gameBoard.getCell(x,y);
-                if(x+1 < gameBoard.getWidth()) {
+                Cell cello = gameBoard.getCell(x, y);
+                if (x + 1 < gameBoard.getWidth()) {
                     Cell destination = gameBoard.getCell(x + 1, y);
-                    boardView.addLinkView(cello,destination,this.graph);
+                    boardView.addLinkView(cello, destination, this.graph);
                 }
-                if( y+ 1 < gameBoard.getHeigth()) {
+                if (y + 1 < gameBoard.getHeigth()) {
 
-                    Cell destination = gameBoard.getCell(x, y+1);
-                    boardView.addLinkView(cello,destination,this.graph);
+                    Cell destination = gameBoard.getCell(x, y + 1);
+                    boardView.addLinkView(cello, destination, this.graph);
                 }
 
             }
@@ -330,7 +331,7 @@ public class GameParser {
     private Vector<String> getValuesInJsonObjectFromKeys(JSONObject object, String[] keys) {
         Vector<String> values = new Vector<>();
         for (int i = 0; i < keys.length; i++) {
-            values.add( (String)object.get(keys[i]) );
+            values.add((String) object.get(keys[i]));
         }
         return values;
     }

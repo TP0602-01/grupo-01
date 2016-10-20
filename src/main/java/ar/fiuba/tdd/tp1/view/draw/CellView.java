@@ -28,8 +28,8 @@ public class CellView implements Drawable {
     }
 
     public void draw(Graphics graphics) {
-        if ( ! (cell instanceof NullCell)) {
-            components.forEach(component -> component.draw(graphics,cell));
+        if (!(cell instanceof NullCell)) {
+            components.forEach(component -> component.draw(graphics, cell));
         }
     }
 
@@ -40,12 +40,15 @@ public class CellView implements Drawable {
     public static int convertX(int xCoord) {
         return xCoord * width;
     }
+
     public static int convertY(int yCoord) {
         return yCoord * height;
     }
+
     public static int getXCenter(int xCoord) {
         return xCoord * width + width / 2;
     }
+
     public static int getYCenter(int yCoord) {
         return yCoord * height + height / 2;
     }

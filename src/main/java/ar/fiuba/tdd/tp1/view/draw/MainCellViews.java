@@ -17,12 +17,12 @@ import java.util.Collection;
 public class MainCellViews {
 
     public static void main(String[] args) {
-        Collection<Pair<Point2D,Cell>> cells = new ArrayList<>();
+        Collection<Pair<Point2D, Cell>> cells = new ArrayList<>();
         JFrame frame;
 
 
         GameBoard gameBoard = new GameBoard(3, 3);
-        BoardCanvas canvas = new BoardCanvas(gameBoard.getWidth(),gameBoard.getHeigth());
+        BoardCanvas canvas = new BoardCanvas(gameBoard.getWidth(), gameBoard.getHeigth());
         for (int i = 0; i < gameBoard.getHeigth(); i++) {
             for (int j = 0; j < gameBoard.getWidth(); j++) {
                 InputCell input = new InputCell("."); //new InputCell(Integer.toString(i));
@@ -33,12 +33,12 @@ public class MainCellViews {
                 drawable.addComponent(new DataView());
                 drawable.addComponent(new DataView());
 
-                if ( i == 0  && j == 0) {
-                    cells.add(new Pair<>(center,input));
+                if (i == 0 && j == 0) {
+                    cells.add(new Pair<>(center, input));
                 }
-                if (j == 1){
+                if (j == 1) {
 
-                    cells.add(new Pair<>(center,input));
+                    cells.add(new Pair<>(center, input));
                 }
 
                 //canvas.addDrawable(drawable);
@@ -48,7 +48,7 @@ public class MainCellViews {
         //canvas.addDrawable(new RegionView(cells,40,40,10));
 
         frame = new JFrame("hola");
-        frame.setSize(40*3,40*4);
+        frame.setSize(40 * 3, 40 * 4);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(canvas);

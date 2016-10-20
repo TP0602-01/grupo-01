@@ -1,9 +1,9 @@
 {
-  "views":[
+  "views": [
     {
       "type": "cellView",
       "all": true,
-      "components":[
+      "components": [
         {
           "type": "borderView"
         }

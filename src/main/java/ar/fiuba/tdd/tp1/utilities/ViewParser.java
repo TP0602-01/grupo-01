@@ -15,16 +15,16 @@ public class ViewParser {
 
     public ViewParser(String file, BoardView boardView) {
         try {
-            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file),"UTF-8");
+            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
             fileJsonRepresentation = (JSONObject) parser.parse(fileReader);
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
 
-    public void parseViewObjects(){
-        
+    public void parseViewObjects() {
+
     }
 
 }

@@ -19,10 +19,10 @@ public class CornerView implements CellViewComponent {
 
     @Override
     public void draw(Graphics graphics, Cell cell) {
-        int xPosition = (int) (CellView.getXCenter(cell.getX())+ offset.getX() * CellView.width /2);
-        int yPosition = (int) (CellView.getYCenter(cell.getY()) + offset.getY() * CellView.height/2 );
+        int xPosition = (int) (CellView.getXCenter(cell.getX()) + offset.getX() * CellView.width / 2);
+        int yPosition = (int) (CellView.getYCenter(cell.getY()) + offset.getY() * CellView.height / 2);
         int stringHeight = graphics.getFontMetrics().getHeight();
-        int stringWidth =  graphics.getFontMetrics().stringWidth(message);
-        graphics.drawString(message, xPosition - stringWidth/2 , yPosition + stringHeight / 3);
+        int stringWidth = graphics.getFontMetrics().stringWidth(message);
+        graphics.drawString(message, xPosition - stringWidth / 2, yPosition + stringHeight / 3);
     }
 }

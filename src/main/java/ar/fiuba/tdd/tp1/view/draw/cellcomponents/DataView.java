@@ -13,10 +13,9 @@ import java.awt.geom.Point2D;
 public class DataView implements CellViewComponent {
 
 
+    public void draw(Graphics graphics, Cell cell) {
 
-    public void draw(Graphics graphics,Cell cell) {
-
-        if ( cell.getData() != null ) {
+        if (cell.getData() != null) {
             int stringWidth = graphics.getFontMetrics().stringWidth(cell.getData());
             int stringHeight = graphics.getFontMetrics().getHeight();
 

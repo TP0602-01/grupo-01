@@ -57,7 +57,7 @@ public abstract class Cell extends Observable implements Linkable {
         return this.graphSets;
     }
 
-    public void setCoordinates(int xCoord,int yCoord) {
+    public void setCoordinates(int xCoord, int yCoord) {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
     }
