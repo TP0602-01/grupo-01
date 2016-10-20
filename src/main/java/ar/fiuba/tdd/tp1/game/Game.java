@@ -6,7 +6,6 @@ import ar.fiuba.tdd.tp1.graph.linker.ConcreteLinker;
 import ar.fiuba.tdd.tp1.graph.linker.Linker;
 import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
 import ar.fiuba.tdd.tp1.graph.linksmanager.LinksManager;
-import ar.fiuba.tdd.tp1.graph.linksmanager.MapLinkManager;
 import ar.fiuba.tdd.tp1.set.CellSet;
 import ar.fiuba.tdd.tp1.utilities.InputValidator;
 import ar.fiuba.tdd.tp1.utilities.TokenTranslate;
@@ -29,7 +28,6 @@ public class Game {
 
     //TODO: DEBE PASARSE COMO PARAMETRO EN EL CONSTRUCTOR
     Linker linker;
-    //LinksManager linksManager = new MapLinkManager();
 
 
     public Game(GameBoard gameBoard, InputValidator inputValidator) {
