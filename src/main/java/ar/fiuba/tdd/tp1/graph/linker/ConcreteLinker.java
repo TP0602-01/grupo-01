@@ -47,6 +47,11 @@ public class ConcreteLinker implements Linker {
     }
 
 
+    public Graph getGraph(){
+        return this.graph;
+    }
+
+
     @Override
     public void setLinkingInfo(int rowOffset, int columnOffset, String originTokens, Set<String> destinationTokens) {
         /*
@@ -114,9 +119,10 @@ public class ConcreteLinker implements Linker {
         Cell origin = this.linkableMatrix.getCell(row, column);
 
         Map<Cell, Pair<Integer, Integer>> neighbors = this.getCellNeigbors(row, column);
-
+        Pair<Integer, Integer> neighborOffset;
         for (Cell neighbor : neighbors.keySet()) {
-            this.checkTokensAndlinkIfItsPossible(origin, neighbor, neighbors.get(neighbor));
+            neighborOffset = neighbors.get(neighbor);
+            this.checkTokensAndlinkIfItsPossible(origin, neighbor, neighborOffset);
         }
 
         // TODO: VER SI SE PUEDE REEMPLAZAR O SI FALLA Y TENEMOS QUE VOLVER A LO COMENTADO

@@ -1,20 +1,80 @@
 package ar.fiuba.tdd.tp1.view;
 
+import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
+import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.utilities.Observer;
+import ar.fiuba.tdd.tp1.view.draw.BoardCanvas;
+import ar.fiuba.tdd.tp1.view.draw.CellView;
+import ar.fiuba.tdd.tp1.view.draw.Drawable;
+import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
 
+import javax.swing.*;
 import java.util.*;
 
 public class BoardView extends Observer {
-
+    /*
     private Map<Integer, Map<Integer, CellView>> cellViews;
-
-    private GameBoard gameBoard;
-
     private HorizontalLinksView horizontalLinksView;
     private VerticalLinksView verticalLinksView;
+    */
+
+    private final int yAddition = 30;
+    private GameBoard gameBoard;
+
+
+    private BoardCanvas canvas;
+    private JFrame frame;
+
 
     public BoardView(GameBoard gameBoard) {
+        this.canvas = new BoardCanvas(gameBoard.getWidth(),gameBoard.getHeigth());
+        this.gameBoard = gameBoard;
+        this.frame = new JFrame();
+        this.gameBoard.registerObserver(this);
+
+        int frameWidth = gameBoard.getWidth() * CellView.width;
+        int frameHeight = gameBoard.getHeigth() * CellView.height + yAddition;
+
+        frame.setSize(frameWidth,frameHeight);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(canvas);
+        frame.setVisible(true);
+    }
+
+
+    @Override
+    public void update() {
+        this.frame.repaint();
+    }
+
+//    public void addDrawable(Drawable drawable) {
+//        this.canvas.addDrawable(drawable);
+//    }
+
+    public void addLinkView(Cell origin, Cell destination, Graph graph){
+        this.canvas.addLinkView(origin,destination,graph);
+    }
+
+    public void addCellComponent(int row ,int column, CellViewComponent component){
+        this.canvas.addCellComponent(row,column,component);
+    }
+
+    public void setCell(int row, int column,Cell cell){
+        CellView cellView = this.canvas.getCellView(row,column);
+        cellView.setCell(cell);
+    }
+
+    public CellView getCellView(int row, int column){
+        return canvas.getCellView(row,column);
+    }
+
+/*
+    public BoardView(GameBoard gameBoard) {
+
+        this.canvas = new BoardCanvas();
+
         this.gameBoard = gameBoard;
         this.gameBoard.registerObserver(this);
 
@@ -129,6 +189,6 @@ public class BoardView extends Observer {
         }
         System.out.print("\n");
     }
-
+*/
 
 }

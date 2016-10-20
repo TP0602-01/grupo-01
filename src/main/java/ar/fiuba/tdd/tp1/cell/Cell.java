@@ -19,10 +19,17 @@ public abstract class Cell extends Observable implements Linkable {
 
 
     protected String data;
+    private int xCoord;
+    private int yCoord;
 
     protected Cell(String data) {
         this.data = data;
         this.linkingTokens = new HashSet<>();
+    }
+
+    public void setCoordinates(int xCoord,int yCoord) {
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
     }
 
 
@@ -69,4 +76,11 @@ public abstract class Cell extends Observable implements Linkable {
 
     public abstract boolean isWalkable();
 
+    public int getX() {
+        return xCoord;
+    }
+
+    public int getY() {
+        return yCoord;
+    }
 }
