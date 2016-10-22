@@ -13,6 +13,7 @@ public class EdgesCountRule extends Rule {
         this.expectedValue = expectedValue;
     }
 
+    @Override
     public boolean check(Graph graph) {
         Collection<Cell> cells = graph.getCells();
 
