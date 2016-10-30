@@ -9,7 +9,7 @@ import java.util.Collection;
 /**
  * Created by juanma on 20/10/16.
  */
-public class LinksCountRule extends Rule{
+public class LinksCountRule extends Rule {
 
     private int expectedLinksCount;
 

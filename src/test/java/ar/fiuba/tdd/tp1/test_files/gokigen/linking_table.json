@@ -1,0 +1,124 @@
+{
+  "LinkingTable": [
+    {
+      "rowOffset": 0,
+      "columnOffset": 1,
+      "tokensCombinations": [
+        {
+          "originToken": "/",
+          "destinationTokens": [
+            "\\"
+          ]
+        },
+        {
+          "originToken": "\\",
+          "destinationTokens": [
+            "/"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": -1,
+      "columnOffset": 1,
+      "tokensCombinations": [
+        {
+          "originToken": "/",
+          "destinationTokens": [
+            "/"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": -1,
+      "columnOffset": 0,
+      "tokensCombinations": [
+        {
+          "originToken": "/",
+          "destinationTokens": [
+            "\\"
+          ]
+        },
+        {
+          "originToken": "\\",
+          "destinationTokens": [
+            "/"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": -1,
+      "columnOffset": -1,
+      "tokensCombinations": [
+        {
+          "originToken": "\\",
+          "destinationTokens": [
+            "\\"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": 0,
+      "columnOffset": -1,
+      "tokensCombinations": [
+        {
+          "originToken": "/",
+          "destinationTokens": [
+            "\\"
+          ]
+        },
+        {
+          "originToken": "\\",
+          "destinationTokens": [
+            "/"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": 1,
+      "columnOffset": -1,
+      "tokensCombinations": [
+        {
+          "originToken": "/",
+          "destinationTokens": [
+            "/"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": 1,
+      "columnOffset": 0,
+      "tokensCombinations": [
+        {
+          "originToken": "/",
+          "destinationTokens": [
+            "\\"
+          ]
+        },
+        {
+          "originToken": "\\",
+          "destinationTokens": [
+            "/"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": 1,
+      "columnOffset": 1,
+      "tokensCombinations": [
+        {
+          "originToken": "\\",
+          "destinationTokens": [
+            "\\"
+          ]
+        }
+      ]
+    }
+  ]
+}

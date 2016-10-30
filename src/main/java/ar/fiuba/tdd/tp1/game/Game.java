@@ -13,15 +13,15 @@ import ar.fiuba.tdd.tp1.utilities.TokenTranslate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
-/**
- * Created by lucas on 10/10/16.
- */
+
 public class Game {
     private GameBoard gameBoard;
     //private TokenTranslate traslate;
     private Collection<CellSet> cellStableSets = new ArrayList<>();
     private InputValidator inputValidator;
+    private List<Play> playList;
     //private VariableSetGenerator setGenerator;
     //private Collection<CellSet> cellVariableSets; //TODO: PARA LOS CONJUNTOS VARIABLES
 
@@ -44,6 +44,7 @@ public class Game {
         //this.linker = new ConcreteLinker(this.gameBoard, el grafo);
 
         this.linker = new ConcreteLinker(this.gameBoard, new LinkingTable());
+        this.playList = new ArrayList<Play>();
     }
 
     //TODO; por como se construye el Game ahora conviene setearlo
@@ -52,12 +53,19 @@ public class Game {
     }
 
 
-    /*  */
+    /*
+     * Add Set to Game.
+     *
+     */
     public void addSet(CellSet set) {
         cellStableSets.add(set);
     }
 
-    /* Return True if all Rules checked are True */
+
+    /*
+     * Return True if all Rules checked are True
+     *
+     */
     public boolean checkRules() {
         int setCount = cellStableSets.size();
         int setValidCount = validSetCount();
@@ -68,7 +76,10 @@ public class Game {
         return (setCount == setValidCount);
     }
 
-    /* Return the valid set count */
+    /*
+     * Return the valid set count
+     *
+     */
     private int validSetCount() {
         int setValidCount = cellStableSets.size();
 
@@ -82,35 +93,67 @@ public class Game {
         return setValidCount;
     }
 
-    /* Add a play, Devuelve True si la suma de todas las reglas validas es menor o igual
-     * que antes de ingresar la jugada  */
+
+    /*
+     * Add a play, Devuelve True si la suma de todas las reglas validas es menor o igual
+     * que antes de ingresar la jugada
+     *
+     * @param rowPosition
+     * @param columnPosition
+     * @param content
+     *
+     */
     public boolean addPlay(int rowPosition, int columnPosition, String content) {
 
         //if ( cellXPosition <= this.gameBoard.getWidth() && cellYPosition <= this.gameBoard.getHeigth() ) {
-        if (this.playIsAllowed(rowPosition, columnPosition, content)) {
+        if (this.isPlayAllowed(rowPosition, columnPosition, content)) {
             Cell cell = gameBoard.getCell(rowPosition, columnPosition);
             String cellContent = cell.getData();
 
+            Play play = new Play(rowPosition, columnPosition, content);
+            playList.add(play);
             int previousValidSetCount = validSetCount();
             gameBoard.setCellValue(rowPosition, columnPosition, content);
-            //cellVariableSets = setGenerator.generateSet(gameBoard); //TODO: GENERAR CONJUTNOS VARIABLES
             this.linker.updateLinkableLinks(rowPosition, columnPosition);
 
             int afterValidSetCount = validSetCount();
             if (previousValidSetCount > afterValidSetCount) {
+                playList.remove(playList.size() - 1);
                 gameBoard.setCellValue(rowPosition, columnPosition, cellContent);
                 this.linker.updateLinkableLinks(rowPosition, columnPosition);
                 System.out.println("Invalid Play");
             }
         }
 
-        return true;
+        return false;
     }
 
-    private boolean playIsAllowed(int rowPosition, int columnPosition, String content) {
+
+    /**
+     * Check if play is valid.
+     *
+     */
+    private boolean isPlayAllowed(int rowPosition, int columnPosition, String content) {
         return rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()
                 && rowPosition >= 0 && columnPosition >= 0
                 && inputValidator.isAValidInput(content);
 
+    }
+
+
+    /*
+     * Undo Play
+     *
+     */
+    public boolean undoPlay() {
+        if (playList.isEmpty()) {
+            return false;
+        }
+        int lastPosition = playList.size() - 1;
+        Play lastPlay = playList.get(lastPosition);
+        gameBoard.setCellValue(lastPlay.getRowPosition(), lastPlay.getColumPosition(), lastPlay.getContent());
+        this.linker.updateLinkableLinks(lastPlay.getRowPosition(), lastPlay.getColumPosition());
+        playList.remove(playList.size() - 1);
+        return true;
     }
 }

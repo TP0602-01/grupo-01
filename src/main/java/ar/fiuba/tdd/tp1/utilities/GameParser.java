@@ -39,16 +39,18 @@ public class GameParser {
     private LinkingTable linkingTable;
 
     /*  */
-    public GameParser(String structureFileName,
-                      String rulesFileName,
-                      String linkingSymbolsTableFileName,
-                      String linkingTableFileName,
-                      String possibleInputFileName) {
+    public GameParser(String folderGamePath) {
         gameBoard = null;
         boardView = null;
         linkingSymbolsTable = null;
+        String possibleInputFileName = folderGamePath + "/input.txt";
         inputValidator = new InputValidator(possibleInputFileName);
         parser = new JSONParser();
+
+        String structureFileName = folderGamePath + "/structure.json";
+        String rulesFileName = folderGamePath + "/rules.json";
+        String linkingSymbolsTableFileName = folderGamePath + "/linking_symbols.json";
+        String linkingTableFileName = folderGamePath + "/linking_table.json";
         initFiles(structureFileName, rulesFileName, linkingSymbolsTableFileName, linkingTableFileName);
     }
 

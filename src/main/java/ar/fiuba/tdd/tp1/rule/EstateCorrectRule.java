@@ -6,7 +6,7 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 
 import java.util.Collection;
 
-public class EstateCorrectRule extends Rule{
+public class EstateCorrectRule extends Rule {
     private GameBoard myGameBoard;
     private Graph myGraph;
 

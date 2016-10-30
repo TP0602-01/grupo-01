@@ -1,11 +1,11 @@
 package ar.fiuba.tdd.tp1.controller;
 
-
 import ar.fiuba.tdd.tp1.game.Game;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.*;
+
 
 /* */
 public class GameLoop implements GameBoardController {
@@ -29,18 +29,18 @@ public class GameLoop implements GameBoardController {
 
         while (!gameStatus) {
             InputCellData data = new InputCellData(console.readLine());
-            if (data.getIndexI() == -1) {   //FINISH THE GAME AND SAVE PLAYS IN FILE
+
+            if (data.getPlayType().equals("stop")) {  //FINISH THE GAME AND SAVE PLAYS IN FILE
                 this.savePlays(plays.toJSONString(), outputPlayFile);
                 break;
+            } else if (data.getPlayType().equals("undo")) {
+                game.undoPlay();
+                continue;
             }
             boolean playStatus = game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData());
             gameStatus = game.checkRules();
 
-            JSONObject play = new JSONObject();
-            play.put("number", playsCount);
-            play.put("playStatus", playStatus);
-            play.put("gameStatus", gameStatus);
-            plays.add(play);
+            plays.add( createPlay(playsCount, playStatus, gameStatus) );
             playsCount++;
 
             System.out.println("Estado del tablero: " + gameStatus);
@@ -49,17 +49,32 @@ public class GameLoop implements GameBoardController {
         this.savePlays(plays.toJSONString(), outputPlayFile);
     }
 
+    /*
+     * Create a Json Object Play and return it.
+     *
+     */
+    private JSONObject createPlay(int playsCount, boolean playStatus, boolean gameStatus) {
+        JSONObject play = new JSONObject();
+        play.put("number", playsCount);
+        play.put("playStatus", playStatus);
+        play.put("gameStatus", gameStatus);
+
+        return play;
+    }
+
     /* User Play */
     private static class InputCellData {
         private int indexI;
         private int indexJ;
         private String data;
+        private String playType;
 
         InputCellData(String line) {
             String[] splited = line.split(" ");
-            indexI = Integer.parseInt(splited[0]);
-            indexJ = Integer.parseInt(splited[1]);
-            data = splited[2];
+            playType = splited[0];
+            indexI = Integer.parseInt(splited[1]);
+            indexJ = Integer.parseInt(splited[2]);
+            data = splited[3];
         }
 
         int getIndexI() {
@@ -73,6 +88,11 @@ public class GameLoop implements GameBoardController {
         String getInputData() {
             return data;
         }
+
+        String getPlayType() {
+            return playType;
+        }
+
     }
 
     /* Save plays in File */
