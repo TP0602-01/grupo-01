@@ -131,6 +131,7 @@ public class GameParser {
     /* Giving a Json Set Array create a Graph of cells */
     private Graph createGraph(JSONArray setArray) {
         Graph cellGraph = new Graph();
+
         // Iterate Set
         Iterator singleSetIterator = setArray.iterator();
         while (singleSetIterator.hasNext()) {

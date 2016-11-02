@@ -105,12 +105,11 @@ public class Game {
      */
     public boolean addPlay(int rowPosition, int columnPosition, String content) {
 
-        //if ( cellXPosition <= this.gameBoard.getWidth() && cellYPosition <= this.gameBoard.getHeigth() ) {
         if (this.isPlayAllowed(rowPosition, columnPosition, content)) {
             Cell cell = gameBoard.getCell(rowPosition, columnPosition);
             String cellContent = cell.getData();
 
-            Play play = new Play(rowPosition, columnPosition, content);
+            Play play = new Play(rowPosition, columnPosition, cellContent);
             playList.add(play);
             int previousValidSetCount = validSetCount();
             gameBoard.setCellValue(rowPosition, columnPosition, content);
@@ -123,6 +122,7 @@ public class Game {
                 this.linker.updateLinkableLinks(rowPosition, columnPosition);
                 System.out.println("Invalid Play");
             }
+            return true;
         }
 
         return false;
@@ -153,7 +153,7 @@ public class Game {
         Play lastPlay = playList.get(lastPosition);
         gameBoard.setCellValue(lastPlay.getRowPosition(), lastPlay.getColumPosition(), lastPlay.getContent());
         this.linker.updateLinkableLinks(lastPlay.getRowPosition(), lastPlay.getColumPosition());
-        playList.remove(playList.size() - 1);
+        playList.remove(lastPosition);
         return true;
     }
 }

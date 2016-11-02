@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            GameParser parser = new GameParser( "./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku" );
+            GameParser parser = new GameParser( "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road" );
 
             String filePlaysOutput = "./src/main/java/ar/fiuba/tdd/tp1/game_files/output.json";
 

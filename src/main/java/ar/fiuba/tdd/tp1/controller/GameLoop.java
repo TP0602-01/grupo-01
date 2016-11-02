@@ -7,7 +7,12 @@ import org.json.simple.JSONObject;
 import java.io.*;
 
 
-/* */
+/**
+ * GameLoop reads the user plays and put then into the game.
+ * When the User makes a play, the game status is showed and
+ * when the game is over, all plays are save in a file.
+ *
+ * */
 public class GameLoop implements GameBoardController {
 
     private Game game;
@@ -18,13 +23,17 @@ public class GameLoop implements GameBoardController {
         this.outputPlayFile = outputPlayFile;
     }
 
-    /* Start the game.
+    /*
+     * Start the game.
      * If user win, inform that with a message and finish the Game
-     * If user make an invalid play, inform that with a message and continue the game */
+     * If user make an invalid play, inform that with a message and continue the game
+     *
+     */
     public void start() throws IOException {
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
         JSONArray plays = new JSONArray();
         boolean gameStatus = game.checkRules();
+        boolean playStatus = true;
         int playsCount = 0;
 
         while (!gameStatus) {
@@ -34,12 +43,11 @@ public class GameLoop implements GameBoardController {
                 this.savePlays(plays.toJSONString(), outputPlayFile);
                 break;
             } else if (data.getPlayType().equals("undo")) {
-                game.undoPlay();
-                continue;
+                playStatus = game.undoPlay();
+            } else if (data.getPlayType().equals("play")) {
+                playStatus = game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData());
             }
-            boolean playStatus = game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData());
             gameStatus = game.checkRules();
-
             plays.add( createPlay(playsCount, playStatus, gameStatus) );
             playsCount++;
 
@@ -62,7 +70,10 @@ public class GameLoop implements GameBoardController {
         return play;
     }
 
-    /* User Play */
+    /*
+     * User Play
+     *
+     */
     private static class InputCellData {
         private int indexI;
         private int indexJ;
@@ -95,7 +106,10 @@ public class GameLoop implements GameBoardController {
 
     }
 
-    /* Save plays in File */
+    /*
+     * Save plays in File
+     *
+     */
     private void savePlays(String plays, String fileName) {
         Writer writer = null;
         try {

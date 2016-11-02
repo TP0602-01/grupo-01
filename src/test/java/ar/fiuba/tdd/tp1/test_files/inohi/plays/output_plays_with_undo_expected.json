@@ -1,0 +1,26 @@
+[
+  { "number":0,
+    "playStatus":true,
+    "gameStatus":false
+  },
+  { "number":1,
+    "playStatus":true,
+    "gameStatus":false
+  },
+  { "number":2,
+    "playStatus":true,
+    "gameStatus":false
+  },
+  { "number":3,
+    "playStatus":true,
+    "gameStatus":false
+  },
+  { "number":4,
+    "playStatus":true,
+    "gameStatus":false
+  },
+  { "number":5,
+    "playStatus":true,
+    "gameStatus":false
+  }
+]
