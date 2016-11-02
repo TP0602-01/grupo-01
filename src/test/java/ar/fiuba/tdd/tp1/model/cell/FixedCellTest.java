@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp1.model.cell;
 import ar.fiuba.tdd.tp1.cell.FixedCell;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class FixedCellTest {
@@ -25,5 +26,16 @@ public class FixedCellTest {
         assertTrue(!anFixedCell.isWalkable());
     }
 
+    @Test
+    public void fixedCellIsNotWalkeable() {
+        FixedCell inputCell = new FixedCell("");
+        assertFalse(inputCell.isWalkable());
+    }
+
+    @Test
+    public void fixedCellIsEmptyIsAlwaysFalse() {
+        FixedCell inputCell = new FixedCell("");
+        assertFalse(inputCell.isEmpty());
+    }
 
 }

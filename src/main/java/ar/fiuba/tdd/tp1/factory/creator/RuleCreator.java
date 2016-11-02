@@ -17,7 +17,6 @@ public enum RuleCreator {
         }
     },
 
-
     ESTATE_CORRECT_CREATOR("estate_correct") {
         @Override
         public Rule createRule(String value, GameBoard board) {
@@ -48,7 +47,6 @@ public enum RuleCreator {
         }
     },
 
-
     SUM_RULE_CREATOR("sum") {
         @Override
         public Rule createRule(String value, GameBoard board) {
@@ -64,10 +62,7 @@ public enum RuleCreator {
         }
     },
 
-
-
     EMPTY_CELLS_COUNT_CREATOR("expected_data_count") {
-
         @Override
         public Rule createRule(String value, GameBoard board) {
             return new QuantityCorrectConnectionRegionRule(ParserHelper.toInteger(value));
@@ -75,7 +70,6 @@ public enum RuleCreator {
         }
 
     },
-
 
     CONNECTED_GRAPH_COUNT_CREATOR("conn_graph") {
         @Override

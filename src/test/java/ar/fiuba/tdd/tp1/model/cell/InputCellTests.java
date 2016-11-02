@@ -33,4 +33,10 @@ public class InputCellTests {
         inputCell.setData("1");
         assertTrue(!inputCell.isEmpty());
     }
+
+    @Test
+    public void inputCellIsWalkeable() {
+        InputCell inputCell = new InputCell();
+        assertTrue(inputCell.isWalkable());
+    }
 }

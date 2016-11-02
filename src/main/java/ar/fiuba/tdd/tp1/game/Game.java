@@ -5,10 +5,8 @@ import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.linker.ConcreteLinker;
 import ar.fiuba.tdd.tp1.graph.linker.Linker;
 import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
-import ar.fiuba.tdd.tp1.graph.linksmanager.LinksManager;
 import ar.fiuba.tdd.tp1.set.CellSet;
 import ar.fiuba.tdd.tp1.utilities.InputValidator;
-import ar.fiuba.tdd.tp1.utilities.TokenTranslate;
 
 import java.util.ArrayList;
 import java.util.Collection;

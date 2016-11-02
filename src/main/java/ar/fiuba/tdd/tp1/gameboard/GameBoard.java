@@ -14,10 +14,10 @@ public class GameBoard extends Observable implements LinkableMatrix {
 
     private Map<Integer, Map<Integer, Cell>> cells;
 
-    private Collection<Rule> rules;
+    //private Collection<Rule> rules;
 
     public GameBoard(Integer width, Integer height) {
-        rules = new ArrayList<>();
+        //rules = new ArrayList<>();
 
         cells = new HashMap<>();
         for (int rowIdx = 0; rowIdx < height; ++rowIdx) {
@@ -29,9 +29,10 @@ public class GameBoard extends Observable implements LinkableMatrix {
         }
     }
 
+    /*  //TODO: SI LA USAMOS LA DESCOMENTAMOS
     public void addRule(Rule rule) {
         rules.add(rule);
-    }
+    } */
 
     public void addCell(int rowIdx, int columnIdx, Cell cell) {
         cells.get(rowIdx).put(columnIdx, cell);
@@ -55,6 +56,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
         updateObservers();
     }
 
+    /*  //TODO: SI LA USAMOS LA DESCOMENTAMOS
     public boolean isFull() {
         int width = getWidth();
         int heigth = getHeigth();
@@ -68,7 +70,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
             }
         }
         return true;
-    }
+    }*/
 
 
     /*public boolean checkRules() {

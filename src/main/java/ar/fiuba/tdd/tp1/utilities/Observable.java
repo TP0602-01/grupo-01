@@ -11,9 +11,10 @@ public abstract class Observable {
         this.observers.add(observer);
     }
 
+    /*  //TODO: SI LA USAMOS LA AGREGAMOS
     public void unregisterObserver(Observer observer) {
         this.observers.remove(observer);
-    }
+    } */
 
     public void updateObservers() {
         for (Observer observer : this.observers) {

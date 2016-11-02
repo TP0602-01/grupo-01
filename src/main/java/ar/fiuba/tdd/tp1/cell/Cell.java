@@ -62,7 +62,7 @@ public abstract class Cell extends Observable implements Linkable {
         return this.data;
     }
 
-    public int getDataAsInteger() {
+    public int getDataAsInteger() { //TODO: ESTO LO DEJAMOS ACÁ?
         try {
             return Integer.parseInt(this.getData());
         } catch (NumberFormatException e) {
@@ -91,8 +91,6 @@ public abstract class Cell extends Observable implements Linkable {
         this.linkingTokens.add(token);
     }
 
-
-    // TODO: borrarlo despues
     public void setData(String data) {
     }
 
