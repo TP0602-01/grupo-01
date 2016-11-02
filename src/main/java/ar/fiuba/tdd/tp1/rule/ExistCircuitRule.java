@@ -11,7 +11,7 @@ public class ExistCircuitRule extends Rule {
         this.quantityCheck = quantity;
     }
 
-    boolean check() {
+    public boolean check() {
         //TODO: VER ESTO SI SE CAMBIA A DEVOLVER LA CANTIDAD DE CIRCUITOS
         if ( (this.quantityCheck == 0) && (!mygraph.getCircuitCount()) ) {
             return false;

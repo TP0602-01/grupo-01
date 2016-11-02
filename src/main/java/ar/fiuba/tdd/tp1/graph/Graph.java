@@ -86,7 +86,7 @@ public class Graph {
         return 0;
     }
 
-    public boolean getCircuitCount() {
+    public boolean getCircuitCount() {  //TODO: CAMBIEMOS EL NOMBRE ESTE QUE ES OTRA COSA
         Collection<Cell> cells = links.keySet();
         for (Cell cell: cells) {
             Vector<Cell> circuit = new Vector<>();
