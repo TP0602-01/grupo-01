@@ -221,6 +221,10 @@ public class Graph {
     private int getAdyacentCellsCountOf(Cell cell) {
         return this.getAdyacentCellsOf(cell).size();
     }
+
+    public static void reset() {
+        singleton = new Graph();
+    }
 }
 
 
