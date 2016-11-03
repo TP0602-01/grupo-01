@@ -48,6 +48,7 @@ public class MainTests {
             GameParser parser = new GameParser(gameFolderPath);
             parser.parseGameStructure();
             parser.parseGameRules();
+            parser.parseLinkingInformation();
 
             Game game = parser.getGame();
             GameBoardController controller = new GameLoop(game, playsOutput);
@@ -125,7 +126,7 @@ public class MainTests {
         assertFalse(autoPlayGame(plays, playsOutput, inohiFolder));
     }
 
-    /* HASTA QUE NO ANDEN LOS JUEGOS, NO DESCOMENTAR
+
     @Test
     public void autoPlayingCountryRoadToWin() {
         String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/country_road/plays/plays_to_win.json";
@@ -134,6 +135,8 @@ public class MainTests {
 
         assertTrue(autoPlayGame(playsToWin, playsOutput, folder));
     }
+
+    /*
 
     @Test
     public void autoPlayingGokigenToWin() {
