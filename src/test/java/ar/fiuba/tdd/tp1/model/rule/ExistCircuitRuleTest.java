@@ -14,7 +14,7 @@ import static junit.framework.TestCase.assertTrue;
 public class ExistCircuitRuleTest extends TestCase{
 
     @Override
-    protected void setUp(){
+    protected void setUp() {
         Graph.reset();
     }
 
