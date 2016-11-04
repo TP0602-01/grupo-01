@@ -184,8 +184,19 @@ public class GameParser {
         }
     }
 
+
+    /*
+     *  Start Parsing files
+     *
+     */
+    public void parseContent() {
+        this.parseGameStructure();
+        this.parseGameRules();
+        this.parseLinkingInformation();
+    }
+
     /*  */
-    public void parseGameStructure() {
+    private void parseGameStructure() {
         try {
             gameBoard = new GameBoard(
                     Integer.parseInt((String) jsonStructure.get("width")),
@@ -200,7 +211,7 @@ public class GameParser {
     }
 
     /*  */
-    public void parseGameRules() {
+    private void parseGameRules() {
         try {
             iterateJsonArray((JSONArray) jsonRules.get("all_sets"), new ParserFunctorRule());
         } catch (Exception ex) {
@@ -213,7 +224,7 @@ public class GameParser {
     //TODO: INFORMACION DE LINKEO Y QUE ESTA SE GUARDE EN UN CLASE LLAMADA TRADUCTOR
     //TODO: ESTA CLASE TRADUCTOR SERA PASADA A LA CLASE GAME, QUE EN CADA JUGADA SERA
     //TODO: LA ENCARGADA DE GENERAR LOS CONJUNTOS VARIABLES.
-    public void parseLinkingInformation() {
+    private void parseLinkingInformation() {
 
         //De aca sale com el linkengSymbolsTable cargado
         linkingSymbolsTable = new LinkingSymbolsTable();

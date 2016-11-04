@@ -14,9 +14,7 @@ public class Main {
 
             String filePlaysOutput = "./src/main/java/ar/fiuba/tdd/tp1/game_files/output.json";
 
-            parser.parseGameStructure();
-            parser.parseGameRules();
-            parser.parseLinkingInformation(); //TODO: IMPLEMENTAR
+            parser.parseContent();
 
             Game game = parser.getGame();
 

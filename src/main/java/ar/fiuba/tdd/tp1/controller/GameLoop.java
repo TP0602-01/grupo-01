@@ -17,6 +17,9 @@ public class GameLoop implements GameBoardController {
 
     private Game game;
     private String outputPlayFile;
+    private boolean gameStatus = false;
+    private boolean playStatus = true;
+    private int playsCount = 0;
 
     public GameLoop(Game game, String outputPlayFile) {
         this.game = game;
@@ -32,9 +35,7 @@ public class GameLoop implements GameBoardController {
     public void start() throws IOException {
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
         JSONArray plays = new JSONArray();
-        boolean gameStatus = game.checkRules();
-        boolean playStatus = true;
-        int playsCount = 0;
+        gameStatus = game.checkRules();
 
         while (!gameStatus) {
             InputCellData data = new InputCellData(console.readLine());

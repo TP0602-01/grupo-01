@@ -46,9 +46,7 @@ public class MainTests {
             System.setIn(stream);
 
             GameParser parser = new GameParser(gameFolderPath);
-            parser.parseGameStructure();
-            parser.parseGameRules();
-            parser.parseLinkingInformation();
+            parser.parseContent();
 
             Game game = parser.getGame();
             GameBoardController controller = new GameLoop(game, playsOutput);
@@ -125,7 +123,6 @@ public class MainTests {
 
         assertFalse(autoPlayGame(plays, playsOutput, inohiFolder));
     }
-
 
     @Test
     public void autoPlayingCountryRoadToWin() {
