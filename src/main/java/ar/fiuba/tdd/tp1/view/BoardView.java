@@ -49,7 +49,7 @@ public class BoardView extends Observer {
 
         String rowSeparatorLine = "";
 
-        for (int i = 0; i < this.getColumnsNumber(); i++) {
+        for (int i = 0; i < this.getColumnsNumber(); ++i) {
             rowSeparatorLine = rowSeparatorLine.concat("-------");
         }
         for (int rowIdx = 0; rowIdx < this.getRowsNumber(); ++rowIdx) {
@@ -57,13 +57,20 @@ public class BoardView extends Observer {
 
             String rowAscii = "";
             for (int colIdx = 0; colIdx < this.getColumnsNumber(); ++colIdx) {
-
-                CellView cellView = this.cellViews.get(rowIdx).get(colIdx);
+                CellView cellView = getCellView(rowIdx, colIdx);
                 rowAscii = rowAscii.concat(cellView.asciiDraw());
             }
             System.out.println(rowAscii);
         }
         System.out.println(rowSeparatorLine);
+    }
+
+    private CellView getCellView(int rowIdx, int colIdx) {
+        CellView result = this.cellViews.get(rowIdx).get(colIdx);
+        if (result == null) {
+            result = new NullCellView();
+        }
+        return result;
     }
 
 

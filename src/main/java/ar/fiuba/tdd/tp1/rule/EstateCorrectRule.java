@@ -45,15 +45,15 @@ public class EstateCorrectRule extends Rule {
 
     private boolean adyacentCellsIsEmptyAndInSameGroup(int row, int col, Cell cell) {
         Cell adyacentCell = myGameBoard.getCell(row, col);
-        if ( (adyacentCell != null)
-                && ( (adyacentCell.getData().equals("")) || (adyacentCell.getData().equals("0")) ) ) {
-
-            if ( !this.cellsBelongToTheSameSet(cell, adyacentCell) ) {
-                return true;
-            }
-
+        if (adyacentCell == null || adyacentCell.getData() == null) {
+            return false;
         }
-        return false;
+
+        if (!adyacentCell.getData().equals("") && !adyacentCell.getData().equals("0")) {
+            return false;
+        }
+
+        return !this.cellsBelongToTheSameSet(cell, adyacentCell);
     }
 
 

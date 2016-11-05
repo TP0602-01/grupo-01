@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp1.factory;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
+import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.factory.creator.CellCreator;
 
 import java.util.HashMap;
@@ -23,6 +24,6 @@ public class CellFactory {
             initializeCreators();
         }
         CellCreator cellCreator;
-        return (cellCreator = cellCreators.get(type)) == null ? null : cellCreator.createCell(content);
+        return (cellCreator = cellCreators.get(type)) == null ? new NullCell() : cellCreator.createCell(content);
     }
 }

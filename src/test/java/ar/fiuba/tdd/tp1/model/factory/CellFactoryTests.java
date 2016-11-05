@@ -7,6 +7,7 @@ import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.factory.CellFactory;
 import org.junit.Test;
+import org.mockito.internal.matchers.Null;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
@@ -36,7 +37,7 @@ public class CellFactoryTests {
     @Test
     public void creatingACellOfAnUnknownTypeMustReturnNull() {
         Cell cell = cellFactory.create("ssssdf", "");
-        assertEquals(cell, null);
+        assertEquals(cell.getClass(), NullCell.class);
     }
 
 

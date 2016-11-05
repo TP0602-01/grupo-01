@@ -145,7 +145,6 @@ public class MainTests {
         assertTrue(autoPlayGame(playsToWin, playsOutput, folder));
     }
 
-    /*
     @Test
     public void autoPlayingGokigenToWin() {
         Graph.reset();
@@ -154,7 +153,7 @@ public class MainTests {
         String folder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/gokigen";
 
         assertTrue(autoPlayGame(playsToWin, playsOutput, folder));
-    }*/
+    }
 
     /*
      * Return true if file json content is the same
