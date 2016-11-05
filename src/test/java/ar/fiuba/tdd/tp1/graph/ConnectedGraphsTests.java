@@ -6,9 +6,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-/**
- * Created by User on 20/10/2016.
- */
+/* */
 public class ConnectedGraphsTests {
 
     @Test

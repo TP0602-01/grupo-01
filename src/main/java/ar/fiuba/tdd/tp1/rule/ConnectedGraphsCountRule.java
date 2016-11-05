@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp1.rule.Rule;
 
 public class ConnectedGraphsCountRule extends Rule {
 
-
     private int expectedCount;
 
     public ConnectedGraphsCountRule(int expectedCount) {

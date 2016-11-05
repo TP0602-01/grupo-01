@@ -1,39 +1,47 @@
 package ar.fiuba.tdd.tp1.model.rule;
 
-/*
-import ar.fiuba.tdd.tp1.rule.NoRepetitionRule;
-import ar.fiuba.tdd.tp1.rule.SumRule;
-import ar.fiuba.tdd.tp1.walk.Walk;
-import org.junit.Test;
+import ar.fiuba.tdd.tp1.cell.InputCell;
+import ar.fiuba.tdd.tp1.factory.RuleFactory;
+import ar.fiuba.tdd.tp1.graph.Graph;
+import ar.fiuba.tdd.tp1.rule.Rule;
+import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
+import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalRuleOperators;
+import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 public class NoRepetitionRuleTests {
 
-    NoRepetitionRule noRepetitionRule;
-    RuleTestUtilities utilities = new RuleTestUtilities();
-
     @Test
-    public void checkingTheRuleInACollectionOfCellsThatDoNotHaveRepeatedElementsMustReturnTrue() {
-        String[][] cellData = {{"1", "2", "3"}};
-        Walk walkMock = utilities.createAWalkMock(0, 0, cellData);
-        Collection<String> cellAsString = new ArrayList<>();
-        cellAsString.add("0,0");
-        noRepetitionRule = new NoRepetitionRule(cellAsString, walkMock);
-        assertTrue(noRepetitionRule.check());
+    public void theCheckMethodMustReturnTrueWhenThereAreNoRepetitions() {
+        Graph graph = new Graph();
+        InputCell c1 = new InputCell("5");
+        InputCell c2 = new InputCell("10");
+        InputCell c3 = new InputCell("7");
+
+        graph.addNotDirectedLinkBetween(c1, c2);
+        graph.addNotDirectedLinkBetween(c2, c3);
+
+        Rule rule =  RuleFactory.create("no_rep", "");
+
+        assertTrue(rule.check(graph));
     }
 
     @Test
-    public void ifThereAreRepeatedElementsCheckMustReturnFalse() {
-        String[][] cellData = {{"1", "2", "1"}};
-        Walk walkMock = utilities.createAWalkMock(0, 0, cellData);
-        Collection<String> cellAsString = new ArrayList<>();
-        cellAsString.add("0,0");
-        noRepetitionRule = new NoRepetitionRule(cellAsString, walkMock);
-        assertFalse(noRepetitionRule.check());
+    public void theCheckMethodMustReturnFalseWhenThereAreRepetitions() {
+        Graph graph = new Graph();
+        InputCell c1 = new InputCell("5");
+        InputCell c2 = new InputCell("5");
+        InputCell c3 = new InputCell("7");
+
+        graph.addNotDirectedLinkBetween(c1, c2);
+        graph.addNotDirectedLinkBetween(c2, c3);
+
+        Rule rule =  RuleFactory.create("no_rep", "");
+
+        assertFalse(rule.check(graph));
     }
-}*/
+}

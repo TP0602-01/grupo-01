@@ -28,7 +28,7 @@ public enum RuleCreator {
     NO_REPETITION_RULE_CREATOR("no_rep") {
         @Override
         public Rule createRule(String value, GameBoard board) {
-            return new NoRepetitionRule(value);
+            return new NoRepetitionRule();
         }
     },
 

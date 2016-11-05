@@ -7,15 +7,10 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by lucas on 10/10/16.
- */
+/*  */
 public class NoRepetitionRule extends Rule {
 
-    //String value;
-
-    public NoRepetitionRule(String value) {
-        //this.value = value;
+    public NoRepetitionRule() {
     }
 
     public boolean check(Graph graph) {
