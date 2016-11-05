@@ -69,10 +69,8 @@ public class ConcreteLinker implements Linker {
     private void linkIfItsPossible(Cell origin, Cell destination, boolean shouldBeLinked) {
         if (shouldBeLinked) {
             this.graph.addNotDirectedLinkBetween(origin, destination);
-            System.out.println("SE LINKEAN");
         } else {
             this.graph.removeNotDirectedLinkBetween(origin, destination);
-            System.out.println("NO SE LINKEAN");
         }
     }
 

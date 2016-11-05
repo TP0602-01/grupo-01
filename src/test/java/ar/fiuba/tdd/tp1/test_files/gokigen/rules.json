@@ -1,0 +1,158 @@
+{
+  "all_sets": [
+    {
+      "rules": [
+        {
+          "type": "circuit",
+          "value": "0"
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,1",
+              "final_cell": "5,5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "type": "edges_count",
+          "value": "0"
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "4,1",
+              "final_cell": "5,1"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "1,5",
+              "final_cell": "2,5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "type": "edges_count",
+          "value": "2"
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,1",
+              "final_cell": "1,2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "type": "edges_count",
+          "value": "1"
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,2",
+              "final_cell": "1,3"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "5,4",
+              "final_cell": "5,5"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "5,5",
+              "final_cell": "5,5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "type": "edges_count",
+          "value": "3"
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,2",
+              "final_cell": "2,3"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "1,3",
+              "final_cell": "2,4"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "3,2",
+              "final_cell": "4,3"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "3,3",
+              "final_cell": "4,4"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "4,3",
+              "final_cell": "5,4"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "4,4",
+              "final_cell": "5,5"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

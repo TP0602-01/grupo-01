@@ -87,6 +87,11 @@ public class GameLoop implements GameBoardController {
             indexI = Integer.parseInt(splited[1]);
             indexJ = Integer.parseInt(splited[2]);
             data = splited[3];
+
+            System.out.println(playType.concat(" ")
+                                .concat(splited[1]).concat(" ")
+                                .concat(splited[2]).concat(" ")
+                                .concat(data));
         }
 
         int getIndexI() {

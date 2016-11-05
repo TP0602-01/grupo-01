@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp1;
 import ar.fiuba.tdd.tp1.controller.GameBoardController;
 import ar.fiuba.tdd.tp1.controller.GameLoop;
 import ar.fiuba.tdd.tp1.game.Game;
+import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.utilities.GameParser;
 
 import org.json.simple.JSONArray;
@@ -126,34 +127,34 @@ public class MainTests {
 
     @Test
     public void autoPlayingCountryRoadToWin() {
-        String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/country_road/plays/plays_to_win.json";
-        String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/country_road/plays/output.json";
-        String folder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/country_road";
-
-        assertTrue(autoPlayGame(playsToWin, playsOutput, folder));
-    }
-
-    /*
-
-    @Test
-    public void autoPlayingGokigenToWin() {
-        String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/gokigen/plays/plays_to_win.json";
-        String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/gokigen/plays/output.json";
-        String folder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/gokigen";
+        Graph.reset();
+        String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/country_road_2/plays/plays_to_win.json";
+        String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/country_road_2/plays/output.json";
+        String folder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/country_road_2";
 
         assertTrue(autoPlayGame(playsToWin, playsOutput, folder));
     }
 
     @Test
     public void autoPlayingSlitherlinkToWin() {
+        Graph.reset();
         String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/slitherlink/plays/plays_to_win.json";
         String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/slitherlink/plays/output.json";
         String folder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/slitherlink";
 
         assertTrue(autoPlayGame(playsToWin, playsOutput, folder));
     }
-    */
 
+    /*
+    @Test
+    public void autoPlayingGokigenToWin() {
+        Graph.reset();
+        String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/gokigen/plays/plays_to_win.json";
+        String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/gokigen/plays/output.json";
+        String folder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/gokigen";
+
+        assertTrue(autoPlayGame(playsToWin, playsOutput, folder));
+    }*/
 
     /*
      * Return true if file json content is the same

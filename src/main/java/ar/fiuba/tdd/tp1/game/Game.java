@@ -109,17 +109,17 @@ public class Game {
 
             Play play = new Play(rowPosition, columnPosition, cellContent);
             playList.add(play);
-            int previousValidSetCount = validSetCount();
+            //int previousValidSetCount = validSetCount();
             gameBoard.setCellValue(rowPosition, columnPosition, content);
             this.linker.updateLinkableLinks(rowPosition, columnPosition);
 
-            int afterValidSetCount = validSetCount();
-            if (previousValidSetCount > afterValidSetCount) {
-                playList.remove(playList.size() - 1);
-                gameBoard.setCellValue(rowPosition, columnPosition, cellContent);
-                this.linker.updateLinkableLinks(rowPosition, columnPosition);
-                System.out.println("Invalid Play");
-            }
+            //int afterValidSetCount = validSetCount();
+//            if (previousValidSetCount > afterValidSetCount) {
+//                playList.remove(playList.size() - 1);
+//                gameBoard.setCellValue(rowPosition, columnPosition, cellContent);
+//                this.linker.updateLinkableLinks(rowPosition, columnPosition);
+//                System.out.println("Invalid Play");
+//            }
             return true;
         }
 
@@ -135,7 +135,6 @@ public class Game {
         return rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()
                 && rowPosition >= 0 && columnPosition >= 0
                 && inputValidator.isAValidInput(content);
-
     }
 
 

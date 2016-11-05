@@ -1,0 +1,52 @@
+{
+  "LinkingTable": [
+    {
+      "rowOffset": 0,
+      "columnOffset": 1,
+      "tokensCombinations": [
+        {
+          "originToken": "R",
+          "destinationTokens": [
+            "L"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": -1,
+      "columnOffset": 0,
+      "tokensCombinations": [
+        {
+          "originToken": "U",
+          "destinationTokens": [
+            "D"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": 0,
+      "columnOffset": -1,
+      "tokensCombinations": [
+        {
+          "originToken": "L",
+          "destinationTokens": [
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "rowOffset": 1,
+      "columnOffset": 0,
+      "tokensCombinations": [
+        {
+          "originToken": "D",
+          "destinationTokens": [
+            "U"
+          ]
+        }
+      ]
+    }
+  ]
+}
