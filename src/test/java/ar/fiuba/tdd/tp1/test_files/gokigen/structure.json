@@ -1,14 +1,46 @@
 {
-  "height": "5",
-  "width": "5",
+  "height": "7",
+  "width": "7",
   "structure": {
     "cells": [
       {
         "type": "data",
         "content": "",
         "range": {
+          "initial_cell": "1,1",
+          "final_cell": "5,5"
+        }
+      },
+      {
+        "type": "null",
+        "content": "",
+        "range": {
           "initial_cell": "0,0",
-          "final_cell": "4,4"
+          "final_cell": "0,6"
+        }
+      },
+      {
+        "type": "null",
+        "content": "",
+        "range": {
+          "initial_cell": "0,0",
+          "final_cell": "6,0"
+        }
+      },
+      {
+        "type": "null",
+        "content": "",
+        "range": {
+          "initial_cell": "6,0",
+          "final_cell": "6,6"
+        }
+      },
+      {
+        "type": "null",
+        "content": "",
+        "range": {
+          "initial_cell": "0,6",
+          "final_cell": "6,6"
         }
       }
     ]
