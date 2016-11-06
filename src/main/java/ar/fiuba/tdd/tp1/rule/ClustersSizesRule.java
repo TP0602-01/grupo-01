@@ -21,21 +21,34 @@ public class ClustersSizesRule extends Rule {
                 (c1.getColumnIndex() + c1.getRowIndex())
                         - (c2.getColumnIndex() + c2.getRowIndex()));
 
+        List<Integer> clustersSizes = getSizes(cellsList);
+        return clustersSizes.equals(expectedValues);
+    }
+
+    private List<Integer> getSizes(List<Cell> cellsList) {
         List<Integer> clustersSizes = new ArrayList<>();
         int currentClusterSize = 0;
+
+        /* foreach cell, ordered */
         for (Cell cell : cellsList) {
-            if (cell.getData().equalsIgnoreCase("X")) {
-                ++currentClusterSize;
-            } else if (currentClusterSize != 0) {
-                clustersSizes.add(currentClusterSize);
-                currentClusterSize = 0;
-            }
+            currentClusterSize = calculateNewClusterSize(currentClusterSize, cell, clustersSizes);
+        }
+
+        /* if last cell is in a cluster */
+        if (currentClusterSize != 0) {
+            clustersSizes.add(currentClusterSize);
+        }
+        return clustersSizes;
+    }
+
+    private int calculateNewClusterSize(int currentClusterSize, Cell cell, List<Integer> clustersSizes) {
+        if (cell.getData().equalsIgnoreCase("X")) {
+            return currentClusterSize + 1;
         }
         if (currentClusterSize != 0) {
             clustersSizes.add(currentClusterSize);
         }
-
-        return clustersSizes.equals(expectedValues);
+        return 0;
     }
 
 }
