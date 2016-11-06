@@ -39,11 +39,14 @@ public class GameParser {
     private LinkingSymbolsTable linkingSymbolsTable;
     private LinkingTable linkingTable;
 
+    //private String folderGamePath;
+
     /*  */
     public GameParser(String folderGamePath) {
         gameBoard = null;
         boardView = null;
         linkingSymbolsTable = null;
+        //this.folderGamePath = folderGamePath;
         String possibleInputFileName = folderGamePath + "/input.txt";
         inputValidator = new InputValidator(possibleInputFileName);
         parser = new JSONParser();
@@ -204,8 +207,10 @@ public class GameParser {
             gameBoard = new GameBoard(
                     Integer.parseInt((String) jsonStructure.get("width")),
                     Integer.parseInt((String) jsonStructure.get("height")));
-            //boardView = new BoardView(gameBoard);
-            //ViewParser viewParser = new ViewParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_view.json", boardView);
+
+            // TODO : ver por que rompe en travis cuando pongo la vista
+            boardView = new BoardView(gameBoard);
+            //ViewParser viewParser = new ViewParser(folderGamePath + "/view.json", boardView);
             //viewParser.parseViewObjects();
 
             JSONObject structure = (JSONObject) jsonStructure.get("structure");
