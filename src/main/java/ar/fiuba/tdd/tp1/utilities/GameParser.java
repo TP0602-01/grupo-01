@@ -204,9 +204,9 @@ public class GameParser {
             gameBoard = new GameBoard(
                     Integer.parseInt((String) jsonStructure.get("width")),
                     Integer.parseInt((String) jsonStructure.get("height")));
-            boardView = new BoardView(gameBoard);
-            ViewParser viewParser = new ViewParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_view.json", boardView);
-            viewParser.parseViewObjects();
+            //boardView = new BoardView(gameBoard);
+            //ViewParser viewParser = new ViewParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_view.json", boardView);
+            //viewParser.parseViewObjects();
 
             JSONObject structure = (JSONObject) jsonStructure.get("structure");
             iterateJsonArray((JSONArray) structure.get("cells"), new ParserFunctorCell());
