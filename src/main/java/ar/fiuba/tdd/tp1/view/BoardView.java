@@ -39,6 +39,8 @@ public class BoardView extends Observer {
         int frameWidth = gameBoard.getWidth() * CellView.width;
         int frameHeight = gameBoard.getHeigth() * CellView.height;
 
+        initializeCellViews(gameBoard);
+
         if (frameHeight > frameWidth) {
             frameWidth = frameHeight;
         } else {
@@ -50,6 +52,15 @@ public class BoardView extends Observer {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(canvas);
         frame.setVisible(true);
+    }
+
+    private void initializeCellViews(GameBoard gameBoard) {
+        for (int x = 0; x < width; ++x) {
+            for (int y = 0; y < height; ++y) {
+                this.setCell(x,y,gameBoard.getCell(y,x));
+            }
+        }
+
     }
 
 

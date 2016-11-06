@@ -15,8 +15,8 @@ public class DataView implements CellViewComponent {
             int stringWidth = graphics.getFontMetrics().stringWidth(cell.getData());
             int stringHeight = graphics.getFontMetrics().getHeight();
 
-            graphics.drawString(cell.getData(), CellView.getXCenter(cell.getX()) - (stringWidth / 2),
-                    CellView.getYCenter(cell.getY()) + (stringHeight / 3));
+            graphics.drawString(cell.getData(), CellView.getXCenter(cell.getColumnIndex()) - (stringWidth / 2),
+                    CellView.getYCenter(cell.getRowIndex()) + (stringHeight / 3));
         }
     }
 

@@ -93,11 +93,11 @@ public class RegionView implements Drawable {
         if (border > 0) {
             Set<Point2D> centers = new HashSet<>();
             cells.forEach(cell -> centers.add(
-                    new Point(CellView.getXCenter(cell.getX()),
-                            CellView.getYCenter(cell.getY()))));
+                    new Point(CellView.getXCenter(cell.getColumnIndex()),
+                            CellView.getYCenter(cell.getRowIndex()))));
 
             cells.forEach(cell -> drawBorders(graphics,
-                    new Point(CellView.getXCenter(cell.getX()), CellView.getYCenter(cell.getY())),
+                    new Point(CellView.getXCenter(cell.getColumnIndex()), CellView.getYCenter(cell.getRowIndex())),
                     centers));
         }
     }

@@ -26,6 +26,7 @@ public class BoardCanvas extends JPanel {
         this.linkViews = new HashMap<>();
     }
 
+
     private void initializeCellViews(int width, int height) {
         Map<Integer, Map<Integer, CellView>> cellViews = new HashMap<>();
         for (int i = 0; i < width; i++) {
@@ -39,6 +40,7 @@ public class BoardCanvas extends JPanel {
         }
         this.cellViews = cellViews;
     }
+
 
     public void addLinkView(Cell origin, Cell destination, Graph graph) {
         LinkView newLinkView = new LinkView(origin, destination, graph);

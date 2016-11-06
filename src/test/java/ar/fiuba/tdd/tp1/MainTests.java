@@ -6,6 +6,7 @@ import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.utilities.GameParser;
 
+import ar.fiuba.tdd.tp1.view.BoardView;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -23,8 +24,11 @@ import java.nio.file.Paths;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 
 public class MainTests {
+
+    private static final BoardView boardView = mock(BoardView.class);
 
     /*
      *  Auto PLay Test.

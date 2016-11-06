@@ -35,10 +35,10 @@ public class LinkView implements Drawable {
 
 
     private void drawAConnectionBetweenThem(Graphics graphics) {
-        graphics.drawLine(CellView.getXCenter(origin.getX()),
-                CellView.getYCenter(origin.getY()),
-                CellView.getXCenter(destination.getX()),
-                CellView.getYCenter(destination.getY()));
+        graphics.drawLine(CellView.getXCenter(origin.getColumnIndex()),
+                CellView.getYCenter(origin.getRowIndex()),
+                CellView.getXCenter(destination.getColumnIndex()),
+                CellView.getYCenter(destination.getRowIndex()));
     }
 
 }

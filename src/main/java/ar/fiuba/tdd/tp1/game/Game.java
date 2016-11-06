@@ -127,6 +127,11 @@ public class Game {
     }
 
 
+    public GameBoard getGameBoard() {
+        return this.gameBoard;
+    }
+
+
     /**
      * Check if play is valid.
      */
