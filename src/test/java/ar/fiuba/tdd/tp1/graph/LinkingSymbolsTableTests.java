@@ -30,6 +30,6 @@ public class LinkingSymbolsTableTests {
     @Test
     public void testForANonExistingSymbolAnEmptySetOfLinkingTokensIsReturned() {
         LinkingSymbolsTable symbolsTable = new LinkingSymbolsTable();
-        assertTrue( (symbolsTable.getLinkingTokensFor("Non Existing Symbol")).isEmpty());
+        assertTrue((symbolsTable.getLinkingTokensFor("Non Existing Symbol")).isEmpty());
     }
 }

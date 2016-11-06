@@ -72,7 +72,7 @@ public class Graph {
             if (cellLinks.size() > 1) {
                 System.out.println("Cell have two conextion");
             }
-            for (Cell cell: cellLinks) {
+            for (Cell cell : cellLinks) {
                 if (cells.contains(cell)) {
                     return 1;
                 } else {
@@ -88,7 +88,7 @@ public class Graph {
 
     public boolean getCircuitCount() {  //TODO: CAMBIEMOS EL NOMBRE ESTE QUE ES OTRA COSA
         Collection<Cell> cells = links.keySet();
-        for (Cell cell: cells) {
+        for (Cell cell : cells) {
             Vector<Cell> circuit = new Vector<>();
             circuit.add(cell);
             if (check(circuit) == 1) {
@@ -112,7 +112,7 @@ public class Graph {
 
     public boolean contains(Cell cell) {
         Collection<Cell> cells = getCells();
-        for (Cell cellAux :cells) {
+        for (Cell cellAux : cells) {
             if (cellAux == cell) {
                 return true;
             }
@@ -154,7 +154,6 @@ public class Graph {
     }
 
 
-
     public int getConnectedSubGraphsCount() {
         return this.getAllConnectedSubGraphs().size();
     }
@@ -163,8 +162,8 @@ public class Graph {
         Collection<Cell> cells = this.getCells();
         Collection<Set<Cell>> connectedSupGraphs = new LinkedList<>();
 
-        for (Cell cell: cells) {
-            if (!this.cellBelongsToASubgraph(connectedSupGraphs, cell) ) {
+        for (Cell cell : cells) {
+            if (!this.cellBelongsToASubgraph(connectedSupGraphs, cell)) {
                 ArrayList<Cell> subGraph = new ArrayList<>();
                 subGraph.add(cell);
                 for (int i = 0; i < subGraph.size(); i++) {
@@ -183,7 +182,7 @@ public class Graph {
     }
 
     private boolean cellBelongsToASubgraph(Collection<Set<Cell>> connectedSupGraphs, Cell cell) {
-        for (Set<Cell> subgraph: connectedSupGraphs) {
+        for (Set<Cell> subgraph : connectedSupGraphs) {
             if (subgraph.contains(cell)) {
                 return true;
             }
@@ -206,10 +205,10 @@ public class Graph {
          then it is a circuit (Euler). In particular if all the connected subgraph's cells have 2 links, they form
           a loopless circuit
           */
-        for (Set<Cell> subgraph: connectedSubgraphs) {
+        for (Set<Cell> subgraph : connectedSubgraphs) {
             boolean isCircuit = true;
-            for (Cell cell: subgraph) {
-                isCircuit = isCircuit && ( this.getAdyacentCellsCountOf(cell) == 2);
+            for (Cell cell : subgraph) {
+                isCircuit = isCircuit && (this.getAdyacentCellsCountOf(cell) == 2);
             }
             if (isCircuit) {
                 circuitsCount++;

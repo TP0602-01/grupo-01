@@ -119,10 +119,11 @@ public class ConcreteLinker implements Linker {
 
         Iterator it = neighbors.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
+            Map.Entry pair = (Map.Entry) it.next();
             Cell cell = (Cell) pair.getKey();
             this.checkTokensAndlinkIfItsPossible(origin, cell, neighbors.get(cell));
             it.remove();
+
         }
 
         // TODO: VER SI SE PUEDE REEMPLAZAR O SI FALLA Y TENEMOS QUE VOLVER A LO COMENTADO

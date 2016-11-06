@@ -25,7 +25,7 @@ public class MultRuleTests {
         graph.addNotDirectedLinkBetween(c1, c2);
         graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("mult", "24");
+        Rule rule = RuleFactory.create("mult", "24");
 
         assertTrue(rule.check(graph));
     }
@@ -40,7 +40,7 @@ public class MultRuleTests {
         graph.addNotDirectedLinkBetween(c1, c2);
         graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("mult", "22");
+        Rule rule = RuleFactory.create("mult", "22");
 
         assertFalse(rule.check(graph));
     }
@@ -55,7 +55,7 @@ public class MultRuleTests {
         graph.addNotDirectedLinkBetween(c1, c2);
         graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("mult", "0");
+        Rule rule = RuleFactory.create("mult", "0");
 
         assertFalse(rule.check(graph));
     }

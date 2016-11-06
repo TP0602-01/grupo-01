@@ -57,19 +57,18 @@ public class EstateCorrectRule extends Rule {
     }
 
 
-
     @Override
     public boolean check(Graph graph) {
         for (int i = 0; i < myGameBoard.getWidth(); i++) {
             for (int j = 0; j < myGameBoard.getHeigth(); j++) {
                 Cell cell = myGameBoard.getCell(i, j);
 
-                if ( (cell.getData().equals("") || (cell.getData().equals("0")) ) ) {
+                if ((cell.getData().equals("") || (cell.getData().equals("0")))) {
 
-                    if ( this.adyacentCellsIsEmptyAndInSameGroup(i, j + 1, cell)
+                    if (this.adyacentCellsIsEmptyAndInSameGroup(i, j + 1, cell)
                             || this.adyacentCellsIsEmptyAndInSameGroup(i, j - 1, cell)
                             || this.adyacentCellsIsEmptyAndInSameGroup(i + 1, j, cell)
-                            || this.adyacentCellsIsEmptyAndInSameGroup(i - 1, j, cell) ) {
+                            || this.adyacentCellsIsEmptyAndInSameGroup(i - 1, j, cell)) {
                         return false;
                     }
                 }
@@ -81,8 +80,8 @@ public class EstateCorrectRule extends Rule {
     private boolean cellsBelongToTheSameSet(Cell cell, Cell adyacentCell) {
         Collection<Graph> cellSets = cell.getSets();
         Collection<Graph> adyacentCellSets = adyacentCell.getSets();
-        for (Graph cellSet: cellSets) {
-            if ( (adyacentCellSets.contains( cellSet ) ) ) {
+        for (Graph cellSet : cellSets) {
+            if ((adyacentCellSets.contains(cellSet))) {
                 return true;
             }
         }

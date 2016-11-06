@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            GameParser parser = new GameParser( "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road" );
+            GameParser parser = new GameParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road");
 
             String filePlaysOutput = "./src/main/java/ar/fiuba/tdd/tp1/game_files/output.json";
 
@@ -21,13 +21,16 @@ public class Main {
             BoardView view = parser.getView();
             GameBoardController controller = new GameLoop(game, filePlaysOutput);
 
+
             view.update();  //TODO: UPDATEAR LA VIEW DENTRO DE GAME O EN OTRO LADO
             controller.start();
 
             if (game.checkRules()) {
-                view.showMessage("Game over, you win!");
+                // view.showMessage("Game over, you win!");
+                System.out.println("Game over, you win!");
             } else {
-                view.showMessage("Game over, you loose");
+                // view.showMessage("Game over, you loose");
+                System.out.println("Game over, you loose");
             }
         } catch (Exception e) {
             e.printStackTrace();

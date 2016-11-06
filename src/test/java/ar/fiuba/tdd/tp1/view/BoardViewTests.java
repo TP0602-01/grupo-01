@@ -1,3 +1,4 @@
+/*
 package ar.fiuba.tdd.tp1.view;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
@@ -6,9 +7,12 @@ import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import org.junit.Test;
 
-/* */
-public class BoardViewTests {
+*/
+/* *//*
 
+public class BoardViewTests {
+*/
+/*
     @Test
     public void testSimulationInitiateABoardView() {
         int columns = 2;
@@ -78,9 +82,13 @@ public class BoardViewTests {
         gameBoard.addCell(0, 1, a2);
         gameBoard.addCell(1, 0, b1);
         gameBoard.addCell(1, 0, b2);
-        /*When KakoruCells are addede to the gameBoard, their
-          respective views should be added to the boardView
         */
+/*When KakoruCells are addede to the gameBoard, their
+          respective views should be added to the boardView
+        *//*
+
+*/
+/*
         BoardView boardView = new BoardView(gameBoard);
         //Cells respective views shall be created when parsing
         CellView cellViewA1 = new DataCellView(a1);
@@ -98,4 +106,7 @@ public class BoardViewTests {
         boardView.update();
 
     }
+    *//*
+
 }
+*/
