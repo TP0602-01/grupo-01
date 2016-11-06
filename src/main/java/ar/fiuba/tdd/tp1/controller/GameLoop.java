@@ -11,8 +11,7 @@ import java.io.*;
  * GameLoop reads the user plays and put then into the game.
  * When the User makes a play, the game status is showed and
  * when the game is over, all plays are save in a file.
- *
- * */
+ */
 public class GameLoop implements GameBoardController {
 
     private Game game;
@@ -49,7 +48,7 @@ public class GameLoop implements GameBoardController {
                 playStatus = game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData());
             }
             gameStatus = game.checkRules();
-            plays.add( createPlay(playsCount, playStatus, gameStatus) );
+            plays.add(createPlay(playsCount, playStatus, gameStatus));
             playsCount++;
 
             System.out.println("Estado del tablero: " + gameStatus);
@@ -89,9 +88,9 @@ public class GameLoop implements GameBoardController {
             data = splited[3];
 
             System.out.println(playType.concat(" ")
-                                .concat(splited[1]).concat(" ")
-                                .concat(splited[2]).concat(" ")
-                                .concat(data));
+                    .concat(splited[1]).concat(" ")
+                    .concat(splited[2]).concat(" ")
+                    .concat(data));
         }
 
         int getIndexI() {

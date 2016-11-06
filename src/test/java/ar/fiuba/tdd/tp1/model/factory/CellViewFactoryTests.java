@@ -1,3 +1,4 @@
+/*
 package ar.fiuba.tdd.tp1.model.factory;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
@@ -38,3 +39,4 @@ public class CellViewFactoryTests {
 
 
 }
+*/

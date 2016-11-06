@@ -25,7 +25,7 @@ public class NoRepetitionRuleTests {
         graph.addNotDirectedLinkBetween(c1, c2);
         graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("no_rep", "");
+        Rule rule = RuleFactory.create("no_rep", "");
 
         assertTrue(rule.check(graph));
     }
@@ -40,7 +40,7 @@ public class NoRepetitionRuleTests {
         graph.addNotDirectedLinkBetween(c1, c2);
         graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("no_rep", "");
+        Rule rule = RuleFactory.create("no_rep", "");
 
         assertFalse(rule.check(graph));
     }

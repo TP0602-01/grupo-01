@@ -16,10 +16,10 @@ public class GraphTest {
     public void testLinkCorrect() {
         Cell a1 = new FixedCell("a");
         Cell a2 = new FixedCell("b");
-        
+
         Graph graph = new Graph();
-        graph.addNotDirectedLinkBetween(a1,a2);
-        assertTrue(graph.linkExistsFromOriginToDestination(a1,a2));
+        graph.addNotDirectedLinkBetween(a1, a2);
+        assertTrue(graph.linkExistsFromOriginToDestination(a1, a2));
     }
 
     @Test
@@ -28,9 +28,9 @@ public class GraphTest {
         Cell a2 = new FixedCell("a2");
         Cell a3 = new FixedCell("a3");
         Graph graph = new Graph();
-        graph.addDirectedLinkBetween(a1,a2);
-        graph.addDirectedLinkBetween(a2,a3);
-        graph.addDirectedLinkBetween(a3,a1);
+        graph.addDirectedLinkBetween(a1, a2);
+        graph.addDirectedLinkBetween(a2, a3);
+        graph.addDirectedLinkBetween(a3, a1);
         System.out.println(graph.getCircuitCount());
         assertTrue(graph.getCircuitCount());
     }
@@ -41,10 +41,10 @@ public class GraphTest {
         Cell a2 = new FixedCell("a2");
         Cell a3 = new FixedCell("a3");
         Graph graph = new Graph();
-        graph.addDirectedLinkBetween(a1,a2);
-        graph.addDirectedLinkBetween(a2,a3);
-        graph.addDirectedLinkBetween(a3,a1);
-        graph.addDirectedLinkBetween(a3,a2);
+        graph.addDirectedLinkBetween(a1, a2);
+        graph.addDirectedLinkBetween(a2, a3);
+        graph.addDirectedLinkBetween(a3, a1);
+        graph.addDirectedLinkBetween(a3, a2);
 
         assertTrue(graph.getCircuitCount());
     }
@@ -56,8 +56,8 @@ public class GraphTest {
         Cell a3 = new FixedCell("a3");
         Graph graph = new Graph();
 
-        graph.addDirectedLinkBetween(a1,a2);
-        graph.addDirectedLinkBetween(a1,a3);
+        graph.addDirectedLinkBetween(a1, a2);
+        graph.addDirectedLinkBetween(a1, a3);
         Collection<Cell> links = graph.getLinks(a1);
         assertTrue(links.contains(a2));
         assertTrue(links.contains(a3));
@@ -84,9 +84,9 @@ public class GraphTest {
             Cell a1 = cells.elementAt(0);
             Cell a2 = cells.elementAt(1);
             Cell a3 = cells.elementAt(2);
-            graph.addDirectedLinkBetween(a1,a2);
-            graph.addDirectedLinkBetween(a2,a3);
-            graph.addDirectedLinkBetween(a3,a1);
+            graph.addDirectedLinkBetween(a1, a2);
+            graph.addDirectedLinkBetween(a2, a3);
+            graph.addDirectedLinkBetween(a3, a1);
         }
 
         assertTrue(graph.getCircuitCount());
@@ -98,12 +98,12 @@ public class GraphTest {
         Graph graph = new Graph();
         Vector<Cell> cells = new Vector<>();
         /*Create cells*/
-        for (int i = 0 ; i < cantCellsCircuit; ++i) {
+        for (int i = 0; i < cantCellsCircuit; ++i) {
             Cell cell = new FixedCell("");
             cells.add(cell);
         }
 
-        for (int i = 0 ; i < cantCellsCircuit - 1; ++i) {
+        for (int i = 0; i < cantCellsCircuit - 1; ++i) {
             Cell a1 = cells.elementAt(i);
             Cell a2 = cells.elementAt(i + 1);
             graph.addDirectedLinkBetween(a1, a2);
@@ -127,7 +127,7 @@ public class GraphTest {
         Cell a1 = new FixedCell("a1");
         Cell a2 = new FixedCell("a2");
 
-        graph.addDirectedLinkBetween(a1,a2);
+        graph.addDirectedLinkBetween(a1, a2);
         assertTrue(!graph.getCircuitCount());
     }
 }

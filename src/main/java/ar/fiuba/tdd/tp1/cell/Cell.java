@@ -56,6 +56,7 @@ public abstract class Cell extends Observable implements Linkable {
     }
 
 
+
     public abstract boolean isEmpty();
 
     public String getData() {

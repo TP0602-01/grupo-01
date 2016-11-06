@@ -18,7 +18,7 @@ public class QuantityCorrectConnectionRegionRule extends Rule {
     public boolean check(Graph graph) {
         int sum = 0;
         Collection<Cell> cells = graph.getCells();
-        for (Cell cell: cells) {
+        for (Cell cell : cells) {
             if (!cell.getData().equals("") && !cell.getData().equals("0")) {
                 sum++;
             }

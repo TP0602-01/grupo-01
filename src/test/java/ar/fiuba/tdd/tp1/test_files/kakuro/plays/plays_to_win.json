@@ -1,59 +1,103 @@
 {
-  "plays": [{
-    "playType": "play",
-    "number": 1,
-    "position": [2, 2],
-    "value": "9"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [2, 3],
-    "value": "7"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [3, 2],
-    "value": "8"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [3, 3],
-    "value": "9"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [4, 2],
-    "value": "6"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [4, 3],
-    "value": "8"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [5, 3],
-    "value": "6"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [7, 2],
-    "value": "8"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [7, 3],
-    "value": "9"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [8, 2],
-    "value": "3"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [8, 3],
-    "value": "1"
-  }
+  "plays": [
+    {
+      "playType": "play",
+      "number": 1,
+      "position": [
+        2,
+        2
+      ],
+      "value": "9"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        2,
+        3
+      ],
+      "value": "7"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        3,
+        2
+      ],
+      "value": "8"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        3,
+        3
+      ],
+      "value": "9"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        4,
+        2
+      ],
+      "value": "6"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        4,
+        3
+      ],
+      "value": "8"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        5,
+        3
+      ],
+      "value": "6"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        7,
+        2
+      ],
+      "value": "8"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        7,
+        3
+      ],
+      "value": "9"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        8,
+        2
+      ],
+      "value": "3"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        8,
+        3
+      ],
+      "value": "1"
+    }
   ]
 }

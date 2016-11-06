@@ -3,7 +3,6 @@ package ar.fiuba.tdd.tp1.game;
 /**
  * User Play.
  * Have x and y position and the Cell Content.
- *
  */
 public class Play {
     private int rowPosition;

@@ -1,129 +1,229 @@
 {
-  "plays": [{
-    "playType": "play",
-    "number": 1,
-    "position": [2, 2],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 2,
-    "position": [2, 3],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 3,
-    "position": [2, 4],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 4,
-    "position": [2, 5],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 5,
-    "position": [2, 6],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 6,
-    "position": [3, 2],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 7,
-    "position": [3, 3],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 8,
-    "position": [3, 4],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 9,
-    "position": [3, 5],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 10,
-    "position": [3, 6],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 11,
-    "position": [4, 2],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 12,
-    "position": [4, 3],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 13,
-    "position": [4, 4],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 14,
-    "position": [4, 5],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 15,
-    "position": [4, 6],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 16,
-    "position": [5, 2],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 17,
-    "position": [5, 3],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 18,
-    "position": [5, 4],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 19,
-    "position": [5, 5],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 20,
-    "position": [5, 6],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 21,
-    "position": [6, 2],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 22,
-    "position": [6, 3],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 23,
-    "position": [6, 4],
-    "value": "/"
-  }, {
-    "playType": "play",
-    "number": 24,
-    "position": [6, 5],
-    "value": "\\"
-  }, {
-    "playType": "play",
-    "number": 25,
-    "position": [6, 6],
-    "value": "\\"
-  }
+  "plays": [
+    {
+      "playType": "play",
+      "number": 1,
+      "position": [
+        2,
+        2
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 2,
+      "position": [
+        2,
+        3
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 3,
+      "position": [
+        2,
+        4
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 4,
+      "position": [
+        2,
+        5
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 5,
+      "position": [
+        2,
+        6
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 6,
+      "position": [
+        3,
+        2
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 7,
+      "position": [
+        3,
+        3
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 8,
+      "position": [
+        3,
+        4
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 9,
+      "position": [
+        3,
+        5
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 10,
+      "position": [
+        3,
+        6
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 11,
+      "position": [
+        4,
+        2
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 12,
+      "position": [
+        4,
+        3
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 13,
+      "position": [
+        4,
+        4
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 14,
+      "position": [
+        4,
+        5
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 15,
+      "position": [
+        4,
+        6
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 16,
+      "position": [
+        5,
+        2
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 17,
+      "position": [
+        5,
+        3
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 18,
+      "position": [
+        5,
+        4
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 19,
+      "position": [
+        5,
+        5
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 20,
+      "position": [
+        5,
+        6
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 21,
+      "position": [
+        6,
+        2
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 22,
+      "position": [
+        6,
+        3
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 23,
+      "position": [
+        6,
+        4
+      ],
+      "value": "/"
+    },
+    {
+      "playType": "play",
+      "number": 24,
+      "position": [
+        6,
+        5
+      ],
+      "value": "\\"
+    },
+    {
+      "playType": "play",
+      "number": 25,
+      "position": [
+        6,
+        6
+      ],
+      "value": "\\"
+    }
   ]
 }

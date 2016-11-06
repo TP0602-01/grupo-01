@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp1.utilities;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.factory.CellFactory;
-import ar.fiuba.tdd.tp1.factory.CellViewFactory;
 import ar.fiuba.tdd.tp1.factory.RuleFactory;
 import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
@@ -13,7 +12,6 @@ import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
 import ar.fiuba.tdd.tp1.rule.Rule;
 import ar.fiuba.tdd.tp1.set.CellSet;
 import ar.fiuba.tdd.tp1.view.BoardView;
-import ar.fiuba.tdd.tp1.view.CellView;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -25,7 +23,6 @@ import java.util.*;
 public class GameParser {
     private Game game;
     private GameBoard gameBoard;
-    private BoardView boardView;
     private InputValidator inputValidator;
 
     private JSONParser parser;
@@ -38,10 +35,10 @@ public class GameParser {
     private LinkingSymbolsTable linkingSymbolsTable;
     private LinkingTable linkingTable;
 
+
     /*  */
     public GameParser(String folderGamePath) {
         gameBoard = null;
-        boardView = null;
         linkingSymbolsTable = null;
         String possibleInputFileName = folderGamePath + "/input.txt";
         inputValidator = new InputValidator(possibleInputFileName);
@@ -89,14 +86,15 @@ public class GameParser {
 
         String content = (String) cell.get("content");
 
+
         for (int x = firstX; x <= endX; ++x) {
             for (int y = firstY; y <= endY; ++y) {
                 Cell cellObject = CellFactory.create(type, content);
-                CellView cellView = CellViewFactory.create(cellObject, type);
                 gameBoard.addCell(x, y, cellObject);
-                boardView.addCellViewIn(cellView, x, y);
+
             }
         }
+
         game = new Game(gameBoard, inputValidator);
     }
 
@@ -108,7 +106,7 @@ public class GameParser {
         Iterator iterator = getJsonArrayIterator(rule, "rules");
         while (iterator.hasNext()) {
             JSONObject cellObject = (JSONObject) iterator.next();
-            Vector<String> ruleValues = getValuesInJsonObjectFromKeys(cellObject, new String[]{"type", "value"});
+            Vector<String> ruleValues = getValuesInJsonObjectFromKeys(cellObject, new String[] {"type", "value"});
             Rule ruleObject = RuleFactory.create(ruleValues.elementAt(0), ruleValues.elementAt(1), gameBoard);
             setRules.add(ruleObject);
         }
@@ -201,7 +199,8 @@ public class GameParser {
             gameBoard = new GameBoard(
                     Integer.parseInt((String) jsonStructure.get("width")),
                     Integer.parseInt((String) jsonStructure.get("height")));
-            boardView = new BoardView(gameBoard);
+
+
 
             JSONObject structure = (JSONObject) jsonStructure.get("structure");
             iterateJsonArray((JSONArray) structure.get("cells"), new ParserFunctorCell());
@@ -274,9 +273,6 @@ public class GameParser {
         return game;
     }
 
-    public BoardView getView() {
-        return boardView;
-    }
 
     abstract class ParserFunctor {
         abstract void parse(JSONObject object);
@@ -314,7 +310,7 @@ public class GameParser {
     private Vector<String> getValuesInJsonObjectFromKeys(JSONObject object, String[] keys) {
         Vector<String> values = new Vector<>();
         for (int i = 0; i < keys.length; i++) {
-            values.add( (String)object.get(keys[i]) );
+            values.add((String) object.get(keys[i]));
         }
         return values;
     }

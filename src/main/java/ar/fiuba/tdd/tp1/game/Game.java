@@ -127,9 +127,13 @@ public class Game {
     }
 
 
+    public GameBoard getGameBoard() {
+        return this.gameBoard;
+    }
+
+
     /**
      * Check if play is valid.
-     *
      */
     private boolean isPlayAllowed(int rowPosition, int columnPosition, String content) {
         return rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()

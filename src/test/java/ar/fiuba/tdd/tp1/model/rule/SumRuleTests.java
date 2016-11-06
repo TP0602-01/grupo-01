@@ -25,7 +25,7 @@ public class SumRuleTests {
         graph.addNotDirectedLinkBetween(c1, c2);
         graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("sum", "22");
+        Rule rule = RuleFactory.create("sum", "22");
 
         assertTrue(rule.check(graph));
     }
@@ -40,7 +40,7 @@ public class SumRuleTests {
         graph.addNotDirectedLinkBetween(c1, c2);
         graph.addNotDirectedLinkBetween(c2, c3);
 
-        Rule rule =  RuleFactory.create("sum", "22");
+        Rule rule = RuleFactory.create("sum", "22");
 
         assertFalse(rule.check(graph));
     }
@@ -53,7 +53,7 @@ public class SumRuleTests {
 
         graph.addNotDirectedLinkBetween(c1, c2);
 
-        Rule rule =  RuleFactory.create("sum", "0");
+        Rule rule = RuleFactory.create("sum", "0");
 
         assertFalse(rule.check(graph));
     }
