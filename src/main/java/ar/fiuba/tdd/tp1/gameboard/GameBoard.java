@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp1.gameboard;
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.graph.Graph;
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
 import ar.fiuba.tdd.tp1.graph.linker.LinkableMatrix;
 import ar.fiuba.tdd.tp1.rule.Rule;
@@ -106,4 +107,7 @@ public class GameBoard extends Observable implements LinkableMatrix {
     }
 
 
+    public IndexedGraph getSubgraph(Collection<Cell> subgraphCells) {
+        return new IndexedGraph(subgraphCells, this.cellsLinks);
+    }
 }
