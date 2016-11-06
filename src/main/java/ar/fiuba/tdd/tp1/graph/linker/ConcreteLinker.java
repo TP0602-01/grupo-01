@@ -15,7 +15,7 @@ import java.util.Set;
 
 /* */
 public class ConcreteLinker implements Linker {
-    
+
     //private LinkableMatrix linkableMatrix;
     private GameBoard linkableMatrix;
     //private LinksManager linksManager;
@@ -31,16 +31,6 @@ public class ConcreteLinker implements Linker {
         this.linkingSymbols = linkingSymbols;
     }
 
-
-    @Override
-    public void setLinkingInfo(int rowOffset, int columnOffset, String originTokens, Set<String> destinationTokens) {
-        /*
-        //Setea en que direccion (representados como offsets) se van a chequear los linkeos
-        for (String destinationToken : destinationTokens) {
-            this.linkingTable.addEntry(rowOffset, columnOffset, originTokens, destinationToken);
-        }
-        */
-    }
 
 
     private boolean originAndDestinationTokensImplyThatTheyMustBeLinked(Pair<Integer, Integer> offset,
