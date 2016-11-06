@@ -42,12 +42,19 @@ public class SubgraphTests {
         //So many asserts I know...
         assertEquals(3, subgraph.getCells().size());
         assertEquals(2, subgraph.getNotDirectedLinksCount());
-
-        assertTrue(subgraph.getCells().contains(a0));
-        assertTrue(subgraph.getCells().contains(a1));
-        assertTrue(subgraph.getCells().contains(a2));
-
+        assertTrue(checkCellsInSubgraph(subgraph,subgraphCells));
         assertFalse(subgraph.getCells().contains(b0));
+    }
+
+    private boolean checkCellsInSubgraph(IndexedGraph subgraph, Collection<Cell> expectedCells) {
+        Collection<Cell> cellsInSubgraph = subgraph.getCells();
+
+        boolean allExpectedCellsAreInSubgraph = true;
+
+        for (Cell expectedCell: expectedCells ) {
+            allExpectedCellsAreInSubgraph = allExpectedCellsAreInSubgraph && cellsInSubgraph.contains(expectedCell);
+        }
+        return allExpectedCellsAreInSubgraph;
     }
 
 }

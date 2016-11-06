@@ -2,8 +2,6 @@ package ar.fiuba.tdd.tp1.graph;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 
-import javax.management.openmbean.ArrayType;
-import java.sql.Array;
 import java.util.*;
 
 /**
