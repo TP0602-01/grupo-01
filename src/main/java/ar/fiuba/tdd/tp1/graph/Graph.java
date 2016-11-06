@@ -87,7 +87,7 @@ public class Graph {
     }
 
     public boolean getCircuitCount() {  //TODO: CAMBIEMOS EL NOMBRE ESTE QUE ES OTRA COSA
-        Collection<Cell> cells = links.keySet();
+        Collection<Cell> cells = this.getCells();
         for (Cell cell : cells) {
             Vector<Cell> circuit = new Vector<>();
             circuit.add(cell);
@@ -122,13 +122,7 @@ public class Graph {
 
     /* Return a Collection with all the Cells in the Graph */
     public Collection<Cell> getCells() {
-        Collection<Cell> cells = new ArrayList<>();
-        Iterator it = links.entrySet().iterator();
-        while (it.hasNext()) {
-            Cell cell = (Cell) ((Map.Entry) it.next()).getKey();
-            cells.add(cell);
-        }
-        return cells;
+        return this.links.keySet();
     }
 
     /* Add a cell as a node in the Graph and return true if
