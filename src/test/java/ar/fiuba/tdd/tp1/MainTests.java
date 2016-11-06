@@ -155,6 +155,16 @@ public class MainTests {
         assertTrue(autoPlayGame(playsToWin, playsOutput, folder));
     }
 
+    @Test
+    public void autoPlayingPicAPixToWin() {
+        Graph.reset();
+        String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/pic_a_pix/plays/plays_to_win.json";
+        String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/pic_a_pix/plays/output.json";
+        String folder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/pic_a_pix";
+
+        assertTrue(autoPlayGame(playsToWin, playsOutput, folder));
+    }
+
     /*
      * Return true if file json content is the same
      *

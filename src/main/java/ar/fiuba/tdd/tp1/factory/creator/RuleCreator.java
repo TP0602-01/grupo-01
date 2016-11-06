@@ -8,6 +8,8 @@ import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalRuleOperators;
 import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
 import ar.fiuba.tdd.tp1.utilities.ParserHelper;
 
+import java.util.ArrayList;
+
 public enum RuleCreator {
 
     CIRCUIT_COUNT_CREATOR("circuit") {
@@ -22,7 +24,6 @@ public enum RuleCreator {
         public Rule createRule(String value, GameBoard board) {
             return new EstateCorrectRule(board, Graph.getSingleInstance());
         }
-
     },
 
     NO_REPETITION_RULE_CREATOR("no_rep") {
@@ -32,49 +33,48 @@ public enum RuleCreator {
         }
     },
 
-    MULT_RULE_CREATOR("mult") {
-        @Override
-        public Rule createRule(String value, GameBoard board) {
-            int expectedValue = Integer.parseInt(value);
-            int initAcumulator = 1;
-
-            ArithmeticalRuleOperators operators = new ArithmeticalRuleOperators(
-                    ArithmeticalOperator.MULT, ComparisonOperator.EQUAL,
-                    ComparisonOperator.LESS
-            );
-
-            return new AccumulatorRule(expectedValue, operators, initAcumulator);
-        }
-    },
-
     SUM_RULE_CREATOR("sum") {
         @Override
         public Rule createRule(String value, GameBoard board) {
             int expectedValue = Integer.parseInt(value);
-            int initAcumulator = 0;
+            int initSum = 0;
 
             ArithmeticalRuleOperators operators = new ArithmeticalRuleOperators(
                     ArithmeticalOperator.ADDITION, ComparisonOperator.EQUAL,
                     ComparisonOperator.LESS
             );
+            return new AccumulatorRule(expectedValue, operators, initSum);
+        }
+    },
 
-            return new AccumulatorRule(expectedValue, operators, initAcumulator);
+    MULT_RULE_CREATOR("mult") {
+        @Override
+        public Rule createRule(String value, GameBoard board) {
+            int expectedValue = Integer.parseInt(value);
+            int initProduct = 1;
+
+            ArithmeticalRuleOperators operators = new ArithmeticalRuleOperators(
+                    ArithmeticalOperator.MULT, ComparisonOperator.EQUAL,
+                    ComparisonOperator.LESS
+            );
+            AccumulatorRule acummRule = new AccumulatorRule(expectedValue, operators, initProduct);
+            return acummRule;
         }
     },
 
     EMPTY_CELLS_COUNT_CREATOR("expected_data_count") {
         @Override
         public Rule createRule(String value, GameBoard board) {
-            return new QuantityCorrectConnectionRegionRule(ParserHelper.toInteger(value));
-
+            QuantityCorrectConnectionRegionRule quantityRule = new QuantityCorrectConnectionRegionRule(ParserHelper.toInteger(value));
+            return quantityRule;
         }
-
     },
 
     CONNECTED_GRAPH_COUNT_CREATOR("conn_graph") {
         @Override
-        public Rule createRule(String count, GameBoard ignored) {
-            return new ConnectedGraphsCountRule(ParserHelper.toInteger(count));
+        public Rule createRule(String counter, GameBoard ignored) {
+            Rule rule = new ConnectedGraphsCountRule(ParserHelper.toInteger(counter));
+            return rule;
         }
     },
 
@@ -90,6 +90,17 @@ public enum RuleCreator {
         public Rule createRule(String value, GameBoard gameBoard) {
             return new LinksCountRule(Integer.parseInt(value));
         }
+    },
+
+    CLUSTERS_SIZES_CREATOR("clusters_sizes") {
+        @Override
+        public Rule createRule(String value, GameBoard gameBoard) {
+            ArrayList<Integer> list = new ArrayList<>();
+            for (String s : value.split(",")) {
+                list.add(Integer.parseInt(s));
+            }
+            return new ClustersSizesRule(list);
+        }
     };
 
     private static final String DELIMITER = "_";
@@ -100,8 +111,5 @@ public enum RuleCreator {
         this.stringRepresentation = stringRepresentation;
     }
 
-
     public abstract Rule createRule(String value, GameBoard board);
-
-
 }

@@ -1,0 +1,504 @@
+{
+  "plays": [{
+    "playType": "play",
+    "number": 1,
+    "position": [1, 1],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 2,
+    "position": [1, 2],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 3,
+    "position": [1, 3],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 4,
+    "position": [1, 4],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 5,
+    "position": [1, 5],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 6,
+    "position": [1, 6],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 7,
+    "position": [1, 7],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 8,
+    "position": [1, 8],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 9,
+    "position": [1, 9],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 10,
+    "position": [1, 10],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 11,
+    "position": [2, 1],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 12,
+    "position": [2, 2],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 13,
+    "position": [2, 3],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 14,
+    "position": [2, 4],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 15,
+    "position": [2, 5],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 16,
+    "position": [2, 6],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 17,
+    "position": [2, 7],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 18,
+    "position": [2, 8],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 19,
+    "position": [2, 9],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 20,
+    "position": [2, 10],
+    "value": "."
+  },{
+    "playType": "play",
+    "number": 21,
+    "position": [3, 1],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 22,
+    "position": [3, 2],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 23,
+    "position": [3, 3],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 24,
+    "position": [3, 4],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 25,
+    "position": [3, 5],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 26,
+    "position": [3, 6],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 27,
+    "position": [3, 7],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 28,
+    "position": [3, 8],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 29,
+    "position": [3, 9],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 30,
+    "position": [3, 10],
+    "value": "."
+  },{
+    "playType": "play",
+    "number": 31,
+    "position": [4, 1],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 32,
+    "position": [4, 2],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 33,
+    "position": [4, 3],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 34,
+    "position": [4, 4],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 35,
+    "position": [4, 5],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 36,
+    "position": [4, 6],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 37,
+    "position": [4, 7],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 38,
+    "position": [4, 8],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 39,
+    "position": [4, 9],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 40,
+    "position": [4, 10],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 41,
+    "position": [5, 1],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 42,
+    "position": [5, 2],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 43,
+    "position": [5, 3],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 44,
+    "position": [5, 4],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 45,
+    "position": [5, 5],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 46,
+    "position": [5, 6],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 47,
+    "position": [5, 7],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 48,
+    "position": [5, 8],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 49,
+    "position": [5, 9],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 50,
+    "position": [5, 10],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 51,
+    "position": [6, 1],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 52,
+    "position": [6, 2],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 53,
+    "position": [6, 3],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 54,
+    "position": [6, 4],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 55,
+    "position": [6, 5],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 56,
+    "position": [6, 6],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 57,
+    "position": [6, 7],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 58,
+    "position": [6, 8],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 59,
+    "position": [6, 9],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 60,
+    "position": [6, 10],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 61,
+    "position": [7, 1],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 62,
+    "position": [7, 2],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 63,
+    "position": [7, 3],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 64,
+    "position": [7, 4],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 65,
+    "position": [7, 5],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 66,
+    "position": [7, 6],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 67,
+    "position": [7, 7],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 68,
+    "position": [7, 8],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 69,
+    "position": [7, 9],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 70,
+    "position": [7, 10],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 71,
+    "position": [8, 1],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 72,
+    "position": [8, 2],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 73,
+    "position": [8, 3],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 74,
+    "position": [8, 4],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 75,
+    "position": [8, 5],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 76,
+    "position": [8, 6],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 77,
+    "position": [8, 7],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 78,
+    "position": [8, 8],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 79,
+    "position": [8, 9],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 80,
+    "position": [8, 10],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 81,
+    "position": [9, 1],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 82,
+    "position": [9, 2],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 83,
+    "position": [9, 3],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 84,
+    "position": [9, 4],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 85,
+    "position": [9, 5],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 86,
+    "position": [9, 6],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 87,
+    "position": [9, 7],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 88,
+    "position": [9, 8],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 89,
+    "position": [9, 9],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 90,
+    "position": [9, 10],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 91,
+    "position": [10, 1],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 92,
+    "position": [10, 2],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 93,
+    "position": [10, 3],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 94,
+    "position": [10, 4],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 95,
+    "position": [10, 5],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 96,
+    "position": [10, 6],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 97,
+    "position": [10, 7],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 98,
+    "position": [10, 8],
+    "value": "X"
+  }, {
+    "playType": "play",
+    "number": 99,
+    "position": [10, 9],
+    "value": "."
+  }, {
+    "playType": "play",
+    "number": 100,
+    "position": [10, 10],
+    "value": "."
+  }
+  ]
+}
