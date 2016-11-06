@@ -15,10 +15,8 @@ public class IndexedGraph {
     private Graph cellLinks;
 
     public IndexedGraph(Collection<Cell> subgraphCells, Graph links) {
-        this.cells = new ArrayList<Cell>(subgraphCells);
-
+        this.cells = new ArrayList<>(subgraphCells);
         this.cellLinks = new Graph();
-
         for (Cell originSubgraphCell : subgraphCells) {
             for (Cell destinationSubgraphCell: subgraphCells) {
                 if (links.linkExistsFromOriginToDestination(originSubgraphCell, destinationSubgraphCell)) {
@@ -35,29 +33,4 @@ public class IndexedGraph {
     public int getNotDirectedLinksCount() {
         return this.cellLinks.getNotDirectedLinksCount();
     }
-
-//
-//    /* Add Link beetween Cell origin and destination */
-//    public void addDirectedLinkBetween(Cell origin, Cell destination) {
-//        this.cellLinks.addDirectedLinkBetween(origin, destination);
-//    }
-//
-//    /* Add Link beetween Cell first and second and
-//     * Link beetween Cell second and first */
-//    public void addNotDirectedLinkBetween(Cell first, Cell second) {
-//        this.addDirectedLinkBetween(first, second);
-//        this.addDirectedLinkBetween(second, first);
-//    }
-//
-//    /* Remove Link beetween origin and dest */
-//    public void removeDirectedLinkBetween(Cell origin, Cell destination) {
-//        this.cellLinks.removeNotDirectedLinkBetween(origin, destination);
-//    }
-//
-//    /* Remove Link beetween origin and dest and
-//    *  beetween dest and origin */
-//    public void removeNotDirectedLinkBetween(Cell first, Cell second) {
-//        this.removeDirectedLinkBetween(first, second);
-//        this.removeDirectedLinkBetween(second, first);
-//    }
 }
