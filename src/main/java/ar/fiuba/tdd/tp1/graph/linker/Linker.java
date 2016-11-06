@@ -6,6 +6,8 @@ import java.util.Set;
 
 /* */
 public interface Linker {
+
     void updateLinkableLinks(int row, int column);
+
     Graph getGraph();
 }

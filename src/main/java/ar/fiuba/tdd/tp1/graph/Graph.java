@@ -224,6 +224,10 @@ public class Graph {
     public static void reset() {
         singleton = new Graph();
     }
+
+    public static void setSingleInstance(Graph graph) {
+        singleton = graph;
+    }
 }
 
 
