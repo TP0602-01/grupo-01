@@ -6,6 +6,7 @@ import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CornerView;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.DataView;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -13,25 +14,26 @@ public enum CellViewComponentCreator {
 
     DATA_VIEW_CREATOR("data") {
         @Override
-        public CellViewComponent createCellViewComponent(Collection<String> values) {
+        public CellViewComponent createCellViewComponent(ArrayList<String> values) {
             return new DataView();
         }
     },
 
     CORNER_VIEW_CREATOR("corner") {
         @Override
-        public CellViewComponent createCellViewComponent(Collection<String> values) {
-            String[] valuesArray = (String[]) values.toArray();
-            int xOffset = Integer.parseInt(valuesArray[0]);
-            int yOffset = Integer.parseInt(valuesArray[1]);
-            return new CornerView(new Point(xOffset,yOffset),valuesArray[2]);
+        public CellViewComponent createCellViewComponent(ArrayList<String> values) {
+
+
+            int offsetX = Integer.parseInt(values.get(0));
+            int offsetY = Integer.parseInt(values.get(1));
+            return new CornerView(new Point(offsetX, offsetY), values.get(2));
         }
     },
 
 
     BORDER_COMPONENT_CREATOR("border") {
         @Override
-        public CellViewComponent createCellViewComponent(Collection<String> values) {
+        public CellViewComponent createCellViewComponent(ArrayList<String> values) {
             return new BorderView();
         }
     };
@@ -43,6 +45,6 @@ public enum CellViewComponentCreator {
         this.stringRepresentation = stringRepresentation;
     }
 
-    public abstract CellViewComponent createCellViewComponent(Collection<String> values);
+    public abstract CellViewComponent createCellViewComponent(ArrayList<String> values);
 
 }

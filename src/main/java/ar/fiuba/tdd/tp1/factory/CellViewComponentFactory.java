@@ -5,6 +5,7 @@ import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.factory.creator.CellViewComponentCreator;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -19,7 +20,7 @@ public class CellViewComponentFactory {
     }
 
 
-    public static CellViewComponent create(String type, Collection<String> content) {
+    public static CellViewComponent create(String type, ArrayList<String> content) {
         if (cellViewComponentCreators == null) {
             initializeCreators();
         }

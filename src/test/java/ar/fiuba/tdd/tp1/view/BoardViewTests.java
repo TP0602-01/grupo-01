@@ -8,7 +8,7 @@ import org.junit.Test;
 
 /* */
 public class BoardViewTests {
-
+/*
     @Test
     public void testSimulationInitiateABoardView() {
         int columns = 2;
@@ -81,6 +81,7 @@ public class BoardViewTests {
         /*When KakoruCells are addede to the gameBoard, their
           respective views should be added to the boardView
         */
+/*
         BoardView boardView = new BoardView(gameBoard);
         //Cells respective views shall be created when parsing
         CellView cellViewA1 = new DataCellView(a1);
@@ -98,4 +99,5 @@ public class BoardViewTests {
         boardView.update();
 
     }
+    */
 }

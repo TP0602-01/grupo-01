@@ -1,0 +1,25 @@
+{
+  "allCellViews": {
+    "components": [
+      {
+        "type": "data",
+        "values": []
+      },
+      {
+        "type": "corner",
+        "values": [
+          {
+            "value": "1"
+          },
+          {
+            "value": "1"
+          },
+          {
+            "value": "1"
+          }
+        ]
+      }
+    ]
+  },
+  "singleCellViews": []
+}

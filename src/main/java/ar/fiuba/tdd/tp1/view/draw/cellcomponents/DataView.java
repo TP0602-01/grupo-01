@@ -1,13 +1,9 @@
 package ar.fiuba.tdd.tp1.view.draw.cellcomponents;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
-import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.view.draw.CellView;
-import ar.fiuba.tdd.tp1.view.draw.Drawable;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 
 public class DataView implements CellViewComponent {

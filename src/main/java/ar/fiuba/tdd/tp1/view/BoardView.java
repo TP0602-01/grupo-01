@@ -10,7 +10,6 @@ import ar.fiuba.tdd.tp1.view.draw.Drawable;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
 
 import javax.swing.*;
-import java.util.*;
 
 public class BoardView extends Observer {
     /*
@@ -19,7 +18,7 @@ public class BoardView extends Observer {
     private VerticalLinksView verticalLinksView;
     */
 
-    private final int yAddition = 30;
+    private final int extraY = 30;
     private GameBoard gameBoard;
 
     private int width;
@@ -46,7 +45,7 @@ public class BoardView extends Observer {
             frameHeight = frameWidth;
         }
 
-        frame.setSize(frameWidth, frameHeight + yAddition);
+        frame.setSize(frameWidth, frameHeight + extraY);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(canvas);
@@ -63,9 +62,9 @@ public class BoardView extends Observer {
         this.canvas.addDrawable(drawable);
     }
 
-    public void addLinkView(Cell origin, Cell destination, Graph graph,boolean visible) {
+    public void addLinkView(Cell origin, Cell destination, Graph graph, boolean visible) {
         this.canvas.addLinkView(origin, destination, graph);
-        this.canvas.getLinkView(origin,destination).setVisible(visible);
+        this.canvas.getLinkView(origin, destination).setVisible(visible);
 
     }
 
@@ -84,11 +83,11 @@ public class BoardView extends Observer {
     }
 
 
-    public int getWidth(){
+    public int getWidth() {
         return this.width;
     }
 
-    public int getHeight(){
+    public int getHeight() {
         return this.height;
     }
 /*

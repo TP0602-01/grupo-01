@@ -55,8 +55,12 @@ public class GameParser {
         inputValidator = new InputValidator(possibleInputFileName);
         parser = new JSONParser();
         initFiles(structureFileName, rulesFileName, linkingSymbolsTableFileName, linkingTableFileName);
+
     }
 
+    public BoardView getBoardView() {
+        return boardView;
+    }
 
     private JSONObject parseFileToJsonObject(String fileName) throws Exception {
         InputStreamReader fileReader = new InputStreamReader(new FileInputStream(fileName), "UTF-8");
@@ -98,8 +102,8 @@ public class GameParser {
                 cellObject.setCoordinates(x, y);
                 gameBoard.addCell(x, y, cellObject);
                 boardView.setCell(y, x, cellObject);
-                boardView.addCellComponent(y, x, new BorderView());
-                boardView.addCellComponent(y, x, new DataView());
+                //boardView.addCellComponent(y, x, new BorderView());
+                //boardView.addCellComponent(y, x, new DataView());
             }
         }
 
@@ -122,7 +126,7 @@ public class GameParser {
         // Create the cell Set and include it to Game
         Iterator setsIterator = getJsonArrayIterator(rule, "sets");
         int border = 0;
-        if(rule.containsKey("border")) {
+        if (rule.containsKey("border")) {
             border = (int) rule.get("border");
         }
         while (setsIterator.hasNext()) {
@@ -132,7 +136,7 @@ public class GameParser {
             // Create a Graph of Cells
             Graph cellGraph = createGraph(setArray);
             //TODO: verlo despues con el tema del arch de conf de vista
-            boardView.addDrawable(new RegionView(cellGraph.getCells(),border));
+            boardView.addDrawable(new RegionView(cellGraph.getCells(), border));
             // Create a Cell Set
             CellSet cellSet = new CellSet(cellGraph, setRules);
 
@@ -239,8 +243,8 @@ public class GameParser {
         game.setLinker(linker);
 
         //TODO: Refactorizar despues usando Un archivo para las vistas
-        boolean drawLinks = false;
-        if ( jsonLinkingTable.containsKey("drawLinks") ) {
+        boolean drawLinks = true;
+        if (jsonLinkingTable.containsKey("drawLinks")) {
             drawLinks = (boolean) jsonLinkingTable.get("drawLinks");
         }
 
@@ -251,13 +255,13 @@ public class GameParser {
                 Cell cello = gameBoard.getCell(x, y);
                 if (x + 1 < gameBoard.getWidth()) {
                     Cell destination = gameBoard.getCell(x + 1, y);
-                    boardView.addLinkView(cello, destination, this.graph,drawLinks);
+                    boardView.addLinkView(cello, destination, this.graph, drawLinks);
 
                 }
                 if (y + 1 < gameBoard.getHeigth()) {
 
                     Cell destination = gameBoard.getCell(x, y + 1);
-                    boardView.addLinkView(cello, destination, this.graph,drawLinks);
+                    boardView.addLinkView(cello, destination, this.graph, drawLinks);
                 }
 
             }

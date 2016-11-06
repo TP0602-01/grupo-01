@@ -6,12 +6,14 @@ import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.*;
+
+
 
 public class BoardCanvas extends JPanel {
 

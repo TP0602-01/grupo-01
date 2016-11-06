@@ -4,9 +4,7 @@ package ar.fiuba.tdd.tp1.view.draw;
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.graph.Graph;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 public class LinkView implements Drawable {
     private Cell origin;

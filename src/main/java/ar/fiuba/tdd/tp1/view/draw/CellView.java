@@ -37,20 +37,20 @@ public class CellView implements Drawable {
         this.cell = cell;
     }
 
-    public static int convertX(int xCoord) {
-        return xCoord * width;
+    public static int convertX(int coordX) {
+        return coordX * width;
     }
 
-    public static int convertY(int yCoord) {
-        return yCoord * height;
+    public static int convertY(int coordY) {
+        return coordY * height;
     }
 
-    public static int getXCenter(int xCoord) {
-        return xCoord * width + width / 2;
+    public static int getXCenter(int coordX) {
+        return coordX * width + width / 2;
     }
 
-    public static int getYCenter(int yCoord) {
-        return yCoord * height + height / 2;
+    public static int getYCenter(int coordY) {
+        return coordY * height + height / 2;
     }
 
 }

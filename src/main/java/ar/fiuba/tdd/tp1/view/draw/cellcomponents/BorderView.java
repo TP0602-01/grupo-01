@@ -12,10 +12,10 @@ public class BorderView implements CellViewComponent {
 
     @Override
     public void draw(Graphics graphics, Cell cell) {
-        int xIni = CellView.convertX(cell.getX());
-        int yIni = CellView.convertY(cell.getY());
+        int initialX = CellView.convertX(cell.getX());
+        int initialY = CellView.convertY(cell.getY());
 
-        graphics.drawRect(xIni, yIni, CellView.width, CellView.height);
+        graphics.drawRect(initialX, initialY, CellView.width, CellView.height);
 
     }
 }

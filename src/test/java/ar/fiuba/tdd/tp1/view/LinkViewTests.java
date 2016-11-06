@@ -7,6 +7,10 @@ import org.junit.Test;
 /**
  * Created by User on 15/10/2016.
  */
+
+
+
+/*
 public class LinkViewTests {
 
     @Test
@@ -47,3 +51,4 @@ public class LinkViewTests {
     }
 
 }
+*/
