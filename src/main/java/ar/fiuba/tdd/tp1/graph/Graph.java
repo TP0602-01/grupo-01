@@ -228,6 +228,30 @@ public class Graph {
     public static void setSingleInstance(Graph graph) {
         singleton = graph;
     }
+
+
+    public int getNotDirectedLinksCount() {
+
+        int notDirectedLinksCount = 0;
+        ArrayList<Cell> cellsArray = new ArrayList<>(this.getCells());
+
+        for (int i = 0; i < cellsArray.size(); i++) {
+            Cell originCell = cellsArray.get(i);
+            for (int j = i; j < cellsArray.size(); j++) {
+                Cell destinationCell = cellsArray.get(j);
+                if (this.notDirectedLinkExistsBetween(originCell, destinationCell)) {
+                    notDirectedLinksCount++;
+                }
+            }
+        }
+
+        return notDirectedLinksCount;
+    }
+
+    public boolean notDirectedLinkExistsBetween(Cell firstCell, Cell secondCell) {
+        return (this.linkExistsFromOriginToDestination(firstCell, secondCell)
+                && this.linkExistsFromOriginToDestination(secondCell, firstCell));
+    }
 }
 
 
