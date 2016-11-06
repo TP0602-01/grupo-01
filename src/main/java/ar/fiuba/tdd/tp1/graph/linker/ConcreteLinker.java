@@ -15,8 +15,7 @@ import java.util.Set;
 
 /* */
 public class ConcreteLinker implements Linker {
-
-    //TODO: se podrian crear objetos para que esto quede mas entendible
+    
     //private LinkableMatrix linkableMatrix;
     private GameBoard linkableMatrix;
     //private LinksManager linksManager;
@@ -24,20 +23,6 @@ public class ConcreteLinker implements Linker {
     private LinkingTable linkingTable;
     private LinkingSymbolsTable linkingSymbols;
 
-    /*
-    public ConcreteLinker(LinkableMatrix linkableMatrix, LinksManager linksManager) {
-        this.linkableMatrix = linkableMatrix;
-        this.linksManager = linksManager;
-        this.linkingTable = new LinkingTable();
-    }
-    */
-
-
-    public ConcreteLinker(GameBoard gameBoard, LinkingTable linkingTable) {
-        this.linkableMatrix = gameBoard;
-        this.graph = Graph.getSingleInstance();
-        this.linkingTable = linkingTable;
-    }
 
     public ConcreteLinker(GameBoard gameBoard, LinkingTable linkingTable, LinkingSymbolsTable linkingSymbols) {
         this.linkableMatrix = gameBoard;

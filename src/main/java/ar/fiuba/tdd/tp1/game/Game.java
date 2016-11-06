@@ -38,10 +38,6 @@ public class Game {
 
         this.gameBoard = gameBoard;
 
-        //this.linker = new ConcreteLinker(this.gameBoard, this.linksManager);
-        //this.linker = new ConcreteLinker(this.gameBoard, el grafo);
-
-        this.linker = new ConcreteLinker(this.gameBoard, new LinkingTable());
         this.playList = new ArrayList<Play>();
     }
 
