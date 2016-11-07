@@ -2,6 +2,8 @@ package ar.fiuba.tdd.tp1.utilities;
 
 
 import ar.fiuba.tdd.tp1.factory.CellViewComponentFactory;
+import ar.fiuba.tdd.tp1.gameboard.GameBoard;
+import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.view.BoardView;
 import ar.fiuba.tdd.tp1.view.draw.CellView;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
@@ -19,13 +21,21 @@ public class ViewParser {
 
     private JSONParser parser = new JSONParser();
     private JSONObject fileJsonRepresentation;
+
+    public BoardView getBoardView() {
+        return boardView;
+    }
+
     private BoardView boardView;
 
-    public ViewParser(String file, BoardView boardView) {
+
+
+
+    public ViewParser(String file, GameBoard gameBoard) {
+        boardView = new BoardView(gameBoard);
         try {
             InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
             fileJsonRepresentation = (JSONObject) parser.parse(fileReader);
-            this.boardView = boardView;
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -65,6 +75,10 @@ public class ViewParser {
 
         }
 
+        boolean drawLinks = (boolean) fileJsonRepresentation.get("visibleLinks");
+
+        boardView.initializeLinkViews(drawLinks,Graph.getSingleInstance());
+
 
     }
 
@@ -93,8 +107,10 @@ public class ViewParser {
                 cellView.addComponent(cellViewComponent);
             }
 
-
         }
     }
+
+
+
 
 }

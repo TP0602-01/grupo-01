@@ -11,7 +11,6 @@ import ar.fiuba.tdd.tp1.graph.linker.ConcreteLinker;
 import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
 import ar.fiuba.tdd.tp1.rule.Rule;
 import ar.fiuba.tdd.tp1.set.CellSet;
-import ar.fiuba.tdd.tp1.view.BoardView;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

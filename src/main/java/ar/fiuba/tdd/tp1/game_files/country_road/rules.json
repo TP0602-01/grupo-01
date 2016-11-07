@@ -19,6 +19,24 @@
       ]
     },
     {
+      "rules": [
+        {
+          "type": "estate_correct",
+          "value": ""
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,1",
+              "final_cell": "4,4"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "rules": [],
       "sets": [
         {
@@ -113,7 +131,7 @@
             {
               "initial_cell": "4,1",
               "final_cell": "4,2"
-            }
+            },
           ]
         }
       ]

@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            GameParser parser = new GameParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku");
+            GameParser parser = new GameParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road");
 
             String filePlaysOutput = "./src/main/java/ar/fiuba/tdd/tp1/game_files/output.json";
 
@@ -23,9 +23,11 @@ public class Main {
             GameBoardController controller = new GameLoop(game, filePlaysOutput);
 
             // TODO : ver por que rompe en travis cuando pongo la vista
-            BoardView boardView = new BoardView(game.getGameBoard());
-            ViewParser viewParser = new ViewParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku" + "/view.json", boardView);
+
+            ViewParser viewParser = new ViewParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku" + "/view.json",
+                    game.getGameBoard());
             viewParser.parseViewObjects();
+            BoardView boardView = viewParser.getBoardView();
             boardView.update();  //TODO: UPDATEAR LA VIEW DENTRO DE GAME O EN OTRO LADO
             controller.start();
 

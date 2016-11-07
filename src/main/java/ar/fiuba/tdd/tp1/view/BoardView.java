@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp1.view;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
+import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.utilities.Observer;
@@ -61,6 +62,24 @@ public class BoardView extends Observer {
             }
         }
 
+    }
+
+
+    public void initializeLinkViews(boolean drawLinks, Graph graph) {
+        for (int x = 0; x <= gameBoard.getWidth(); ++x) {
+            for (int y = 0; y <= gameBoard.getHeigth(); ++y) {
+                Cell cello = gameBoard.getCell(x, y);
+                if (x + 1 < gameBoard.getWidth()) {
+                    Cell destination = gameBoard.getCell(x + 1, y);
+                    addLinkView(cello, destination, graph, drawLinks);
+                }
+                if (y + 1 < gameBoard.getHeigth()) {
+                    Cell destination = gameBoard.getCell(x, y + 1);
+                    addLinkView(cello, destination, graph, drawLinks);
+                }
+
+            }
+        }
     }
 
 
