@@ -1,23 +1,27 @@
 package ar.fiuba.tdd.tp1.utilities;
 
 
+import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.factory.CellViewComponentFactory;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.view.BoardView;
 import ar.fiuba.tdd.tp1.view.draw.CellView;
+import ar.fiuba.tdd.tp1.view.draw.RegionView;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class ViewParser {
+public class ViewParser extends Parser {
 
     private JSONParser parser = new JSONParser();
     private JSONObject fileJsonRepresentation;
@@ -29,9 +33,8 @@ public class ViewParser {
     private BoardView boardView;
 
 
-
-
     public ViewParser(String file, GameBoard gameBoard) {
+        this.gameBoard = gameBoard;
         boardView = new BoardView(gameBoard);
         try {
             InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
@@ -45,40 +48,58 @@ public class ViewParser {
 
     public void parseViewObjects() {
 
-        JSONObject allCellViewsJson = (JSONObject) fileJsonRepresentation.get("allCellViews");
+        JSONArray singleCellViews = (JSONArray) fileJsonRepresentation.get("singleCellViews");
+        Iterator iterator = singleCellViews.iterator();
 
+        while (iterator.hasNext()) {
+            JSONObject singleCellView = (JSONObject) iterator.next();
+            int coordX = Integer.parseInt((String) singleCellView.get("xCoord"));
+            int coordY = Integer.parseInt((String) singleCellView.get("yCoord") );
+            Collection<CellView> cellViews = new ArrayList<>();
+            cellViews.add(boardView.getCellView(coordX, coordY));
+            this.parseComponents(singleCellView, cellViews);
+        }
+
+
+        JSONObject allCellViewsJson = (JSONObject) fileJsonRepresentation.get("allCellViews");
         Collection<CellView> allCellViews = new ArrayList<>();
         for (int i = 0; i < boardView.getWidth(); i++) {
             for (int j = 0; j < boardView.getHeight(); j++) {
                 allCellViews.add(boardView.getCellView(i, j));
             }
         }
-
         this.parseComponents(allCellViewsJson, allCellViews);
 
-
-        JSONArray singleCellViews = (JSONArray) fileJsonRepresentation.get("singleCellViews");
-
-
-        Iterator<JSONObject> iterator = singleCellViews.iterator();
-        while (iterator.hasNext()) {
-
-            JSONObject singleCellView = iterator.next();
-            int coordX = (int) singleCellView.get("xCoord");
-            int coordY = (int) singleCellView.get("yCoord");
-
-            Collection<CellView> cellViews = new ArrayList<>();
-
-            cellViews.add(boardView.getCellView(coordX, coordY));
-
-            this.parseComponents(allCellViewsJson, allCellViews);
-
-        }
 
         boolean drawLinks = (boolean) fileJsonRepresentation.get("visibleLinks");
 
         boardView.initializeLinkViews(drawLinks,Graph.getSingleInstance());
 
+        parseGroups();
+
+    }
+
+
+    private void parseGroups() {
+        String filePath = "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road/view_sets.json";
+
+        try {
+            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(filePath), "UTF-8");
+            JSONObject sets = (JSONObject) parser.parse(fileReader);
+            JSONArray setsArray = (JSONArray) sets.get("sets");
+            Iterator setIterator = setsArray.iterator();
+
+            while (setIterator.hasNext()) {
+                JSONArray set = (JSONArray) ((JSONObject) setIterator.next()).get("set");
+
+                ArrayList<Cell> cells = getSetCells(set);
+
+                boardView.addDrawable(new RegionView(cells,3));
+
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
     }
 

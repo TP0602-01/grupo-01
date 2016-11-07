@@ -1,17 +1,43 @@
 {
   "allCellViews": {
-    "components": [
-      {
-        "type": "data",
-        "values": []
-      },
-      {
-        "type": "border",
-        "values": []
-      }
-    ]
+    "components": [{
+      "type": "data",
+      "values": []
+    }, {
+      "type": "border",
+      "values": []
+    }]
   },
-  "singleCellViews": [],
+
+  "singleCellViews": [{
+    "xCoord": "2",
+    "yCoord": "0",
+    "components": [{
+      "type": "variablePositionFixedData",
+      "values": [{
+        "value": "-0.5"
+      }, {
+        "value": "-0.5"
+      }, {
+        "value": "1"
+      }]
+    }]
+  },
+    {
+      "xCoord": "0",
+      "yCoord": "3",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "2"
+        }]
+      }]
+    }],
+
   "visibleLinks": true
 
 }

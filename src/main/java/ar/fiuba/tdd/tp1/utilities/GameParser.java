@@ -19,9 +19,8 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class GameParser {
+public class GameParser extends Parser {
     private Game game;
-    private GameBoard gameBoard;
     private InputValidator inputValidator;
 
     private JSONParser parser;
@@ -125,52 +124,26 @@ public class GameParser {
         }
     }
 
+
+
+
+
+
     /* Giving a Json Set Array create a Graph of cells */
     private Graph createGraph(JSONArray setArray) {
         Graph cellGraph = new Graph();
-
-        // Iterate Set
-        Iterator singleSetIterator = setArray.iterator();
-        while (singleSetIterator.hasNext()) {
-            JSONObject singleSet = (JSONObject) singleSetIterator.next();
-            // Cell
-            String initialCell = (String) singleSet.get("initial_cell");
-            String finalCell = (String) singleSet.get("final_cell");
-
-            Integer firstX = Integer.parseInt(initialCell.split(",")[0]) - 1;
-            Integer firstY = Integer.parseInt(initialCell.split(",")[1]) - 1;
-            Integer endX = Integer.parseInt(finalCell.split(",")[0]) - 1;
-            Integer endY = Integer.parseInt(finalCell.split(",")[1]) - 1;
-
-            for (int x = firstX; x <= endX; ++x) {
-                for (int y = firstY; y <= endY; ++y) {
-                    Cell cell = gameBoard.getCell(x, y);
-                    cellGraph.addCell(cell);
-                }
-            }
-
-            /*for (int x = firstX; x <= endX; ++x) {    TO LINK CELLS OF A SET. DONT REMOVE YET
-                for (int y = firstY; y <= endY; ++y) {
-                    Cell firstCell = gameBoard.getCell(x, y);
-
-                    // Add right next Cell
-                    if (x + 1 <= endX) {
-                        Cell rightSecondCell = gameBoard.getCell(x + 1, y);
-                        cellGraph.addNotDirectedLinkBetween(firstCell, rightSecondCell);
-                    }
-                    // Add down next Cell
-                    if (y + 1 <= endY) {
-                        Cell downSecondCell = gameBoard.getCell(x, y + 1);
-                        cellGraph.addNotDirectedLinkBetween(firstCell, downSecondCell);
-                    }
-                    if (firstX.equals(endX) && firstY.equals(endY)) {
-                        cellGraph.addNotDirectedLinkBetween(firstCell, firstCell);
-                    }
-                }
-            }*/
-        }
+        ArrayList<Cell> cells = getSetCells(setArray);
+        cells.forEach(cellGraph::addCell);
         return cellGraph;
     }
+
+
+
+
+
+
+
+
 
     /*  */
     private void iterateJsonArray(JSONArray array, ParserFunctor functor) {

@@ -2,12 +2,11 @@ package ar.fiuba.tdd.tp1.factory.creator;
 
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.BorderView;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
-import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CornerView;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.DataView;
+import ar.fiuba.tdd.tp1.view.draw.cellcomponents.VariablePositionFixedData;
 
-import java.awt.*;
+
 import java.util.ArrayList;
-import java.util.Collection;
 
 
 public enum CellViewComponentCreator {
@@ -19,14 +18,13 @@ public enum CellViewComponentCreator {
         }
     },
 
-    CORNER_VIEW_CREATOR("corner") {
+    CORNER_VIEW_CREATOR("variablePositionFixedData") {
         @Override
         public CellViewComponent createCellViewComponent(ArrayList<String> values) {
 
-
-            int offsetX = Integer.parseInt(values.get(0));
-            int offsetY = Integer.parseInt(values.get(1));
-            return new CornerView(new Point(offsetX, offsetY), values.get(2));
+            double offsetX = Double.parseDouble(values.get(0));
+            double offsetY = Double.parseDouble(values.get(1));
+            return new VariablePositionFixedData(offsetX,offsetY, values.get(2));
         }
     },
 

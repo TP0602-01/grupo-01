@@ -11,7 +11,7 @@ public class DataView implements CellViewComponent {
 
     public void draw(Graphics graphics, Cell cell) {
 
-        if (cell.getData() != null) {
+        if (cell.getData() != null && !cell.isEmpty() ) {
             int stringWidth = graphics.getFontMetrics().stringWidth(cell.getData());
             int stringHeight = graphics.getFontMetrics().getHeight();
 

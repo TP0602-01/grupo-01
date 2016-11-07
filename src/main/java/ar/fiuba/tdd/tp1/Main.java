@@ -10,8 +10,10 @@ import ar.fiuba.tdd.tp1.view.BoardView;
 public class Main {
 
     public static void main(String[] args) {
+
         try {
-            GameParser parser = new GameParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road");
+            String filesPath = "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road";
+            GameParser parser = new GameParser(filesPath);
 
             String filePlaysOutput = "./src/main/java/ar/fiuba/tdd/tp1/game_files/output.json";
 
@@ -24,7 +26,7 @@ public class Main {
 
             // TODO : ver por que rompe en travis cuando pongo la vista
 
-            ViewParser viewParser = new ViewParser("./src/main/java/ar/fiuba/tdd/tp1/game_files/sudoku" + "/view.json",
+            ViewParser viewParser = new ViewParser(filesPath + "/view.json",
                     game.getGameBoard());
             viewParser.parseViewObjects();
             BoardView boardView = viewParser.getBoardView();
