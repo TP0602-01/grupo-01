@@ -9,3 +9,5 @@ Trabajo práctico grupal - Nikoli Games
 * Kim, Diego
 * González, Cristian
 * Werner, Ezequiel Maximiliano
+
+[Link a la Wiki](https://github.com/TP0602-01/grupo-01/wiki)
