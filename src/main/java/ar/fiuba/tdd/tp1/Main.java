@@ -14,7 +14,7 @@ public class Main {
 
         if (args.length == 0) {
             /* default value */
-            return folder + "country_road";
+            return folder + "gokigen";
         } else {
             /* value passed in command line */
             return folder + args[0];
@@ -38,7 +38,7 @@ public class Main {
 
             // TODO : ver por que rompe en travis cuando pongo la vista
 
-            ViewParser viewParser = new ViewParser(filesPath + "/view.json",
+            ViewParser viewParser = new ViewParser(filesPath ,
                     game.getGameBoard());
             viewParser.parseViewObjects();
             BoardView boardView = viewParser.getBoardView();
