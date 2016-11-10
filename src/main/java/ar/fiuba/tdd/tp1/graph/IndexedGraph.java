@@ -31,4 +31,20 @@ public class IndexedGraph {
     public int getNotDirectedLinksCount() {
         return this.cellLinks.getNotDirectedLinksCount();
     }
+
+    public boolean contains(Cell cell) {
+        return this.cells.contains(cell);
+    }
+
+    public int getIndexOf(Cell cell) {
+        return this.cells.indexOf(cell);
+    }
+
+    public Cell getCell(int index) {
+        if ( (0 <= index) && (index < this.cells.size()) ) {
+            return this.cells.get(index);
+        }
+        return null;
+
+    }
 }

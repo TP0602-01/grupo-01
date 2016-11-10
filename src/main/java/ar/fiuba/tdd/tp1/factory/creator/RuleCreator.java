@@ -27,7 +27,8 @@ public enum RuleCreator {
     ESTATE_CORRECT_CREATOR("estate_correct") {
         @Override
         public Rule createRule(String value, GameBoard board) {
-            return new EstateCorrectRule(board, Graph.getSingleInstance());
+            //return new EstateCorrectRule(board, Graph.getSingleInstance());
+            return new EstateCorrectRule(2,2);
         }
     },
 
