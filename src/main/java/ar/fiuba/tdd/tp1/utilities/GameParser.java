@@ -6,6 +6,7 @@ import ar.fiuba.tdd.tp1.factory.RuleFactory;
 import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.Graph;
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 import ar.fiuba.tdd.tp1.graph.LinkingSymbolsTable;
 import ar.fiuba.tdd.tp1.graph.linker.ConcreteLinker;
 import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
@@ -134,11 +135,30 @@ public class GameParser extends Parser {
             JSONArray setArray = (JSONArray) set.get("set");
 
             // Create a Graph of Cells
-            Graph cellGraph = createGraph(setArray);
+            Queue<IndexedGraph> subgraphs = createSubgraps(setArray);
 
             // Create a Cell Set
-            CellSet cellSet = new CellSet(cellGraph, setRules);
+            CellSet cellSet = new CellSet(subgraphs, setRules);
             game.addSet(cellSet);
+        }
+
+
+        this.parseMergedSets(rule, setRules);
+
+    }
+
+    public void parseMergedSets(JSONObject rule, Collection<Rule> setRules) {
+        // Create the cell Set and include it to Game
+        if (rule.containsKey("mergedSets")) {
+            Iterator mergedSetsIterator = getJsonArrayIterator(rule, "mergedSets");
+            Queue<IndexedGraph> subgraphs = new LinkedList<>();
+            while (mergedSetsIterator.hasNext()) {
+                JSONObject set = (JSONObject) mergedSetsIterator.next();
+                JSONArray setArray = (JSONArray) set.get("set");
+                subgraphs.add((this.gameBoard.getSubgraph(this.getSetCells(setArray))));
+            }
+            CellSet cellSet = new CellSet(subgraphs, setRules);
+            this.game.addSet(cellSet);
         }
     }
 
@@ -146,11 +166,26 @@ public class GameParser extends Parser {
      * Giving a Json Set Array create a Graph of cells
      *
      */
+
     private Graph createGraph(JSONArray setArray) {
         Graph cellGraph = new Graph();
         ArrayList<Cell> cells = getSetCells(setArray);
         cells.forEach(cellGraph::addCell);
         return cellGraph;
+    }
+
+
+    private Queue<IndexedGraph> createSubgraps(JSONArray setArray) {
+/*
+        Graph cellGraph = new Graph();
+        ArrayList<Cell> cells = getSetCells(setArray);
+        cells.forEach(cellGraph::addCell);
+        return cellGraph;
+*/
+        ArrayList<Cell> cells = getSetCells(setArray);
+        Queue<IndexedGraph> subgraphs = new LinkedList<>();
+        subgraphs.add(this.gameBoard.getSubgraph(cells));
+        return subgraphs;
     }
 
     /*
