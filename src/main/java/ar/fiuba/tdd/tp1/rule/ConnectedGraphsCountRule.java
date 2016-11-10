@@ -17,10 +17,6 @@ public class ConnectedGraphsCountRule extends SingleGroupRule {
     }
 
 
-    @Override
-    public boolean check(Graph graph) {
-        return Graph.getSingleInstance().getConnectedSubGraphsCount() == this.expectedCount;
-    }
 
     @Override
     public boolean check(IndexedGraph subGraph) {

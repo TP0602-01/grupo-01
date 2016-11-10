@@ -18,18 +18,6 @@ public class NoRepetitionRule extends SingleGroupRule {
     public NoRepetitionRule() {
     }
 
-    public boolean check(Graph graph) {
-        Collection<Cell> cells = graph.getCells();
-
-        boolean validRule = true;
-        Set<Integer> cellSet = new HashSet<>();
-        for (Cell cell : cells) {
-            if (!cellSet.add(cell.getDataAsInteger())) {
-                validRule = false;
-            }
-        }
-        return validRule;
-    }
 
     @Override
     public boolean check(IndexedGraph subGraph) {

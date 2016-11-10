@@ -20,26 +20,6 @@ public class LinksCountRule extends SingleGroupRule {
     }
 
     @Override
-    public boolean check(Graph graph) {
-        int count = 0;
-
-        ArrayList<Cell> cellsArray = new ArrayList<>(graph.getCells());
-
-        for (int i = 0; i < cellsArray.size(); i++) {
-            Cell originCell = cellsArray.get(i);
-            for (int j = i + 1; j < cellsArray.size(); j++) {
-                Cell destinationCell = cellsArray.get(j);
-                Graph globalGraph = Graph.getSingleInstance();
-                if (globalGraph.linkExistsFromOriginToDestination(originCell, destinationCell)) {
-                    count++;
-                }
-            }
-        }
-
-        return (count == this.expectedLinksCount);
-    }
-
-    @Override
     public boolean check(IndexedGraph subGraph) {
         return subGraph.getNotDirectedLinksCount() == this.expectedLinksCount;
     }

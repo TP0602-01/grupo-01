@@ -10,14 +10,13 @@ import ar.fiuba.tdd.tp1.graph.IndexedGraph;
  */
 public class ExistCircuitRule extends SingleGroupRule {
     int quantityCheck;
-
+/*
     public ExistCircuitRule(Graph graph, int quantity) {
         this.quantityCheck = quantity;
     }
-
-    @Override
-    public boolean check(Graph graph) {
-        return Graph.getSingleInstance().getLooplessCircuitCount() == quantityCheck;
+*/
+    public ExistCircuitRule(int quantity) {
+        this.quantityCheck = quantity;
     }
 
     @Override

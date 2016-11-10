@@ -14,18 +14,6 @@ public class EdgesCountRule extends SingleGroupRule {
         this.expectedValue = expectedValue;
     }
 
-    @Override
-    public boolean check(Graph graph) {
-        Collection<Cell> cells = graph.getCells();
-
-        /* calculates cells positions */
-        int up = calculateUpRow(cells);
-        int down = calculateDownRow(cells);
-        int right = calculateRightColumn(cells);
-        int left = calculateLeftColumn(cells);
-
-        return (calculateCount(cells, up, down, right, left) == expectedValue);
-    }
 
     private int calculateCount(Collection<Cell> cells, int up, int down, int right, int left) {
         int count = countEdgesInCorner(cells, up, left, "\\");
