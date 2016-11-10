@@ -1,5 +1,10 @@
 package ar.fiuba.tdd.tp1.rule.utilities;
 
+/*
+ * Arithmetical Operations for Rules. It is used to check
+ * cell two contents
+ *
+ */
 public enum ArithmeticalOperator {
 
     MULT("*") {

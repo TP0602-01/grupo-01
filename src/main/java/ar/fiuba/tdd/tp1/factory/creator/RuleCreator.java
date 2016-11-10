@@ -10,6 +10,11 @@ import ar.fiuba.tdd.tp1.utilities.ParserHelper;
 
 import java.util.ArrayList;
 
+/*
+ * Rule creator represent a Factory Method that can create
+ * different rule types.
+ *
+ */
 public enum RuleCreator {
 
     CIRCUIT_COUNT_CREATOR("circuit") {

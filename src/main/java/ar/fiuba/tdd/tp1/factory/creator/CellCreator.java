@@ -6,6 +6,11 @@ import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
 
 
+/*
+ * Cell creator represent a Factory Method that can create
+ * different cell types.
+ *
+ */
 public enum CellCreator {
 
     KAKORU_CELL_CREATOR("kakoru") {

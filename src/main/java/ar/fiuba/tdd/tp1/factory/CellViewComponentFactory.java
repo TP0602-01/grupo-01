@@ -1,14 +1,16 @@
 package ar.fiuba.tdd.tp1.factory;
 
-
-import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.factory.creator.CellViewComponentCreator;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 
+/*
+ * Create Cell View Component Factory using a Cell View Creator to
+ * different cell view types.
+ *
+ */
 public class CellViewComponentFactory {
     private static HashMap<String, CellViewComponentCreator> cellViewComponentCreators;
 

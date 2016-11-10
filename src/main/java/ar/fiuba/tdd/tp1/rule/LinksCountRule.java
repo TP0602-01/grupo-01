@@ -6,8 +6,10 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by juanma on 20/10/16.
+/*
+ * Links Rule check that the graph given by parameter
+ * has an expected quantity links beetwen its cells.
+ *
  */
 public class LinksCountRule extends Rule {
 

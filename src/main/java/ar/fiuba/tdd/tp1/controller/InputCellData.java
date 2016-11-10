@@ -2,6 +2,12 @@ package ar.fiuba.tdd.tp1.controller;
 
 import ar.fiuba.tdd.tp1.game.Game;
 
+
+/*
+ * Input Cell Data represent a cell thtt receive an string line
+ * (user input), parse it and can be access to parse content.
+ *
+ */
 class InputCellData {
     private String playType;
 
@@ -19,6 +25,10 @@ class InputCellData {
         return playType;
     }
 
+    /*
+     * Action included into user play. Return action type
+     *
+     */
     public InputCellAction generateAction(Game game, GamePlay lastPlay) throws InvalidInputException {
         if (getPlayType().equals("stop")) {
             return new StopGameAction(new StopActionContext(lastPlay));

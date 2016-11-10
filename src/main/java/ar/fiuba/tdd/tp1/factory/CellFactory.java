@@ -6,7 +6,11 @@ import ar.fiuba.tdd.tp1.factory.creator.CellCreator;
 
 import java.util.HashMap;
 
-
+/*
+ * Cell Factory that uses a Cell Creator to
+ * different cell types.
+ *
+ */
 public class CellFactory {
 
     private static HashMap<String, CellCreator> cellCreators;
@@ -17,7 +21,6 @@ public class CellFactory {
             cellCreators.put(creator.stringRepresentation, creator);
         }
     }
-
 
     public static Cell create(String type, String content) {
         if (cellCreators == null) {
