@@ -28,7 +28,7 @@ public enum RuleCreator {
         @Override
         public Rule createRule(String numberOfRows, GameBoard ignored) {
             //return new EstateCorrectRule(board, Graph.getSingleInstance());
-            return new EstateCorrectRule(ParserHelper.toInteger(numberOfRows));
+            return new EstateCorrectRule(getIntegerFromString(numberOfRows));
         }
     },
 
@@ -115,6 +115,10 @@ public enum RuleCreator {
 
     RuleCreator(String stringRepresentation) {
         this.stringRepresentation = stringRepresentation;
+    }
+
+    public int getIntegerFromString(String string) {
+        return ParserHelper.toInteger(string);
     }
 
     public abstract Rule createRule(String value, GameBoard board);
