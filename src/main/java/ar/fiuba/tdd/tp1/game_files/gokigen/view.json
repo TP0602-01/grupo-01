@@ -1,0 +1,200 @@
+{
+  "allCellViews": {
+    "components": [{
+      "type": "data",
+      "values": []
+    }, {
+      "type": "border",
+      "values": []
+    }]
+  },
+
+  "singleCellViews": [{
+    "xCoord": "1",
+    "yCoord": "1",
+    "components": [{
+      "type": "variablePositionFixedData",
+      "values": [{
+        "value": "1"
+      }, {
+        "value": "-1"
+      }, {
+        "value": "2"
+      }]
+    }]
+  },
+    {
+      "xCoord": "2",
+      "yCoord": "1",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "1"
+        }]
+      }]
+    },
+  {
+      "xCoord": "3",
+      "yCoord": "2",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "3"
+        }]
+      }]
+    },
+  {
+      "xCoord": "3",
+      "yCoord": "2",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "3"
+        }]
+      }]
+    },
+  {
+      "xCoord": "5",
+      "yCoord": "2",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "0"
+        }]
+      }]
+    },
+  {
+      "xCoord": "4",
+      "yCoord": "4",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "2"
+        }]
+      }]
+    },
+  {
+      "xCoord": "2",
+      "yCoord": "4",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "3"
+        }]
+      }]
+    },
+  {
+      "xCoord": "3",
+      "yCoord": "4",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "3"
+        }]
+      }]
+    },
+  {
+      "xCoord": "1",
+      "yCoord": "5",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "0"
+        }]
+      }]
+    },
+  {
+      "xCoord": "3",
+      "yCoord": "5",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "3"
+        }]
+      }]
+    },
+  {
+      "xCoord": "4",
+      "yCoord": "5",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "-1"
+        }, {
+          "value": "3"
+        }]
+      }]
+    },
+  {
+      "xCoord": "3",
+      "yCoord": "4",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "1"
+        }, {
+          "value": "1"
+        }]
+      }]
+    },
+  {
+      "xCoord": "5",
+      "yCoord": "5",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "1"
+        }, {
+          "value": "1"
+        }, {
+          "value": "1"
+        }]
+      }]
+    }
+
+
+  ],
+
+  "visibleLinks": false
+
+}

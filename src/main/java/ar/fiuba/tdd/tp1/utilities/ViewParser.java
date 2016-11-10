@@ -31,13 +31,15 @@ public class ViewParser extends Parser {
     }
 
     private BoardView boardView;
+    private String filePath;
 
 
     public ViewParser(String file, GameBoard gameBoard) {
+        this.filePath = file;
         this.gameBoard = gameBoard;
         boardView = new BoardView(gameBoard);
         try {
-            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
+            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file + "/view.json"), "UTF-8");
             fileJsonRepresentation = (JSONObject) parser.parse(fileReader);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -81,10 +83,10 @@ public class ViewParser extends Parser {
 
 
     private void parseGroups() {
-        String filePath = "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road/view_sets.json";
+        String groupFilePath = filePath + "/view_sets.json";
 
         try {
-            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(filePath), "UTF-8");
+            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(groupFilePath), "UTF-8");
             JSONObject sets = (JSONObject) parser.parse(fileReader);
             JSONArray setsArray = (JSONArray) sets.get("sets");
             Iterator setIterator = setsArray.iterator();
