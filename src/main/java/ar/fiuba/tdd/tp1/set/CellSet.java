@@ -31,8 +31,14 @@ public class CellSet {
     }
 */
 
+    private void updateSubgraphs() {
+        for ( IndexedGraph subgraph: this.subGraphs) {
+            subgraph.updateSubGraphLinks();
+        }
+    }
 
     public boolean check() {
+        this.updateSubgraphs();
         boolean check = true;
         Iterator it = rules.iterator();
         while (it.hasNext()) {
