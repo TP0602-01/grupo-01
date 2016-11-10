@@ -15,7 +15,7 @@ public class PlayAction implements InputCellAction {
     }
 
     @Override
-    public void act() {
+    public void act() throws InvalidInputException {
         lastPlay.setStatus(game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData()));
     }
 }

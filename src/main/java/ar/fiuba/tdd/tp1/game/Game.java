@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp1.game;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
+import ar.fiuba.tdd.tp1.controller.InvalidInputException;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.linker.ConcreteLinker;
 import ar.fiuba.tdd.tp1.graph.linker.Linker;
@@ -93,9 +94,9 @@ public class Game {
      * Add a play, Return True if all sets are true
      *
      */
-    public boolean addPlay(int rowPosition, int columnPosition, String content) {
+    public boolean addPlay(int rowPosition, int columnPosition, String content) throws InvalidInputException {
 
-        if (this.isPlayAllowed(rowPosition, columnPosition, content)) {
+        if (this.assertPlayAllowed(rowPosition, columnPosition, content)) {
             Cell cell = gameBoard.getCell(rowPosition, columnPosition);
             String cellContent = cell.getData();
 
@@ -110,12 +111,12 @@ public class Game {
                 playList.remove(playList.size() - 1);
                 gameBoard.setCellValue(rowPosition, columnPosition, cellContent);
                 this.linker.updateLinkableLinks(rowPosition, columnPosition);
-                System.out.println("Invalid Play");
+                throw new InvalidInputException("La jugada rompe muchos conjuntos");
             }
             return true;
         }
 
-        return false;
+        throw new InvalidInputException("La jugada rompe muchos conjuntos");
     }
 
     /*
@@ -131,10 +132,15 @@ public class Game {
      * Check if play is valid.
      *
      */
-    private boolean isPlayAllowed(int rowPosition, int columnPosition, String content) {
-        return rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()
-                && rowPosition >= 0 && columnPosition >= 0
-                && inputValidator.isAValidInput(content);
+    private boolean assertPlayAllowed(int rowPosition, int columnPosition, String content) throws InvalidInputException {
+        if (rowPosition >= this.gameBoard.getHeigth() || rowPosition < 0) {
+            throw new InvalidInputException("Fila fuera de rango");
+        } else if (columnPosition >= this.gameBoard.getWidth() || columnPosition < 0) {
+            throw new InvalidInputException("Columna fuera de rango");
+        } else if (!inputValidator.isAValidInput(content)) {
+            throw new InvalidInputException("El valor de entrada no es valido");
+        }
+        return true;
     }
 
     /*
