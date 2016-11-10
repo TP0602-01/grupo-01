@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.graph.Graph;
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
 import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalRuleOperators;
 import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
@@ -14,7 +15,7 @@ import java.util.Collection;
  * is equal to expected Value
  *
  */
-public class AccumulatorRule extends Rule {
+public class AccumulatorRule extends SingleGroupRule {
     private ArithmeticalOperator operator;
     private ComparisonOperator comparisonOperator;
     private int expectedValue;
@@ -28,7 +29,21 @@ public class AccumulatorRule extends Rule {
     }
 
     public boolean check(Graph graph) {
+
         Collection<Cell> cells = graph.getCells();
+        Integer accumulator = initAcumulator;
+        for (Cell cell : cells) {
+            if (cell.isEmpty()) {
+                return false;
+            }
+            accumulator = operator.apply(accumulator, Integer.parseInt(cell.getData()));
+        }
+        return comparisonOperator.compare(accumulator, expectedValue);
+    }
+
+    @Override
+    public boolean check(IndexedGraph subGraph) {
+        Collection<Cell> cells = subGraph.getCells();
         Integer accumulator = initAcumulator;
         for (Cell cell : cells) {
             if (cell.isEmpty()) {

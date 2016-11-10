@@ -16,16 +16,5 @@ import java.util.Queue;
 public abstract class Rule {
     /* Return True if the graph is compatible with the Rule */
     public abstract boolean check(Graph graph);
-
-    public boolean check(Queue<IndexedGraph> subgraphs) {
-        boolean checkResult = true;
-        for (IndexedGraph subgraph: subgraphs) {
-            Graph fakeGraph = new Graph();
-            for (Cell cell: subgraph.getCells()) {
-                fakeGraph.addCell(cell);
-            }
-            checkResult = checkResult && this.check(fakeGraph);
-        }
-        return checkResult;
-    }
+    public abstract boolean check(Queue<IndexedGraph> subgraphs);
 }

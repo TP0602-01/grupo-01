@@ -2,11 +2,12 @@ package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.graph.Graph;
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 
 import java.util.Collection;
 
 /*  ClustersSizesRule check if the number of edges around for each cell from graph is correct*/
-public class EdgesCountRule extends Rule {
+public class EdgesCountRule extends SingleGroupRule {
     private int expectedValue;
 
     public EdgesCountRule(Integer expectedValue) {
@@ -90,5 +91,18 @@ public class EdgesCountRule extends Rule {
             }
         }
         return upRowIndex;
+    }
+
+    @Override
+    public boolean check(IndexedGraph subGraph) {
+        Collection<Cell> cells = subGraph.getCells();
+
+        /* calculates cells positions */
+        int up = calculateUpRow(cells);
+        int down = calculateDownRow(cells);
+        int right = calculateRightColumn(cells);
+        int left = calculateLeftColumn(cells);
+
+        return (calculateCount(cells, up, down, right, left) == expectedValue);
     }
 }

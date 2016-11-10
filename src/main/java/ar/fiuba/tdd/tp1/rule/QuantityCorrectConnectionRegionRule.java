@@ -2,9 +2,9 @@ package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.graph.Graph;
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 
 import java.util.Collection;
-import java.util.Vector;
 
 
 /*
@@ -12,7 +12,7 @@ import java.util.Vector;
  * of input cells are the expected.
  *
  */
-public class QuantityCorrectConnectionRegionRule extends Rule {
+public class QuantityCorrectConnectionRegionRule extends SingleGroupRule {
     private int quantity;
 
     public QuantityCorrectConnectionRegionRule(int expctedSum) {
@@ -23,6 +23,18 @@ public class QuantityCorrectConnectionRegionRule extends Rule {
     public boolean check(Graph graph) {
         int sum = 0;
         Collection<Cell> cells = graph.getCells();
+        for (Cell cell : cells) {
+            if (!cell.getData().equals("") && !cell.getData().equals("0")) {
+                sum++;
+            }
+        }
+        return sum == quantity;
+    }
+
+    @Override
+    public boolean check(IndexedGraph subGraph) {
+        int sum = 0;
+        Collection<Cell> cells = subGraph.getCells();
         for (Cell cell : cells) {
             if (!cell.getData().equals("") && !cell.getData().equals("0")) {
                 sum++;
