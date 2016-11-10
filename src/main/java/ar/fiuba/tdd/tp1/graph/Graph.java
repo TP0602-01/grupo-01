@@ -87,7 +87,7 @@ public class Graph {
     }
 
     public boolean getCircuitCount() {  //TODO: CAMBIEMOS EL NOMBRE ESTE QUE ES OTRA COSA
-        Collection<Cell> cells = links.keySet();
+        Collection<Cell> cells = this.getCells();
         for (Cell cell : cells) {
             Vector<Cell> circuit = new Vector<>();
             circuit.add(cell);
@@ -122,13 +122,7 @@ public class Graph {
 
     /* Return a Collection with all the Cells in the Graph */
     public Collection<Cell> getCells() {
-        Collection<Cell> cells = new ArrayList<>();
-        Iterator it = links.entrySet().iterator();
-        while (it.hasNext()) {
-            Cell cell = (Cell) ((Map.Entry) it.next()).getKey();
-            cells.add(cell);
-        }
-        return cells;
+        return this.links.keySet();
     }
 
     /* Add a cell as a node in the Graph and return true if
@@ -223,6 +217,34 @@ public class Graph {
 
     public static void reset() {
         singleton = new Graph();
+    }
+
+    public static void setSingleInstance(Graph graph) {
+        singleton = graph;
+    }
+
+
+    public int getNotDirectedLinksCount() {
+
+        int notDirectedLinksCount = 0;
+        ArrayList<Cell> cellsArray = new ArrayList<>(this.getCells());
+
+        for (int i = 0; i < cellsArray.size(); i++) {
+            Cell originCell = cellsArray.get(i);
+            for (int j = i; j < cellsArray.size(); j++) {
+                Cell destinationCell = cellsArray.get(j);
+                if (this.notDirectedLinkExistsBetween(originCell, destinationCell)) {
+                    notDirectedLinksCount++;
+                }
+            }
+        }
+
+        return notDirectedLinksCount;
+    }
+
+    public boolean notDirectedLinkExistsBetween(Cell firstCell, Cell secondCell) {
+        return (this.linkExistsFromOriginToDestination(firstCell, secondCell)
+                && this.linkExistsFromOriginToDestination(secondCell, firstCell));
     }
 }
 

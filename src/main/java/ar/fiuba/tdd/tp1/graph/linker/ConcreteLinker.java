@@ -16,21 +16,12 @@ import java.util.Set;
 /* */
 public class ConcreteLinker implements Linker {
 
-    //TODO: se podrian crear objetos para que esto quede mas entendible
     //private LinkableMatrix linkableMatrix;
     private GameBoard linkableMatrix;
     //private LinksManager linksManager;
     private Graph graph;
     private LinkingTable linkingTable;
     private LinkingSymbolsTable linkingSymbols;
-
-    /*
-    public ConcreteLinker(LinkableMatrix linkableMatrix, LinksManager linksManager) {
-        this.linkableMatrix = linkableMatrix;
-        this.linksManager = linksManager;
-        this.linkingTable = new LinkingTable();
-    }
-    */
 
 
     public ConcreteLinker(GameBoard gameBoard, LinkingTable linkingTable) {
@@ -41,21 +32,16 @@ public class ConcreteLinker implements Linker {
 
     public ConcreteLinker(GameBoard gameBoard, LinkingTable linkingTable, LinkingSymbolsTable linkingSymbols) {
         this.linkableMatrix = gameBoard;
-        this.graph = Graph.getSingleInstance();
+
+        this.graph = gameBoard.getCellsLinks();
+        //TEMPORAL PARA QUE NO EXPLOTEN CIERTAS PRUEBAS:
+        //TODO: SACARLO
+        Graph.setSingleInstance(this.graph);
+
         this.linkingTable = linkingTable;
         this.linkingSymbols = linkingSymbols;
     }
 
-
-    @Override
-    public void setLinkingInfo(int rowOffset, int columnOffset, String originTokens, Set<String> destinationTokens) {
-        /*
-        //Setea en que direccion (representados como offsets) se van a chequear los linkeos
-        for (String destinationToken : destinationTokens) {
-            this.linkingTable.addEntry(rowOffset, columnOffset, originTokens, destinationToken);
-        }
-        */
-    }
 
 
     private boolean originAndDestinationTokensImplyThatTheyMustBeLinked(Pair<Integer, Integer> offset,
