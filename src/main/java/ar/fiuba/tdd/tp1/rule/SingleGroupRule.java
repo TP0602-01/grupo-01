@@ -8,7 +8,8 @@ import ar.fiuba.tdd.tp1.rule.Rule;
 import java.util.Queue;
 
 /**
- * Created by User on 10/11/2016.
+ * SingleGroupRule only checks one subgraph at a time and returns true only if the
+ * rule is correct in all of the subgrphs.
  */
 public abstract class SingleGroupRule extends Rule{
 
@@ -19,5 +20,6 @@ public abstract class SingleGroupRule extends Rule{
         }
         return checkResult;
     }
+
     public abstract boolean check(IndexedGraph subGraph);
 }
