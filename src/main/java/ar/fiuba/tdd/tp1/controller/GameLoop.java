@@ -33,9 +33,13 @@ public class GameLoop implements GameBoardController {
         lastPlay.checkRules(game);
 
         while (!lastPlay.gameOver()) {
-            InputCellData data = new InputCellData(console.readLine());
-            InputCellAction action = data.generateAction(game, lastPlay);
-            action.act();
+            try {
+                InputCellData data = new InputCellData(console.readLine());
+                InputCellAction action = data.generateAction(game, lastPlay);
+                action.act();
+            } catch (InvalidInputException e) {
+                System.out.print("Jugada invalida: " + e.getMessage());
+            }
 
             /* an action could have finished the game */
             if (lastPlay.gameOver()) {
