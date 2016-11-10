@@ -1,10 +1,11 @@
 package ar.fiuba.tdd.tp1.controller;
 
 public class StopGameAction implements InputCellAction {
+
     private GamePlay lastPlay;
 
-    public StopGameAction(GamePlay lastPlay) {
-        this.lastPlay = lastPlay;
+    public StopGameAction(StopActionContext context) {
+        this.lastPlay = context.getLastPlay();
     }
 
     @Override

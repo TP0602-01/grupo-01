@@ -6,16 +6,20 @@ public class PlayAction implements InputCellAction {
 
     private GamePlay lastPlay;
     private Game game;
-    private InputCellData data;
+    private int indexI;
+    private int indexJ;
+    private String inputData;
 
-    public PlayAction(GamePlay lastPlay, Game game, InputCellData data) {
-        this.lastPlay = lastPlay;
-        this.game = game;
-        this.data = data;
+    public PlayAction(PlayActionContext context) {
+        lastPlay = context.getLastPlay();
+        game = context.getGame();
+        indexI = context.getIndexI();
+        indexJ = context.getIndexJ();
+        inputData = context.getData();
     }
 
     @Override
     public void act() throws InvalidInputException {
-        lastPlay.setStatus(game.addPlay(data.getIndexI(), data.getIndexJ(), data.getInputData()));
+        lastPlay.setStatus(game.addPlay(indexI, indexJ, inputData));
     }
 }

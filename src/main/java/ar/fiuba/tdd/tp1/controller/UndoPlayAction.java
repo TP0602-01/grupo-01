@@ -7,9 +7,9 @@ public class UndoPlayAction implements InputCellAction {
     private GamePlay lastPlay;
     private Game game;
 
-    public UndoPlayAction(GamePlay lastPlay, Game game) {
-        this.lastPlay = lastPlay;
-        this.game = game;
+    public UndoPlayAction(UndoPlayActionContext context) {
+        this.lastPlay = context.getLastPlay();
+        this.game = context.getGame();
     }
 
     @Override
