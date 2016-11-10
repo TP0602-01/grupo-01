@@ -1,6 +1,6 @@
 {
-  "height": "10",
-  "width": "10",
+  "height": "15",
+  "width": "14",
   "structure": {
     "cells": [
       {
@@ -10,7 +10,50 @@
           "initial_cell": "0,0",
           "final_cell": "9,9"
         }
+      },
+       {
+        "type": "nullcell",
+        "content": "##",
+        "range": {
+          "initial_cell": "10,10",
+          "final_cell": "14,13"
+        }
+      },
+      {
+        "type": "nullcell",
+        "content": "",
+        "range": {
+          "initial_cell": "10,0",
+          "final_cell": "10,9"
+        }
+      },
+      {
+        "type": "nullcell",
+        "content": "",
+        "range": {
+          "initial_cell": "0,10",
+          "final_cell": "9,10"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "",
+        "range": {
+          "initial_cell": "11,0",
+          "final_cell": "14,9"
+        }
+      },
+      {
+        "type": "hint",
+        "content": "",
+        "range": {
+          "initial_cell": "0,11",
+          "final_cell": "9,13"
+        }
       }
+
+
+
     ]
   }
 }
