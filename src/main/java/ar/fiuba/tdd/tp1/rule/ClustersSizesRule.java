@@ -14,17 +14,6 @@ public class ClustersSizesRule extends SingleGroupRule {
         this.expectedValues = expectedValues;
     }
 
-    @Override
-    public boolean check(Graph graph) {
-        Collection<Cell> cells = graph.getCells();
-        List<Cell> cellsList = new ArrayList<>(cells);
-        Collections.sort(cellsList, (c1, c2) ->
-                (c1.getColumnIndex() + c1.getRowIndex())
-                        - (c2.getColumnIndex() + c2.getRowIndex()));
-
-        List<Integer> clustersSizes = getSizes(cellsList);
-        return clustersSizes.equals(expectedValues);
-    }
 
     private List<Integer> getSizes(List<Cell> cellsList) {
         List<Integer> clustersSizes = new ArrayList<>();

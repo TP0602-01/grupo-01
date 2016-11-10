@@ -28,19 +28,6 @@ public class AccumulatorRule extends SingleGroupRule {
         this.initAcumulator = initAcumulator;
     }
 
-    public boolean check(Graph graph) {
-
-        Collection<Cell> cells = graph.getCells();
-        Integer accumulator = initAcumulator;
-        for (Cell cell : cells) {
-            if (cell.isEmpty()) {
-                return false;
-            }
-            accumulator = operator.apply(accumulator, Integer.parseInt(cell.getData()));
-        }
-        return comparisonOperator.compare(accumulator, expectedValue);
-    }
-
     @Override
     public boolean check(IndexedGraph subGraph) {
         Collection<Cell> cells = subGraph.getCells();
