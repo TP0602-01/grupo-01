@@ -1,0 +1,187 @@
+{
+  "allCellViews": {
+    "components": [{
+      "type": "data",
+      "values": []
+    }, {
+      "type": "border",
+      "values": []
+    }]
+  },
+
+  "singleCellViews": [
+
+    {
+      "xCoord": "0",
+      "yCoord": "0",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "6"
+        }]
+      }]
+    },
+    {
+      "xCoord": "1",
+      "yCoord": "0",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "4"
+        }]
+      }]
+    },
+    {
+      "xCoord": "3",
+      "yCoord": "0",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "5"
+        }]
+      }]
+    },
+    {
+      "xCoord": "4",
+      "yCoord": "0",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "40"
+        }]
+      }]
+    },
+    {
+      "xCoord": "1",
+      "yCoord": "1",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "3"
+        }]
+      }]
+    },
+    {
+      "xCoord": "3",
+      "yCoord": "1",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "4"
+        }]
+      }]
+    },
+    {
+      "xCoord": "1",
+      "yCoord": "2",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "15"
+        }]
+      }]
+    },
+    {
+      "xCoord": "2",
+      "yCoord": "2",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "40"
+        }]
+      }]
+    },
+    {
+      "xCoord": "0",
+      "yCoord": "3",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "4"
+        }]
+      }]
+    },
+    {
+      "xCoord": "1",
+      "yCoord": "3",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "10"
+        }]
+      }]
+    },
+    {
+      "xCoord": "3",
+      "yCoord": "3",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "6"
+        }]
+      }]
+    },
+    {
+      "xCoord": "3",
+      "yCoord": "4",
+      "components": [{
+        "type": "variablePositionFixedData",
+        "values": [{
+          "value": "-0.5"
+        }, {
+          "value": "-0.5"
+        }, {
+          "value": "3"
+        }]
+      }]
+    }
+
+  ],
+
+  "visibleLinks": false
+
+}
