@@ -46,7 +46,6 @@ public class LinkingTable {
 
 
     public void addEntry(int rowOffset, int columnOffset, String originToken, String destinationToken) {
-        //Setea en que direccion (representados como offsets) se van a chequear los linkeos
         Map<String, Set<String>> linkeableTokensInOffset = this.getLinkiableTokenInOffset(rowOffset, columnOffset);
         Set<String> destinationTokensInOffset = this.getLinkeableTokensForOrigin(originToken, linkeableTokensInOffset);
         destinationTokensInOffset.add(destinationToken);

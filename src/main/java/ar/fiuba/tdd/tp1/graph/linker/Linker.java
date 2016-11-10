@@ -7,7 +7,7 @@ import java.util.Set;
 /* */
 public interface Linker {
 
-    //El Linker se comunica con un squareGraph o rectangleGraph
+    /*The linker communicates with un squeareGraph or rectangleGraph*/
     void setLinkingInfo(int rowOffset, int columnOffset, String originTokens, Set<String> destinationTokens);
 
     void updateLinkableLinks(int row, int column);
