@@ -222,10 +222,6 @@ public class Graph {
         singleton = new Graph();
     }
 
-    public static void setSingleInstance(Graph graph) {
-        singleton = graph;
-    }
-
 
     public int getNotDirectedLinksCount() {
 

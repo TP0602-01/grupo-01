@@ -30,19 +30,13 @@ public class ConcreteLinker implements Linker {
 
     public ConcreteLinker(GameBoard gameBoard, LinkingTable linkingTable) {
         this.linkableMatrix = gameBoard;
-        //this.graph = Graph.getSingleInstance();
         this.graph = gameBoard.getCellsLinks();
         this.linkingTable = linkingTable;
     }
 
     public ConcreteLinker(GameBoard gameBoard, LinkingTable linkingTable, LinkingSymbolsTable linkingSymbols) {
         this.linkableMatrix = gameBoard;
-
         this.graph = gameBoard.getCellsLinks();
-        //TEMPORAL PARA QUE NO EXPLOTEN CIERTAS PRUEBAS:
-        //TODO: SACARLO
-        Graph.setSingleInstance(this.graph);
-
         this.linkingTable = linkingTable;
         this.linkingSymbols = linkingSymbols;
     }
@@ -98,7 +92,6 @@ public class ConcreteLinker implements Linker {
 
     @Override
     public void updateLinkableLinks(int row, int column) {
-        //Linkable origin = this.linkableMatrix.getLinkable(row, column);
         Cell origin = this.linkableMatrix.getCell(row, column);
 
         Map<Cell, Pair<Integer, Integer>> neighbors = this.getCellNeigbors(row, column);

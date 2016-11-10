@@ -5,7 +5,10 @@ import ar.fiuba.tdd.tp1.cell.Cell;
 import java.util.*;
 
 /**
- * Created by User on 06/11/2016.
+ * This class represents a graph that can be created after a collection of Cells and a Graph
+ * containing links between those Cells. It keeps the collection of Cells and only those links
+ * that are between Cells contained in the collection.
+ * It's cells can be identified by an index
  */
 public class IndexedGraph {
 
@@ -49,25 +52,15 @@ public class IndexedGraph {
     }
 
     public int getConnectedSubGraphsCount() {
-        return this.cellLinks.getConnectedSubGraphsCount();
+        return this.getCellLinks().getConnectedSubGraphsCount();
     }
 
     public int getLooplessCircuitCount() {
-        return this.cellLinks.getLooplessCircuitCount();
+        return this.getCellLinks().getLooplessCircuitCount();
     }
 
     public void updateSubGraphLinks() {
         this.cellLinks = new Graph();
-
-        /*
-        for (Cell originSubgraphCell : subgraphCells) {
-            for (Cell destinationSubgraphCell: subgraphCells) {
-                if (links.linkExistsFromOriginToDestination(originSubgraphCell, destinationSubgraphCell)) {
-                    this.cellLinks.addDirectedLinkBetween(originSubgraphCell, destinationSubgraphCell);
-                }
-            }
-        }
-        */
         for (Cell originSubgraphCell : this.cells) {
             for (Cell destinationSubgraphCell: this.cells) {
                 if (this.referenceGraph.linkExistsFromOriginToDestination(originSubgraphCell, destinationSubgraphCell)) {
