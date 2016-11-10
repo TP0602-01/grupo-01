@@ -5,6 +5,9 @@ import ar.fiuba.tdd.tp1.cell.Cell;
 import java.util.*;
 
 /*
+ * Graph is a class that holds the information of which Cell is linked to which Cell
+ * It has methods to add/remove directed or notDirected links between Cells, to
+ * get the number of connected subgraphs and circuits
  */
 public class Graph {
 

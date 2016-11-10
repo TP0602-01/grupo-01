@@ -13,15 +13,19 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-/* */
+/*
+ * ConcreteLinker has the responsibility of comparing the data of different Cells and link them
+ * if their data is compatible.
+ * This implementation adds not directed links between Cells
+ */
 public class ConcreteLinker implements Linker {
 
     //private LinkableMatrix linkableMatrix;
     private GameBoard linkableMatrix;
-    //private LinksManager linksManager;
     private Graph graph;
     private LinkingTable linkingTable;
     private LinkingSymbolsTable linkingSymbols;
+
 
 
     public ConcreteLinker(GameBoard gameBoard, LinkingTable linkingTable) {
@@ -41,7 +45,6 @@ public class ConcreteLinker implements Linker {
         this.linkingTable = linkingTable;
         this.linkingSymbols = linkingSymbols;
     }
-
 
 
     private boolean originAndDestinationTokensImplyThatTheyMustBeLinked(Pair<Integer, Integer> offset,
@@ -99,9 +102,6 @@ public class ConcreteLinker implements Linker {
 
         Map<Cell, Pair<Integer, Integer>> neighbors = this.getCellNeigbors(row, column);
 
-//        for (Cell neighbor : neighbors.keySet()) {
-//            this.checkTokensAndlinkIfItsPossible(origin, neighbor, neighbors.get(neighbor));
-//        }
 
         Iterator it = neighbors.entrySet().iterator();
         while (it.hasNext()) {
@@ -112,40 +112,6 @@ public class ConcreteLinker implements Linker {
 
         }
 
-        // TODO: VER SI SE PUEDE REEMPLAZAR O SI FALLA Y TENEMOS QUE VOLVER A LO COMENTADO
-        /*
-        //Set<String> originLinkingTokens = origin.getLinkingTokens();
-        Set<String> originLinkingTokens = this.linkingSymbols.getLinkingTokensFor(origin.getLinkingSymbol());
-        //Recorro cada posible offset de la tabla
-        for (Pair<Integer, Integer> currentOffset : this.linkingTable.getOffsets()) {
-            boolean shouldBeLinked = false;
-            int rowOffset = currentOffset.getKey();
-            int columnOffset = currentOffset.getValue();
-
-            //Linkable destination = this.linkableMatrix.getLinkable(row + rowOffset, column + columnOffset);
-            Cell destination = this.linkableMatrix.getCell(row + rowOffset, column + columnOffset);
-            if (destination != null) {
-                //Set<String> destinationLinkingTokens = destination.getLinkingTokens();
-                Set<String> destinationLinkingTokens = this.linkingSymbols.getLinkingTokensFor(destination.getLinkingSymbol());
-                for (String originToken : originLinkingTokens) {
-                    for (String destinationToken : destinationLinkingTokens) {
-                        if (this.linkingTable.checkEntryExistance(rowOffset, columnOffset, originToken, destinationToken)) {
-                            shouldBeLinked = true;
-                        }
-                    }
-                }
-                if (shouldBeLinked) {
-                    //this.linksManager.addNotDirectedLinkBetween(origin, destination);
-                    this.graph.addNotDirectedLinkBetween(origin, destination);
-                    System.out.println("SE LINKEAN");
-                } else {
-                    //this.linksManager.removeNotDirectedLinkBetween(origin, destination);
-                    this.graph.removeNotDirectedLinkBetween(origin, destination);
-                    System.out.println("NO SE LINKEAN");
-                }
-            }
-        }
-        */
     }
 
     @Override

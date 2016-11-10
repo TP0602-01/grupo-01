@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /*
- * Cell class represent a Cell than has content, position in a
+ * Cell class represent a Cell that has content, position in a
  * cell board.
  *
  */

@@ -7,7 +7,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/* */
+/*
+ * Each entry of this table is structured like this:
+ * |rowOffset|columnOffset|originToken|destinationToken
+ * Each entry shows if the originToken can be linked to the destinationToken
+ * for a given row+coll offset.
+ */
 public class LinkingTable {
 
     private Map<Pair<Integer, Integer>, Map<String, Set<String>>> table;
@@ -46,7 +51,6 @@ public class LinkingTable {
 
 
     public void addEntry(int rowOffset, int columnOffset, String originToken, String destinationToken) {
-        //Setea en que direccion (representados como offsets) se van a chequear los linkeos
         Map<String, Set<String>> linkeableTokensInOffset = this.getLinkiableTokenInOffset(rowOffset, columnOffset);
         Set<String> destinationTokensInOffset = this.getLinkeableTokensForOrigin(originToken, linkeableTokensInOffset);
         destinationTokensInOffset.add(destinationToken);
