@@ -22,15 +22,77 @@
       "rules": [
         {
           "type": "estate_correct",
-          "value": ""
+          "value": "4"
         }
       ],
       "sets": [
+      ],
+      "mergedSets": [
         {
           "set": [
             {
               "initial_cell": "1,1",
               "final_cell": "4,4"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "1,1",
+              "final_cell": "1,1"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "2,1",
+              "final_cell": "3,1"
+            },
+            {
+              "initial_cell": "1,2",
+              "final_cell": "3,2"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "1,3",
+              "final_cell": "1,4"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "2,3",
+              "final_cell": "2,4"
+            },
+            {
+              "initial_cell": "3,4",
+              "final_cell": "3,4"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "3,3",
+              "final_cell": "3,3"
+            },
+            {
+              "initial_cell": "4,3",
+              "final_cell": "4,4"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "4,1",
+              "final_cell": "4,2"
             }
           ]
         }

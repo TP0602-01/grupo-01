@@ -1,14 +1,14 @@
 package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.graph.Graph;
-import ar.fiuba.tdd.tp1.rule.Rule;
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 
 /*
  * Connected Graph Count Rule check that the graph given by parameter
  * has an expected connected sub graphs count.
  *
  */
-public class ConnectedGraphsCountRule extends Rule {
+public class ConnectedGraphsCountRule extends SingleGroupRule {
 
     private int expectedCount;
 
@@ -17,8 +17,9 @@ public class ConnectedGraphsCountRule extends Rule {
     }
 
 
+
     @Override
-    public boolean check(Graph graph) {
-        return Graph.getSingleInstance().getConnectedSubGraphsCount() == this.expectedCount;
+    public boolean check(IndexedGraph subGraph) {
+        return subGraph.getConnectedSubGraphsCount() == this.expectedCount;
     }
 }

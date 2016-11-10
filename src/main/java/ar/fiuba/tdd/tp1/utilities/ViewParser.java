@@ -78,7 +78,7 @@ public class ViewParser extends Parser {
 
         boolean drawLinks = (boolean) fileJsonRepresentation.get("visibleLinks");
 
-        boardView.initializeLinkViews(drawLinks,Graph.getSingleInstance());
+        boardView.initializeLinkViews(drawLinks,this.gameBoard.getCellsLinks());
 
         parseGroups();
     }

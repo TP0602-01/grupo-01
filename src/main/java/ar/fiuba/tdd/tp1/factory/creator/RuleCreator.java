@@ -19,28 +19,28 @@ public enum RuleCreator {
 
     CIRCUIT_COUNT_CREATOR("circuit") {
         @Override
-        public Rule createRule(String value, GameBoard board) {
-            return new ExistCircuitRule(Graph.getSingleInstance(), Integer.parseInt(value));
+        public Rule createRule(String value) {
+            return new ExistCircuitRule(this.getIntegerFromString(value));
         }
     },
 
     ESTATE_CORRECT_CREATOR("estate_correct") {
         @Override
-        public Rule createRule(String value, GameBoard board) {
-            return new EstateCorrectRule(board, Graph.getSingleInstance());
+        public Rule createRule(String numberOfRows) {
+            return new EstateCorrectRule(getIntegerFromString(numberOfRows));
         }
     },
 
     NO_REPETITION_RULE_CREATOR("no_rep") {
         @Override
-        public Rule createRule(String value, GameBoard board) {
+        public Rule createRule(String value) {
             return new NoRepetitionRule();
         }
     },
 
     SUM_RULE_CREATOR("sum") {
         @Override
-        public Rule createRule(String value, GameBoard board) {
+        public Rule createRule(String value) {
             int expectedValue = Integer.parseInt(value);
             int initSum = 0;
 
@@ -54,7 +54,7 @@ public enum RuleCreator {
 
     MULT_RULE_CREATOR("mult") {
         @Override
-        public Rule createRule(String value, GameBoard board) {
+        public Rule createRule(String value) {
             int expectedValue = Integer.parseInt(value);
             int initProduct = 1;
 
@@ -69,7 +69,7 @@ public enum RuleCreator {
 
     EMPTY_CELLS_COUNT_CREATOR("expected_data_count") {
         @Override
-        public Rule createRule(String value, GameBoard board) {
+        public Rule createRule(String value) {
             QuantityCorrectConnectionRegionRule quantityRule = new QuantityCorrectConnectionRegionRule(ParserHelper.toInteger(value));
             return quantityRule;
         }
@@ -77,7 +77,7 @@ public enum RuleCreator {
 
     CONNECTED_GRAPH_COUNT_CREATOR("conn_graph") {
         @Override
-        public Rule createRule(String counter, GameBoard ignored) {
+        public Rule createRule(String counter) {
             Rule rule = new ConnectedGraphsCountRule(ParserHelper.toInteger(counter));
             return rule;
         }
@@ -85,21 +85,21 @@ public enum RuleCreator {
 
     EDGES_COUNT_CREATOR("edges_count") {
         @Override
-        public Rule createRule(String count, GameBoard gameBoard) {
+        public Rule createRule(String count) {
             return new EdgesCountRule(Integer.valueOf(count));
         }
     },
 
     LINKS_COUNT_CREATOR("links_count") {
         @Override
-        public Rule createRule(String value, GameBoard gameBoard) {
+        public Rule createRule(String value) {
             return new LinksCountRule(Integer.parseInt(value));
         }
     },
 
     CLUSTERS_SIZES_CREATOR("clusters_sizes") {
         @Override
-        public Rule createRule(String value, GameBoard gameBoard) {
+        public Rule createRule(String value) {
             ArrayList<Integer> list = new ArrayList<>();
             for (String s : value.split(",")) {
                 list.add(Integer.parseInt(s));
@@ -116,5 +116,9 @@ public enum RuleCreator {
         this.stringRepresentation = stringRepresentation;
     }
 
-    public abstract Rule createRule(String value, GameBoard board);
+    public int getIntegerFromString(String string) {
+        return ParserHelper.toInteger(string);
+    }
+
+    public abstract Rule createRule(String value);
 }

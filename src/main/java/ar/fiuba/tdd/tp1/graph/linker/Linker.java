@@ -10,7 +10,7 @@ import java.util.Set;
 * if their data is compatible
 */
 public interface Linker {
-
+    
     void updateLinkableLinks(int row, int column);
 
     Graph getGraph();

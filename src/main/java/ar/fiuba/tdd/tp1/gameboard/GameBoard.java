@@ -2,6 +2,8 @@ package ar.fiuba.tdd.tp1.gameboard;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.NullCell;
+import ar.fiuba.tdd.tp1.graph.Graph;
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 import ar.fiuba.tdd.tp1.graph.linkeable.Linkable;
 import ar.fiuba.tdd.tp1.graph.linker.LinkableMatrix;
 import ar.fiuba.tdd.tp1.rule.Rule;
@@ -17,6 +19,7 @@ import java.util.*;
 public class GameBoard extends Observable implements LinkableMatrix {
 
     private Map<Integer, Map<Integer, Cell>> cells;
+    private Graph cellsLinks;
 
     public GameBoard(Integer width, Integer height) {
         cells = new HashMap<>();
@@ -27,6 +30,8 @@ public class GameBoard extends Observable implements LinkableMatrix {
             }
             cells.put(rowIdx, rowCells);
         }
+
+        this.cellsLinks = new Graph();
     }
 
     public void addCell(int rowIdx, int columnIdx, Cell cell) {
@@ -61,5 +66,15 @@ public class GameBoard extends Observable implements LinkableMatrix {
     @Override
     public Linkable getLinkable(int row, int column) {
         return this.getCell(row, column);
+    }
+
+
+    public Graph getCellsLinks() {
+        return this.cellsLinks;
+    }
+
+
+    public IndexedGraph getSubgraph(Collection<Cell> subgraphCells) {
+        return new IndexedGraph(subgraphCells, this.cellsLinks);
     }
 }

@@ -2,16 +2,16 @@ package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.graph.Graph;
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 /*
  * Links Rule check that the graph given by parameter
  * has an expected quantity links beetwen its cells.
  *
  */
-public class LinksCountRule extends Rule {
+public class LinksCountRule extends SingleGroupRule {
 
     private int expectedLinksCount;
 
@@ -20,22 +20,7 @@ public class LinksCountRule extends Rule {
     }
 
     @Override
-    public boolean check(Graph graph) {
-        int count = 0;
-
-        ArrayList<Cell> cellsArray = new ArrayList<>(graph.getCells());
-
-        for (int i = 0; i < cellsArray.size(); i++) {
-            Cell originCell = cellsArray.get(i);
-            for (int j = i + 1; j < cellsArray.size(); j++) {
-                Cell destinationCell = cellsArray.get(j);
-                Graph globalGraph = Graph.getSingleInstance();
-                if (globalGraph.linkExistsFromOriginToDestination(originCell, destinationCell)) {
-                    count++;
-                }
-            }
-        }
-
-        return (count == this.expectedLinksCount);
+    public boolean check(IndexedGraph subGraph) {
+        return subGraph.getNotDirectedLinksCount() == this.expectedLinksCount;
     }
 }
