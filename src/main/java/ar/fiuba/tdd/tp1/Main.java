@@ -29,27 +29,19 @@ public class Main {
 
             String filePlaysOutput = "./src/main/java/ar/fiuba/tdd/tp1/game_files/output.json";
 
-            parser.parseContent();
-
             Game game = parser.getGame();
-
-
             GameBoardController controller = new GameLoop(game, filePlaysOutput);
 
-            // TODO : ver por que rompe en travis cuando pongo la vista
-
-            ViewParser viewParser = new ViewParser(filesPath ,
+            ViewParser viewParser = new ViewParser(filesPath + "/view.json",
                     game.getGameBoard());
             viewParser.parseViewObjects();
             BoardView boardView = viewParser.getBoardView();
-            boardView.update();  //TODO: UPDATEAR LA VIEW DENTRO DE GAME O EN OTRO LADO
+            boardView.update();
             controller.start();
 
             if (game.checkRules()) {
-                // view.showMessage("Game over, you win!");
                 System.out.println("Game over, you win!");
             } else {
-                // view.showMessage("Game over, you loose");
                 System.out.println("Game over, you loose");
             }
         } catch (Exception e) {

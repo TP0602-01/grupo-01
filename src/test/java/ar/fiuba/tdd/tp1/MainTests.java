@@ -38,7 +38,6 @@ public class MainTests {
                          String playsOutput,
                          String gameFolderPath) {
         try {
-            // LEEMOS DE ARCHIVO Y CARGAMOS LAS JUGADAS
             JSONParser jsonParser = new JSONParser();
             String playString = "";
             JSONObject jsonObject = (JSONObject) jsonParser.parse(new InputStreamReader(new FileInputStream(playsInput), "UTF-8"));
@@ -51,8 +50,6 @@ public class MainTests {
             System.setIn(stream);
 
             GameParser parser = new GameParser(gameFolderPath);
-            parser.parseContent();
-
             Game game = parser.getGame();
             GameBoardController controller = new GameLoop(game, playsOutput);
 
@@ -104,6 +101,15 @@ public class MainTests {
         String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi/plays/plays_to_win.json";
         String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi/plays/output.json";
         String inohiFolder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi";
+
+        assertTrue(autoPlayGame(playsToWin, playsOutput, inohiFolder));
+    }
+
+    @Test
+    public void autoPlayingInohiToWin2() {
+        String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi2/plays/plays_to_win.json";
+        String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi2/plays/output.json";
+        String inohiFolder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi2";
 
         assertTrue(autoPlayGame(playsToWin, playsOutput, inohiFolder));
     }
@@ -192,14 +198,5 @@ public class MainTests {
             return true;
         }
         return false;
-    }
-
-    /*
-     * Read File and return String content
-     *
-     */
-    static String readFile(String path, Charset encoding) throws IOException {
-        byte[] encoded = Files.readAllBytes(Paths.get(path));
-        return new String(encoded, encoding);
     }
 }

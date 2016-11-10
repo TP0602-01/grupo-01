@@ -5,11 +5,13 @@ import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+ * Input validator receive an posible plays input file and
+ * check that the input is valid (is contained into this plays file)
+ *
+ */
 public class InputValidator {
 
-    //private final String possibleInputsFile = "./src/main/java/ar/fiuba/tdd/tp1/game_files/input.txt";
-    //private final String possibleInputsFile = "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road_input.txt";
-    //private final String possibleInputsFile = "./src/main/java/ar/fiuba/tdd/tp1/game_files/gokigen_naname_input.txt";
     private Set<String> possibleInputs = new HashSet<>();
 
     public InputValidator(String possibleInputFileName) {

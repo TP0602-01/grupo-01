@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp1.utilities;
 
-
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import org.json.simple.JSONArray;
@@ -9,6 +8,12 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+
+/*
+ * Parser represent a Parser abstraction that giving a JSONArray
+ * return and ArrayList of cells content in a gameboard
+ *
+ */
 abstract class Parser {
 
     GameBoard gameBoard;
@@ -36,5 +41,4 @@ abstract class Parser {
         }
         return result;
     }
-
 }
