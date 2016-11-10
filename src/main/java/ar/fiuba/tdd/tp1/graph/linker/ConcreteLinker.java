@@ -30,7 +30,8 @@ public class ConcreteLinker implements Linker {
 
     public ConcreteLinker(GameBoard gameBoard, LinkingTable linkingTable) {
         this.linkableMatrix = gameBoard;
-        this.graph = Graph.getSingleInstance();
+        //this.graph = Graph.getSingleInstance();
+        this.graph = gameBoard.getCellsLinks();
         this.linkingTable = linkingTable;
     }
 
