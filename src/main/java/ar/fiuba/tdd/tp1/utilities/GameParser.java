@@ -176,12 +176,6 @@ public class GameParser extends Parser {
 
 
     private Queue<IndexedGraph> createSubgraps(JSONArray setArray) {
-/*
-        Graph cellGraph = new Graph();
-        ArrayList<Cell> cells = getSetCells(setArray);
-        cells.forEach(cellGraph::addCell);
-        return cellGraph;
-*/
         ArrayList<Cell> cells = getSetCells(setArray);
         Queue<IndexedGraph> subgraphs = new LinkedList<>();
         subgraphs.add(this.gameBoard.getSubgraph(cells));

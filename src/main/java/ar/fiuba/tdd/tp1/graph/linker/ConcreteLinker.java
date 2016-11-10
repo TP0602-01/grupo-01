@@ -20,7 +20,6 @@ import java.util.Set;
  */
 public class ConcreteLinker implements Linker {
 
-    //private LinkableMatrix linkableMatrix;
     private GameBoard linkableMatrix;
     private Graph graph;
     private LinkingTable linkingTable;

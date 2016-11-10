@@ -11,25 +11,13 @@ import java.util.*;
  *
  */
 public class CellSet {
-    //private Graph graph;
     private Collection<Rule> rules;
     private Queue<IndexedGraph> subGraphs;
 
     public CellSet(Queue<IndexedGraph> subgraphs, Collection<Rule> rules) {
         this.subGraphs = subgraphs;
         this.rules = rules;
-        //this.graph = new Graph();
     }
-
-/*
-    public CellSet(Graph graph, Collection<Rule> rules) {
-        //this.graph = graph;
-        this.rules = rules;
-        this.subGraphs = new LinkedList<>();
-        //TODO: DELETE THIS
-        this.subGraphs.add(new IndexedGraph(graph.getCells(), graph));
-    }
-*/
 
     private void updateSubgraphs() {
         for ( IndexedGraph subgraph: this.subGraphs) {
@@ -43,12 +31,6 @@ public class CellSet {
         Iterator it = rules.iterator();
         while (it.hasNext()) {
             Rule rule = (Rule) it.next();
-
-            /*
-            if (!rule.check(graph)) {
-                check = false;
-            }
-            */
 
             if (!rule.check(this.subGraphs)) {
                 check = false;
