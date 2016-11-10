@@ -3,6 +3,11 @@ package ar.fiuba.tdd.tp1.rule;
 import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.rule.Rule;
 
+/*
+ * Connected Graph Count Rule check that the graph given by parameter
+ * has an expected connected sub graphs count.
+ *
+ */
 public class ConnectedGraphsCountRule extends Rule {
 
     private int expectedCount;
@@ -14,7 +19,6 @@ public class ConnectedGraphsCountRule extends Rule {
 
     @Override
     public boolean check(Graph graph) {
-        //return graph.getConnectedSubGraphsCount() == this.expectedCount;
         return Graph.getSingleInstance().getConnectedSubGraphsCount() == this.expectedCount;
     }
 }

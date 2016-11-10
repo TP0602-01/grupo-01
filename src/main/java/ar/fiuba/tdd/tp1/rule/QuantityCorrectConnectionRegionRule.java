@@ -6,8 +6,13 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 import java.util.Collection;
 import java.util.Vector;
 
+
+/*
+ * Quantity Correct Connection Region Rule check that the quantity
+ * of input cells are the expected.
+ *
+ */
 public class QuantityCorrectConnectionRegionRule extends Rule {
-    //private Graph myGraph;
     private int quantity;
 
     public QuantityCorrectConnectionRegionRule(int expctedSum) {

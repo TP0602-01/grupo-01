@@ -1,9 +1,10 @@
 package ar.fiuba.tdd.tp1.rule.utilities;
 
-import ar.fiuba.tdd.tp1.rule.utilities.ArithmeticalOperator;
-import ar.fiuba.tdd.tp1.rule.utilities.ComparisonOperator;
-
-
+/*
+ * Arithmetical Rule Operations have an Arithmetical operation and
+ * a comparition operation. It is used by Rules.
+ *
+ */
 public class ArithmeticalRuleOperators {
 
     private ArithmeticalOperator operator;

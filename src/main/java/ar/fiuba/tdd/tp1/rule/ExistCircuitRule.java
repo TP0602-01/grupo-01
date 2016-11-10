@@ -2,6 +2,11 @@ package ar.fiuba.tdd.tp1.rule;
 
 import ar.fiuba.tdd.tp1.graph.Graph;
 
+/*
+ * Exist Circuit Rule check that the graph given by parameter
+ * has an expected quantity loopless circuits
+ *
+ */
 public class ExistCircuitRule extends Rule {
     int quantityCheck;
 
