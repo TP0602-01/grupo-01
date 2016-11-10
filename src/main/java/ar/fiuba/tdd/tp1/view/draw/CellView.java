@@ -9,6 +9,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * CellView is the graphical representation of a cell.
+ */
+
 public class CellView implements Drawable {
 
     private Cell cell;

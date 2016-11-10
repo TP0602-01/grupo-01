@@ -6,6 +6,10 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 
 import java.awt.*;
 
+/**
+ * LinkView is the graphical representation of a Link between two cells.
+ */
+
 public class LinkView implements Drawable {
     private Cell origin;
     private Cell destination;

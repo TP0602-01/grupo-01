@@ -7,6 +7,12 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.*;
 
+
+/**
+ * RegionView is the graphical representation of a Set of cells. It draws the extern border of the
+ * group of cells with a custom size set by the border parameter of its constructor.
+ */
+
 public class RegionView implements Drawable {
 
     private int cellWidth;

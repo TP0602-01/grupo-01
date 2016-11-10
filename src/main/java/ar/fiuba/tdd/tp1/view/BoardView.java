@@ -11,6 +11,12 @@ import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
 
 import javax.swing.*;
 
+
+/**
+ * BoardView is responsible for showing the graphical interface of the model.
+ *
+ */
+
 public class BoardView extends Observer {
 
 
