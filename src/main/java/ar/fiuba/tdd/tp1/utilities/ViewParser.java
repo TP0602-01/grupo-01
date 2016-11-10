@@ -21,18 +21,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+/*
+ * View Parser is used to parser structure files with view
+ * information.
+ *
+ */
 public class ViewParser extends Parser {
-
     private JSONParser parser = new JSONParser();
     private JSONObject fileJsonRepresentation;
+    private BoardView boardView;
 
     public BoardView getBoardView() {
         return boardView;
     }
-
-    private BoardView boardView;
-
-
+    
     public ViewParser(String file, GameBoard gameBoard) {
         this.gameBoard = gameBoard;
         boardView = new BoardView(gameBoard);
@@ -45,7 +47,10 @@ public class ViewParser extends Parser {
 
     }
 
-
+    /*
+     * Parse View Objects
+     *
+     */
     public void parseViewObjects() {
 
         JSONArray singleCellViews = (JSONArray) fileJsonRepresentation.get("singleCellViews");
@@ -60,7 +65,6 @@ public class ViewParser extends Parser {
             this.parseComponents(singleCellView, cellViews);
         }
 
-
         JSONObject allCellViewsJson = (JSONObject) fileJsonRepresentation.get("allCellViews");
         Collection<CellView> allCellViews = new ArrayList<>();
         for (int i = 0; i < boardView.getWidth(); i++) {
@@ -70,16 +74,17 @@ public class ViewParser extends Parser {
         }
         this.parseComponents(allCellViewsJson, allCellViews);
 
-
         boolean drawLinks = (boolean) fileJsonRepresentation.get("visibleLinks");
 
         boardView.initializeLinkViews(drawLinks,Graph.getSingleInstance());
 
         parseGroups();
-
     }
 
-
+    /*
+     * Parse groups
+     *
+     */
     private void parseGroups() {
         String filePath = "./src/main/java/ar/fiuba/tdd/tp1/game_files/country_road/view_sets.json";
 
@@ -100,14 +105,15 @@ public class ViewParser extends Parser {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
     }
 
-
+    /*
+     * Parse components giving a json object and a collection of cell view
+     *
+     */
     public void parseComponents(JSONObject json, Collection<CellView> cellViews) {
 
         JSONArray components = (JSONArray) json.get("components");
-
         Iterator<JSONObject> iterator = components.iterator();
         String type;
 
@@ -127,11 +133,6 @@ public class ViewParser extends Parser {
                 CellViewComponent cellViewComponent = CellViewComponentFactory.create(type, values);
                 cellView.addComponent(cellViewComponent);
             }
-
         }
     }
-
-
-
-
 }

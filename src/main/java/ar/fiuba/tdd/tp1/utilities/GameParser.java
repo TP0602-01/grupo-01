@@ -19,6 +19,12 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.*;
 
+/*
+ * Game Parser class is used to parse all information giving
+ * the structure, rules, linking files and generate the Game
+ * to play.
+ *
+ */
 public class GameParser extends Parser {
     private Game game;
     private InputValidator inputValidator;
@@ -34,7 +40,10 @@ public class GameParser extends Parser {
     private LinkingTable linkingTable;
 
 
-    /*  */
+    /*
+     * Set Linker to Game.
+     *
+     */
     public GameParser(String folderGamePath) {
         gameBoard = null;
         linkingSymbolsTable = null;
@@ -47,6 +56,8 @@ public class GameParser extends Parser {
         String linkingSymbolsTableFileName = folderGamePath + "/linking_symbols.json";
         String linkingTableFileName = folderGamePath + "/linking_table.json";
         initFiles(structureFileName, rulesFileName, linkingSymbolsTableFileName, linkingTableFileName);
+
+        this.parseContent();
     }
 
 
@@ -55,7 +66,10 @@ public class GameParser extends Parser {
         return (JSONObject) parser.parse(fileReader);
     }
 
-    /*  */
+    /*
+     * Init files
+     *
+     */
     private void initFiles(String structureFileName, String rulesFileName,
                            String linkingSymbolsTableFileName, String linkingTableFileName) {
         try {
@@ -69,7 +83,10 @@ public class GameParser extends Parser {
         }
     }
 
-    /*  */
+    /*
+     * Parse Cell Object
+     *
+     */
     private void parseCellObject(JSONObject cell) {
         String type = (String) cell.get("type");
         JSONObject range = (JSONObject) cell.get("range");
@@ -84,7 +101,6 @@ public class GameParser extends Parser {
 
         String content = (String) cell.get("content");
 
-
         for (int x = firstX; x <= endX; ++x) {
             for (int y = firstY; y <= endY; ++y) {
                 Cell cellObject = CellFactory.create(type, content);
@@ -92,11 +108,13 @@ public class GameParser extends Parser {
 
             }
         }
-
         game = new Game(gameBoard, inputValidator);
     }
 
-    /*  */
+    /*
+     * Parse Rule Object
+     *
+     */
     private void parseRuleObject(JSONObject rule) {
         // Create Set and add them to Game
         Collection<Rule> setRules = new ArrayList<>();
@@ -124,12 +142,10 @@ public class GameParser extends Parser {
         }
     }
 
-
-
-
-
-
-    /* Giving a Json Set Array create a Graph of cells */
+    /*
+     * Giving a Json Set Array create a Graph of cells
+     *
+     */
     private Graph createGraph(JSONArray setArray) {
         Graph cellGraph = new Graph();
         ArrayList<Cell> cells = getSetCells(setArray);
@@ -137,15 +153,10 @@ public class GameParser extends Parser {
         return cellGraph;
     }
 
-
-
-
-
-
-
-
-
-    /*  */
+    /*
+     * Iterate Json Array
+     *
+     */
     private void iterateJsonArray(JSONArray array, ParserFunctor functor) {
         Iterator iterator = array.iterator();
         while (iterator.hasNext()) {
@@ -154,18 +165,21 @@ public class GameParser extends Parser {
         }
     }
 
-
     /*
-     *  Start Parsing files
+     * Start Parsing structure, rules and
+     * linking files
      *
      */
-    public void parseContent() {
+    private void parseContent() {
         this.parseGameStructure();
         this.parseGameRules();
         this.parseLinkingInformation();
     }
 
-    /*  */
+    /*
+     * Parse Game Structure
+     *
+     */
     private void parseGameStructure() {
         try {
             gameBoard = new GameBoard(
@@ -181,7 +195,10 @@ public class GameParser extends Parser {
         }
     }
 
-    /*  */
+    /*
+     * Parse Game Rules
+     *
+     */
     private void parseGameRules() {
         try {
             iterateJsonArray((JSONArray) jsonRules.get("all_sets"), new ParserFunctorRule());
@@ -190,17 +207,15 @@ public class GameParser extends Parser {
         }
     }
 
-    /*  */
-    //TODO: IMPLEMENTAR. LA IDEA ES QUE SE PUEDA LEER DE UN ARCHIVO TODA LA
-    //TODO: INFORMACION DE LINKEO Y QUE ESTA SE GUARDE EN UN CLASE LLAMADA TRADUCTOR
-    //TODO: ESTA CLASE TRADUCTOR SERA PASADA A LA CLASE GAME, QUE EN CADA JUGADA SERA
-    //TODO: LA ENCARGADA DE GENERAR LOS CONJUNTOS VARIABLES.
+     /*
+      * Parse Linking information and generate the linking symbol table
+      * and the linking table
+      *
+      */
     private void parseLinkingInformation() {
-
-        //De aca sale com el linkengSymbolsTable cargado
         linkingSymbolsTable = new LinkingSymbolsTable();
         iterateJsonArray((JSONArray) jsonLinkingSymbolsTable.get("LinkingSymbols"), new ParserFunctorLinkingSymbol());
-        //ahora ahi que hacer lo mismo con la linking Table
+
         linkingTable = new LinkingTable();
         iterateJsonArray((JSONArray) jsonLinkingTable.get("LinkingTable"), new ParserFunctorLinkingTable());
 
@@ -208,6 +223,10 @@ public class GameParser extends Parser {
 
     }
 
+    /*
+     * Parse Linking symbol object and the simbols to linking symbols table
+     *
+     */
     private void parseLinkingSymbolObject(JSONObject linkingSymbol) {
 
         Set<String> symbolsLinkingTokens = new HashSet<>();
@@ -222,6 +241,10 @@ public class GameParser extends Parser {
         linkingSymbolsTable.setSymbolsLinkingTokens(symbol, symbolsLinkingTokens);
     }
 
+    /*
+     * Parse Linking table object and add tokens to linking table
+     *
+     */
     private void parseLinkingTableObject(JSONObject linkingTableEntryObject) {
 
         int rowOffset = ((Long) linkingTableEntryObject.get("rowOffset")).intValue();
@@ -237,14 +260,11 @@ public class GameParser extends Parser {
                 linkingTable.addEntry(rowOffset, columnOffset, originToken, (String) tokensIterator.next());
             }
         }
-
     }
-
 
     public Game getGame() {
         return game;
     }
-
 
     abstract class ParserFunctor {
         abstract void parse(JSONObject object);

@@ -13,23 +13,21 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-
+/*
+ * This class represent a game with a game board and a collection
+ * of sets. It provide a way to add plays into the board and
+ * to check if the game is win (if all sets have all rules checked)
+ *
+ */
 public class Game {
     private GameBoard gameBoard;
-    //private TokenTranslate traslate;
     private Collection<CellSet> cellStableSets = new ArrayList<>();
     private InputValidator inputValidator;
     private List<Play> playList;
-    //private VariableSetGenerator setGenerator;
-    //private Collection<CellSet> cellVariableSets; //TODO: PARA LOS CONJUNTOS VARIABLES
-
-
-    //TODO: DEBE PASARSE COMO PARAMETRO EN EL CONSTRUCTOR
     Linker linker;
 
 
     public Game(GameBoard gameBoard, InputValidator inputValidator) {
-
         try {
             this.inputValidator = inputValidator;
         } catch (Exception e) {
@@ -37,19 +35,18 @@ public class Game {
         }
 
         this.gameBoard = gameBoard;
-
-        //this.linker = new ConcreteLinker(this.gameBoard, this.linksManager);
-        //this.linker = new ConcreteLinker(this.gameBoard, el grafo);
-
         this.linker = new ConcreteLinker(this.gameBoard, new LinkingTable());
         this.playList = new ArrayList<Play>();
     }
 
-    //TODO; por como se construye el Game ahora conviene setearlo
+
+    /*
+     * Set Linker to Game.
+     *
+     */
     public void setLinker(Linker linker) {
         this.linker = linker;
     }
-
 
     /*
      * Add Set to Game.
@@ -93,12 +90,7 @@ public class Game {
 
 
     /*
-     * Add a play, Devuelve True si la suma de todas las reglas validas es menor o igual
-     * que antes de ingresar la jugada
-     *
-     * @param rowPosition
-     * @param columnPosition
-     * @param content
+     * Add a play, Return True if all sets are true
      *
      */
     public boolean addPlay(int rowPosition, int columnPosition, String content) {
@@ -126,7 +118,10 @@ public class Game {
         return false;
     }
 
-
+    /*
+     * Return Gameboard
+     *
+     */
     public GameBoard getGameBoard() {
         return this.gameBoard;
     }
@@ -134,13 +129,13 @@ public class Game {
 
     /**
      * Check if play is valid.
+     *
      */
     private boolean isPlayAllowed(int rowPosition, int columnPosition, String content) {
         return rowPosition < this.gameBoard.getHeigth() && columnPosition < this.gameBoard.getWidth()
                 && rowPosition >= 0 && columnPosition >= 0
                 && inputValidator.isAValidInput(content);
     }
-
 
     /*
      * Undo Play
