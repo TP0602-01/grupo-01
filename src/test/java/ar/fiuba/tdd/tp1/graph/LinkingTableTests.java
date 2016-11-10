@@ -6,9 +6,6 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
-/**
- * Created by User on 17/10/2016.
- */
 public class LinkingTableTests {
 
     @Test
@@ -54,6 +51,4 @@ public class LinkingTableTests {
         linkingTable.addEntry(rowOffset, colOffset, originToken, destinationToken);
         assertFalse(linkingTable.checkEntryExistance(rowOffset, colOffset, originToken, "NonExistingDestinationToken"));
     }
-
-
 }
