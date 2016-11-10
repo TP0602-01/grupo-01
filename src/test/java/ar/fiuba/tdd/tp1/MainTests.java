@@ -106,6 +106,15 @@ public class MainTests {
     }
 
     @Test
+    public void autoPlayingInohiToWin2() {
+        String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi2/plays/plays_to_win.json";
+        String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi2/plays/output.json";
+        String inohiFolder = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi2";
+
+        assertTrue(autoPlayGame(playsToWin, playsOutput, inohiFolder));
+    }
+
+    @Test
     public void autoPlayingInohiWithUndoAndStop() {
         String playsToWin = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi/plays/plays_with_undo.json";
         String playsOutput = "./src/test/java/ar/fiuba/tdd/tp1/test_files/inohi/plays/output.json";
