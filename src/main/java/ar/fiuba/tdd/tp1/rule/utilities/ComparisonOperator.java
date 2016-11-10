@@ -1,6 +1,10 @@
 package ar.fiuba.tdd.tp1.rule.utilities;
 
-
+/*
+ * Comparison Operations for Rules. It is used to check
+ * cell two contents
+ *
+ */
 public enum ComparisonOperator {
 
     LESSOREQUAL("<=") {

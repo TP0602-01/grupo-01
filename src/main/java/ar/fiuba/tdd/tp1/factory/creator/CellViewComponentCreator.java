@@ -9,6 +9,11 @@ import ar.fiuba.tdd.tp1.view.draw.cellcomponents.VariablePositionFixedData;
 import java.util.ArrayList;
 
 
+/*
+ * Cell View creator represent a Factory Method that can create
+ * different cell view types.
+ *
+ */
 public enum CellViewComponentCreator {
 
     DATA_VIEW_CREATOR("data") {

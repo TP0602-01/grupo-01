@@ -8,6 +8,7 @@ import java.util.Iterator;
 
 /*
  * Cell Set have a collection of rules to aply to a graph of cells
+ *
  */
 public class CellSet {
     private Graph graph;

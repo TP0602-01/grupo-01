@@ -1,5 +1,9 @@
 package ar.fiuba.tdd.tp1.controller;
 
+/*
+ * Invalid input exception
+ *
+ */
 public class InvalidInputException extends Exception {
 
     public InvalidInputException(String message) {

@@ -6,7 +6,11 @@ import ar.fiuba.tdd.tp1.rule.*;
 
 import java.util.HashMap;
 
-/* */
+/*
+ * Rule Factory that uses a Rule Creator to
+ * different rule types.
+ *
+ */
 public class RuleFactory {
 
     private static HashMap<String, RuleCreator> ruleCreators = null;

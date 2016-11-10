@@ -23,16 +23,6 @@ public class EdgesCountRule extends Rule {
         int right = calculateRightColumn(cells);
         int left = calculateLeftColumn(cells);
 
-        /*if (calculateCount(cells, up, down, right, left) == expectedValue) {
-            System.out.println("Se cumple " + String.valueOf(expectedValue));
-        } else {
-            System.out.println("calculate count " + String.valueOf(calculateCount(cells, up, down, right, left)));
-            System.out.println("No se cumple " + String.valueOf(expectedValue));
-            System.out.println("Up " + String.valueOf(up));
-            System.out.println("down " + String.valueOf(down));
-            System.out.println("right " + String.valueOf(right));
-            System.out.println("left " + String.valueOf(left));
-        }*/
         return (calculateCount(cells, up, down, right, left) == expectedValue);
     }
 
