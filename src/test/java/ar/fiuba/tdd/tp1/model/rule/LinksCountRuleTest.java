@@ -3,14 +3,17 @@ package ar.fiuba.tdd.tp1.model.rule;
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.graph.Graph;
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 import ar.fiuba.tdd.tp1.rule.LinksCountRule;
 import ar.fiuba.tdd.tp1.rule.QuantityCorrectConnectionRegionRule;
 import org.junit.Test;
 
+import java.util.Queue;
+
 import static junit.framework.TestCase.assertTrue;
 
 
-public class LinksCountRuleTest {
+public class LinksCountRuleTest extends RuleTests {
 
     @Test
     public void testCountLinksBetweenTwoLinkedCellsMustBeOne() {
@@ -18,13 +21,11 @@ public class LinksCountRuleTest {
         Cell a2 = new InputCell(".");
 
         Graph graph = new Graph();
-        graph.addCell(a1);
-        graph.addCell(a2);
-
-        Graph.getSingleInstance().addNotDirectedLinkBetween(a1, a2);
+        graph.addNotDirectedLinkBetween(a1, a2);
 
         LinksCountRule rule = new LinksCountRule(1);
-        assertTrue(rule.check(graph));
+        Queue<IndexedGraph> subgraph = this.createIndexedGraphsQueueOfOne(new Cell[]{a1,a2}, graph);
+        assertTrue(rule.check(subgraph));
     }
 
     @Test
@@ -33,11 +34,10 @@ public class LinksCountRuleTest {
         Cell a2 = new InputCell(".");
 
         Graph graph = new Graph();
-        graph.addCell(a1);
-        graph.addCell(a2);
 
         LinksCountRule rule = new LinksCountRule(0);
-        assertTrue(rule.check(graph));
+        Queue<IndexedGraph> subgraph = this.createIndexedGraphsQueueOfOne(new Cell[]{a1,a2}, graph);
+        assertTrue(rule.check(subgraph));
     }
 
     @Test
@@ -47,18 +47,15 @@ public class LinksCountRuleTest {
         Cell a3 = new InputCell(".");
         Cell a4 = new InputCell(".");
 
-        Graph graph = new Graph();
-        graph.addCell(a1);
-        graph.addCell(a2);
-        graph.addCell(a3);
-        graph.addCell(a4);
 
-        Graph.getSingleInstance().addNotDirectedLinkBetween(a1, a2);
-        Graph.getSingleInstance().addNotDirectedLinkBetween(a1, a3);
-        Graph.getSingleInstance().addNotDirectedLinkBetween(a4, a3);
+        Graph graph = new Graph();
+        graph.addNotDirectedLinkBetween(a1, a2);
+        graph.addNotDirectedLinkBetween(a1, a3);
+        graph.addNotDirectedLinkBetween(a4, a3);
 
         LinksCountRule rule = new LinksCountRule(3);
-        assertTrue(rule.check(graph));
+        Queue<IndexedGraph> subgraph = this.createIndexedGraphsQueueOfOne(new Cell[]{a1,a2,a3,a4}, graph);
+        assertTrue(rule.check(subgraph));
     }
 
 }

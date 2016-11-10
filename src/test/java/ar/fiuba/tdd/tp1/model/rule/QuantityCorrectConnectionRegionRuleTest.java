@@ -5,15 +5,18 @@ import ar.fiuba.tdd.tp1.cell.FixedCell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.graph.Graph;
 
+import ar.fiuba.tdd.tp1.graph.IndexedGraph;
 import ar.fiuba.tdd.tp1.rule.QuantityCorrectConnectionRegionRule;
 
 import org.junit.Test;
+
+import java.util.Queue;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 
-public class QuantityCorrectConnectionRegionRuleTest {
+public class QuantityCorrectConnectionRegionRuleTest extends RuleTests {
 
     @Test
     public void testQuantityCorrectConnectionRegionRuleChecksHowManyCellsHasNotNullDataAndItExpectsThree() {
@@ -25,7 +28,9 @@ public class QuantityCorrectConnectionRegionRuleTest {
         graph.addNotDirectedLinkBetween(a2, a3);
         graph.addNotDirectedLinkBetween(a1, a3);
         QuantityCorrectConnectionRegionRule rule = new QuantityCorrectConnectionRegionRule(3);
-        assertTrue(rule.check(graph));
+
+        Queue<IndexedGraph> subgraph = this.createIndexedGraphsQueueOfOne(new Cell[]{a1,a2,a3}, graph);
+        assertTrue(rule.check(subgraph));
     }
 
     @Test
@@ -38,6 +43,9 @@ public class QuantityCorrectConnectionRegionRuleTest {
         graph.addNotDirectedLinkBetween(a2, a3);
         graph.addNotDirectedLinkBetween(a1, a3);
         QuantityCorrectConnectionRegionRule rule = new QuantityCorrectConnectionRegionRule(3);
-        assertFalse(rule.check(graph));
+
+        Queue<IndexedGraph> subgraph = this.createIndexedGraphsQueueOfOne(new Cell[]{a1,a2,a3}, graph);
+        assertFalse(rule.check(subgraph));
     }
+
 }

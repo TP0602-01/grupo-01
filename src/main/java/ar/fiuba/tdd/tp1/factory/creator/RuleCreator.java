@@ -20,14 +20,13 @@ public enum RuleCreator {
     CIRCUIT_COUNT_CREATOR("circuit") {
         @Override
         public Rule createRule(String value, GameBoard board) {
-            return new ExistCircuitRule(Graph.getSingleInstance(), Integer.parseInt(value));
+            return new ExistCircuitRule(this.getIntegerFromString(value));
         }
     },
 
     ESTATE_CORRECT_CREATOR("estate_correct") {
         @Override
         public Rule createRule(String numberOfRows, GameBoard ignored) {
-            //return new EstateCorrectRule(board, Graph.getSingleInstance());
             return new EstateCorrectRule(getIntegerFromString(numberOfRows));
         }
     },

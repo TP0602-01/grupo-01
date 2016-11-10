@@ -34,10 +34,10 @@ public class SubgraphTests {
         Iterator<Cell> expectedCell = cells.iterator();
         Iterator<Cell> actualCell = indexedGraphCells.iterator();
 
-        int i = 0;
-        while (i < 3) {
+        int index = 0;
+        while (index < 3) {
             assertEquals(expectedCell.next(), actualCell.next());
-            i++;
+            index++;
         }
     }
 

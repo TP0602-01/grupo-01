@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.util.Collection;
 import java.util.Vector;
+
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
