@@ -9,9 +9,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
 
-/**
- * Created by juanma on 20/10/16.
- */
+
 public class LinksCountRuleTest {
 
     @Test

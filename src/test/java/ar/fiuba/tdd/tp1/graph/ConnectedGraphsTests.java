@@ -6,16 +6,14 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-/* */
+
 public class ConnectedGraphsTests {
 
     @Test
     public void testGraphWithOnlyOneConnectedGraphMustReturnOneAsCount() {
         Cell a1 = new InputCell("1");
-        Cell a2 = new InputCell("2");
         Cell a3 = new InputCell("3");
         Cell a4 = new InputCell("4");
-        Cell a5 = new InputCell();
 
         Graph graph = new Graph();
 
