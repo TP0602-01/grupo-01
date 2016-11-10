@@ -14,8 +14,8 @@ public class CellView implements Drawable {
 
     private Cell cell;
     private Collection<CellViewComponent> components;
-    public static final int width = 40;
-    public static final int height = 40;
+    public static final int width = 60;
+    public static final int height = 60;
 
 
     public CellView(Cell cell) {
