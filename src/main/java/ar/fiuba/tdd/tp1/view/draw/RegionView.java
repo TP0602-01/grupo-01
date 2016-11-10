@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp1.view.draw;
 
 
 import ar.fiuba.tdd.tp1.cell.Cell;
-import javafx.util.Pair;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
