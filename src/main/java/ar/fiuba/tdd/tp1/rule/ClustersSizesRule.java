@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 
 import java.util.*;
 
-/*  */
+/*ClustersSizesRule check if the number of clusters is correct */
 public class ClustersSizesRule extends Rule {
     private List<Integer> expectedValues;
 

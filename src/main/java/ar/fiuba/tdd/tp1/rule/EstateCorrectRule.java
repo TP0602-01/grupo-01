@@ -6,6 +6,13 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 
 import java.util.Collection;
 
+/*
+ * EstateCorrectRule check if the circuit doesn't pass through two adjacents cells,
+ * if they belong the same group
+ *
+ */
+
+
 public class EstateCorrectRule extends Rule {
     private GameBoard myGameBoard;
     private Graph myGraph;

@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp1.graph.Graph;
 
 import java.util.Collection;
 
-/*  */
+/*  ClustersSizesRule check if the number of edges around for each cell from graph is correct*/
 public class EdgesCountRule extends Rule {
     private int expectedValue;
 
