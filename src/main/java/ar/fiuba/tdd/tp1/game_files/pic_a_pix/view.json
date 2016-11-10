@@ -1,0 +1,19 @@
+{
+  "allCellViews": {
+    "components": [{
+      "type": "data",
+      "values": []
+    }, {
+      "type": "border",
+      "values": []
+    }]
+  },
+
+  "singleCellViews": [
+
+
+  ],
+
+  "visibleLinks": false
+
+}

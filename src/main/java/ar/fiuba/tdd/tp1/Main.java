@@ -14,7 +14,7 @@ public class Main {
 
         if (args.length == 0) {
             /* default value */
-            return folder + "kakuro";
+            return folder + "pic_a_pix";
         } else {
             /* value passed in command line */
             return folder + args[0];
@@ -32,7 +32,7 @@ public class Main {
             Game game = parser.getGame();
             GameBoardController controller = new GameLoop(game, filePlaysOutput);
 
-            ViewParser viewParser = new ViewParser(filesPath + "/view.json",
+            ViewParser viewParser = new ViewParser(filesPath,
                     game.getGameBoard());
             viewParser.parseViewObjects();
             BoardView boardView = viewParser.getBoardView();

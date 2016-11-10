@@ -12,10 +12,4 @@ public class NullCellTest {
         NullCell cell = new NullCell();
         assertFalse(cell.isEmpty());
     }
-
-    @Test
-    public void nullCellIsNotWalkeable() {
-        NullCell cell = new NullCell();
-        assertFalse(cell.isWalkable());
-    }
 }

@@ -9,20 +9,19 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-/*  */
+/*
+ * Cell class represent a Cell than has content, position in a
+ * cell board.
+ *
+ */
 public abstract class Cell extends Observable implements Linkable {
 
     private int rowIndex;
     private int columnIndex;
-
     public static final String DATA_TYPE = "data";
     public static final String NULL_TYPE = "nullcell";
-    public static final String KAKORU_TYPE = "kakoru";
-    public static final String HINT_TYPE = "hint";
-
     protected Set<String> linkingTokens;
     protected Collection<Graph> graphSets;
-
     protected String data;
 
     protected Cell(String data) {
@@ -55,15 +54,13 @@ public abstract class Cell extends Observable implements Linkable {
         return this.graphSets;
     }
 
-
-
     public abstract boolean isEmpty();
 
     public String getData() {
         return this.data;
     }
 
-    public int getDataAsInteger() { //TODO: ESTO LO DEJAMOS ACÁ?
+    public int getDataAsInteger() {
         try {
             return Integer.parseInt(this.getData());
         } catch (NumberFormatException e) {
@@ -94,7 +91,4 @@ public abstract class Cell extends Observable implements Linkable {
 
     public void setData(String data) {
     }
-
-    public abstract boolean isWalkable();
-
 }
