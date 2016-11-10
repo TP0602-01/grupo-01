@@ -28,11 +28,6 @@ public class CellFactoryTests {
         assertTrue(cell instanceof NullCell);
     }
 
-    @Test
-    public void creatingACellOfTypeKakoruMustReturnAFixeDCell() {
-        Cell cell = cellFactory.create(Cell.KAKORU_TYPE, "");
-        assertTrue(cell instanceof FixedCell);
-    }
 
     @Test
     public void creatingACellOfAnUnknownTypeMustReturnNull() {
