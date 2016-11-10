@@ -6,7 +6,6 @@ import ar.fiuba.tdd.tp1.cell.NullCell;
 import ar.fiuba.tdd.tp1.view.draw.cellcomponents.CellViewComponent;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Collection;
 

@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp1.view;
 
 import ar.fiuba.tdd.tp1.cell.Cell;
-import ar.fiuba.tdd.tp1.game.Game;
 import ar.fiuba.tdd.tp1.gameboard.GameBoard;
 import ar.fiuba.tdd.tp1.graph.Graph;
 import ar.fiuba.tdd.tp1.utilities.Observer;

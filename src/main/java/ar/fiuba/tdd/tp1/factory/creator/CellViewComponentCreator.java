@@ -23,7 +23,7 @@ public enum CellViewComponentCreator {
         }
     },
 
-    CORNER_VIEW_CREATOR("variablePositionFixedData") {
+    VARIABLE_POSITION_FIXED_DATA_CREATOR("variablePositionFixedData") {
         @Override
         public CellViewComponent createCellViewComponent(ArrayList<String> values) {
 

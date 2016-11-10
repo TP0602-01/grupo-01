@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.view.draw.CellView;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 public class VariablePositionFixedData implements CellViewComponent {
 
