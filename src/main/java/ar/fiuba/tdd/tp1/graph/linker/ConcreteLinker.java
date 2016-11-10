@@ -13,7 +13,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-/* */
+/*
+ * ConcreteLinker has the responsibility of comparing the data of different Cells and link them
+ * if their data is compatible.
+ * This implementation adds not directed links between Cells
+ */
 public class ConcreteLinker implements Linker {
 
     //TODO: se podrian crear objetos para que esto quede mas entendible
@@ -35,11 +39,6 @@ public class ConcreteLinker implements Linker {
         this.graph = Graph.getSingleInstance();
         this.linkingTable = linkingTable;
         this.linkingSymbols = linkingSymbols;
-    }
-
-
-    @Override
-    public void setLinkingInfo(int rowOffset, int columnOffset, String originTokens, Set<String> destinationTokens) {
     }
 
 
