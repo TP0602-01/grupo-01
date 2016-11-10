@@ -13,6 +13,11 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.*;
 
+/**
+ * BoardCanvas is the JPanel used by the javax.swing library to draw
+ * the elements.
+ */
+
 
 public class BoardCanvas extends JPanel {
 

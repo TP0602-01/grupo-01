@@ -6,6 +6,11 @@ import ar.fiuba.tdd.tp1.view.draw.CellView;
 import java.awt.*;
 
 
+/**
+ * DataView draws the content of a cell if it is not empty or null.
+ *
+ */
+
 public class DataView implements CellViewComponent {
 
 

@@ -5,6 +5,10 @@ import ar.fiuba.tdd.tp1.view.draw.CellView;
 
 import java.awt.*;
 
+/*
+ * BorderView draws the border of a cell.
+ *
+ */
 
 public class BorderView implements CellViewComponent {
 

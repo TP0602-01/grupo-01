@@ -6,6 +6,12 @@ import ar.fiuba.tdd.tp1.view.draw.CellView;
 
 import java.awt.*;
 
+/**
+ * VariablePositionFixedData draws a string that is not going to change
+ * in a cell center relative position.
+ */
+
+
 public class VariablePositionFixedData implements CellViewComponent {
 
     private double offsetX;
