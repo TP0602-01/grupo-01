@@ -14,7 +14,7 @@ public class Main {
 
         if (args.length == 0) {
             /* default value */
-            return folder + "sudoku";
+            return folder + "kakuro";
         } else {
             /* value passed in command line */
             return folder + args[0];
