@@ -37,7 +37,7 @@ class InputCellData {
         return playType;
     }
 
-    public InputCellAction generateAction(Game game, GamePlay lastPlay) {
+    public InputCellAction generateAction(Game game, GamePlay lastPlay) throws InvalidInputException {
         if (getPlayType().equals("stop")) {
             return new StopGameAction(lastPlay);
         } else if (getPlayType().equals("undo")) {
@@ -45,7 +45,7 @@ class InputCellData {
         } else if (getPlayType().equals("play")) {
             return new PlayAction(lastPlay, game, this);
         } else {
-            return null;
+            throw new InvalidInputException("Keyword invalida");
         }
     }
 }
