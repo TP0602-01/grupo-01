@@ -21,16 +21,14 @@ public class EstateCorrectRule extends Rule {
     private Graph myGraph;
 
     private int boardRows;
-    private int boardColumns;
 
     public EstateCorrectRule(GameBoard gameBoard, Graph graph) {
         myGameBoard = gameBoard;
         myGraph = graph;
     }
 
-    public EstateCorrectRule(int rows, int columns) {
+    public EstateCorrectRule(int rows) {
         this.boardRows = rows;
-        this.boardColumns = columns;
     }
 
     private boolean checkGroup(int rowIndx, int colIndx, int rowIndxA, int colIndxA) {
@@ -75,6 +73,17 @@ public class EstateCorrectRule extends Rule {
     }
 
 
+    private boolean cellsBelongToTheSameSet(Cell cell, Cell adyacentCell) {
+        Collection<Graph> cellSets = cell.getSets();
+        Collection<Graph> adyacentCellSets = adyacentCell.getSets();
+        for (Graph cellSet : cellSets) {
+            if ((adyacentCellSets.contains(cellSet))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public boolean check(Graph graph) {
         for (int i = 0; i < myGameBoard.getWidth(); i++) {
@@ -94,18 +103,6 @@ public class EstateCorrectRule extends Rule {
         }
         return true;
     }
-
-    private boolean cellsBelongToTheSameSet(Cell cell, Cell adyacentCell) {
-        Collection<Graph> cellSets = cell.getSets();
-        Collection<Graph> adyacentCellSets = adyacentCell.getSets();
-        for (Graph cellSet : cellSets) {
-            if ((adyacentCellSets.contains(cellSet))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
 
 
 
