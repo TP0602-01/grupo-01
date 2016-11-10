@@ -1,0 +1,78 @@
+{
+  "sets": [
+
+    {
+      "set": [
+        {
+          "initial_cell": "1,1",
+          "final_cell": "3,3"
+        }
+      ]
+    },
+    {
+      "set": [
+        {
+          "initial_cell": "1,4",
+          "final_cell": "3,6"
+        }
+      ]
+    },
+    {
+      "set": [
+        {
+          "initial_cell": "1,7",
+          "final_cell": "3,9"
+        }
+      ]
+    },
+    {
+      "set": [
+        {
+          "initial_cell": "4,1",
+          "final_cell": "6,3"
+        }
+      ]
+    },
+    {
+      "set": [
+        {
+          "initial_cell": "4,4",
+          "final_cell": "6,6"
+        }
+      ]
+    },
+    {
+      "set": [
+        {
+          "initial_cell": "4,7",
+          "final_cell": "6,9"
+        }
+      ]
+    },
+    {
+      "set": [
+        {
+          "initial_cell": "7,1",
+          "final_cell": "9,3"
+        }
+      ]
+    },
+    {
+      "set": [
+        {
+          "initial_cell": "7,4",
+          "final_cell": "9,6"
+        }
+      ]
+    },
+    {
+      "set": [
+        {
+          "initial_cell": "7,7",
+          "final_cell": "9,9"
+        }
+      ]
+    }
+
+  ]
+}
