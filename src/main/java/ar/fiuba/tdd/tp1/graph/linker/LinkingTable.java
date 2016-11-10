@@ -7,7 +7,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/* */
+/*
+ * Each entry of this table is structured like this:
+ * |rowOffset|columnOffset|originToken|destinationToken
+ * Each entry shows if the originToken can be linked to the destinationToken
+ * for a given row+coll offset.
+ */
 public class LinkingTable {
 
     private Map<Pair<Integer, Integer>, Map<String, Set<String>>> table;

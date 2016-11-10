@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp1.cell;
 
 /*
- * Fixed cell is a cell than cant change its data
+ * Fixed cell is a cell that cant change its data
  * and is used to show a rule in a set.
  *
  */

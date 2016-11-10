@@ -4,8 +4,10 @@ import ar.fiuba.tdd.tp1.graph.linker.LinkingTable;
 
 import java.util.*;
 
-/**
- * Created by User on 12/10/2016.
+/*
+ * Each entry of this table is structured like this:
+ * |linkingSymbol|[linkingTokens]
+ *  For a given symbol this table shows which linking tokens are associated to that symbol
  */
 public class LinkingSymbolsTable {
 
