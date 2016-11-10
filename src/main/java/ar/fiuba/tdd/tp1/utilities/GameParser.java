@@ -124,7 +124,7 @@ public class GameParser extends Parser {
         while (iterator.hasNext()) {
             JSONObject cellObject = (JSONObject) iterator.next();
             Vector<String> ruleValues = getValuesInJsonObjectFromKeys(cellObject, new String[] {"type", "value"});
-            Rule ruleObject = RuleFactory.create(ruleValues.elementAt(0), ruleValues.elementAt(1), gameBoard);
+            Rule ruleObject = RuleFactory.create(ruleValues.elementAt(0), ruleValues.elementAt(1));
             setRules.add(ruleObject);
         }
 

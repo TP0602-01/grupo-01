@@ -16,17 +16,22 @@ public class RuleFactory {
     private static HashMap<String, RuleCreator> ruleCreators = null;
 
     public static Rule create(String type, String value) {
-        return create(type, value, null);
-    }
-
-    public static Rule create(String type, String value, GameBoard board) {
         if (ruleCreators == null) {
             initializeCreators();
         }
 
         RuleCreator creator;
-        return (creator = ruleCreators.get(type)) == null ? null : creator.createRule(value, board);
+        if (isAValidType(type)) {
+            creator = ruleCreators.get(type);
+            return creator.createRule(value);
+        }
+        return null;
 
+    }
+
+
+    private static boolean isAValidType(String type) {
+        return (ruleCreators.get(type) != null);
     }
 
     private static void initializeCreators() {
