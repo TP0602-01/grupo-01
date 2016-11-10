@@ -8,9 +8,6 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by User on 12/10/2016.
- */
 public class LinkingSymbolsTableTests {
 
     @Test

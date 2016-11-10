@@ -1,6 +1,6 @@
 {
-  "height": "7",
-  "width": "7",
+  "height": "5",
+  "width": "5",
   "structure": {
     "cells": [
       {
@@ -8,7 +8,7 @@
         "content": "",
         "range": {
           "initial_cell": "0,0",
-          "final_cell": "6,6"
+          "final_cell": "4,4"
         }
       }
     ]

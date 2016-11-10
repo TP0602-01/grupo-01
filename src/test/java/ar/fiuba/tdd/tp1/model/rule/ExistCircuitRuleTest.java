@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp1.model.rule;
 
-
 import ar.fiuba.tdd.tp1.cell.Cell;
 import ar.fiuba.tdd.tp1.cell.InputCell;
 import ar.fiuba.tdd.tp1.graph.Graph;
@@ -8,8 +7,6 @@ import ar.fiuba.tdd.tp1.rule.ExistCircuitRule;
 import junit.framework.TestCase;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertFalse;
-import static junit.framework.TestCase.assertTrue;
 
 public class ExistCircuitRuleTest extends TestCase {
 

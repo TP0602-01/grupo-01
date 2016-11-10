@@ -12,7 +12,7 @@
           "set": [
             {
               "initial_cell": "1,1",
-              "final_cell": "5,5"
+              "final_cell": "7,7"
             }
           ]
         }
@@ -21,7 +21,25 @@
     {
       "rules": [
         {
-          "type": "ni_idea",
+          "type": "conn_graph",
+          "value": "1"
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "1,1",
+              "final_cell": "7,7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "type": "links_count",
           "value": "3"
         }
       ],
@@ -47,7 +65,7 @@
     {
       "rules": [
         {
-          "type": "ni_idea",
+          "type": "links_count",
           "value": "2"
         }
       ],
@@ -71,8 +89,8 @@
         {
           "set": [
             {
-              "initial_cell": "4,4",
-              "final_cell": "5,5"
+              "initial_cell": "6,2",
+              "final_cell": "7,3"
             }
           ]
         }
@@ -81,7 +99,7 @@
     {
       "rules": [
         {
-          "type": "ni_idea",
+          "type": "links_count",
           "value": "1"
         }
       ],
@@ -91,6 +109,64 @@
             {
               "initial_cell": "3,3",
               "final_cell": "4,4"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "5,2",
+              "final_cell": "6,3"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "5,5",
+              "final_cell": "6,6"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "5,6",
+              "final_cell": "6,7"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "2,5",
+              "final_cell": "3,6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "type": "links_count",
+          "value": "0"
+        }
+      ],
+      "sets": [
+        {
+          "set": [
+            {
+              "initial_cell": "4,4",
+              "final_cell": "5,5"
+            }
+          ]
+        },
+        {
+          "set": [
+            {
+              "initial_cell": "1,5",
+              "final_cell": "2,6"
             }
           ]
         }

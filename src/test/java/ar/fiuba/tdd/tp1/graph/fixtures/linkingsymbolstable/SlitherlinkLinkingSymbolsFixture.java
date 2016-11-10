@@ -1,8 +1,5 @@
 package ar.fiuba.tdd.tp1.graph.fixtures.linkingsymbolstable;
 
-/**
- * Created by User on 12/10/2016.
- */
 public class SlitherlinkLinkingSymbolsFixture extends GameLinkingSymbolsTableFixture {
 
     public SlitherlinkLinkingSymbolsFixture() {
